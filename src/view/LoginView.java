@@ -53,9 +53,12 @@ public class LoginView extends javax.swing.JFrame {
         ImageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ChiquiParking Iniciar Sesión");
         setBackground(new java.awt.Color(255, 255, 255));
 
         LoginPanel.setBackground(new java.awt.Color(255, 204, 0));
+
+        UserTextField.setToolTipText("Ingrese su nombre.");
 
         NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         NameLabel.setText("Nombre de Usuario:");
@@ -73,6 +76,7 @@ public class LoginView extends javax.swing.JFrame {
         LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lock.png"))); // NOI18N
         LoginButton.setText("Iniciar Sesión");
+        LoginButton.setToolTipText("Pulse aquí para comprobar sus datos.");
         LoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginButtonActionPerformed(evt);
@@ -125,10 +129,10 @@ public class LoginView extends javax.swing.JFrame {
         NeedHelpLabel.setForeground(new java.awt.Color(255, 204, 0));
         NeedHelpLabel.setText("¿Necesita ayuda con el Sistema? ");
 
-        ManualButton.setBackground(new java.awt.Color(255, 204, 0));
-        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
+        ManualButton.setToolTipText("Pulse aquí para obtener ayuda.");
         ManualButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManualButtonActionPerformed(evt);
@@ -206,6 +210,8 @@ public class LoginView extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         control.startLogin();
+        UserTextField.setText("");
+        PasswordField.setText("");
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
