@@ -114,15 +114,17 @@ public class LoginView extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
         );
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setForeground(new java.awt.Color(153, 153, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jLabel3.setText("Creado por SeMaDiFeIn. 2011");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("¿Necesita ayuda con el Sistema? ");
 
+        ManualButton.setBackground(new java.awt.Color(255, 204, 0));
         ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
