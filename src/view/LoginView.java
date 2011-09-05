@@ -238,6 +238,7 @@ public class LoginView extends javax.swing.JFrame {
     
     public void showMessage(String title, String message, int messageType){
         JOptionPane.showMessageDialog(this, message, title, messageType);
+        UserTextField.requestFocus();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
