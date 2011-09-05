@@ -11,6 +11,8 @@
 package view;
 
 import controller.LoginController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -24,6 +26,7 @@ public class LoginView extends javax.swing.JFrame {
     
     
     public LoginView(LoginController c) {
+        this.centerForm();
         this.control = c;
         initComponents();
         this.setResizable(false);
@@ -218,6 +221,12 @@ public class LoginView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PasswordFieldKeyPressed
 
+    private void centerForm() {
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        this.setLocation((screen.width - window.width)/5,(screen.height-window.height)/5);
+    }
+    
     public String getUserName(){
         return UserTextField.getText().toLowerCase();
     }
