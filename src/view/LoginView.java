@@ -74,7 +74,7 @@ public class LoginView extends javax.swing.JFrame {
         PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         PasswordLabel.setText("Contraseña:");
 
-        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lock.png"))); // NOI18N
         LoginButton.setText("Iniciar Sesión");
         LoginButton.setToolTipText("Pulse aquí para comprobar sus datos.");
@@ -130,7 +130,7 @@ public class LoginView extends javax.swing.JFrame {
         NeedHelpLabel.setForeground(new java.awt.Color(255, 204, 0));
         NeedHelpLabel.setText("¿Necesita ayuda con el Sistema? ");
 
-        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
         ManualButton.setToolTipText("Pulse aquí para obtener ayuda.");
@@ -169,21 +169,21 @@ public class LoginView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        ImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo1.1.png"))); // NOI18N
+
         javax.swing.GroupLayout IntroPanelLayout = new javax.swing.GroupLayout(IntroPanel);
         IntroPanel.setLayout(IntroPanelLayout);
         IntroPanelLayout.setHorizontalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IntroPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(494, Short.MAX_VALUE))
+                .addComponent(ImageLabel)
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         IntroPanelLayout.setVerticalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IntroPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addComponent(ImageLabel)
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
