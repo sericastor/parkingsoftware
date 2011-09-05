@@ -70,7 +70,7 @@ public class LoginView extends javax.swing.JFrame {
         NeedHelpLabel.setForeground(new java.awt.Color(255, 204, 0));
         NeedHelpLabel.setText("¿Necesita ayuda con el Sistema? ");
 
-        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
         ManualButton.setToolTipText("Pulse aquí para obtener ayuda.");
@@ -79,29 +79,6 @@ public class LoginView extends javax.swing.JFrame {
                 ManualButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout HelpPanelLayout = new javax.swing.GroupLayout(HelpPanel);
-        HelpPanel.setLayout(HelpPanelLayout);
-        HelpPanelLayout.setHorizontalGroup(
-            HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HelpPanelLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(NeedHelpLabel)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HelpPanelLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
-                .addComponent(ManualButton)
-                .addGap(59, 59, 59))
-        );
-        HelpPanelLayout.setVerticalGroup(
-            HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HelpPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(NeedHelpLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(ManualButton)
-                .addGap(32, 32, 32))
-        );
 
         LoginPanel.setBackground(new java.awt.Color(255, 204, 0));
 
@@ -165,37 +142,61 @@ public class LoginView extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout HelpPanelLayout = new javax.swing.GroupLayout(HelpPanel);
+        HelpPanel.setLayout(HelpPanelLayout);
+        HelpPanelLayout.setHorizontalGroup(
+            HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HelpPanelLayout.createSequentialGroup()
+                .addGroup(HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HelpPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(NeedHelpLabel))
+                    .addGroup(HelpPanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(ManualButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        HelpPanelLayout.setVerticalGroup(
+            HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HelpPanelLayout.createSequentialGroup()
+                .addGroup(HelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HelpPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(NeedHelpLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(ManualButton))
+                    .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout IntroPanelLayout = new javax.swing.GroupLayout(IntroPanel);
         IntroPanel.setLayout(IntroPanelLayout);
         IntroPanelLayout.setHorizontalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IntroPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                .addGroup(IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(ImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(IntroPanelLayout.createSequentialGroup()
-                .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         IntroPanelLayout.setVerticalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(ImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(IntroPanelLayout.createSequentialGroup()
-                        .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(17, 17, 17)
+                .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(IntroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(IntroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
