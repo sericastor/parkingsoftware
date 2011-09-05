@@ -28,6 +28,7 @@ public class LoginView extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setVisible(true);
+        UserTextField.requestFocus();
     }
 
     /** This method is called from within the constructor to
