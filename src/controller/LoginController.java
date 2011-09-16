@@ -4,6 +4,7 @@ import eParking.eParking;
 import model.Employee;
 import model.Parkway;
 import view.LoginView;
+import view.MainView;
 
 /**
  *
@@ -11,31 +12,20 @@ import view.LoginView;
  */
 public class LoginController {
     
-    private final String titleMessage = "Inicio Sesión";
-    private final String errorMessage = "Datos Incorrectos";
-    private final String okMessage = "Bienvenido";
-    private final int errorIcon = 0;
-    private final int infoIcon = 1;
-    
     private LoginView loginView;
 
-    public LoginController(LoginView v) {
-        loginView = v;        
+    public LoginController() {    
     }
     
-    public boolean startLogin(){
+    public void startLogin(String u, String p){
         boolean result=false;
-        String user = loginView.getUserName();
-        String pass = loginView.getUserPassword();
+        String user = u;
+        String pass = p;
         if(verifyUser(user, pass)){
-            loginView.showMessage(titleMessage, okMessage, infoIcon); 
-            result=true;
-        }else{
-            loginView.showMessage(titleMessage, errorMessage, errorIcon);
+        
         }
-        return result;
-    }
-    
+   }
+        
     public boolean verifyUser(String user, String password){
         System.out.println(user+" "+password);     
         for (Employee employee : Parkway.getStaff()) {

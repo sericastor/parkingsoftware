@@ -20,8 +20,7 @@ public class Parkway {
         Parkway.staff = employee;
     }
     
-    public static void initialize(){
-    
+    public static void initialize(){    
         Employee employee1 = new Employee();
         employee1.setPassword("pass");
         employee1.setUser("user");

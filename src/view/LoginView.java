@@ -11,6 +11,7 @@
 package view;
 
 import controller.LoginController;
+import controller.MainController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -21,9 +22,7 @@ import javax.swing.JOptionPane;
  * @author Martin Kanayet
  */
 public class LoginView extends javax.swing.JFrame {
-
-    private LoginController control;    
-    
+ 
     public LoginView() {
         this.centerForm();
         initComponents();
@@ -191,9 +190,20 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        control.startLogin();
+        boolean ok = false;
+        ok = control.verifyUser(UserTextField.getText(),PasswordField.getText());
+        if(ok){
+            this.showMessage(titleMessage, okMessage, infoIcon);
+            this.setVisible(false);
+            mcontrol.verifyStatus(ok);
+        }
+        else{
+            this.showMessage(titleMessage, errorMessage, errorIcon);
+        }        
         UserTextField.setText("");
-        PasswordField.setText("");                 
+        PasswordField.setText("");
+        
+        
         
     }//GEN-LAST:event_LoginButtonActionPerformed
 
@@ -225,6 +235,14 @@ public class LoginView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, message, title, messageType);
         UserTextField.requestFocus();
     }
+    
+    private LoginController control = new LoginController();
+    private MainController mcontrol = new MainController();
+    private final String titleMessage = "Inicio Sesión";
+    private final String errorMessage = "Datos Incorrectos";
+    private final String okMessage = "Bienvenido";
+    private final int errorIcon = 0;
+    private final int infoIcon = 1;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HelpPanel;

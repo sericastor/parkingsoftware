@@ -19,10 +19,8 @@ import controller.ParkingController;
 public class MainView extends javax.swing.JFrame {
 
     /** Creates new form MainFrame */
-    private ParkingController control;
-    public MainView(ParkingController c) {
-        this.control = c;
-        
+    
+    public MainView() {
         initComponents();
     }
 
@@ -94,6 +92,11 @@ public class MainView extends javax.swing.JFrame {
         jLabel2.setText("Valor:");
 
         VehicleComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        VehicleComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VehicleComboBoxActionPerformed(evt);
+            }
+        });
 
         RateComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -214,7 +217,7 @@ public class MainView extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tools.png"))); // NOI18N
         jButton2.setText("Configuración");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48));
         jLabel6.setForeground(new java.awt.Color(51, 102, 0));
         jLabel6.setText("e-Parking");
 
@@ -242,7 +245,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel5.setForeground(new java.awt.Color(51, 0, 204));
         jLabel5.setText("Vehículos Estacionados:");
 
@@ -308,10 +311,14 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void VehicleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehicleComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VehicleComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
+    private ParkingController control = new ParkingController();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JButton CloseBoxButton;

@@ -4,7 +4,6 @@
  */
 package eParking;
 
-import controller.LoginController;
 import controller.MainController;
 import model.Parkway;
 import view.LoginView;
@@ -13,13 +12,11 @@ import view.LoginView;
  *
  * @author r4wd3r
  */
-public class eParking{
-    public eParking(){}
-    private static Parkway parkway = new Parkway();
+public class eParking{ 
     public static void main(String args[]){        
-        MainController mainController = new MainController();
+        new MainController();
         LoginView loginView = new LoginView();
-        LoginController loginController = new LoginController(loginView);        
+        new Parkway();
         loginView.setVisible(true);
     }
 }
