@@ -1,5 +1,6 @@
 package controller;
 
+import eParking.eParking;
 import model.Employee;
 import model.Parkway;
 import view.LoginView;
@@ -17,25 +18,22 @@ public class LoginController {
     private final int infoIcon = 1;
     
     private LoginView loginView;
-    private Parkway parkway;
 
-    public LoginController() {
-        loginView = new LoginView(this);
-        parkway = new Parkway();
+    public LoginController(LoginView v) {
+        loginView = v;        
     }
     
-    public static void main(String args[]){
-        LoginController logincontrol = new LoginController();
-    }
-    
-    public void startLogin(){
+    public boolean startLogin(){
+        boolean result=false;
         String user = loginView.getUserName();
         String pass = loginView.getUserPassword();
         if(verifyUser(user, pass)){
-            loginView.showMessage(titleMessage, okMessage, infoIcon);
+            loginView.showMessage(titleMessage, okMessage, infoIcon); 
+            result=true;
         }else{
             loginView.showMessage(titleMessage, errorMessage, errorIcon);
         }
+        return result;
     }
     
     public boolean verifyUser(String user, String password){
@@ -47,6 +45,4 @@ public class LoginController {
         }
         return false;
     }
-    
-
-}
+ }
