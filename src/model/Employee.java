@@ -25,6 +25,6 @@ public class Employee {
         this.user = user;
     }
     
-private String user;
-private String password;
+    private String user;
+    private String password;
 }

@@ -191,7 +191,7 @@ public class LoginView extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         boolean ok = false;
-        ok = control.verifyUser(UserTextField.getText(),PasswordField.getText());
+        ok = control.verifyUser(this.getUserName(),this.getUserPassword());
         if(ok){
             this.showMessage(titleMessage, okMessage, infoIcon);
             this.setVisible(false);
@@ -202,9 +202,6 @@ public class LoginView extends javax.swing.JFrame {
         }        
         UserTextField.setText("");
         PasswordField.setText("");
-        
-        
-        
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
