@@ -14,8 +14,8 @@ public class MainController {
     public MainController(){
         
     }
-    public void verifyStatus(boolean x){
-        if (x){
+    public void verifyStatus(boolean isUser){
+        if (isUser){
             MainView mainView = new MainView();
             mainView.setVisible(true);            
         }
