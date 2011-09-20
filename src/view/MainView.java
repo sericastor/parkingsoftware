@@ -10,7 +10,9 @@
  */
 package view;
 
+import controller.ExitController;
 import controller.ParkingController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -162,9 +164,14 @@ public class MainView extends javax.swing.JFrame {
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
 
         LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
@@ -314,6 +321,10 @@ public class MainView extends javax.swing.JFrame {
     private void VehicleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehicleComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_VehicleComboBoxActionPerformed
+
+private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+    ExitController.exit(JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir" , "Cerrar Programa" , JOptionPane.YES_NO_OPTION));
+}//GEN-LAST:event_ExitButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 public class LoginView extends javax.swing.JFrame {
  
     public LoginView() {
+        this.setVisible(true);
         this.centerForm();
         initComponents();
         this.setResizable(false);        
@@ -204,6 +205,10 @@ public class LoginView extends javax.swing.JFrame {
         PasswordField.setText("");
     }//GEN-LAST:event_LoginButtonActionPerformed
 
+    private void setVisibleLoginView(boolean isVisible){
+        this.setVisible(isVisible);
+    }
+    
     private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
         System.out.println("Help");
     }//GEN-LAST:event_ManualButtonActionPerformed

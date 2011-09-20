@@ -3,6 +3,7 @@ package controller;
 
 import model.Employee;
 import model.Parkway;
+import view.LoginView;
 
 /**
  *
@@ -11,6 +12,7 @@ import model.Parkway;
 public class LoginController {
     
     public LoginController() {    
+        
     }
     
     public boolean verifyUser(String user, String password){
@@ -22,4 +24,10 @@ public class LoginController {
         }
         return false;
     }
+    
+    public static void setVisibleLoginView(boolean isVisible){
+        loginView.setVisible(isVisible);
+    }
+    
+    private static LoginView loginView = new LoginView();
  }

@@ -15,8 +15,6 @@ import view.LoginView;
 public class eParking{ 
     public static void main(String args[]){        
         new MainController();
-        LoginView loginView = new LoginView();
         new Parkway();
-        loginView.setVisible(true);
     }
 }
