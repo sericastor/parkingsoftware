@@ -8,20 +8,20 @@ package controller;
  *
  * @author Martin Kanayet
  */
-public class ExitController {
+public class LogoutController {
 
-    public ExitController() {
+    public LogoutController() {
     }
     
-    public static void exit(int exit){
+    public static void logout(int logout){
     
-        if(exit==0){
+        if(logout==0){
             System.out.println("yes");
-            System.exit(exit);
+            MainController.setVisibleMainView(false);
+            LoginController.setVisibleLoginView(true);
         }
         else{
             System.out.println("no");
         }
     }
-    
 }

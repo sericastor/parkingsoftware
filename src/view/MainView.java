@@ -11,6 +11,7 @@
 package view;
 
 import controller.ExitController;
+import controller.LogoutController;
 import controller.ParkingController;
 import javax.swing.JOptionPane;
 
@@ -315,7 +316,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        // TODO add your handling code here:
+        LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?" , "Cerrar Sesión" , JOptionPane.YES_NO_OPTION));
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void VehicleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehicleComboBoxActionPerformed
@@ -323,7 +324,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_VehicleComboBoxActionPerformed
 
 private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-    ExitController.exit(JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir" , "Cerrar Programa" , JOptionPane.YES_NO_OPTION));
+    ExitController.exit(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?" , "Cerrar Programa" , JOptionPane.YES_NO_OPTION));
 }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**
