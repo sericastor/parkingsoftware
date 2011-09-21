@@ -164,7 +164,7 @@ public class AdminAccessView extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(this, "Acceso Denegado", "Administración", 0);
-            MainController.setVisibleMainView(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_AccessButtonActionPerformed
 
