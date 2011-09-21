@@ -27,4 +27,23 @@ public class Employee {
     
     private String user;
     private String password;
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    private String name;
+    private boolean admin;
 }

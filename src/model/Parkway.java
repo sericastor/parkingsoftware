@@ -24,6 +24,7 @@ public class Parkway {
         Employee employee1 = new Employee();
         employee1.setPassword("pass");
         employee1.setUser("user");
+        employee1.setAdmin(true);
         staff.add(employee1);
     }
     private static ArrayList<Employee> staff = new ArrayList<Employee>();     

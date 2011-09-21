@@ -12,6 +12,7 @@ package view;
 
 import controller.ExitController;
 import controller.LogoutController;
+import controller.MainController;
 import controller.ParkingController;
 import javax.swing.JOptionPane;
 
@@ -56,7 +57,7 @@ public class MainView extends javax.swing.JFrame {
         StatusTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         CloseBoxButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AdminButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
@@ -165,7 +166,7 @@ public class MainView extends javax.swing.JFrame {
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -221,9 +222,14 @@ public class MainView extends javax.swing.JFrame {
         CloseBoxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Box.png"))); // NOI18N
         CloseBoxButton.setText("Cerrar Turno");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tools.png"))); // NOI18N
-        jButton2.setText("Configuración");
+        AdminButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        AdminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tools.png"))); // NOI18N
+        AdminButton.setText("Administración");
+        AdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminButtonActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48));
         jLabel6.setForeground(new java.awt.Color(51, 102, 0));
@@ -237,7 +243,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGap(161, 161, 161)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(AdminButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CloseBoxButton, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -248,7 +254,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CloseBoxButton)
-                    .addComponent(jButton2)
+                    .addComponent(AdminButton)
                     .addComponent(jLabel6))
                 .addContainerGap())
         );
@@ -327,12 +333,16 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     ExitController.exit(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?" , "Cerrar Programa" , JOptionPane.YES_NO_OPTION));
 }//GEN-LAST:event_ExitButtonActionPerformed
 
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
+        MainController.setVisibleAdminAccessView(true);
+    }//GEN-LAST:event_AdminButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    private ParkingController control = new ParkingController();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
+    private javax.swing.JButton AdminButton;
     private javax.swing.JButton CloseBoxButton;
     private javax.swing.JPanel DataEntryPanel;
     private javax.swing.JMenu EditMenu;
@@ -348,7 +358,6 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JTable StatusTable;
     private javax.swing.JComboBox VehicleComboBox;
     private javax.swing.JMenu ViewMenu;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
