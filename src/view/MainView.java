@@ -26,6 +26,7 @@ public class MainView extends javax.swing.JFrame {
     
     public MainView() {
         initComponents();
+        PlateTextField.requestFocus();
     }
 
     /** This method is called from within the constructor to

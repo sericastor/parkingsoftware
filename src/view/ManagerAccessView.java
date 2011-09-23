@@ -1,18 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * ManagerAccessView.java
- *
- * Created on 20-sep-2011, 18:29:13
- */
 package view;
 
 import controller.MainController;
 import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -23,6 +15,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
     /** Creates new form ManagerAccessView */
     public ManagerAccessView() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -159,13 +152,15 @@ public class ManagerAccessView extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void AccessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessButtonActionPerformed
-        if(mainController.verifyAdminAccess(this.getAdminPassword())){
-            JOptionPane.showMessageDialog(this, "Acceso Concedido", "Administración", 1);           
+        if(MainController.verifyAdminAccess(this.getAdminPassword())){
+            JOptionPane.showMessageDialog(this, "Acceso Concedido", "Administración", 1);
+            this.setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(this, "Acceso Denegado", "Administración", 0);
-            this.setVisible(false);
         }
+        AdminPassTextField.setText("");
+        AdminPassTextField.requestFocus();        
     }//GEN-LAST:event_AccessButtonActionPerformed
 
     private void AdminPassTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AdminPassTextFieldKeyPressed
@@ -178,7 +173,6 @@ public class ManagerAccessView extends javax.swing.JFrame {
         return String.valueOf(AdminPassTextField.getPassword());
     }
     
-    private MainController mainController = new MainController();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccessButton;
     private javax.swing.JPasswordField AdminPassTextField;

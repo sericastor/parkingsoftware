@@ -17,15 +17,15 @@ import view.MainView;
 public class MainController {
     
     public MainController(){
-        
     }
+    
     public void verifyStatus(boolean isUser){
         if (isUser){
             setVisibleMainView(true);            
         }
     }
     
-    public boolean verifyAdminAccess(String password){
+    public static boolean verifyAdminAccess(String password){
         for(Employee e:Parkway.getStaff()){
             if(e.getPassword().equals(password) && e.isAdmin() == true){
                 return true;
@@ -35,7 +35,7 @@ public class MainController {
     }
    
     public static void setVisibleMainView(boolean isVisible){
-        mainView.setVisible(isVisible);           
+        mainView.setVisible(isVisible);       
     }
     public static void setVisibleAdminAccessView(boolean isVisible){
         adminAccessView.setVisible(isVisible);
