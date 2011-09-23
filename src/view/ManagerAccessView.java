@@ -4,7 +4,7 @@
  */
 
 /*
- * AdminAccessView.java
+ * ManagerAccessView.java
  *
  * Created on 20-sep-2011, 18:29:13
  */
@@ -18,10 +18,10 @@ import javax.swing.JOptionPane;
  *
  * @author r4wd3r
  */
-public class AdminAccessView extends javax.swing.JFrame {
+public class ManagerAccessView extends javax.swing.JFrame {
 
-    /** Creates new form AdminAccessView */
-    public AdminAccessView() {
+    /** Creates new form ManagerAccessView */
+    public ManagerAccessView() {
         initComponents();
     }
 
@@ -35,12 +35,12 @@ public class AdminAccessView extends javax.swing.JFrame {
     private void initComponents() {
 
         LogoPanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        PasswordPanel = new javax.swing.JPanel();
+        PasswordLabel = new javax.swing.JLabel();
         AdminPassTextField = new javax.swing.JPasswordField();
         AccessButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        InfoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -58,10 +58,10 @@ public class AdminAccessView extends javax.swing.JFrame {
             .addGap(0, 131, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        PasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Contraseña:");
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PasswordLabel.setText("Contraseña:");
 
         AdminPassTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,41 +92,41 @@ public class AdminAccessView extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Ésta operación requiere permisos administrativos.");
+        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        InfoLabel.setText("Ésta operación requiere permisos administrativos.");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
+        PasswordPanel.setLayout(PasswordPanelLayout);
+        PasswordPanelLayout.setHorizontalGroup(
+            PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PasswordPanelLayout.createSequentialGroup()
+                .addGroup(PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PasswordPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(AccessButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                         .addComponent(CancelButton))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(PasswordPanelLayout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(jLabel1)
+                        .addComponent(PasswordLabel)
                         .addGap(18, 18, 18)
                         .addComponent(AdminPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(PasswordPanelLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel2)))
+                        .addComponent(InfoLabel)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        PasswordPanelLayout.setVerticalGroup(
+            PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PasswordPanelLayout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(InfoLabel)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AdminPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(PasswordLabel))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AccessButton)
                     .addComponent(CancelButton))
                 .addContainerGap())
@@ -136,7 +136,7 @@ public class AdminAccessView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(LogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
@@ -144,7 +144,7 @@ public class AdminAccessView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(LogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,9 +183,9 @@ public class AdminAccessView extends javax.swing.JFrame {
     private javax.swing.JButton AccessButton;
     private javax.swing.JPasswordField AdminPassTextField;
     private javax.swing.JButton CancelButton;
+    private javax.swing.JLabel InfoLabel;
     private javax.swing.JPanel LogoPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JPanel PasswordPanel;
     // End of variables declaration//GEN-END:variables
 }

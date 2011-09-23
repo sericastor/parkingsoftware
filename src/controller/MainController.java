@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import model.Employee;
 import model.Parkway;
-import view.AdminAccessView;
+import view.ManagerAccessView;
 import view.LoginView;
 import view.MainView;
 
@@ -43,5 +43,5 @@ public class MainController {
     
     private static MainView mainView = new MainView();
     private static LoginController loginController = new LoginController();
-    private static AdminAccessView adminAccessView = new AdminAccessView();
+    private static ManagerAccessView adminAccessView = new ManagerAccessView();
 }
