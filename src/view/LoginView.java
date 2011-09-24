@@ -50,12 +50,13 @@ public class LoginView extends javax.swing.JFrame {
         PasswordField = new javax.swing.JPasswordField();
         PasswordLabel = new javax.swing.JLabel();
         LoginButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ChiquiParking Iniciar Sesión");
         setBackground(new java.awt.Color(0, 0, 0));
 
-        IntroPanel.setBackground(new java.awt.Color(0, 0, 0));
+        IntroPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         HelpPanel.setBackground(new java.awt.Color(255, 255, 255));
         HelpPanel.setForeground(new java.awt.Color(153, 153, 255));
@@ -161,18 +162,26 @@ public class LoginView extends javax.swing.JFrame {
             .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo4.1.png"))); // NOI18N
+
         javax.swing.GroupLayout IntroPanelLayout = new javax.swing.GroupLayout(IntroPanel);
         IntroPanel.setLayout(IntroPanelLayout);
         IntroPanelLayout.setHorizontalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IntroPanelLayout.createSequentialGroup()
                 .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroPanelLayout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addContainerGap())
         );
         IntroPanelLayout.setVerticalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroPanelLayout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -180,7 +189,7 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(IntroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+            .addComponent(IntroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +199,7 @@ public class LoginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         boolean ok = false;
         ok = control.verifyUser(this.getUserName(),this.getUserPassword());
         if(ok){
@@ -203,22 +212,22 @@ public class LoginView extends javax.swing.JFrame {
         }        
         UserTextField.setText("");
         PasswordField.setText("");
-    }//GEN-LAST:event_LoginButtonActionPerformed
+}//GEN-LAST:event_LoginButtonActionPerformed
+
+private void PasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordFieldKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            LoginButtonActionPerformed(null);
+        }
+}//GEN-LAST:event_PasswordFieldKeyPressed
+
+private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
+        System.out.println("Help");
+}//GEN-LAST:event_ManualButtonActionPerformed
 
     private void setVisibleLoginView(boolean isVisible){
         this.setVisible(isVisible);
     }
     
-    private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
-        System.out.println("Help");
-    }//GEN-LAST:event_ManualButtonActionPerformed
-
-    private void PasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordFieldKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            LoginButtonActionPerformed(null);
-        }
-    }//GEN-LAST:event_PasswordFieldKeyPressed
-
     private void centerForm() {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension window = this.getSize();
@@ -257,5 +266,6 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JTextField UserTextField;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
