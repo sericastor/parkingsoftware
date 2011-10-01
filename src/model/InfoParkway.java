@@ -7,12 +7,13 @@ public class InfoParkway {
     public InfoParkway() {
     }
 
-    public InfoParkway(String name, String address, String nit, String telephone, int register) {
+    public InfoParkway(String name, String address, String nit, String telephone, int register,  int maxcCapacity) {
         this.name = name;
         this.address = address;
         this.nit = nit;
         this.telephone = telephone;
         this.register = register;
+        this.maxCapacity = maxcCapacity;
     }
 
     public String getAddress() {
@@ -43,6 +44,14 @@ public class InfoParkway {
         return register;
     }
 
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
     public void setRegister(int register) {
         this.register = register;
     }
@@ -62,5 +71,6 @@ public class InfoParkway {
     private String nit;
     private String telephone;
     private int register;
+    private int maxCapacity;
     
 }

@@ -74,7 +74,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         PlateLabel.setText("Placa:");
 
         PriceTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -83,25 +83,22 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        PriceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        PriceLabel.setFont(new java.awt.Font("Tahoma", 0, 14));
         PriceLabel.setText("Valor:");
 
-        VehicleComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         VehicleComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VehicleComboBoxActionPerformed(evt);
             }
         });
 
-        RateComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        VehicleLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VehicleLabel.setFont(new java.awt.Font("Tahoma", 0, 14));
         VehicleLabel.setText("Tipo de Vehículo:");
 
-        RateLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RateLabel.setFont(new java.awt.Font("Tahoma", 0, 14));
         RateLabel.setText("Tarifa:");
 
-        AddButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AddButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         AddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,12 +114,12 @@ public class MainView extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(PlateLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(VehicleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(VehicleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(RateLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,14 +138,14 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(DataEntryPanelLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PlateLabel)
                             .addComponent(PriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PriceLabel)
                             .addComponent(VehicleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(VehicleLabel)
                             .addComponent(RateLabel)
-                            .addComponent(RateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(RateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(DataEntryPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(AddButton)))
@@ -157,7 +154,7 @@ public class MainView extends javax.swing.JFrame {
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -196,12 +193,11 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        StatusScroll.setBorder(javax.swing.BorderFactory.createTitledBorder("Estado del Parqueadero"));
+
         StatusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No. Tiquete", "Placa", "Hora Llegada"
@@ -250,7 +246,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        ParkedVehiclesLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ParkedVehiclesLabel.setFont(new java.awt.Font("Tahoma", 0, 14));
         ParkedVehiclesLabel.setForeground(new java.awt.Color(51, 0, 204));
         ParkedVehiclesLabel.setText("Vehículos Estacionados:");
 
