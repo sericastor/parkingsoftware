@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Martin Kanayet
@@ -25,9 +27,6 @@ public class Employee {
         this.user = user;
     }
     
-    private String user;
-    private String password;
-
     public boolean isAdmin() {
         return admin;
     }
@@ -43,7 +42,47 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
+
+    private String user;
+
+    public String getDocument() {
+        return document;
+    }
+
+    public void setDocument(String document) {
+        this.document = document;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
     
-    private String name;
+
+    public ArrayList<Entries> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(ArrayList<Entries> entries) {
+        this.entries = entries;
+    }
+    
+    private String document;
+    private String password;    
+    private long id;
+    private String lastName;
+    private String name; 
     private boolean admin;
+    private ArrayList<Entries> entries = new ArrayList<Entries>();
 }

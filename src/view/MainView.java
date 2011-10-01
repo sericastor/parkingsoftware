@@ -1,13 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * MainFrame.java
- *
- * Created on 04-sep-2011, 23:10:01
- */
 package view;
 
 import controller.ExitController;
