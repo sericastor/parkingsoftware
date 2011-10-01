@@ -1,13 +1,8 @@
 package controller;
 
-
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import javax.swing.JFrame;
 import model.Employee;
 import model.Parkway;
 import view.ManagerAccessView;
-import view.LoginView;
 import view.MainView;
 
 /**
