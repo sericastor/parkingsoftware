@@ -12,9 +12,14 @@ package view;
 
 import controller.LoginController;
 import controller.MainController;
+import edu.stanford.ejalbert.BrowserLauncher;
+import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
+import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,12 +27,12 @@ import javax.swing.JOptionPane;
  * @author Martin Kanayet
  */
 public class LoginView extends javax.swing.JFrame {
- 
+
     public LoginView() {
         this.setVisible(true);
         this.centerForm();
         initComponents();
-        this.setResizable(false);        
+        this.setResizable(false);
         UserTextField.requestFocus();
     }
 
@@ -192,29 +197,38 @@ public class LoginView extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         boolean ok = false;
-        ok = control.verifyUser(this.getUserName(),this.getUserPassword());
-        if(ok){
+        ok = control.verifyUser(this.getUserName(), this.getUserPassword());
+        if (ok) {
             this.showMessage(titleMessage, okMessage, infoIcon);
             this.setVisible(false);
             mcontrol.verifyStatus(ok);
-        }
-        else{
+        } else {
             this.showMessage(titleMessage, errorMessage, errorIcon);
-        }        
+        }
         UserTextField.setText("");
         PasswordField.setText("");
     }//GEN-LAST:event_LoginButtonActionPerformed
 
-    private void setVisibleLoginView(boolean isVisible){
+    private void setVisibleLoginView(boolean isVisible) {
         this.setVisible(isVisible);
     }
-    
+
     private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
-        System.out.println("Help");
+        try {
+            //System.out.println("Help");
+
+            BrowserLauncher launcher = new BrowserLauncher();
+            launcher.openURLinBrowser("http://dl.dropbox.com/u/10048606/Manual.png");
+        } catch (BrowserLaunchingInitializingException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedOperatingSystemException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_ManualButtonActionPerformed
 
     private void PasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordFieldKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             LoginButtonActionPerformed(null);
         }
     }//GEN-LAST:event_PasswordFieldKeyPressed
@@ -222,22 +236,21 @@ public class LoginView extends javax.swing.JFrame {
     private void centerForm() {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension window = this.getSize();
-        this.setLocation((screen.width - window.width)/5,(screen.height-window.height)/5);
+        this.setLocation((screen.width - window.width) / 5, (screen.height - window.height) / 5);
     }
-    
-    public String getUserName(){
+
+    public String getUserName() {
         return UserTextField.getText().toLowerCase();
     }
-    
-    public String getUserPassword(){
+
+    public String getUserPassword() {
         return String.valueOf(PasswordField.getPassword());
     }
-    
-    public void showMessage(String title, String message, int messageType){
+
+    public void showMessage(String title, String message, int messageType) {
         JOptionPane.showMessageDialog(this, message, title, messageType);
         UserTextField.requestFocus();
     }
-    
     private LoginController control = new LoginController();
     private MainController mcontrol = new MainController();
     private final String titleMessage = "Inicio Sesión";
@@ -245,7 +258,6 @@ public class LoginView extends javax.swing.JFrame {
     private final String okMessage = "Bienvenido";
     private final int errorIcon = 0;
     private final int infoIcon = 1;
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HelpPanel;
     private javax.swing.JPanel IntroPanel;
