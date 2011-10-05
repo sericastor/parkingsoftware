@@ -21,11 +21,17 @@ import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.omg.DynamicAny.DynAnyOperations;
+import DAO.VehicleTypeJpaController;
 
 /**
  *
  * @author Martin Kanayet
  */
+import Entity.VehicleType;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
@@ -196,6 +202,13 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+        Entity.VehicleType vehi = new Entity.VehicleType();
+        vehi.setId(Long.MIN_VALUE);
+        vehi.setName("esto es una prueba");
+        EntityManagerFactory factory=Persistence.createEntityManagerFactory("ParkingSoftwarePU");
+        
+        VehicleTypeJpaController adsf = new VehicleTypeJpaController(factory);
+        
         boolean ok = false;
         ok = control.verifyUser(this.getUserName(), this.getUserPassword());
         if (ok) {
