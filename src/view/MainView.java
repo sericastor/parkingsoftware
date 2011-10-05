@@ -60,6 +60,7 @@ public class MainView extends javax.swing.JFrame {
         TypeVehicleTableButton = new javax.swing.JButton();
         AoQPanel = new javax.swing.JPanel();
         ClockPanel = new javax.swing.JPanel();
+        ClockLabel = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         EditMenu = new javax.swing.JMenu();
@@ -77,7 +78,7 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        PlateTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
         PlateTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlateTextFieldActionPerformed(evt);
@@ -87,7 +88,7 @@ public class MainView extends javax.swing.JFrame {
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,15 +269,23 @@ public class MainView extends javax.swing.JFrame {
             .addGap(0, 295, Short.MAX_VALUE)
         );
 
+        ClockLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);
         ClockPanelLayout.setHorizontalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClockPanelLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         ClockPanelLayout.setVerticalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 194, Short.MAX_VALUE)
+            .addGroup(ClockPanelLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         FileMenu.setText("Archivo");
@@ -350,15 +359,37 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         MainController.setVisibleAdminAccessView(true);
     }//GEN-LAST:event_AdminButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public void start(){
+    
+        Thread hilo = new Thread();
+        hilo.start();
+    }
+    
+    public void run(){
+    
+        while(true){
+            try{
+            Thread.sleep(500);
+            MainController.updateClockInFrame();
+            }catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+            
+        
+        }
+        
+    }
+    public void updateFrame(String date){
+        this.ClockLabel.setText(date);
+        this.repaint();
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminButton;
     private javax.swing.JPanel AoQPanel;
     private javax.swing.JButton BillsTableButton;
     private javax.swing.JButton BillsTurnTableButton;
+    private javax.swing.JLabel ClockLabel;
     private javax.swing.JPanel ClockPanel;
     private javax.swing.JButton CloseBoxButton;
     private javax.swing.JPanel DataEntryPanel;

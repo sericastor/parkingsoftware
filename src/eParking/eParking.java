@@ -16,5 +16,6 @@ public class eParking{
     public static void main(String args[]){        
         new MainController();
         new Parkway();
+        MainController.startClock();
     }
 }
