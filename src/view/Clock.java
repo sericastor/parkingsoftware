@@ -6,7 +6,7 @@ import java.text.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
-
+//lol
 
 public class Clock extends JPanel implements ActionListener {
     private SimpleDateFormat sdfFecha=new SimpleDateFormat("EEEE, dd MMMM yyyy");
