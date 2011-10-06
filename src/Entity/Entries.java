@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -23,26 +24,19 @@ public class Entries implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ticket;
        //TODO: Order debería ser llave primaria, ya que ticket se reinicia cada día
-    private int orderr; //si se deja "order" genera conflicto 
-                        //por ser palabra reservada en DB
+    private int orderr;
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;
-    /* se reemplaza year, mont,day,hour por Date
-    private String year;
-    private String month;
-    private String day;
-    private String hour;*/
     @Column(name="Plate",nullable=false)
     private String plate;
-    @Column(name="Rate",nullable=false)
-    private Long rate; // Debe tener el mismo tipo de dato que ParkingRate
     @Column(name="Employee",nullable=false)
     private Long EmployeeID;
     @Column(name="VehicleType",nullable=false)
     private int vehicleType;
     
-    // TODO: relación onetomany con ParkingRate
-
+    @ManyToOne
+    private ParkingRate rate;
+    
     public Entries() {
     }
     
@@ -78,14 +72,14 @@ public class Entries implements Serializable {
         this.plate = plate;
     }
 
-    public long getRate() {
+    public ParkingRate getRate() {
         return rate;
     }
 
-    public void setRate(long rate) {
+    public void setRate(ParkingRate rate) {
         this.rate = rate;
     }
-
+    
     public Long getTicket() {
         return ticket;
     }

@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author miguel
+ * @author Grupo E
  */
 @Entity
 public class Exits implements Serializable {
@@ -27,7 +28,7 @@ public class Exits implements Serializable {
     @Column(name="Ticket",nullable=false)
     private int ticket;
     @Column(name="EntryDate",nullable=false) 
-    private Date entryDate;//entryDate cambia entry_i donde _i:=year,month,day,hour
+    private Date entryDate;
     // ^ Si se definen relaciones este atributo sería innecesario
     /*
     private String entryYear;
@@ -36,7 +37,7 @@ public class Exits implements Serializable {
     private String entryHour;
     */
     @Column(name="ExitDate",nullable=false)
-    private Date exitDate;//exitDate cambia exit_i donde _i:=year,month,day,hour
+    private Date exitDate;
     /*
     private String exitYear;
     private String exitMonth;
