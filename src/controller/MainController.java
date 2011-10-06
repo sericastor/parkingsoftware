@@ -5,6 +5,7 @@ import model.Employee;
 import model.Parkway;
 import view.ManagerAccessView;
 import view.MainView;
+import view.AdministrationView;
 
 /**
  *
@@ -46,7 +47,12 @@ public class MainController {
         mainView.run();
     }
     
+    public static void setVisibleAdminView(boolean isVisible){
+        adminView.setVisible(isVisible);
+    }
+    
     private static MainView mainView = new MainView();
     private static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
+    private static AdministrationView adminView = new AdministrationView();
 }
