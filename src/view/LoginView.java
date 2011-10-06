@@ -10,6 +10,7 @@
  */
 package view;
 
+import DAO.exceptions.PreexistingEntityException;
 import controller.LoginController;
 import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
@@ -202,13 +203,6 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        Entity.VehicleType vehi = new Entity.VehicleType();
-        vehi.setId(Long.MIN_VALUE);
-        vehi.setName("esto es una prueba");
-        EntityManagerFactory factory=Persistence.createEntityManagerFactory("ParkingSoftwarePU");
-        
-        VehicleTypeJpaController adsf = new VehicleTypeJpaController(factory);
-        
         boolean ok = false;
         ok = control.verifyUser(this.getUserName(), this.getUserPassword());
         if (ok) {

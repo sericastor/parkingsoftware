@@ -36,7 +36,9 @@ public class VehicleTypeJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            System.out.println("voy bien!!!");
             em.persist(vehicleType);
+            
             em.getTransaction().commit();
         } catch (Exception ex) {
             if (findVehicleType(vehicleType.getId()) != null) {
