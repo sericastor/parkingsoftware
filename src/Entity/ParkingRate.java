@@ -10,21 +10,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
- * @author miguel
+ * @author Grupo E
  */
 @Entity
 public class ParkingRate implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(name="Name",nullable=false,length=15)
     private String name;
     
-    // TODO: relación con BandsRate
+    @ManyToOne
+    private BandsRate bandRate;
     
     public ParkingRate() {
     }
@@ -36,8 +40,15 @@ public class ParkingRate implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
 
+    public BandsRate getBandRate() {
+        return bandRate;
+    }
+
+    public void setBandRate(BandsRate bandRate) {
+        this.bandRate = bandRate;
+    }
+ 
     public Long getId() {
         return id;
     }

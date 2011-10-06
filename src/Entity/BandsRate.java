@@ -5,15 +5,20 @@
 package Entity;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
- * @author miguel
+ * @author Grupo E
  */
 @Entity
 public class BandsRate implements Serializable {
@@ -22,18 +27,19 @@ public class BandsRate implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;// no aparece en en el modelo, pero es necesario para hacer el 
-                    //mapeo a la base de datos
-    private int rate; // Creo que este dato no lo necesitamos
+    private Long id;
     @Column(name="UnitFrom",nullable=false)
-    private int fromm;//si se deja "from" genera conflictos por sentencias DB
+    private int fromm;
     @Column(name="UnitTo",nullable=false)
-    private int too;//si se deja "from" genera conflictos por sentencias DB
+    private int too;
     @Column(name="UnitValue",nullable=false)
     private double unitValue;
     @Column(name="Units",nullable=false)
     private int units;
-
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="bandRate")
+    private List<ParkingRate> rates = new ArrayList();
+    
     public BandsRate() {
     }
 
@@ -43,14 +49,6 @@ public class BandsRate implements Serializable {
 
     public void setFromm(int fromm) {
         this.fromm = fromm;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
     }
 
     public int getToo() {
