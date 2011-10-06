@@ -4,8 +4,13 @@ import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
 import controller.ParkingController;
+import edu.stanford.ejalbert.BrowserLauncher;
+import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
+import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +23,7 @@ public class MainView extends javax.swing.JFrame {
     
     public MainView() {
         initComponents();
+        this.setResizable(false);
         PlateTextField.requestFocus();        
     }
 
@@ -42,7 +48,7 @@ public class MainView extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         ParkingPanel = new javax.swing.JPanel();
         CloseBoxButton = new javax.swing.JButton();
-        AdminButton = new javax.swing.JButton();
+        AdministerButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         MainTablePanel = new javax.swing.JPanel();
         MainTableToolbar = new javax.swing.JToolBar();
@@ -56,9 +62,25 @@ public class MainView extends javax.swing.JFrame {
         ClockLabel = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
+        AdministerMenu = new javax.swing.JMenuItem();
+        GenerateReportsMenu = new javax.swing.JMenuItem();
+        FileSeparator1 = new javax.swing.JPopupMenu.Separator();
+        CloseBoxMenu = new javax.swing.JMenuItem();
+        FileSeparator2 = new javax.swing.JPopupMenu.Separator();
+        LogoutMenu = new javax.swing.JMenuItem();
+        ExitMenu = new javax.swing.JMenuItem();
         EditMenu = new javax.swing.JMenu();
+        UndoMenu = new javax.swing.JMenuItem();
+        EditSeparator1 = new javax.swing.JPopupMenu.Separator();
+        CutMenu = new javax.swing.JMenuItem();
+        CopyMenu = new javax.swing.JMenuItem();
+        PasteMenu = new javax.swing.JMenuItem();
+        DeleteMenu = new javax.swing.JMenuItem();
         ViewMenu = new javax.swing.JMenu();
         HelpMenu = new javax.swing.JMenu();
+        ViewHelpMenu = new javax.swing.JMenuItem();
+        HelpSeparator1 = new javax.swing.JPopupMenu.Separator();
+        AboutEParkingMenu = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -71,18 +93,15 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
-        PlateTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlateTextFieldActionPerformed(evt);
-            }
-        });
+        PlateTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
 
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
+        SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchButtonActionPerformed(evt);
@@ -120,18 +139,20 @@ public class MainView extends javax.swing.JFrame {
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
+        ExitButton.setToolTipText("Pulse aquí para salir.");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitButtonActionPerformed(evt);
             }
         });
 
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
         LogoutButton.setText("Cerrar Sesión");
+        LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoutButtonActionPerformed(evt);
@@ -159,16 +180,23 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CloseBoxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Box.png"))); // NOI18N
         CloseBoxButton.setText("Cerrar Turno");
-
-        AdminButton.setFont(new java.awt.Font("Tahoma", 0, 14));
-        AdminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tools.png"))); // NOI18N
-        AdminButton.setText("Administración");
-        AdminButton.addActionListener(new java.awt.event.ActionListener() {
+        CloseBoxButton.setToolTipText("Pulse aquí para cerrar su turno.");
+        CloseBoxButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminButtonActionPerformed(evt);
+                CloseBoxButtonActionPerformed(evt);
+            }
+        });
+
+        AdministerButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AdministerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tools.png"))); // NOI18N
+        AdministerButton.setText("Administración");
+        AdministerButton.setToolTipText("Pulse aquí para configurar el sistema (Sólo administrador)");
+        AdministerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdministerButtonActionPerformed(evt);
             }
         });
 
@@ -184,7 +212,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGap(161, 161, 161)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
-                .addComponent(AdminButton)
+                .addComponent(AdministerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CloseBoxButton, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -195,7 +223,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CloseBoxButton)
-                    .addComponent(AdminButton)
+                    .addComponent(AdministerButton)
                     .addComponent(jLabel6))
                 .addContainerGap())
         );
@@ -262,7 +290,7 @@ public class MainView extends javax.swing.JFrame {
             .addGap(0, 295, Short.MAX_VALUE)
         );
 
-        ClockLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ClockLabel.setFont(new java.awt.Font("Tahoma", 0, 24));
 
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);
@@ -282,15 +310,94 @@ public class MainView extends javax.swing.JFrame {
         );
 
         FileMenu.setText("Archivo");
+
+        AdministerMenu.setText("Administar Sistema");
+        AdministerMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdministerMenuActionPerformed(evt);
+            }
+        });
+        FileMenu.add(AdministerMenu);
+
+        GenerateReportsMenu.setText("Generar Reportes");
+        GenerateReportsMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerateReportsMenuActionPerformed(evt);
+            }
+        });
+        FileMenu.add(GenerateReportsMenu);
+        FileMenu.add(FileSeparator1);
+
+        CloseBoxMenu.setText("Cerrar Caja");
+        CloseBoxMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseBoxMenuActionPerformed(evt);
+            }
+        });
+        FileMenu.add(CloseBoxMenu);
+        FileMenu.add(FileSeparator2);
+
+        LogoutMenu.setText("Cerrar Sesión");
+        LogoutMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutMenuActionPerformed(evt);
+            }
+        });
+        FileMenu.add(LogoutMenu);
+
+        ExitMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        ExitMenu.setText("Salir");
+        ExitMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitMenuActionPerformed(evt);
+            }
+        });
+        FileMenu.add(ExitMenu);
+
         MenuBar.add(FileMenu);
 
         EditMenu.setText("Editar");
+
+        UndoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        UndoMenu.setText("Deshacer");
+        EditMenu.add(UndoMenu);
+        EditMenu.add(EditSeparator1);
+
+        CutMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        CutMenu.setText("Cortar");
+        EditMenu.add(CutMenu);
+
+        CopyMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        CopyMenu.setText("Copiar");
+        EditMenu.add(CopyMenu);
+
+        PasteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        PasteMenu.setText("Pegar");
+        EditMenu.add(PasteMenu);
+
+        DeleteMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        DeleteMenu.setText("Eliminar");
+        EditMenu.add(DeleteMenu);
+
         MenuBar.add(EditMenu);
 
         ViewMenu.setText("Ver");
         MenuBar.add(ViewMenu);
 
         HelpMenu.setText("Ayuda");
+
+        ViewHelpMenu.setText("Ver Ayuda");
+        ViewHelpMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewHelpMenuActionPerformed(evt);
+            }
+        });
+        HelpMenu.add(ViewHelpMenu);
+        HelpMenu.add(HelpSeparator1);
+
+        AboutEParkingMenu.setText("Acerca de e-Parking");
+        HelpMenu.add(AboutEParkingMenu);
+
         MenuBar.add(HelpMenu);
 
         setJMenuBar(MenuBar);
@@ -332,10 +439,6 @@ public class MainView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PlateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlateTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PlateTextFieldActionPerformed
-
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SearchButtonActionPerformed
@@ -348,14 +451,51 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     ExitController.exit(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?" , "Cerrar Programa" , JOptionPane.YES_NO_OPTION));
 }//GEN-LAST:event_ExitButtonActionPerformed
 
-    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
+    private void AdministerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministerButtonActionPerformed
         MainController.setVisibleAdminAccessView(true);
-    }//GEN-LAST:event_AdminButtonActionPerformed
+    }//GEN-LAST:event_AdministerButtonActionPerformed
+
+    private void ExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuActionPerformed
+        this.ExitButtonActionPerformed(null);
+    }//GEN-LAST:event_ExitMenuActionPerformed
+
+    private void LogoutMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutMenuActionPerformed
+        this.LogoutButtonActionPerformed(null);
+    }//GEN-LAST:event_LogoutMenuActionPerformed
+
+    private void CloseBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBoxButtonActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Cerrar Caja");
+    }//GEN-LAST:event_CloseBoxButtonActionPerformed
+
+    private void CloseBoxMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBoxMenuActionPerformed
+        this.CloseBoxButtonActionPerformed(null);
+    }//GEN-LAST:event_CloseBoxMenuActionPerformed
+
+    private void AdministerMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministerMenuActionPerformed
+        this.AdministerButtonActionPerformed(evt);
+    }//GEN-LAST:event_AdministerMenuActionPerformed
+
+    private void GenerateReportsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateReportsMenuActionPerformed
+        System.out.println("Generar Reportes");
+    }//GEN-LAST:event_GenerateReportsMenuActionPerformed
+
+    private void ViewHelpMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewHelpMenuActionPerformed
+         try {
+            //System.out.println("Help");
+
+            BrowserLauncher launcher = new BrowserLauncher();
+            launcher.openURLinBrowser("http://dl.dropbox.com/u/10048606/Manual.png");
+        } catch (BrowserLaunchingInitializingException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedOperatingSystemException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ViewHelpMenuActionPerformed
 
     public void start(){
-    
-        Thread hilo = new Thread();
-        hilo.start();
+        Thread thread = new Thread();
+        thread.start();
     }
     
     public void run(){
@@ -367,8 +507,6 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }catch(Exception ex){
                 System.out.println(ex.getMessage());
             }
-            
-        
         }
         
     }
@@ -378,30 +516,46 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AdminButton;
+    private javax.swing.JMenuItem AboutEParkingMenu;
+    private javax.swing.JButton AdministerButton;
+    private javax.swing.JMenuItem AdministerMenu;
     private javax.swing.JPanel AoQPanel;
     private javax.swing.JButton BillsTableButton;
     private javax.swing.JButton BillsTurnTableButton;
     private javax.swing.JLabel ClockLabel;
     private javax.swing.JPanel ClockPanel;
     private javax.swing.JButton CloseBoxButton;
+    private javax.swing.JMenuItem CloseBoxMenu;
+    private javax.swing.JMenuItem CopyMenu;
+    private javax.swing.JMenuItem CutMenu;
     private javax.swing.JPanel DataEntryPanel;
+    private javax.swing.JMenuItem DeleteMenu;
     private javax.swing.JMenu EditMenu;
+    private javax.swing.JPopupMenu.Separator EditSeparator1;
     private javax.swing.JButton EntriesTableButton;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JMenuItem ExitMenu;
     private javax.swing.JButton ExitsTableButton;
     private javax.swing.JMenu FileMenu;
+    private javax.swing.JPopupMenu.Separator FileSeparator1;
+    private javax.swing.JPopupMenu.Separator FileSeparator2;
+    private javax.swing.JMenuItem GenerateReportsMenu;
     private javax.swing.JMenu HelpMenu;
+    private javax.swing.JPopupMenu.Separator HelpSeparator1;
     private javax.swing.JButton LogoutButton;
+    private javax.swing.JMenuItem LogoutMenu;
     private javax.swing.JPanel MainTablePanel;
     private javax.swing.JToolBar MainTableToolbar;
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JPanel OptionsPanel;
     private javax.swing.JPanel ParkingPanel;
+    private javax.swing.JMenuItem PasteMenu;
     private javax.swing.JLabel PlateLabel;
     private javax.swing.JTextField PlateTextField;
     private javax.swing.JButton SearchButton;
     private javax.swing.JButton TypeVehicleTableButton;
+    private javax.swing.JMenuItem UndoMenu;
+    private javax.swing.JMenuItem ViewHelpMenu;
     private javax.swing.JMenu ViewMenu;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
