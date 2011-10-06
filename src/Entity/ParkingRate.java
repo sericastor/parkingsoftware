@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,8 +21,14 @@ public class ParkingRate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(name="Name",nullable=false,length=15)
     private String name;
-
+    
+    // TODO: relación con BandsRate
+    
+    public ParkingRate() {
+    }
+    
     public String getName() {
         return name;
     }

@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,19 +22,30 @@ public class Entries implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ticket;
+       //TODO: Order debería ser llave primaria, ya que ticket se reinicia cada día
     private int orderr; //si se deja "order" genera conflicto 
                         //por ser palabra reservada en DB
-    private Date dates;
+    @Column(name="EntryDate",nullable=false)
+    private Date entryDate;
     /* se reemplaza year, mont,day,hour por Date
     private String year;
     private String month;
     private String day;
     private String hour;*/
+    @Column(name="Plate",nullable=false)
     private String plate;
-    private int rate;
+    @Column(name="Rate",nullable=false)
+    private Long rate; // Debe tener el mismo tipo de dato que ParkingRate
+    @Column(name="Employee",nullable=false)
     private Long EmployeeID;
+    @Column(name="VehicleType",nullable=false)
     private int vehicleType;
+    
+    // TODO: relación onetomany con ParkingRate
 
+    public Entries() {
+    }
+    
     public Long getEmployeeID() {
         return EmployeeID;
     }
@@ -43,11 +55,11 @@ public class Entries implements Serializable {
     }
 
     public Date getDate() {
-        return dates;
+        return entryDate;
     }
 
     public void setDate(Date date) {
-        this.dates = date;
+        this.entryDate = date;
     }
 
     public int getOrderr() {
@@ -66,11 +78,11 @@ public class Entries implements Serializable {
         this.plate = plate;
     }
 
-    public int getRate() {
+    public long getRate() {
         return rate;
     }
 
-    public void setRate(int rate) {
+    public void setRate(long rate) {
         this.rate = rate;
     }
 

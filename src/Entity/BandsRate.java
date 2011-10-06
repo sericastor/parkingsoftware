@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,15 +18,24 @@ import javax.persistence.Id;
 @Entity
 public class BandsRate implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;// no aparece en en el modelo, pero es necesario para hacer el 
                     //mapeo a la base de datos
-    private int rate;
+    private int rate; // Creo que este dato no lo necesitamos
+    @Column(name="UnitFrom",nullable=false)
     private int fromm;//si se deja "from" genera conflictos por sentencias DB
+    @Column(name="UnitTo",nullable=false)
     private int too;//si se deja "from" genera conflictos por sentencias DB
+    @Column(name="UnitValue",nullable=false)
     private double unitValue;
+    @Column(name="Units",nullable=false)
     private int units;
+
+    public BandsRate() {
+    }
 
     public int getFromm() {
         return fromm;

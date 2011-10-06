@@ -22,14 +22,19 @@ public class Facture implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Date facDate;
-    private int rate;
+    private int rate;  // Podría traerse de FactureTurn
     private int ticket;
     private int units;
-    private double subtotal;
-    private double iva;
-    private double total;
-    private String plate;
-    private int employee;
+    private double subtotal; //Creo que los atributos de precio no van en esta clase
+    private double iva;     // Los atributos de precio podrían tomarse como totales siempre
+    private double total;   
+    private String plate;  // Este tampoco
+    private int employee;  // Dos empleados por día, entonces dos ID
+    
+    // TODO: Una relación OneToMay (2) con FactureTurn
+
+    public Facture() {
+    }
 
     public int getEmployee() {
         return employee;

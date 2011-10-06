@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +19,14 @@ import javax.persistence.Id;
 public class VehicleType implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(name="Name",nullable=false,length=15)
     private String name;
 
+    public VehicleType() {
+    }
+    
     public String getName() {
         return name;
     }
