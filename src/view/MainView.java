@@ -18,14 +18,7 @@ public class MainView extends javax.swing.JFrame {
     
     public MainView() {
         initComponents();
-        PlateTextField.requestFocus();
-        Clock clock = new Clock(true);
-        clock.setBounds(ClockPanel.getBounds());
-        clock.setVisible(true);        
-        ClockPanel.add(clock);
-        ClockPanel.repaint();
-        ClockPanel.setVisible(false);
-        ClockPanel.setVisible(true);         
+        PlateTextField.requestFocus();        
     }
 
     /** This method is called from within the constructor to
@@ -369,7 +362,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     
         while(true){
             try{
-            Thread.sleep(500);
+            Thread.sleep(1000);
             MainController.updateClockInFrame();
             }catch(Exception ex){
                 System.out.println(ex.getMessage());

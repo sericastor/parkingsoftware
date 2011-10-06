@@ -209,6 +209,7 @@ public class LoginView extends javax.swing.JFrame {
             this.showMessage(titleMessage, okMessage, infoIcon);
             this.setVisible(false);
             mcontrol.verifyStatus(ok);
+            
         } else {
             this.showMessage(titleMessage, errorMessage, errorIcon);
         }
