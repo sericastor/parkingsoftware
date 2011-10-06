@@ -36,7 +36,7 @@ public class Exits implements Serializable {
     private String exitMonth;
     private String exitDay;
     private String exitHour;
-     
+    Vamos a dejar tipo Date sql?
      */
     private int units;
     private int rate;
