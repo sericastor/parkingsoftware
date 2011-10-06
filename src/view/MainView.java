@@ -485,7 +485,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             //System.out.println("Help");
 
             BrowserLauncher launcher = new BrowserLauncher();
-            launcher.openURLinBrowser("http://dl.dropbox.com/u/10048606/Manual.png");
+            launcher.openURLinBrowser("http://parkingsoftware.isgreat.org/");
         } catch (BrowserLaunchingInitializingException ex) {
             Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedOperatingSystemException ex) {
