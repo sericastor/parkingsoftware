@@ -16,8 +16,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class VehicleType implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
@@ -29,6 +30,7 @@ public class VehicleType implements Serializable {
         this.name = name;
     }
     
+
     public Long getId() {
         return id;
     }

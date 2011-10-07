@@ -1,6 +1,8 @@
 package controller;
 
+
 import java.util.Calendar;
+
 import model.Employee;
 import model.Parkway;
 import view.ManagerAccessView;
@@ -13,7 +15,12 @@ import view.MainView;
 public class MainController {
 
     public MainController() {
+       
+        
     }
+    
+    
+    
 
     public void verifyStatus(boolean isUser) {
         if (isUser) {
@@ -22,6 +29,7 @@ public class MainController {
     }
 
     public static boolean verifyAdminAccess(String password) {
+        
         for (Employee e : Parkway.getStaff()) {
             if (e.getPassword().equals(password) && e.isAdmin() == true) {
                 return true;

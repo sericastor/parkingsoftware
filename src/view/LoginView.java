@@ -10,7 +10,7 @@
  */
 package view;
 
-import DAO.exceptions.PreexistingEntityException;
+
 import controller.LoginController;
 import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
@@ -22,20 +22,17 @@ import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.omg.DynamicAny.DynAnyOperations;
-import DAO.VehicleTypeJpaController;
+
 
 /**
  *
  * @author Martin Kanayet
  */
-import Entity.VehicleType;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
+        
         this.setVisible(true);
         this.centerForm();
         initComponents();

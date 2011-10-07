@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,15 +18,8 @@ import javax.persistence.OneToMany;
 public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String document;
-    private String password;
-    private String lastName;
-    private String name; 
-    private boolean administrator;
-    //@OneToMany
-    private Entries entries=new Entries ();
 
     public boolean isAdministrator() {
         return administrator;
@@ -43,14 +35,6 @@ public class Employee implements Serializable {
 
     public void setDocument(String document) {
         this.document = document;
-    }
-
-    public Entries getEntries() {
-        return entries;
-    }
-
-    public void setEntries(Entries entries) {
-        this.entries = entries;
     }
 
     public String getLastName() {
@@ -76,6 +60,14 @@ public class Employee implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    private String document;
+    private String password;
+    private String lastName;
+    private String name; 
+    private boolean administrator;
+    //@OneToMany
+    ///private Entries entries=new Entries ();
     
 
     public Long getId() {
