@@ -3,6 +3,7 @@
   <persistence-unit name="ParkingSoftwarePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Entity.Employee</class>
+    <class>Entity.Log</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/eparkDB"/>
       <property name="javax.persistence.jdbc.password" value=""/>
