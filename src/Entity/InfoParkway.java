@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,12 +21,25 @@ public class InfoParkway implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(name="ParkingName",nullable=true)
     private String name;
+    @Column(name="Address",nullable=true)
     private String address;
+    @Column(name="NIT",nullable=true)
     private String nit;
+    @Column(name="Telephone",nullable=true)
     private String telephone;
+    @Column(name="Register",nullable=true)
     private int register;
+    @Column(name="MaxCapacity",nullable=false)
     private int maxCapacity;
+    
+    // Según el diagrama de clases exite una relación, pero no es necesario ponerla.
+
+    public InfoParkway() {
+    }
+    
+    
 
     public String getAddress() {
         return address;

@@ -1,12 +1,11 @@
 package controller;
 
-
 import java.util.Calendar;
-
 import model.Employee;
 import model.Parkway;
 import view.ManagerAccessView;
 import view.MainView;
+import view.AdministrationView;
 
 /**
  *
@@ -15,12 +14,7 @@ import view.MainView;
 public class MainController {
 
     public MainController() {
-       
-        
     }
-    
-    
-    
 
     public void verifyStatus(boolean isUser) {
         if (isUser) {
@@ -29,7 +23,6 @@ public class MainController {
     }
 
     public static boolean verifyAdminAccess(String password) {
-        
         for (Employee e : Parkway.getStaff()) {
             if (e.getPassword().equals(password) && e.isAdmin() == true) {
                 return true;
@@ -54,7 +47,12 @@ public class MainController {
         mainView.run();
     }
     
+    public static void setVisibleAdminView(boolean isVisible){
+        adminView.setVisible(isVisible);
+    }
+    
     private static MainView mainView = new MainView();
     private static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
+    private static AdministrationView adminView = new AdministrationView();
 }

@@ -10,7 +10,7 @@
  */
 package view;
 
-
+import DAO.exceptions.PreexistingEntityException;
 import controller.LoginController;
 import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
@@ -22,17 +22,20 @@ import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import org.omg.DynamicAny.DynAnyOperations;
+import DAO.VehicleTypeJpaController;
 
 /**
  *
  * @author Martin Kanayet
  */
-
+import Entity.VehicleType;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
-        
         this.setVisible(true);
         this.centerForm();
         initComponents();
@@ -206,6 +209,7 @@ public class LoginView extends javax.swing.JFrame {
             this.showMessage(titleMessage, okMessage, infoIcon);
             this.setVisible(false);
             mcontrol.verifyStatus(ok);
+            
         } else {
             this.showMessage(titleMessage, errorMessage, errorIcon);
         }
@@ -222,7 +226,7 @@ public class LoginView extends javax.swing.JFrame {
             //System.out.println("Help");
 
             BrowserLauncher launcher = new BrowserLauncher();
-            launcher.openURLinBrowser("http://dl.dropbox.com/u/10048606/Manual.png");
+            launcher.openURLinBrowser("http://parkingsoftware.isgreat.org");
         } catch (BrowserLaunchingInitializingException ex) {
             Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedOperatingSystemException ex) {

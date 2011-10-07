@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,19 @@ public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;  
+    @Column(name="LastName",nullable=false,length=25)
+    private String lastName;
+    @Column(name="Name",nullable=false,length=25)
+    private String name; 
+    @Column(name="Document",nullable=false,length=15)
+    private String document;
+    @Column(name="User",nullable=false,length=10)
+    private String user;
+    @Column(name="Password",nullable=false,length=10)
+    private String password;
+    @Column(name="Rol",nullable=false)
+    private boolean administrator;
 
     public boolean isAdministrator() {
         return administrator;
@@ -60,15 +73,17 @@ public class Employee implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
     
-    private String document;
-    private String password;
-    private String lastName;
-    private String name; 
-    private boolean administrator;
-    //@OneToMany
-    ///private Entries entries=new Entries ();
-    
+    //TODO : @OneToMany
+    //private Entries entries=new Entries ();
 
     public Long getId() {
         return id;
