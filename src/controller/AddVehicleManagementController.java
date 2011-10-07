@@ -50,9 +50,7 @@ public class AddVehicleManagementController {
     }
      */
     public static boolean validatePlate(String plate, int vehicleType) {
-        //TODO: Don´t be a bitch, this is a %&(/)/&%/()(&
-        //Fuck yea!!!
-        //Tyoe 1: cars
+        //Type 1: cars
         //Type 2: motorcycles
         //Type 3: bicycles
         int number = 0;

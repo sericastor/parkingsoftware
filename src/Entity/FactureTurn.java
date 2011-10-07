@@ -5,6 +5,8 @@
 package Entity;
 
 import java.io.Serializable;
+import java.sql.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +22,14 @@ public class FactureTurn implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name="Date",nullable=false)
+    private Date actualDate;
+    // Casi el mismo problema con Facture, de totales y subtotales Netos e independientes
+    // TODO: Una relación OneToMany con exits y atributos.
 
+    public FactureTurn() {
+    }
+    
     public Long getId() {
         return id;
     }
@@ -29,6 +38,14 @@ public class FactureTurn implements Serializable {
         this.id = id;
     }
 
+    public Date getActualDate() {
+        return actualDate;
+    }
+
+    public void setActualDate(Date actualDate) {
+        this.actualDate = actualDate;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

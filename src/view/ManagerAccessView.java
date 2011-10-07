@@ -154,7 +154,8 @@ public class ManagerAccessView extends javax.swing.JFrame {
     private void AccessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessButtonActionPerformed
         if(MainController.verifyAdminAccess(this.getAdminPassword())){
             JOptionPane.showMessageDialog(this, "Acceso Concedido", "Administración", 1);
-            this.setVisible(false);
+            MainController.setVisibleAdminAccessView(false);
+            MainController.setVisibleAdminView(true);
         }
         else{
             JOptionPane.showMessageDialog(this, "Acceso Denegado", "Administración", 0);
@@ -172,7 +173,6 @@ public class ManagerAccessView extends javax.swing.JFrame {
     public String getAdminPassword(){
         return String.valueOf(AdminPassTextField.getPassword());
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccessButton;
     private javax.swing.JPasswordField AdminPassTextField;

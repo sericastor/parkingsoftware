@@ -5,7 +5,9 @@
 package Entity;
 
 import java.io.Serializable;
+
 import java.sql.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +15,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author miguel
+ * @author Grupo E
  */
 @Entity
 public class Exits implements Serializable {
@@ -21,28 +23,44 @@ public class Exits implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(name="Plate",nullable=false)
     private String plate;
+    @Column(name="Ticket",nullable=false)
     private int ticket;
-    private Date entryDate;//entryDate cambia entry_i donde _i:=year,month,day,hour
+    @Column(name="EntryDate",nullable=false) 
+    private Date entryDate;
+    // ^ Si se definen relaciones este atributo sería innecesario
     /*
     private String entryYear;
     private String entryMonth;
     private String entryDay;
     private String entryHour;
     */
-    private Date exitDate;//exitDate cambia exit_i donde _i:=year,month,day,hour
+    @Column(name="ExitDate",nullable=false)
+    private Date exitDate;
     /*
     private String exitYear;
     private String exitMonth;
     private String exitDay;
     private String exitHour;
-     
+    Vamos a dejar tipo Date sql?
      */
+    @Column(name="Units",nullable=false)
     private int units;
+    @Column(name="Rate",nullable=false)
     private int rate;
+    @Column(name="Employee",nullable=false)
     private int employee;
-    private int facture;
+    @Column(name="Facture",nullable=false)
+    private int facture; // Creo que este dato sobra
+    @Column(name="VehicleType",nullable=false)
     private int vehicleType;
+    
+    // TODO: Reorganizar los atriburos, total, subtotal e IVA deberían ir aquí
+    // Relación con Entries 
+
+    public Exits() {
+    }
 
     public int getEmployee() {
         return employee;
