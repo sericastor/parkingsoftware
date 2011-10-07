@@ -29,7 +29,7 @@ public class Employee implements Serializable {
     private String document;
     @Column(name="User",nullable=false,length=10)
     private String user;
-    @Column(name="Password",nullable=false,length=10)
+    @Column(name="Password",nullable=false,length=32)
     private String password;
     @Column(name="Rol",nullable=false)
     private boolean administrator;
@@ -41,7 +41,7 @@ public class Employee implements Serializable {
     public void setAdministrator(boolean administrator) {
         this.administrator = administrator;
     }
-
+    
     public String getDocument() {
         return document;
     }

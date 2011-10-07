@@ -127,7 +127,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(LoginButton)
                 .addGap(83, 83, 83))
         );
@@ -169,7 +169,7 @@ public class LoginView extends javax.swing.JFrame {
                 .addComponent(NeedHelpLabel)
                 .addGap(28, 28, 28)
                 .addComponent(ManualButton)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
             .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
