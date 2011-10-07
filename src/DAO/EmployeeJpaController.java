@@ -73,6 +73,8 @@ public class EmployeeJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Employee employee;
+
+
             try {
                 employee = em.getReference(Employee.class, id);
                 employee.getId();
@@ -102,10 +104,13 @@ public class EmployeeJpaController implements Serializable {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(Employee.class));
             Query q = em.createQuery(cq);
+
             if (!all) {
                 q.setMaxResults(maxResults);
                 q.setFirstResult(firstResult);
             }
+
+
             return q.getResultList();
         } finally {
             em.close();
@@ -114,6 +119,8 @@ public class EmployeeJpaController implements Serializable {
 
     public Employee findEmployee(Long id) {
         EntityManager em = getEntityManager();
+
+
         try {
             return em.find(Employee.class, id);
         } finally {
@@ -128,10 +135,10 @@ public class EmployeeJpaController implements Serializable {
             Root<Employee> rt = cq.from(Employee.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
+
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
         }
     }
-    
 }
