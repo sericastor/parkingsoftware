@@ -20,7 +20,7 @@ public class LoginController {
     }
 
 
-    public boolean verifyUser(String user, String password) {
+    public static boolean verifyUser(String user, String password) {
         EmployeeJpaController ctrlemployee = new EmployeeJpaController(view.LoginView.system.getPersistence_factory());
         MD5Security security = new MD5Security();
         /* este codigo crea un nuevo usuario en la base de datos, 

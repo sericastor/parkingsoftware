@@ -21,6 +21,9 @@ import javax.persistence.criteria.Root;
  */
 public class EmployeeJpaController implements Serializable {
 
+    public EmployeeJpaController() {
+    }
+
     public EmployeeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -96,7 +99,7 @@ public class EmployeeJpaController implements Serializable {
         return findEmployeeEntities(false, maxResults, firstResult);
     }
 
-    private List<Employee> findEmployeeEntities(boolean all, int maxResults, int firstResult) {
+    public List<Employee> findEmployeeEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
