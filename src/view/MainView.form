@@ -246,14 +246,14 @@
                   <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Component id="PlateTextField" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SearchButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -302,7 +302,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="708" max="32767" attributes="0"/>
+                  <EmptySpace pref="711" max="32767" attributes="0"/>
                   <Component id="LogoutButton" min="-2" max="-2" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ExitButton" min="-2" pref="181" max="-2" attributes="1"/>
@@ -364,7 +364,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="307" max="32767" attributes="0"/>
+                  <EmptySpace pref="337" max="32767" attributes="0"/>
                   <Component id="AdministerButton" min="-2" max="-2" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="CloseBoxButton" min="-2" pref="187" max="-2" attributes="1"/>
@@ -441,7 +441,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="MainTableToolbar" pref="1048" max="32767" attributes="0"/>
+                  <Component id="MainTableToolbar" pref="1059" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -533,7 +533,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="ClockLabel" min="-2" pref="337" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

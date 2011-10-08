@@ -19,9 +19,9 @@ import javax.persistence.Id;
 public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  
-    @Column(name="LastName",nullable=false,length=25)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+@Column(name="LastName",nullable=false,length=25)
     private String lastName;
     @Column(name="Name",nullable=false,length=25)
     private String name; 
@@ -85,18 +85,18 @@ public class Employee implements Serializable {
     //TODO : @OneToMany
     //private Entries entries=new Entries ();
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
@@ -107,7 +107,7 @@ public class Employee implements Serializable {
             return false;
         }
         Employee other = (Employee) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
