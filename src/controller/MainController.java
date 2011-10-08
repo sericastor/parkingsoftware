@@ -3,8 +3,8 @@ package controller;
 import DAO.EmployeeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
-import controller.Administration.AdministrateEmployeeController;
 import model.Parkway;
+import view.AboutParkQuickView;
 import view.ManagerAccessView;
 import view.MainView;
 import view.AdministrationView;
@@ -16,6 +16,10 @@ import view.AdministrationView;
 public class MainController {
 
     public MainController() {
+    }
+
+    public static AdministrationView getAdminView() {
+        return adminView;
     }
 
     public static void verifyStatus(boolean isUser) {
@@ -40,6 +44,10 @@ public class MainController {
     public static void setVisibleAdminAccessView(boolean isVisible) {
         adminAccessView.setVisible(isVisible);
     }
+    
+    public static void setVisibleAboutParkQuickView(boolean isVisible){
+        aboutParkQuickView.setVisible(isVisible);
+    }
 
     public static void updateClockInFrame() {
         mainView.updateFrame(Calendar.getInstance().getTime().toLocaleString());
@@ -52,19 +60,10 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible){
         adminView.setVisible(isVisible);
     }
-
-    public static AdministrationView getAdminView() {
-        return adminView;
-    }
-
-    public static void setAdminView(AdministrationView adminView) {
-        MainController.adminView = adminView;
-    }
-    
-    
     
     private static MainView mainView = new MainView();
     public static SystemSession system=new SystemSession();
+    private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
     public static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
     private static AdministrationView adminView = new AdministrationView();
