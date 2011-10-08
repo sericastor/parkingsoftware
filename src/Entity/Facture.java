@@ -6,10 +6,16 @@ package Entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,36 +26,21 @@ public class Facture implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="ID")
     private Long id;
-    private Date facDate;
-    private int rate;  // Podría traerse de FactureTurn
-    private int ticket;
-    private int units;
-    private double subtotal; //Creo que los atributos de precio no van en esta clase
-    private double iva;     // Los atributos de precio podrían tomarse como totales siempre
-    private double total;   
-    private String plate;  // Este tampoco
-    private int employee;  // Dos empleados por día, entonces dos ID
+    @Column(name="ActualDate",nullable=false)
+    private Date actualDate;
+    @Column(name="ActualDate",nullable=false)
+    private double subtotal; 
+    @Column(name="ActualDate",nullable=false)
+    private double iva;
+    @Column(name="ActualDate",nullable=false)
+    private double total;
     
-    // TODO: Una relación OneToMay (2) con FactureTurn
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="id")
+    private List<FactureTurn> facturesTurn = new ArrayList();
 
     public Facture() {
-    }
-
-    public int getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(int employee) {
-        this.employee = employee;
-    }
-
-    public Date getFacDate() {
-        return facDate;
-    }
-
-    public void setFacDate(Date facDate) {
-        this.facDate = facDate;
     }
 
     public double getIva() {
@@ -60,36 +51,12 @@ public class Facture implements Serializable {
         this.iva = iva;
     }
 
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
-        this.plate = plate;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
     public double getSubtotal() {
         return subtotal;
     }
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
-    }
-
-    public int getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(int ticket) {
-        this.ticket = ticket;
     }
 
     public double getTotal() {
@@ -99,16 +66,7 @@ public class Facture implements Serializable {
     public void setTotal(double total) {
         this.total = total;
     }
-
-    public int getUnits() {
-        return units;
-    }
-
-    public void setUnits(int units) {
-        this.units = units;
-    }
     
-
     public Long getId() {
         return id;
     }
@@ -117,6 +75,22 @@ public class Facture implements Serializable {
         this.id = id;
     }
 
+    public Date getActualDate() {
+        return actualDate;
+    }
+
+    public void setActualDate(Date actualDate) {
+        this.actualDate = actualDate;
+    }
+
+    public List<FactureTurn> getFacturesTurn() {
+        return facturesTurn;
+    }
+
+    public void setFacturesTurn(FactureTurn facturesTurn) {
+        this.facturesTurn.add(facturesTurn);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

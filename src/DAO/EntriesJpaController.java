@@ -54,7 +54,7 @@ public class EntriesJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = entries.getTicket();
+                Long id = entries.getEntryOrder();
                 if (findEntries(id) == null) {
                     throw new NonexistentEntityException("The entries with id " + id + " no longer exists.");
                 }
@@ -75,7 +75,7 @@ public class EntriesJpaController implements Serializable {
             Entries entries;
             try {
                 entries = em.getReference(Entries.class, id);
-                entries.getTicket();
+                entries.getEntryOrder();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The entries with id " + id + " no longer exists.", enfe);
             }

@@ -13,13 +13,13 @@ import javax.persistence.Id;
 
 /**
  *
- * @author miguel
+ * @author Grupo E
  */
 @Entity
 public class InfoParkway implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name="ParkingName",nullable=true)
     private String name;
@@ -34,13 +34,10 @@ public class InfoParkway implements Serializable {
     @Column(name="MaxCapacity",nullable=false)
     private int maxCapacity;
     
-    // Según el diagrama de clases exite una relación, pero no es necesario ponerla.
 
     public InfoParkway() {
     }
     
-    
-
     public String getAddress() {
         return address;
     }
@@ -89,10 +86,6 @@ public class InfoParkway implements Serializable {
         this.telephone = telephone;
     }
     
-    
-   
-    
-
     public Long getId() {
         return id;
     }

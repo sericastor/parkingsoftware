@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -21,44 +23,38 @@ import javax.persistence.Id;
 public class Exits implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Long id;
     @Column(name="Plate",nullable=false)
-    private String plate;
+    private String plate; // No necesario
     @Column(name="Ticket",nullable=false)
-    private int ticket;
+    private int ticket; // No necesario
     @Column(name="EntryDate",nullable=false) 
-    private Date entryDate;
-    // ^ Si se definen relaciones este atributo sería innecesario
-    /*
-    private String entryYear;
-    private String entryMonth;
-    private String entryDay;
-    private String entryHour;
-    */
+    private Date entryDate; // No necesario
     @Column(name="ExitDate",nullable=false)
     private Date exitDate;
-    /*
-    private String exitYear;
-    private String exitMonth;
-    private String exitDay;
-    private String exitHour;
-    Vamos a dejar tipo Date sql?
-     */
     @Column(name="Units",nullable=false)
     private int units;
     @Column(name="Rate",nullable=false)
-    private int rate;
+    private int rate; // No necesario
     @Column(name="Employee",nullable=false)
-    private int employee;
-    @Column(name="Facture",nullable=false)
-    private int facture; // Creo que este dato sobra
+    private int employee; // No necesario
     @Column(name="VehicleType",nullable=false)
-    private int vehicleType;
+    private int vehicleType; // No necesario
+    @Column(name="Subtotal",nullable=false)
+    private double subtotal;
+    @Column(name="Subtotal",nullable=false)
+    private double IVA;
+    @Column(name="Subtotal",nullable=false)
+    private double total;
     
-    // TODO: Reorganizar los atriburos, total, subtotal e IVA deberían ir aquí
-    // Relación con Entries 
-
+    @OneToOne(mappedBy="exit")
+    private Entries entry;
+    
+    @ManyToOne
+    private FactureTurn turn;
+    
     public Exits() {
     }
 
@@ -84,14 +80,6 @@ public class Exits implements Serializable {
 
     public void setExitDate(Date exitDate) {
         this.exitDate = exitDate;
-    }
-
-    public int getFacture() {
-        return facture;
-    }
-
-    public void setFacture(int facture) {
-        this.facture = facture;
     }
 
     public String getPlate() {
@@ -134,8 +122,6 @@ public class Exits implements Serializable {
         this.vehicleType = vehicleType;
     }
     
-    
-
     public Long getId() {
         return id;
     }
@@ -144,6 +130,46 @@ public class Exits implements Serializable {
         this.id = id;
     }
 
+    public double getIVA() {
+        return IVA;
+    }
+
+    public void setIVA(double IVA) {
+        this.IVA = IVA;
+    }
+
+    public Entries getEntry() {
+        return entry;
+    }
+
+    public void setEntry(Entries entry) {
+        this.entry = entry;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public FactureTurn getTurn() {
+        return turn;
+    }
+
+    public void setTurn(FactureTurn turn) {
+        this.turn = turn;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

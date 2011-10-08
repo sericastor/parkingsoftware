@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -22,48 +23,41 @@ public class Entries implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ticket;
-       //TODO: Order debería ser llave primaria, ya que ticket se reinicia cada día
-    private int orderr;
+    @Column(name="EntryOrder")
+    private Long entryOrder;
+    @Column(name="Ticket",nullable=false)
+    private int ticket;
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;
     @Column(name="Plate",nullable=false)
     private String plate;
-    @Column(name="Employee",nullable=false)
-    private Long EmployeeID;
-    @Column(name="VehicleType",nullable=false)
-    private int vehicleType;
     
     @ManyToOne
+    @Column(name="Rate",nullable=false)
     private ParkingRate rate;
+    
+    @ManyToOne
+    @Column(name="VehicleType",nullable=false)
+    private VehicleType vehicleType;
+    
+    @ManyToOne
+    @Column(name="Employee",nullable=false)
+    private Employee employee;
+    
+    @OneToOne
+    private Exits exit;
     
     public Entries() {
     }
-    
-    public Long getEmployeeID() {
-        return EmployeeID;
-    }
 
-    public void setEmployeeID(Long EmployeeID) {
-        this.EmployeeID = EmployeeID;
-    }
-
-    public Date getDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
-    public void setDate(Date date) {
-        this.entryDate = date;
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
     }
-
-    public int getOrderr() {
-        return orderr;
-    }
-
-    public void setOrderr(int orderr) {
-        this.orderr = orderr;
-    }
-
+    
     public String getPlate() {
         return plate;
     }
@@ -79,29 +73,45 @@ public class Entries implements Serializable {
     public void setRate(ParkingRate rate) {
         this.rate = rate;
     }
-    
-    public Long getTicket() {
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Long getEntryOrder() {
+        return entryOrder;
+    }
+
+    public void setEntryOrder(Long entryOrder) {
+        this.entryOrder = entryOrder;
+    }
+
+    public int getTicket() {
         return ticket;
     }
 
-    public void setTicket(Long ticket) {
+    public void setTicket(int ticket) {
         this.ticket = ticket;
     }
 
-    public int getVehicleType() {
+    public VehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(int vehicleType) {
+    public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
-
     
-
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (ticket != null ? ticket.hashCode() : 0);
+        hash += (entryOrder != null ? entryOrder.hashCode() : 0);
         return hash;
     }
 
@@ -112,7 +122,7 @@ public class Entries implements Serializable {
             return false;
         }
         Entries other = (Entries) object;
-        if ((this.ticket == null && other.ticket != null) || (this.ticket != null && !this.ticket.equals(other.ticket))) {
+        if ((this.entryOrder == null && other.entryOrder != null) || (this.entryOrder != null && !this.entryOrder.equals(other.ticket))) {
             return false;
         }
         return true;
@@ -120,7 +130,7 @@ public class Entries implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Entries[ id=" + ticket + " ]";
+        return "Entity.Entries[ id=" + entryOrder + " ]";
     }
     
 }
