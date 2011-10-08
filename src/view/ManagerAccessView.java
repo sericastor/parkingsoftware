@@ -35,7 +35,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
         CancelButton = new javax.swing.JButton();
         InfoLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         LogoPanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -53,7 +53,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
 
         PasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         PasswordLabel.setText("Contraseña:");
 
         AdminPassTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         AccessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Key.png"))); // NOI18N
         AccessButton.setText("Ingresar");
         AccessButton.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         CancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         CancelButton.setText("  Cancelar");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18));
         InfoLabel.setText("Ésta operación requiere permisos administrativos.");
 
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);

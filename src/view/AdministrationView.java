@@ -65,9 +65,9 @@ public class AdministrationView extends javax.swing.JFrame {
         RateAdminPanel = new javax.swing.JPanel();
         ReportAdminPanel = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("Cerrar");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
