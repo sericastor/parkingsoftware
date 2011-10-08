@@ -6,11 +6,17 @@ package Entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,13 +26,21 @@ import javax.persistence.Id;
 public class FactureTurn implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Long id;
-    @Column(name="Date",nullable=false)
+    @Column(name="ActualDate",nullable=false)
     private Date actualDate;
-    // Casi el mismo problema con Facture, de totales y subtotales Netos e independientes
-    // TODO: Una relación OneToMany con exits y atributos.
-
+    @Column(name="Subtotal",nullable=false)
+    private double subtotal;
+    @Column(name="IVA",nullable=false)
+    private double IVA;
+    @Column(name="Total",nullable=false)
+    private double total;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="id")
+    private List<Exits> exits = new ArrayList();
+    
     public FactureTurn() {
     }
     
@@ -44,6 +58,38 @@ public class FactureTurn implements Serializable {
 
     public void setActualDate(Date actualDate) {
         this.actualDate = actualDate;
+    }
+
+    public double getIVA() {
+        return IVA;
+    }
+
+    public void setIVA(double IVA) {
+        this.IVA = IVA;
+    }
+
+    public List<Exits> getExits() {
+        return exits;
+    }
+
+    public void setExits(Exits exits) {
+        this.exits.add(exits);
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
     
     @Override
