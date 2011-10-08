@@ -37,7 +37,7 @@ public class Employee implements Serializable {
     public boolean isAdministrator() {
         return administrator;
     }
-
+    
     public void setAdministrator(boolean administrator) {
         this.administrator = administrator;
     }

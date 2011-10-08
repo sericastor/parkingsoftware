@@ -200,7 +200,7 @@ public class LoginView extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         boolean ok = false;
-        ok = control.verifyUser(this.getUserName(), this.getUserPassword());
+        ok = LoginController.verifyUser(this.getUserName(), this.getUserPassword());
         if (ok) {
             this.showMessage(titleMessage, okMessage, infoIcon);
             this.setVisible(false);
