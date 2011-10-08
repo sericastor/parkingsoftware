@@ -450,11 +450,8 @@ public class MainView extends javax.swing.JFrame {
 
 private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
     int confirm=JOptionPane.showConfirmDialog(CopyMenu, "¿Esta seguro que desea salir?");
-    System.out.println("confirm?"+confirm);
     if (confirm == 0){
-        
         view.LoginView.system.Close();
-        System.out.println("genere el cerrado");
         ExitController.exit(0);
     }
 }//GEN-LAST:event_ExitButtonActionPerformed

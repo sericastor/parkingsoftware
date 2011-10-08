@@ -15,18 +15,13 @@ import java.util.List;
 public class LoginController {
 
     public LoginController() {
-        //createPersistence();
+
 
     }
-/*
-    public void createPersistence() {
-        this.persistence_factory = Persistence.createEntityManagerFactory("ParkingSoftwarePU");
 
-    }*/
 
     public boolean verifyUser(String user, String password) {
         EmployeeJpaController ctrlemployee = new EmployeeJpaController(view.LoginView.system.getPersistence_factory());
-        //EmployeeJpaController ctrlemployee = new EmployeeJpaController(persistence_factory);
         MD5Security security = new MD5Security();
         /* este codigo crea un nuevo usuario en la base de datos, 
          * desmarcarlo solo en caso que no se tengan usuarios creados con anterioridad
@@ -35,7 +30,7 @@ public class LoginController {
         employee1.setDocument("12356");
         employee1.setLastName("user");
         employee1.setName("user");
-        employee1.setPassword(security("pass"));
+        employee1.setPassword(security.MD5Security("pass"));
         employee1.setUser("user");
         ctrlemployee.create(employee1);*/
         /*generador de codigo de barras
@@ -62,12 +57,9 @@ public class LoginController {
 
         }
         return false;
-
     }
-
     public static void setVisibleLoginView(boolean isVisible) {
         loginView.setVisible(isVisible);
     }
-    //private static EntityManagerFactory persistence_factory;
     private static LoginView loginView = new LoginView();
 }

@@ -54,7 +54,7 @@ public class LogJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = log.getId();
+                long id = log.getId();
                 if (findLog(id) == null) {
                     throw new NonexistentEntityException("The log with id " + id + " no longer exists.");
                 }
@@ -67,7 +67,7 @@ public class LogJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -112,7 +112,7 @@ public class LogJpaController implements Serializable {
         }
     }
 
-    public Log findLog(Long id) {
+    public Log findLog(long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Log.class, id);
