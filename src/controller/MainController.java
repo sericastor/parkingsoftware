@@ -17,7 +17,7 @@ public class MainController {
     public MainController() {
     }
 
-    public void verifyStatus(boolean isUser) {
+    public static void verifyStatus(boolean isUser) {
         if (isUser) {
             setVisibleMainView(true);
         }
@@ -25,7 +25,6 @@ public class MainController {
 
     public static boolean verifyAdminAccess(String password) {
         for (Employee e : employeeJpaController.findEmployeeEntities(true, -1, -1)) {
-            System.out.println(md5Security.MD5Security(e.getPassword()) + " " + e.getPassword());
             if (e.getPassword().equals(md5Security.MD5Security(password)) && e.isAdministrator() == true) {
                 return true;
             }
@@ -54,9 +53,10 @@ public class MainController {
     }
     
     private static MainView mainView = new MainView();
+    public static SystemSession system=new SystemSession();
     private static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
     private static AdministrationView adminView = new AdministrationView();
-    private static EmployeeJpaController employeeJpaController = new EmployeeJpaController(view.LoginView.system.getPersistence_factory());
+    private static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
     private static MD5Security md5Security = new MD5Security();
 }

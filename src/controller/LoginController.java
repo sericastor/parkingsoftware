@@ -21,7 +21,7 @@ public class LoginController {
 
 
     public static boolean verifyUser(String user, String password) {
-        EmployeeJpaController ctrlemployee = new EmployeeJpaController(view.LoginView.system.getPersistence_factory());
+        EmployeeJpaController ctrlemployee = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
         MD5Security security = new MD5Security();
         /* este codigo crea un nuevo usuario en la base de datos, 
          * desmarcarlo solo en caso que no se tengan usuarios creados con anterioridad
@@ -50,8 +50,8 @@ public class LoginController {
             System.out.println("2. " + employee.getPassword() + " // " + security.MD5Security(password) + "\n");
 
             if (employee.getUser().equals(user) && employee.getPassword().equals(security.MD5Security(password))) {
-                view.LoginView.system.setEmployee(employee);
-                view.LoginView.system.Login();         
+                controller.MainController.system.setEmployee(employee);
+                controller.MainController.system.Login();         
                 return true;
             }
 
