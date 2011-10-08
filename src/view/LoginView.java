@@ -22,7 +22,6 @@ import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import controller.SystemSession;
 
 
 /**
@@ -204,7 +203,7 @@ public class LoginView extends javax.swing.JFrame {
         if (ok) {
             this.showMessage(titleMessage, okMessage, infoIcon);
             this.setVisible(false);
-            mcontrol.verifyStatus(ok);
+            MainController.verifyStatus(ok);
             
         } else {
             this.showMessage(titleMessage, errorMessage, errorIcon);
@@ -255,9 +254,7 @@ public class LoginView extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, message, title, messageType);
         UserTextField.requestFocus();
     }
-    public static SystemSession system=new SystemSession();
-    private LoginController control = new LoginController();
-    private MainController mcontrol = new MainController();
+    
     private final String titleMessage = "Inicio Sesión";
     private final String errorMessage = "Datos Incorrectos";
     private final String okMessage = "Bienvenido";

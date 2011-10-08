@@ -34,7 +34,7 @@ public class SystemSession {
 
     public void Login() {
         //encargado de crear una entrada de login en la tabla log
-        LogJpaController ctrllog = new LogJpaController(view.LoginView.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Login");
         System.out.println(Calendar.getInstance().getTime());
@@ -45,7 +45,7 @@ public class SystemSession {
         ctrllog.create(log);
     }
     public void Logout(){
-        LogJpaController ctrllog = new LogJpaController(view.LoginView.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Logout");
         System.out.println(Calendar.getInstance().getTime());
@@ -56,7 +56,7 @@ public class SystemSession {
         ctrllog.create(log);
     }
     public void Close(){
-        LogJpaController ctrllog = new LogJpaController(view.LoginView.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Close System");
         System.out.println(Calendar.getInstance().getTime());

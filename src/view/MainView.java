@@ -445,13 +445,13 @@ public class MainView extends javax.swing.JFrame {
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?" , "Cerrar Sesión" , JOptionPane.YES_NO_OPTION));
-        view.LoginView.system.Logout();
+        controller.MainController.system.Logout();
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
 private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
     int confirm=JOptionPane.showConfirmDialog(CopyMenu, "¿Esta seguro que desea salir?");
     if (confirm == 0){
-        view.LoginView.system.Close();
+        controller.MainController.system.Close();
         ExitController.exit(0);
     }
 }//GEN-LAST:event_ExitButtonActionPerformed
