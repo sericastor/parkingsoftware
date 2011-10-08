@@ -26,7 +26,7 @@ public class SystemSession {
     }
     
     private static EntityManagerFactory persistence_factory;
-    private static Employee employee;
+    private static Employee sesionemployee;
 
     public static EntityManagerFactory getPersistence_factory() {
         return persistence_factory;
@@ -39,9 +39,9 @@ public class SystemSession {
         log.setAction("Login");
         System.out.println(Calendar.getInstance().getTime());
         log.setDate(Calendar.getInstance().getTime());
-        log.setUser(employee.getUser());
-        log.setName(employee.getName());
-        log.setDocument(employee.getDocument());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
     }
     public void Logout(){
@@ -50,9 +50,9 @@ public class SystemSession {
         log.setAction("Logout");
         System.out.println(Calendar.getInstance().getTime());
         log.setDate(Calendar.getInstance().getTime());
-        log.setUser(employee.getUser());
-        log.setName(employee.getName());
-        log.setDocument(employee.getDocument());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
     }
     public void Close(){
@@ -61,14 +61,14 @@ public class SystemSession {
         log.setAction("Close System");
         System.out.println(Calendar.getInstance().getTime());
         log.setDate(Calendar.getInstance().getTime());
-        log.setUser(employee.getUser());
-        log.setName(employee.getName());
-        log.setDocument(employee.getDocument());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
     }
     
     public static void setEmployee(Employee employee) {
-        SystemSession.employee = employee;
+        SystemSession.sesionemployee = employee;
     }
     
 

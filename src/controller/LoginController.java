@@ -38,6 +38,17 @@ public class LoginController {
         employee1.setPassword(security("pass"));
         employee1.setUser("user");
         ctrlemployee.create(employee1);*/
+        /*generador de codigo de barras
+         *bar.Create("introduzca un string")
+         *el codigo de barras se guarda en la carpeta del proyecto
+         *como barcode.jpg
+         * nota: se debe realizar alguna clase de hashing para la placa
+         * del vehiculo debido a que el metodo de generar el codigo
+         * es un standard y puede ser falsificado un recibo con facilidad
+         */
+        
+        BarCodeMaker bar=new BarCodeMaker();
+        bar.Create("pruebacodigo 123456");
         List<Employee> listemployee = ctrlemployee.findEmployeeEntities();
         for (Employee employee : listemployee) {
             System.out.println("1. " + employee.getUser() + " // " + user + "\n");
