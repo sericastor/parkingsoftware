@@ -3,6 +3,7 @@ package controller;
 import DAO.EmployeeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
+import controller.Administration.AdministrateEmployeeController;
 import model.Parkway;
 import view.ManagerAccessView;
 import view.MainView;
@@ -51,12 +52,22 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible){
         adminView.setVisible(isVisible);
     }
+
+    public static AdministrationView getAdminView() {
+        return adminView;
+    }
+
+    public static void setAdminView(AdministrationView adminView) {
+        MainController.adminView = adminView;
+    }
+    
+    
     
     private static MainView mainView = new MainView();
     public static SystemSession system=new SystemSession();
-    private static LoginController loginController = new LoginController();
+    public static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
     private static AdministrationView adminView = new AdministrationView();
-    private static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
-    private static MD5Security md5Security = new MD5Security();
+    public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
+    public static MD5Security md5Security = new MD5Security();
 }

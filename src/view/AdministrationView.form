@@ -206,10 +206,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="DocumentTextField" max="32767" attributes="1"/>
-                                          <Component id="IdTextField" alignment="1" max="32767" attributes="1"/>
-                                          <Component id="NameTextField" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="LastNameTextField" alignment="0" min="-2" pref="123" max="-2" attributes="1"/>
+                                          <Component id="DocumentEmployeeTextField" max="32767" attributes="1"/>
+                                          <Component id="IdEmployeeTextField" alignment="1" max="32767" attributes="1"/>
+                                          <Component id="NameEmployeeTextField" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="LastNameEmployeeTextField" alignment="0" min="-2" pref="123" max="-2" attributes="1"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -220,11 +220,19 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="isAdminCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="ConsultEmployeeTextField" min="-2" pref="256" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="SearchButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
@@ -233,14 +241,20 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="SearchButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="3" pref="3" max="3" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="IdTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="IdEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="CreateEmployeeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -248,22 +262,22 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="NameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="NameEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="LastNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LastNameEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="DocumentTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DocumentEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="DeleteEmployeeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="isAdminCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -273,7 +287,7 @@
                           </Group>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="78" max="32767" attributes="0"/>
+                      <EmptySpace pref="75" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -289,15 +303,12 @@
                 <Component class="javax.swing.JList" name="EmployeeList">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="EmployeeListValueChanged"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -306,18 +317,21 @@
                 <Property name="text" type="java.lang.String" value="Lista de Empleados:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="IdTextField">
+            <Component class="javax.swing.JTextField" name="IdEmployeeTextField">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ID:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="NameTextField">
+            <Component class="javax.swing.JTextField" name="NameEmployeeTextField">
             </Component>
-            <Component class="javax.swing.JTextField" name="LastNameTextField">
+            <Component class="javax.swing.JTextField" name="LastNameEmployeeTextField">
             </Component>
-            <Component class="javax.swing.JTextField" name="DocumentTextField">
+            <Component class="javax.swing.JTextField" name="DocumentEmployeeTextField">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -334,7 +348,7 @@
                 <Property name="text" type="java.lang.String" value="Documento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="isAdminCheckBox">
+            <Component class="javax.swing.JCheckBox" name="isAdminEmployeeCheckBox">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Administrador"/>
               </Properties>
@@ -353,6 +367,21 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar Operario"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultEmployeeTextField">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="SearchButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

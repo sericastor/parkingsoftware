@@ -148,7 +148,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminPassTextFieldActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-        this.setVisible(false);
+        MainController.setVisibleAdminAccessView(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void AccessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessButtonActionPerformed
