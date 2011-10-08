@@ -93,13 +93,13 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        PlateTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
 
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,27 +119,27 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SearchButton)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         DataEntryPanelLayout.setVerticalGroup(
             DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataEntryPanelLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(PlateLabel)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(DataEntryPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SearchButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
         ExitButton.setToolTipText("Pulse aquí para salir.");
@@ -149,7 +149,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
         LogoutButton.setText("Cerrar Sesión");
         LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
@@ -164,7 +164,7 @@ public class MainView extends javax.swing.JFrame {
         OptionsPanelLayout.setHorizontalGroup(
             OptionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsPanelLayout.createSequentialGroup()
-                .addContainerGap(681, Short.MAX_VALUE)
+                .addContainerGap(711, Short.MAX_VALUE)
                 .addComponent(LogoutButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,7 +180,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         CloseBoxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Box.png"))); // NOI18N
         CloseBoxButton.setText("Cerrar Turno");
         CloseBoxButton.setToolTipText("Pulse aquí para cerrar su turno.");
@@ -211,7 +211,7 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ParkingPanelLayout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
                 .addComponent(AdministerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CloseBoxButton, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,7 +267,7 @@ public class MainView extends javax.swing.JFrame {
         MainTablePanelLayout.setHorizontalGroup(
             MainTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainTablePanelLayout.createSequentialGroup()
-                .addComponent(MainTableToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
+                .addComponent(MainTableToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         MainTablePanelLayout.setVerticalGroup(
@@ -283,7 +283,7 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.setLayout(AoQPanelLayout);
         AoQPanelLayout.setHorizontalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 658, Short.MAX_VALUE)
+            .addGap(0, 673, Short.MAX_VALUE)
         );
         AoQPanelLayout.setVerticalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +297,7 @@ public class MainView extends javax.swing.JFrame {
         ClockPanelLayout.setHorizontalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClockPanelLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -396,6 +396,11 @@ public class MainView extends javax.swing.JFrame {
         HelpMenu.add(HelpSeparator1);
 
         AboutEParkingMenu.setText("Acerca de e-Parking");
+        AboutEParkingMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutEParkingMenuActionPerformed(evt);
+            }
+        });
         HelpMenu.add(AboutEParkingMenu);
 
         MenuBar.add(HelpMenu);
@@ -497,6 +502,10 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ViewHelpMenuActionPerformed
+
+    private void AboutEParkingMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutEParkingMenuActionPerformed
+        MainController.setVisibleAboutParkQuickView(true);
+    }//GEN-LAST:event_AboutEParkingMenuActionPerformed
 
     public void start(){
         Thread thread = new Thread();

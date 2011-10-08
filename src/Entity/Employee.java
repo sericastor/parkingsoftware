@@ -21,7 +21,7 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-@Column(name="LastName",nullable=false,length=25)
+    @Column(name="LastName",nullable=false,length=25)
     private String lastName;
     @Column(name="Name",nullable=false,length=25)
     private String name; 
@@ -33,7 +33,7 @@ public class Employee implements Serializable {
     private String password;
     @Column(name="Rol",nullable=false)
     private boolean administrator;
-
+   
     public boolean isAdministrator() {
         return administrator;
     }
