@@ -11,6 +11,7 @@
 package view;
 
 
+import controller.ExitController;
 import controller.LoginController;
 import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
@@ -58,19 +59,24 @@ public class LoginView extends javax.swing.JFrame {
         PasswordLabel = new javax.swing.JLabel();
         LoginButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ChiquiParking Iniciar Sesión");
         setBackground(new java.awt.Color(0, 0, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         IntroPanel.setBackground(new java.awt.Color(0, 0, 0));
 
         HelpPanel.setBackground(new java.awt.Color(255, 255, 255));
         HelpPanel.setForeground(new java.awt.Color(153, 153, 255));
 
-        NeedHelpLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
+        NeedHelpLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         NeedHelpLabel.setText("¿Necesita ayuda con el Sistema? ");
 
-        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
         ManualButton.setToolTipText("Pulse aquí para obtener ayuda.");
@@ -84,7 +90,7 @@ public class LoginView extends javax.swing.JFrame {
 
         UserTextField.setToolTipText("Ingrese su nombre.");
 
-        NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
+        NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         NameLabel.setText("Nombre de Usuario:");
 
         PasswordField.setToolTipText("Ingrese su contraseña.");
@@ -94,10 +100,10 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
 
-        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PasswordLabel.setText("Contraseña:");
 
-        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lock.png"))); // NOI18N
         LoginButton.setText("Iniciar Sesión");
         LoginButton.setToolTipText("Pulse aquí para comprobar sus datos.");
@@ -120,7 +126,7 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(UserTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
                 .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(LoginButton)
@@ -139,7 +145,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(PasswordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LoginButton)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout HelpPanelLayout = new javax.swing.GroupLayout(HelpPanel);
@@ -235,6 +241,14 @@ public class LoginView extends javax.swing.JFrame {
             LoginButtonActionPerformed(null);
         }
     }//GEN-LAST:event_PasswordFieldKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // Puede considerarse clon de MainView .askToExit(); si algo me cuentan
+        int confirm=JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?");
+        if (confirm == JOptionPane.OK_OPTION){
+            ExitController.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     private void centerForm() {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();

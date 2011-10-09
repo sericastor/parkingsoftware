@@ -50,7 +50,7 @@ public class MainView extends javax.swing.JFrame {
         ParkingPanel = new javax.swing.JPanel();
         CloseBoxButton = new javax.swing.JButton();
         AdministerButton = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        ParkQuickLabel = new javax.swing.JLabel();
         MainTablePanel = new javax.swing.JPanel();
         MainTableToolbar = new javax.swing.JToolBar();
         EntriesTableButton = new javax.swing.JButton();
@@ -89,8 +89,13 @@ public class MainView extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ChiquiParking");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -140,7 +145,7 @@ public class MainView extends javax.swing.JFrame {
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
         ExitButton.setToolTipText("Pulse aquí para salir.");
@@ -150,7 +155,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
         LogoutButton.setText("Cerrar Sesión");
         LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
@@ -201,9 +206,9 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48));
-        jLabel6.setForeground(new java.awt.Color(51, 102, 0));
-        jLabel6.setText("e-Parking");
+        ParkQuickLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        ParkQuickLabel.setForeground(new java.awt.Color(51, 102, 0));
+        ParkQuickLabel.setText("ParkQuick");
 
         javax.swing.GroupLayout ParkingPanelLayout = new javax.swing.GroupLayout(ParkingPanel);
         ParkingPanel.setLayout(ParkingPanelLayout);
@@ -211,7 +216,7 @@ public class MainView extends javax.swing.JFrame {
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ParkingPanelLayout.createSequentialGroup()
                 .addGap(161, 161, 161)
-                .addComponent(jLabel6)
+                .addComponent(ParkQuickLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
                 .addComponent(AdministerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,7 +230,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CloseBoxButton)
                     .addComponent(AdministerButton)
-                    .addComponent(jLabel6))
+                    .addComponent(ParkQuickLabel))
                 .addContainerGap())
         );
 
@@ -463,11 +468,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
 private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-    int confirm=JOptionPane.showConfirmDialog(CopyMenu, "¿Esta seguro que desea salir?");
-    if (confirm == 0){
-        controller.MainController.system.Close();
-        ExitController.exit(0);
-    }
+    this.askToExit();
 }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void AdministerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministerButtonActionPerformed
@@ -516,6 +517,10 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         MainController.setVisibleAboutParkQuickView(true);
     }//GEN-LAST:event_AboutEParkingMenuActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.askToExit();
+    }//GEN-LAST:event_formWindowClosing
+
     public void start(){
         Thread thread = new Thread();
         thread.start();
@@ -536,6 +541,14 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     public void updateFrame(String date){
         this.ClockLabel.setText(date);
         this.repaint();
+    }
+    
+    public void askToExit(){
+        int confirm=JOptionPane.showConfirmDialog(CopyMenu, "¿Esta seguro que desea salir?");
+        if (confirm == 0){
+            controller.MainController.system.Close();
+            ExitController.exit(0);
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -571,6 +584,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JToolBar MainTableToolbar;
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JPanel OptionsPanel;
+    private javax.swing.JLabel ParkQuickLabel;
     private javax.swing.JPanel ParkingPanel;
     private javax.swing.JMenuItem PasteMenu;
     private javax.swing.JLabel PlateLabel;
@@ -580,7 +594,6 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem UndoMenu;
     private javax.swing.JMenuItem ViewHelpMenu;
     private javax.swing.JMenu ViewMenu;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
