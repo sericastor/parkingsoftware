@@ -261,7 +261,9 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     public String getUserPassword() {
-        return String.valueOf(PasswordField.getPassword());
+       
+       return controller.MainController.md5Security.
+               MD5Security(String.valueOf(PasswordField.getPassword()));
     }
 
     public void showMessage(String title, String message, int messageType) {
