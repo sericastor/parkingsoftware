@@ -9,7 +9,6 @@ import Entity.Employee;
 import Entity.Entries;
 import Entity.Facture;
 import javax.swing.JPanel;
-import model.Parkway;
 import sun.util.calendar.CalendarDate;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
@@ -51,7 +50,7 @@ public class MainController {
         if (p.equals("")) { return; }
         else{
             //entriesJpaController.getEntriesByPlate(p);
-            System.out.println(employeeJpaController.getEmployeeByUser("martin"));
+            System.out.println(employeeJpaController.findEmployeeByUser("martin"));
             /*for (Entries e : entriesJpaController.findEntriesEntities()) {
                 if (e.getPlate().equals(p)) {
                     mainView.setAddOrQuitPanel(quitPanel);

@@ -7,8 +7,6 @@ package eParking;
 import controller.Administration.AdministrateEmployeeController;
 import controller.Administration.AdministrationController;
 import controller.MainController;
-import model.Employee;
-import model.Parkway;
 import view.LoginView;
 
 /**
@@ -18,7 +16,7 @@ import view.LoginView;
 public class eParking{ 
     public static void main(String args[]){        
         new MainController();
-        new Parkway();
+       // new Parkway();
         new AdministrationController();
         MainController.startClock();
     }
