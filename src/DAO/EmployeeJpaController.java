@@ -32,7 +32,23 @@ public class EmployeeJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+    public Employee getEmployeeByUser(String user) {
+        EntityManager em = getEntityManager();
+        Employee employee = null;
+        Query q = em.createQuery("SELECT u FROM Employee u "
+                + "where u.user LIKE :user")
+                .setParameter("user", user);
+        try{
+            employee = (Employee) q.getSingleResult();
+        }catch(Exception ex){
+            //TODO: fuck yeah!! xD, mirar Hechepchion :) 
+            System.out.println("Aja ve y tu que, no tengo datos");
+        }finally{
+            em.close();
+            return employee;
+        }
 
+    }
     public void create(Employee employee) {
         EntityManager em = null;
         try {

@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -190,7 +191,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        AdministerButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AdministerButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         AdministerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tools.png"))); // NOI18N
         AdministerButton.setText("Administración");
         AdministerButton.setToolTipText("Pulse aquí para configurar el sistema (Sólo administrador)");
@@ -445,9 +446,17 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        // TODO add your handling code here:
+        MainController.verifyCarInParkway(PlateTextField.getText().toString());
     }//GEN-LAST:event_SearchButtonActionPerformed
-
+    public void setAddOrQuitPanel(JPanel panel){
+        //panel.setBounds(AoQPanel.getBounds());
+        //panel.setLocation(AoQPanel.getLocation());
+        AoQPanel.removeAll();
+        AoQPanel.setVisible(false);
+        AoQPanel.add(panel);
+        AoQPanel.setVisible(true);
+        AoQPanel.repaint();
+    }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?" , "Cerrar Sesión" , JOptionPane.YES_NO_OPTION));
         controller.MainController.system.Logout();

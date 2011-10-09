@@ -44,13 +44,13 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         FactureButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Clock.png"))); // NOI18N
         FactureButton.setText("Facturar");
 
-        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36));
         jLabel1.setText("Costo:");
 
         jLabel2.setText("Placa:");
@@ -116,7 +116,7 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
                             .addComponent(jLabel6))))
                 .addGap(32, 32, 32)
                 .addComponent(FactureButton)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
