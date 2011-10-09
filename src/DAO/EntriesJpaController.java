@@ -88,6 +88,24 @@ public class EntriesJpaController implements Serializable {
         }
     }
 
+    public Entries getEntriesByPlate(String plate) {
+        EntityManager em = getEntityManager();
+        Entries entries = null;
+        Query q = em.createQuery("SELECT u FROM Entries u "
+                + "where u.plate LIKE :plate")
+                .setParameter("plate", plate);
+        try{
+            entries = (Entries) q.getSingleResult();
+        }catch(Exception ex){
+            //TODO: fuck yeah!! xD, mirar Hechepchion :) 
+            System.out.println("Aja ve y tu que, no tengo datos");
+        }finally{
+            em.close();
+            return entries;
+        }
+
+    }
+
     public List<Entries> findEntriesEntities() {
         return findEntriesEntities(true, -1, -1);
     }
@@ -133,5 +151,4 @@ public class EntriesJpaController implements Serializable {
             em.close();
         }
     }
-    
 }
