@@ -121,31 +121,31 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(DataEntryPanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(PlateLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SearchButton)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         DataEntryPanelLayout.setVerticalGroup(
             DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DataEntryPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(PlateLabel)
-                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(DataEntryPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SearchButton)
                 .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(PlateLabel)
+                .addGap(35, 35, 35))
         );
 
         OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
         ExitButton.setToolTipText("Pulse aquí para salir.");
@@ -155,7 +155,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
         LogoutButton.setText("Cerrar Sesión");
         LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
@@ -170,7 +170,7 @@ public class MainView extends javax.swing.JFrame {
         OptionsPanelLayout.setHorizontalGroup(
             OptionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsPanelLayout.createSequentialGroup()
-                .addContainerGap(711, Short.MAX_VALUE)
+                .addContainerGap(776, Short.MAX_VALUE)
                 .addComponent(LogoutButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,6 +185,9 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(LogoutButton))
                 .addContainerGap())
         );
+
+        ParkingPanel.setBackground(new java.awt.Color(254, 254, 254));
+        ParkingPanel.setForeground(new java.awt.Color(1, 1, 1));
 
         CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         CloseBoxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Box.png"))); // NOI18N
@@ -206,7 +209,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        ParkQuickLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        ParkQuickLabel.setFont(new java.awt.Font("Tahoma", 0, 48));
         ParkQuickLabel.setForeground(new java.awt.Color(51, 102, 0));
         ParkQuickLabel.setText("ParkQuick");
 
@@ -215,7 +218,7 @@ public class MainView extends javax.swing.JFrame {
         ParkingPanelLayout.setHorizontalGroup(
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ParkingPanelLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
+                .addGap(184, 184, 184)
                 .addComponent(ParkQuickLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
                 .addComponent(AdministerButton)
@@ -236,33 +239,39 @@ public class MainView extends javax.swing.JFrame {
 
         MainTablePanel.setBackground(new java.awt.Color(153, 153, 255));
 
+        MainTableToolbar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         MainTableToolbar.setRollover(true);
 
         EntriesTableButton.setText("Entradas");
+        EntriesTableButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         EntriesTableButton.setFocusable(false);
         EntriesTableButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         EntriesTableButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         MainTableToolbar.add(EntriesTableButton);
 
         ExitsTableButton.setText("Salidas");
+        ExitsTableButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ExitsTableButton.setFocusable(false);
         ExitsTableButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ExitsTableButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         MainTableToolbar.add(ExitsTableButton);
 
         BillsTableButton.setText("Facturas");
+        BillsTableButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BillsTableButton.setFocusable(false);
         BillsTableButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BillsTableButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         MainTableToolbar.add(BillsTableButton);
 
         BillsTurnTableButton.setText("Facturas Turno");
+        BillsTurnTableButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BillsTurnTableButton.setFocusable(false);
         BillsTurnTableButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BillsTurnTableButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         MainTableToolbar.add(BillsTurnTableButton);
 
         TypeVehicleTableButton.setText("Tipo de Vehículos");
+        TypeVehicleTableButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TypeVehicleTableButton.setFocusable(false);
         TypeVehicleTableButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         TypeVehicleTableButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -272,9 +281,7 @@ public class MainView extends javax.swing.JFrame {
         MainTablePanel.setLayout(MainTablePanelLayout);
         MainTablePanelLayout.setHorizontalGroup(
             MainTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainTablePanelLayout.createSequentialGroup()
-                .addComponent(MainTableToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+            .addComponent(MainTableToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 1148, Short.MAX_VALUE)
         );
         MainTablePanelLayout.setVerticalGroup(
             MainTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,28 +290,30 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
-        AoQPanel.setBackground(new java.awt.Color(204, 204, 204));
+        AoQPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         javax.swing.GroupLayout AoQPanelLayout = new javax.swing.GroupLayout(AoQPanel);
         AoQPanel.setLayout(AoQPanelLayout);
         AoQPanelLayout.setHorizontalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 673, Short.MAX_VALUE)
+            .addGap(0, 738, Short.MAX_VALUE)
         );
         AoQPanelLayout.setVerticalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 305, Short.MAX_VALUE)
         );
 
-        ClockLabel.setFont(new java.awt.Font("Tahoma", 0, 24));
+        ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
+
+        ClockLabel.setFont(new java.awt.Font("URW Palladio L", 2, 24)); // NOI18N
 
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);
         ClockPanelLayout.setHorizontalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClockPanelLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
         ClockPanelLayout.setVerticalGroup(
@@ -419,16 +428,13 @@ public class MainView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ParkingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(OptionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(MainTablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(MainTablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
