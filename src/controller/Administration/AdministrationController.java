@@ -20,4 +20,7 @@ public class AdministrationController {
     public static void initializeAdminEmployee(){
         MainController.getAdminView().getEmployeeList().setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
     }
+    public static void initializeAdminPlate(){
+        MainController.getAdminView().getPlatesTable().setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+    }
 }

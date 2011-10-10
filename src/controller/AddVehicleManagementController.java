@@ -49,6 +49,10 @@ public class AddVehicleManagementController {
 
     }
      */
+
+     
+    
+    
     public static boolean validatePlate(String plate, int vehicleType) {
         //Type 1: cars
         //Type 2: motorcycles

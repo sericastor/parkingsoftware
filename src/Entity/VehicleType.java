@@ -17,16 +17,24 @@ import javax.persistence.Id;
  */
 @Entity
 public class VehicleType implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private static final long serialVersionUID = 1L;
+     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long number;
+   @Column(name="codification",nullable=false)
+    private String codification;
+    
     @Column(name="Name",nullable=false,length=15)
     private String name;
 
-    public VehicleType() {
+    public String getCodification() {
+        return codification;
     }
-    
+
+    public void setCodification(String codification) {
+        this.codification = codification;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,19 +42,21 @@ public class VehicleType implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public Long getId() {
-        return id;
+
+    public long getNumber() {
+        return number;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNumber(long number) {
+        this.number = number;
     }
+
+    
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) number;
         return hash;
     }
 
@@ -57,7 +67,7 @@ public class VehicleType implements Serializable {
             return false;
         }
         VehicleType other = (VehicleType) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.number != other.number) {
             return false;
         }
         return true;
@@ -65,7 +75,7 @@ public class VehicleType implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.VehicleType[ id=" + id + " ]";
+        return "Entity.VehicleType[ id=" + number + " ]";
     }
     
 }

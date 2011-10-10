@@ -1,15 +1,11 @@
 package controller;
 
-import DAO.BandsRateJpaController;
+
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
-import Entity.BandsRate;
+import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
-import Entity.Entries;
-import Entity.Facture;
-import javax.swing.JPanel;
-import sun.util.calendar.CalendarDate;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
 import view.ManagerAccessView;
@@ -94,6 +90,7 @@ public class MainController {
     public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
     public static MD5Security md5Security = new MD5Security();
     public static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
+    public static VehicleTypeJpaController vehicleTypeJpaController=new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
     public static AddVehicleManagementController addVehicleManagementController = new AddVehicleManagementController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();

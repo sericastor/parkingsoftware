@@ -37,7 +37,6 @@ public class SystemSession {
         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Login");
-        System.out.println(Calendar.getInstance().getTime());
         log.setDate(Calendar.getInstance().getTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
@@ -48,7 +47,6 @@ public class SystemSession {
         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Logout");
-        System.out.println(Calendar.getInstance().getTime());
         log.setDate(Calendar.getInstance().getTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
@@ -59,12 +57,23 @@ public class SystemSession {
         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Close System");
-        System.out.println(Calendar.getInstance().getTime());
         log.setDate(Calendar.getInstance().getTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
+    }
+    public void AddPlate(String typeplate){
+        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        Log log = new Log();
+        log.setAction("AddPlate: "+typeplate);
+        log.setDate(Calendar.getInstance().getTime());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
+        ctrllog.create(log);
+        
+    
     }
     
     public static void setEmployee(Employee employee) {

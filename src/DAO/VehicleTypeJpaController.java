@@ -5,7 +5,6 @@
 package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
-import DAO.exceptions.PreexistingEntityException;
 import Entity.VehicleType;
 import java.io.Serializable;
 import java.util.List;
@@ -31,20 +30,34 @@ public class VehicleTypeJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(VehicleType vehicleType) throws PreexistingEntityException, Exception {
+    public boolean matchPlateType(String codification) {
+        EntityManager em = getEntityManager();
+        VehicleType vehi = null;
+        Query q = em.createQuery("SELECT u FROM VehicleType u "
+                + "where u.codification LIKE :codification").setParameter("user", codification);
+        try {
+            vehi = (VehicleType) q.getSingleResult();
+            return true;
+
+        } catch (Exception ex) {
+
+            System.out.println("Aja ve y tu que, no tengo datos");
+            return false;
+        } finally {
+            em.close();
+
+        }
+
+
+    }
+
+    public void create(VehicleType vehicleType) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            System.out.println("voy bien!!!");
             em.persist(vehicleType);
-            
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findVehicleType(vehicleType.getId()) != null) {
-                throw new PreexistingEntityException("VehicleType " + vehicleType + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -62,7 +75,7 @@ public class VehicleTypeJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = vehicleType.getId();
+                Long id = vehicleType.getNumber();
                 if (findVehicleType(id) == null) {
                     throw new NonexistentEntityException("The vehicleType with id " + id + " no longer exists.");
                 }
@@ -83,7 +96,7 @@ public class VehicleTypeJpaController implements Serializable {
             VehicleType vehicleType;
             try {
                 vehicleType = em.getReference(VehicleType.class, id);
-                vehicleType.getId();
+                vehicleType.getNumber();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The vehicleType with id " + id + " no longer exists.", enfe);
             }
@@ -141,5 +154,4 @@ public class VehicleTypeJpaController implements Serializable {
             em.close();
         }
     }
-    
 }
