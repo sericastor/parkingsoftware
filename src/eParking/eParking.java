@@ -21,10 +21,10 @@ public class eParking{
     public static void main(String args[]) throws ClassNotFoundException{   
         try {
             //inserta la piel segun el sistema operativo
-            UIManager.setLookAndFeel(
-            UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel(
+            //UIManager.getSystemLookAndFeelClassName());
             //inserta la piel de la libreria agregada "jtatoo" que contiene varios skins
-             //UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
+             UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
         } catch (InstantiationException ex) {
             Logger.getLogger(eParking.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
