@@ -73,7 +73,6 @@ public class SystemSession {
         log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
         
-    
     }
     
     public static void setEmployee(Employee employee) {

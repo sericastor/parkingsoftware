@@ -34,7 +34,7 @@ public class AdministrationView extends javax.swing.JFrame {
     /** Creates new form AdministrationView */
     public AdministrationView() {
         initComponents();
-       
+
     }
 
     public JList getEmployeeList() {
@@ -64,6 +64,9 @@ public class AdministrationView extends javax.swing.JFrame {
 
         jLabel12 = new javax.swing.JLabel();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
         AdminTabbedPanel = new javax.swing.JTabbedPane();
         ParkwayAdminPanel = new javax.swing.JPanel();
@@ -107,8 +110,34 @@ public class AdministrationView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         PlatesTable = new javax.swing.JTable();
         ReportAdminPanel = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jSpinner3 = new javax.swing.JSpinner();
+        jSpinner6 = new javax.swing.JSpinner();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        GenerateReportButton = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable2);
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -158,7 +187,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(NameParkwayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameParkwayTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameParkwayTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         ParkwayAdminPanelLayout.setVerticalGroup(
             ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +295,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SearchButton)
                         .addGap(248, 248, 248)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         EmployeeAdminPanelLayout.setVerticalGroup(
             EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,7 +347,7 @@ public class AdministrationView extends javax.swing.JFrame {
         RateAdminPanel.setLayout(RateAdminPanelLayout);
         RateAdminPanelLayout.setHorizontalGroup(
             RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 692, Short.MAX_VALUE)
+            .addGap(0, 710, Short.MAX_VALUE)
         );
         RateAdminPanelLayout.setVerticalGroup(
             RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,7 +360,7 @@ public class AdministrationView extends javax.swing.JFrame {
 
         jLabel13.setText("Ejemplo de placa:");
 
-        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24));
         PlateExampleTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PlateExampleTextFieldKeyPressed(evt);
@@ -348,6 +377,11 @@ public class AdministrationView extends javax.swing.JFrame {
         savePlateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 savePlateButtonActionPerformed(evt);
+            }
+        });
+        savePlateButton.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                savePlateButtonFocusGained(evt);
             }
         });
 
@@ -390,7 +424,7 @@ public class AdministrationView extends javax.swing.JFrame {
         PlateAdminLayout.setHorizontalGroup(
             PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PlateAdminLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(77, 77, 77)
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PlateAdminLayout.createSequentialGroup()
@@ -437,15 +471,98 @@ public class AdministrationView extends javax.swing.JFrame {
 
         ReportAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel15.setText("Tipo de Reporte:");
+
+        jLabel16.setText("Fecha de Inicio de reporte:");
+
+        jLabel17.setText("Fecha de Terminacion de reporte:");
+
+        jSpinner3.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
+
+        jSpinner6.setModel(new javax.swing.SpinnerDateModel());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable3);
+
+        GenerateReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stationery.png"))); // NOI18N
+        GenerateReportButton.setText("Generar");
+        GenerateReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerateReportButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ReportAdminPanelLayout = new javax.swing.GroupLayout(ReportAdminPanel);
         ReportAdminPanel.setLayout(ReportAdminPanelLayout);
         ReportAdminPanelLayout.setHorizontalGroup(
             ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 692, Short.MAX_VALUE)
+            .addGroup(ReportAdminPanelLayout.createSequentialGroup()
+                .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ReportAdminPanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSpinner3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 203, Short.MAX_VALUE))
+                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addComponent(GenerateReportButton))
+                    .addGroup(ReportAdminPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         ReportAdminPanelLayout.setVerticalGroup(
             ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGroup(ReportAdminPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ReportAdminPanelLayout.createSequentialGroup()
+                        .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17)))
+                    .addComponent(GenerateReportButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         AdminTabbedPanel.addTab("Reportes", ReportAdminPanel);
@@ -456,9 +573,9 @@ public class AdministrationView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
+                    .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(558, Short.MAX_VALUE)
+                        .addContainerGap(576, Short.MAX_VALUE)
                         .addComponent(ExitButton)))
                 .addContainerGap())
         );
@@ -503,30 +620,36 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
 }//GEN-LAST:event_EmployeeListValueChanged
 
 private void savePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePlateButtonActionPerformed
-    int confirm = JOptionPane.showConfirmDialog(rootPane, "Esta seguro crear un nuevo tipo de placa? ("
-            + IdentifierPlateTextField.getText() + " )");
-    if (confirm == 0) {
-        String state = AdministrateVehicleTypeController.SavePlate(IdentifierPlateTextField.getText(), PlateExampleTextField.getText());
-        if (state == "Failure") {
-            JOptionPane.showMessageDialog(rootPane, "Solo se permiten valores alfa-numericos en la placa", "Error", JOptionPane.WARNING_MESSAGE);
-            PlateExampleTextField.setText("");
-            PlateExampleTextField.requestFocus();
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Se ha creado exitosamente el tipo de placa " + IdentifierPlateTextField.getText(), 
-                    "Se ha creado un nuevo tipo de placa", JOptionPane.INFORMATION_MESSAGE);
-            PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
-            PlatesTable.updateUI();
-            
+    if (IdentifierPlateTextField.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(rootPane, "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo",
+                "Error", JOptionPane.WARNING_MESSAGE);
+        IdentifierPlateTextField.requestFocus();
+    } else if (PlateExampleTextField.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(rootPane, "Ejemplo de placa vacio, por favor ingrese un ejemplo de la placa",
+                "Error", JOptionPane.WARNING_MESSAGE);
+        PlateExampleTextField.requestFocus();
+    } else {
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Esta seguro crear un nuevo tipo de placa? ("
+                + IdentifierPlateTextField.getText() + " )");
+        if (confirm == 0) {
+            String state = AdministrateVehicleTypeController.SavePlate(IdentifierPlateTextField.getText(), PlateExampleTextField.getText());
+            if (state == "Failure") {
+                JOptionPane.showMessageDialog(rootPane, "Solo se permiten valores alfa-numericos en la placa",
+                        "Error", JOptionPane.WARNING_MESSAGE);
+                PlateExampleTextField.setText("");
+                PlateExampleTextField.requestFocus();
+            } 
+            else {
+                JOptionPane.showMessageDialog(rootPane, "Se ha creado exitosamente el tipo de placa " + IdentifierPlateTextField.getText(),
+                        "Se ha creado un nuevo tipo de placa", JOptionPane.INFORMATION_MESSAGE);
+                PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+                PlatesTable.updateUI();
 
+
+            }
         }
+
     }
-
-
-
-
-
-
-
 }//GEN-LAST:event_savePlateButtonActionPerformed
 
 private void IdentifierPlateTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdentifierPlateTextFieldFocusGained
@@ -535,14 +658,29 @@ private void IdentifierPlateTextFieldFocusGained(java.awt.event.FocusEvent evt) 
 }//GEN-LAST:event_IdentifierPlateTextFieldFocusGained
 
 private void PlateExampleTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateExampleTextFieldKeyPressed
-PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
+    PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
 
 }//GEN-LAST:event_PlateExampleTextFieldKeyPressed
 
 private void PlateExampleTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateExampleTextFieldKeyReleased
-PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
+    PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
 
 }//GEN-LAST:event_PlateExampleTextFieldKeyReleased
+
+private void savePlateButtonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_savePlateButtonFocusGained
+    PlateExampleTextField.requestFocus();
+}//GEN-LAST:event_savePlateButtonFocusGained
+
+private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateReportButtonActionPerformed
+    int confirm = JOptionPane.showConfirmDialog(rootPane, "¿Desea guardar este reporte en el sistema?");
+        if (confirm == 0) {
+            //codigo para guardar el reporte en el sistema
+            } 
+            else {
+                //codigo solo para generar reporte
+
+            }
+}//GEN-LAST:event_GenerateReportButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane AdminTabbedPanel;
@@ -553,6 +691,7 @@ PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
     private javax.swing.JPanel EmployeeAdminPanel;
     private javax.swing.JList EmployeeList;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JButton GenerateReportButton;
     private javax.swing.JTextField IdEmployeeTextField;
     private javax.swing.JTextField IdentifierPlateTextField;
     private javax.swing.JTextField LastNameEmployeeTextField;
@@ -572,12 +711,17 @@ PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
     private javax.swing.JButton UpdateEmployeeButton;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -589,6 +733,14 @@ PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner6;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JButton savePlateButton;
     // End of variables declaration//GEN-END:variables
 }
