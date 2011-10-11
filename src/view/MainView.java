@@ -54,12 +54,12 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel = new javax.swing.JPanel();
         ClockPanel = new javax.swing.JPanel();
         ClockLabel = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        StateTabbed = new javax.swing.JTabbedPane();
+        EntryPanel = new javax.swing.JPanel();
+        ExitPanel = new javax.swing.JPanel();
+        FacturePanel = new javax.swing.JPanel();
+        FactureTurnPanel = new javax.swing.JPanel();
+        VehicleTypePanel = new javax.swing.JPanel();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         AdministerMenu = new javax.swing.JMenuItem();
@@ -98,7 +98,7 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
+        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36));
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -277,80 +277,80 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        EntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout EntryPanelLayout = new javax.swing.GroupLayout(EntryPanel);
+        EntryPanel.setLayout(EntryPanelLayout);
+        EntryPanelLayout.setHorizontalGroup(
+            EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        EntryPanelLayout.setVerticalGroup(
+            EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 148, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Entradas", jPanel1);
+        StateTabbed.addTab("Entradas", EntryPanel);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        ExitPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ExitPanelLayout = new javax.swing.GroupLayout(ExitPanel);
+        ExitPanel.setLayout(ExitPanelLayout);
+        ExitPanelLayout.setHorizontalGroup(
+            ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ExitPanelLayout.setVerticalGroup(
+            ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 148, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Salidas", jPanel2);
+        StateTabbed.addTab("Salidas", ExitPanel);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        FacturePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout FacturePanelLayout = new javax.swing.GroupLayout(FacturePanel);
+        FacturePanel.setLayout(FacturePanelLayout);
+        FacturePanelLayout.setHorizontalGroup(
+            FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        FacturePanelLayout.setVerticalGroup(
+            FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 148, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Facturas", jPanel3);
+        StateTabbed.addTab("Facturas", FacturePanel);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        FactureTurnPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout FactureTurnPanelLayout = new javax.swing.GroupLayout(FactureTurnPanel);
+        FactureTurnPanel.setLayout(FactureTurnPanelLayout);
+        FactureTurnPanelLayout.setHorizontalGroup(
+            FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        FactureTurnPanelLayout.setVerticalGroup(
+            FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 148, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Facturas Turno", jPanel4);
+        StateTabbed.addTab("Facturas Turno", FactureTurnPanel);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        VehicleTypePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout VehicleTypePanelLayout = new javax.swing.GroupLayout(VehicleTypePanel);
+        VehicleTypePanel.setLayout(VehicleTypePanelLayout);
+        VehicleTypePanelLayout.setHorizontalGroup(
+            VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        VehicleTypePanelLayout.setVerticalGroup(
+            VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 148, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Tipo de Vehículos", jPanel5);
+        StateTabbed.addTab("Tipo de Vehículos", VehicleTypePanel);
 
         FileMenu.setText("Archivo");
 
@@ -462,7 +462,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE)
+            .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -476,7 +476,7 @@ public class MainView extends javax.swing.JFrame {
                         .addComponent(ClockPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(AoQPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StateTabbed, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(OptionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -608,8 +608,12 @@ PlateTextField.setText(PlateTextField.getText().toUpperCase());
     private javax.swing.JMenuItem DeleteMenu;
     private javax.swing.JMenu EditMenu;
     private javax.swing.JPopupMenu.Separator EditSeparator1;
+    private javax.swing.JPanel EntryPanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JMenuItem ExitMenu;
+    private javax.swing.JPanel ExitPanel;
+    private javax.swing.JPanel FacturePanel;
+    private javax.swing.JPanel FactureTurnPanel;
     private javax.swing.JMenu FileMenu;
     private javax.swing.JPopupMenu.Separator FileSeparator1;
     private javax.swing.JPopupMenu.Separator FileSeparator2;
@@ -626,17 +630,13 @@ PlateTextField.setText(PlateTextField.getText().toUpperCase());
     private javax.swing.JLabel PlateLabel;
     private javax.swing.JTextField PlateTextField;
     private javax.swing.JButton SearchButton;
+    private javax.swing.JTabbedPane StateTabbed;
     private javax.swing.JMenuItem UndoMenu;
+    private javax.swing.JPanel VehicleTypePanel;
     private javax.swing.JMenuItem ViewHelpMenu;
     private javax.swing.JMenu ViewMenu;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
