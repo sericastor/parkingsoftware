@@ -32,8 +32,8 @@ public class AddVehiclePanel extends javax.swing.JPanel {
 
         TypeVehicleCombobox = new javax.swing.JComboBox();
         TypeClientCombobox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        RateLabel = new javax.swing.JLabel();
+        VehicleTypeLabel = new javax.swing.JLabel();
         AddVehicleButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -42,9 +42,9 @@ public class AddVehiclePanel extends javax.swing.JPanel {
 
         TypeClientCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setText("Tipo de Cobro:");
+        RateLabel.setText("Tipo de Cobro:");
 
-        jLabel2.setText("Tipo de Vehículo:");
+        VehicleTypeLabel.setText("Tipo de Vehículo:");
 
         AddVehicleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
 
@@ -56,11 +56,11 @@ public class AddVehiclePanel extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(RateLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TypeClientCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(VehicleTypeLabel)
                         .addGap(18, 18, 18)
                         .addComponent(TypeVehicleCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(181, Short.MAX_VALUE))
@@ -74,11 +74,11 @@ public class AddVehiclePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(VehicleTypeLabel)
                     .addComponent(TypeVehicleCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(RateLabel)
                     .addComponent(TypeClientCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddVehicleButton)
@@ -87,9 +87,9 @@ public class AddVehiclePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddVehicleButton;
+    private javax.swing.JLabel RateLabel;
     private javax.swing.JComboBox TypeClientCombobox;
     private javax.swing.JComboBox TypeVehicleCombobox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel VehicleTypeLabel;
     // End of variables declaration//GEN-END:variables
 }
