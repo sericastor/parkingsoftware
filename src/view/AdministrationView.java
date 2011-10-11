@@ -14,6 +14,7 @@ import DAO.exceptions.PreexistingEntityException;
 import Entity.Employee;
 import Entity.VehicleType;
 import controller.Administration.AdministrateEmployeeController;
+import controller.Administration.AdministrateRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.AdministrationController;
 import controller.MainController;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -34,6 +36,7 @@ public class AdministrationView extends javax.swing.JFrame {
     /** Creates new form AdministrationView */
     public AdministrationView() {
         initComponents();
+        
 
     }
 
@@ -44,7 +47,7 @@ public class AdministrationView extends javax.swing.JFrame {
     public void setEmployeeList(JList EmployeeList) {
         this.EmployeeList = EmployeeList;
     }
-
+    
     public JTable getPlatesTable() {
         return PlatesTable;
     }
@@ -101,6 +104,11 @@ public class AdministrationView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         SearchButton = new javax.swing.JButton();
         RateAdminPanel = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        VehicleTypeComboBox = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
         PlateAdmin = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         PlateExampleTextField = new javax.swing.JTextField();
@@ -150,6 +158,12 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
+        AdminTabbedPanel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                AdminTabbedPanelFocusGained(evt);
+            }
+        });
+
         ParkwayAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         jLabel6.setText("Nombre:");
@@ -187,7 +201,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(NameParkwayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameParkwayTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameParkwayTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ParkwayAdminPanelLayout.setVerticalGroup(
             ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +227,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(NameParkwayTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Administrar Parqueadero", ParkwayAdminPanel);
@@ -295,7 +309,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SearchButton)
                         .addGap(248, 248, 248)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EmployeeAdminPanelLayout.setVerticalGroup(
             EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,22 +350,68 @@ public class AdministrationView extends javax.swing.JFrame {
                                 .addGap(22, 22, 22)
                                 .addComponent(UpdateEmployeeButton))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Administrar Operario", EmployeeAdminPanel);
 
         RateAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Identificador", "Desde (Minuto)", "Hasta (Minuto)", "Fracción", "Valor Fracción"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(jTable4);
+
+        jLabel18.setText("Tipo de Vehículo:");
+
+        new javax.swing.DefaultComboBoxModel(new String[] { "-" });
+
+        jButton3.setText("Guardar cambios");
+
         javax.swing.GroupLayout RateAdminPanelLayout = new javax.swing.GroupLayout(RateAdminPanel);
         RateAdminPanel.setLayout(RateAdminPanelLayout);
         RateAdminPanelLayout.setHorizontalGroup(
             RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGroup(RateAdminPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel18)
+                .addGap(52, 52, 52)
+                .addComponent(VehicleTypeComboBox, 0, 151, Short.MAX_VALUE)
+                .addGap(147, 147, 147)
+                .addComponent(jButton3)
+                .addGap(86, 86, 86))
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
         );
         RateAdminPanelLayout.setVerticalGroup(
             RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGroup(RateAdminPanelLayout.createSequentialGroup()
+                .addGroup(RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RateAdminPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(VehicleTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(RateAdminPanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         AdminTabbedPanel.addTab("Administrar Tarifas", RateAdminPanel);
@@ -382,12 +442,6 @@ public class AdministrationView extends javax.swing.JFrame {
         savePlateButton.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 savePlateButtonFocusGained(evt);
-            }
-        });
-
-        IdentifierPlateTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                IdentifierPlateTextFieldFocusGained(evt);
             }
         });
 
@@ -426,7 +480,9 @@ public class AdministrationView extends javax.swing.JFrame {
             .addGroup(PlateAdminLayout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PlateAdminLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(PlateAdminLayout.createSequentialGroup()
                         .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
@@ -435,9 +491,9 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PlateExampleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                             .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
-                        .addGap(106, 106, 106)
-                        .addComponent(savePlateButton)))
-                .addContainerGap())
+                        .addGap(44, 44, 44)
+                        .addComponent(savePlateButton)
+                        .addGap(58, 58, 58))))
         );
 
         PlateAdminLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IdentifierPlateTextField, PlateExampleTextField});
@@ -445,7 +501,7 @@ public class AdministrationView extends javax.swing.JFrame {
         PlateAdminLayout.setVerticalGroup(
             PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PlateAdminLayout.createSequentialGroup()
-                .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PlateAdminLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -453,18 +509,20 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PlateAdminLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                                 .addComponent(jLabel13)
                                 .addGap(25, 25, 25))
                             .addGroup(PlateAdminLayout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addComponent(PlateExampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(PlateExampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(44, 44, 44))
                     .addGroup(PlateAdminLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(savePlateButton)))
-                .addGap(44, 44, 44)
+                        .addGap(33, 33, 33)
+                        .addComponent(savePlateButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         AdminTabbedPanel.addTab("Administrar Placas", PlateAdmin);
@@ -535,11 +593,11 @@ public class AdministrationView extends javax.swing.JFrame {
                                 .addComponent(jSpinner3, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 203, Short.MAX_VALUE))
                             .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(GenerateReportButton))
                     .addGroup(ReportAdminPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ReportAdminPanelLayout.setVerticalGroup(
@@ -561,7 +619,7 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(jLabel17)))
                     .addComponent(GenerateReportButton))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -575,7 +633,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(576, Short.MAX_VALUE)
+                        .addContainerGap(593, Short.MAX_VALUE)
                         .addComponent(ExitButton)))
                 .addContainerGap())
         );
@@ -644,6 +702,8 @@ private void savePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//G
                         "Se ha creado un nuevo tipo de placa", JOptionPane.INFORMATION_MESSAGE);
                 PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
                 PlatesTable.updateUI();
+                VehicleTypeComboBox.setModel(AdministrateRates.AllVehicleTypes());
+                VehicleTypeComboBox.updateUI();
 
 
             }
@@ -651,11 +711,6 @@ private void savePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//G
 
     }
 }//GEN-LAST:event_savePlateButtonActionPerformed
-
-private void IdentifierPlateTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdentifierPlateTextFieldFocusGained
-    PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
-    PlatesTable.updateUI();
-}//GEN-LAST:event_IdentifierPlateTextFieldFocusGained
 
 private void PlateExampleTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateExampleTextFieldKeyPressed
     PlateExampleTextField.setText(PlateExampleTextField.getText().toUpperCase());
@@ -681,6 +736,15 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
 
             }
 }//GEN-LAST:event_GenerateReportButtonActionPerformed
+
+    private void AdminTabbedPanelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AdminTabbedPanelFocusGained
+        VehicleTypeComboBox.setModel(AdministrateRates.AllVehicleTypes());
+        VehicleTypeComboBox.updateUI();
+        PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+        PlatesTable.updateUI();
+        EmployeeList.setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
+        EmployeeList.updateUI();
+    }//GEN-LAST:event_AdminTabbedPanelFocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane AdminTabbedPanel;
@@ -709,9 +773,11 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
     private javax.swing.JPanel ReportAdminPanel;
     private javax.swing.JButton SearchButton;
     private javax.swing.JButton UpdateEmployeeButton;
+    private javax.swing.JComboBox VehicleTypeComboBox;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -722,6 +788,7 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -736,11 +803,13 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner6;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JButton savePlateButton;
     // End of variables declaration//GEN-END:variables
 }
