@@ -39,14 +39,17 @@ public class AddVehiclePanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         TypeVehicleCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TypeVehicleCombobox.setToolTipText("Seleccione el tipo de vehículo del cliente.");
 
         TypeClientCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TypeClientCombobox.setToolTipText("Selecciones el tipo de tarifa para el cliente.");
 
         RateLabel.setText("Tipo de Cobro:");
 
         VehicleTypeLabel.setText("Tipo de Vehículo:");
 
         AddVehicleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
+        AddVehicleButton.setToolTipText("Ingresa el vehículo y la tarifa seleccionada al parqueadero.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

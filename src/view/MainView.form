@@ -498,6 +498,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Bell MT" size="36" style="2"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Hora actual."/>
           </Properties>
         </Component>
       </SubComponents>

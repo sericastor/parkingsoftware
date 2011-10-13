@@ -55,13 +55,18 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         FactureButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Clock.png"))); // NOI18N
         FactureButton.setText("Facturar");
+        FactureButton.setToolTipText("Pulse aquí después de efectuar el cobro.");
 
         RateTextField.setEditable(false);
+        RateTextField.setToolTipText("Tarifa a cobrar por el vehículo a retirar.");
 
         CostTextField.setEditable(false);
         CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        CostTextField.setToolTipText("Valor total a pagar por el servicio.");
 
-        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        PlateTextField.setToolTipText("Placa de vehículo a retirar.");
+
+        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36));
         CostLabel.setText("Costo:");
 
         PlateLabel.setText("Placa:");
@@ -73,8 +78,10 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         ExitHourLabel.setText("Hora Salida:");
 
         EntryHourFormatted.setEditable(false);
+        EntryHourFormatted.setToolTipText("Hora de entrada del vehículo a retirar.");
 
         ExitHourFormatted.setEditable(false);
+        ExitHourFormatted.setToolTipText("Hora de finalizado el servicio.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -150,6 +150,7 @@ public class AdministrationView extends javax.swing.JFrame {
         ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("Cerrar");
+        ExitButton.setToolTipText("Terminar la configuración.");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitButtonActionPerformed(evt);
@@ -164,7 +165,17 @@ public class AdministrationView extends javax.swing.JFrame {
 
         ParkwayAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
+        NameParkwayTextField.setToolTipText("Ingrese el nombre de su negocio.");
+
         NameParkwayLabel.setText("Nombre:");
+
+        AddressTextField.setToolTipText("Ingrese la dirección de su negocio.");
+
+        TelephoneTextField.setToolTipText("Ingrese el teléfono de su negocio.");
+
+        NITParkwayTextField.setToolTipText("Ingrese el número del NIT de su negocio.");
+
+        MaxCapacityTextField.setToolTipText("Ingrese la capacidad máxima de su negocio.");
 
         AddressParkwayLabel.setText("Dirección:");
 
@@ -176,6 +187,8 @@ public class AdministrationView extends javax.swing.JFrame {
 
         SaveParkwayChangesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Database.png"))); // NOI18N
         SaveParkwayChangesButton.setText("Guardar Cambios");
+        SaveParkwayChangesButton.setToolTipText("Cambia los datos de la base de datos según los cambios.");
+        SaveParkwayChangesButton.setEnabled(false);
 
         javax.swing.GroupLayout ParkwayAdminPanelLayout = new javax.swing.GroupLayout(ParkwayAdminPanel);
         ParkwayAdminPanel.setLayout(ParkwayAdminPanelLayout);
@@ -232,6 +245,9 @@ public class AdministrationView extends javax.swing.JFrame {
 
         EmployeeAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
+        EmployeeListScroll.setToolTipText("Empleados registrados en el sistema.");
+
+        EmployeeList.setToolTipText("Empleados registrados en el sistema.");
         EmployeeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 EmployeeListValueChanged(evt);
@@ -242,8 +258,15 @@ public class AdministrationView extends javax.swing.JFrame {
         EmployeeListLabel.setText("Lista de Empleados:");
 
         IdEmployeeTextField.setEditable(false);
+        IdEmployeeTextField.setToolTipText("Identificador de empleado (No editable)");
 
         IdEmployeeLabel.setText("ID:");
+
+        NameEmployeeTextField.setToolTipText("Nombre empleado.");
+
+        LastNameEmployeeTextField.setToolTipText("Apellido empleado.");
+
+        DocumentEmployeeTextField.setToolTipText("Documento empleado.");
 
         NameEmployeeLabel.setText("Nombre:");
 
@@ -253,16 +276,26 @@ public class AdministrationView extends javax.swing.JFrame {
 
         isAdminEmployeeCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         isAdminEmployeeCheckBox.setText("Administrador");
+        isAdminEmployeeCheckBox.setToolTipText("Seleccione aquí para dar permisos de Administador al empleado cuya información aparece arriba.");
 
-        CreateEmployeeButton.setText("Crear Operario");
+        CreateEmployeeButton.setText("Crear Empleado");
+        CreateEmployeeButton.setToolTipText("Crear un nuevo empleado de acuerdo a lo ingresado.");
+        CreateEmployeeButton.setEnabled(false);
 
-        UpdateEmployeeButton.setText("Actualizar Operario");
+        UpdateEmployeeButton.setText("Actualizar Empleado");
+        UpdateEmployeeButton.setToolTipText("Actualizar un empleado existente con la información ingresada.");
+        UpdateEmployeeButton.setEnabled(false);
 
-        DeleteEmployeeButton.setText("Eliminar Operario");
+        DeleteEmployeeButton.setText("Desactivar Empleado");
+        DeleteEmployeeButton.setToolTipText("Desactiva un empleado existente.");
+        DeleteEmployeeButton.setEnabled(false);
+
+        ConsultEmployeeTextField.setToolTipText("Ingrese el código del empleado que desee buscar.");
 
         SearchEmployeeLabel.setText("Buscar:");
 
         SearchButton.setText("Buscar");
+        SearchButton.setToolTipText("Buscar empleado en el sistema, si deja vacío el espacio a su izquierda buscará todos los empleados.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchButtonActionPerformed(evt);
@@ -296,7 +329,7 @@ public class AdministrationView extends javax.swing.JFrame {
                                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(DeleteEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(UpdateEmployeeButton)))
+                                    .addComponent(UpdateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(isAdminEmployeeCheckBox)))
                     .addComponent(EmployeeListLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeAdminPanelLayout.createSequentialGroup()
@@ -306,7 +339,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SearchButton)
                         .addGap(248, 248, 248)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         EmployeeAdminPanelLayout.setVerticalGroup(
             EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,22 +368,22 @@ public class AdministrationView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(LastNameEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LastNameEmployeeLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(DocumentEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(DocumentEmployeeLabel)
-                                    .addComponent(DeleteEmployeeButton)))
+                                    .addComponent(LastNameEmployeeLabel)))
                             .addGroup(EmployeeAdminPanelLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(UpdateEmployeeButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DocumentEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DocumentEmployeeLabel)
+                            .addComponent(DeleteEmployeeButton))
                         .addGap(18, 18, 18)
                         .addComponent(isAdminEmployeeCheckBox))
                     .addComponent(EmployeeListScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        AdminTabbedPanel.addTab("Administrar Operario", EmployeeAdminPanel);
+        AdminTabbedPanel.addTab("Administrar Empleados", EmployeeAdminPanel);
 
         RateAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -417,7 +450,7 @@ public class AdministrationView extends javax.swing.JFrame {
 
         PlateSampleLabel.setText("Ejemplo de placa:");
 
-        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24));
         PlateExampleTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PlateExampleTextFieldKeyPressed(evt);
