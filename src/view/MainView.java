@@ -98,7 +98,7 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36));
+        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -112,7 +112,7 @@ public class MainView extends javax.swing.JFrame {
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +161,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
         LogoutButton.setText("Cerrar Sesión");
         LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
@@ -259,6 +259,7 @@ public class MainView extends javax.swing.JFrame {
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36)); // NOI18N
+        ClockLabel.setToolTipText("Hora actual.");
 
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);

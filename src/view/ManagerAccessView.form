@@ -50,7 +50,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="478" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="487" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -123,6 +123,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="AdminPassTextField">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese su contrase&#xf1;a (S&#xf3;lo Administradores)"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminPassTextFieldActionPerformed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AdminPassTextFieldKeyPressed"/>
@@ -137,6 +140,7 @@
               <Image iconType="3" name="/images/Key.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingresar a la secci&#xf3;n de Administradores."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccessButtonActionPerformed"/>
@@ -151,6 +155,7 @@
               <Image iconType="3" name="/images/Close.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Cancelar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Retorna a la vista anterior."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelButtonActionPerformed"/>

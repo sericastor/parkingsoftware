@@ -95,6 +95,7 @@
           <Image iconType="3" name="/images/Close.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cerrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Terminar la configuraci&#xf3;n."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitButtonActionPerformed"/>
@@ -185,6 +186,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="NameParkwayTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre de su negocio."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="NameParkwayLabel">
               <Properties>
@@ -192,12 +196,24 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="AddressTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese la direcci&#xf3;n de su negocio."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TelephoneTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese el tel&#xe9;fono de su negocio."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="NITParkwayTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese el n&#xfa;mero del NIT de su negocio."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="MaxCapacityTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese la capacidad m&#xe1;xima de su negocio."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="AddressParkwayLabel">
               <Properties>
@@ -225,6 +241,8 @@
                   <Image iconType="3" name="/images/Database.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
+                <Property name="toolTipText" type="java.lang.String" value="Cambia los datos de la base de datos seg&#xfa;n los cambios."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -237,8 +255,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Administrar Operario">
-                <Property name="tabTitle" type="java.lang.String" value="Administrar Operario"/>
+              <JTabbedPaneConstraints tabName="Administrar Empleados">
+                <Property name="tabTitle" type="java.lang.String" value="Administrar Empleados"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -271,7 +289,7 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="DeleteEmployeeButton" max="32767" attributes="1"/>
                                           <Component id="CreateEmployeeButton" max="32767" attributes="1"/>
-                                          <Component id="UpdateEmployeeButton" alignment="0" min="-2" max="-2" attributes="1"/>
+                                          <Component id="UpdateEmployeeButton" alignment="0" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                                   <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
@@ -287,7 +305,7 @@
                               <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -312,7 +330,7 @@
                                   <Component id="CreateEmployeeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="NameEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -323,17 +341,17 @@
                                           <Component id="LastNameEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="LastNameEmployeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="DocumentEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="DocumentEmployeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="DeleteEmployeeButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                       <Component id="UpdateEmployeeButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="DocumentEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DocumentEmployeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DeleteEmployeeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
@@ -347,6 +365,9 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="EmployeeListScroll">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Empleados registrados en el sistema."/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -358,6 +379,7 @@
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Empleados registrados en el sistema."/>
                   </Properties>
                   <Events>
                     <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="EmployeeListValueChanged"/>
@@ -373,6 +395,7 @@
             <Component class="javax.swing.JTextField" name="IdEmployeeTextField">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="toolTipText" type="java.lang.String" value="Identificador de empleado (No editable)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="IdEmployeeLabel">
@@ -381,10 +404,19 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="NameEmployeeTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Nombre empleado."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="LastNameEmployeeTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Apellido empleado."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="DocumentEmployeeTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Documento empleado."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="NameEmployeeLabel">
               <Properties>
@@ -407,24 +439,34 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Administrador"/>
+                <Property name="toolTipText" type="java.lang.String" value="Seleccione aqu&#xed; para dar permisos de Administador al empleado cuya informaci&#xf3;n aparece arriba."/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="CreateEmployeeButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Crear Operario"/>
+                <Property name="text" type="java.lang.String" value="Crear Empleado"/>
+                <Property name="toolTipText" type="java.lang.String" value="Crear un nuevo empleado de acuerdo a lo ingresado."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="UpdateEmployeeButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Actualizar Operario"/>
+                <Property name="text" type="java.lang.String" value="Actualizar Empleado"/>
+                <Property name="toolTipText" type="java.lang.String" value="Actualizar un empleado existente con la informaci&#xf3;n ingresada."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="DeleteEmployeeButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar Operario"/>
+                <Property name="text" type="java.lang.String" value="Desactivar Empleado"/>
+                <Property name="toolTipText" type="java.lang.String" value="Desactiva un empleado existente."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ConsultEmployeeTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese el c&#xf3;digo del empleado que desee buscar."/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="SearchEmployeeLabel">
               <Properties>
@@ -434,6 +476,7 @@
             <Component class="javax.swing.JButton" name="SearchButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Buscar empleado en el sistema, si deja vac&#xed;o el espacio a su izquierda buscar&#xe1; todos los empleados."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchButtonActionPerformed"/>

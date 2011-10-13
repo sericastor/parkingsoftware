@@ -44,7 +44,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
         LogoPanel.setLayout(LogoPanelLayout);
         LogoPanelLayout.setHorizontalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGap(0, 487, Short.MAX_VALUE)
         );
         LogoPanelLayout.setVerticalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -56,6 +56,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
         PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         PasswordLabel.setText("Contraseña:");
 
+        AdminPassTextField.setToolTipText("Ingrese su contraseña (Sólo Administradores)");
         AdminPassTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminPassTextFieldActionPerformed(evt);
@@ -67,18 +68,20 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Key.png"))); // NOI18N
         AccessButton.setText("Ingresar");
+        AccessButton.setToolTipText("Ingresar a la sección de Administradores.");
         AccessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AccessButtonActionPerformed(evt);
             }
         });
 
-        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         CancelButton.setText("  Cancelar");
+        CancelButton.setToolTipText("Retorna a la vista anterior.");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelButtonActionPerformed(evt);
