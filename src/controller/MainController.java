@@ -6,6 +6,7 @@ import DAO.EntriesJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
+import controller.Administration.AdministrateVehicleTypeController;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
 import view.ManagerAccessView;
@@ -41,6 +42,21 @@ public class MainController {
         return false;
     }
 
+    public static void saveNewVehicleType(String plate, String example){
+    
+        if(!AdministrateVehicleTypeController.verifyTypePlate(plate)){
+            adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
+        }
+        else if(!AdministrateVehicleTypeController.verifyExamplePlate(example)){
+            adminView.showMessage("Error", "Ejemplo de placa vacio, por favor ingrese un ejemplo de la placa", 0);
+       } else{
+        
+             
+        
+        }
+        
+    }
+    
     public static void verifyCarInParkway(String p) {
         plate = p;
         if (p.equals("")) { return; }
@@ -94,5 +110,6 @@ public class MainController {
     public static AddVehicleManagementController addVehicleManagementController = new AddVehicleManagementController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
+    
     
 }

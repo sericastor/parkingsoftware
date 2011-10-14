@@ -72,5 +72,18 @@ public class AdministrateVehicleTypeController {
        }
        return "Failure";
     }
+    
+    public static boolean verifyTypePlate(String plate){
+        
+        if(plate.length()<=0 || plate.length()>=25){return false;}
+        return true;
+        
+    }
+    public static boolean verifyExamplePlate(String example){
+        
+        if(example.length()<=0){return false;}
+        return true;
+    }
+    
     private static List<VehicleType> AllVehiclesTypes=null;
 }
