@@ -1,11 +1,12 @@
 package controller;
 
-
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
+import controller.Administration.AdministrateRates;
+import controller.Administration.AdministrateVehicleTypeController;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
 import view.ManagerAccessView;
@@ -41,17 +42,45 @@ public class MainController {
         return false;
     }
 
+    public static void saveNewVehicleType(String plate, String example) {
+
+        if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
+            adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
+        } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
+            adminView.showMessage("Error", "Ejemplo de placa vacio, por favor ingrese un ejemplo de la placa", 0);
+        } else {
+            int confirm = adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("
+                    + plate + ")");
+            if (confirm == 0) {
+                String state = AdministrateVehicleTypeController.SavePlate(plate, example);
+                if (state.equals("Failure")) {
+                    adminView.showMessage("Error", "Solo se permiten valores alfa-numericos en la placa", 0);
+                } else {
+                    adminView.showMessage("Se ha creado un nuevo tipo de placa", "Se ha creado exitosamente el tipo de placa " + plate, 1);
+                    adminView.setPlatesTableModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+                    adminView.updatePlatesTable();
+                    adminView.setVehicleTypeComboBoxModel(AdministrateRates.AllVehicleTypes());
+                    adminView.updateVehicleTypeComboBox();
+                }
+            }
+
+
+        }
+
+    }
+
     public static void verifyCarInParkway(String p) {
         plate = p;
-        if (p.equals("")) { return; }
-        else{
+        if (p.equals("")) {
+            return;
+        } else {
             //entriesJpaController.getEntriesByPlate(p);
             System.out.println(employeeJpaController.findEmployeeByUser("martin"));
             /*for (Entries e : entriesJpaController.findEntriesEntities()) {
-                if (e.getPlate().equals(p)) {
-                    mainView.setAddOrQuitPanel(quitPanel);
-                    return;
-                }
+            if (e.getPlate().equals(p)) {
+            mainView.setAddOrQuitPanel(quitPanel);
+            return;
+            }
             }*/
         }
         mainView.setAddOrQuitPanel(addPanel);
@@ -64,8 +93,8 @@ public class MainController {
     public static void setVisibleAdminAccessView(boolean isVisible) {
         adminAccessView.setVisible(isVisible);
     }
-    
-    public static void setVisibleAboutParkQuickView(boolean isVisible){
+
+    public static void setVisibleAboutParkQuickView(boolean isVisible) {
         aboutParkQuickView.setVisible(isVisible);
     }
 
@@ -90,9 +119,8 @@ public class MainController {
     public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
     public static MD5Security md5Security = new MD5Security();
     public static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
-    public static VehicleTypeJpaController vehicleTypeJpaController=new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
+    public static VehicleTypeJpaController vehicleTypeJpaController = new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
     public static AddVehicleManagementController addVehicleManagementController = new AddVehicleManagementController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
-    
 }

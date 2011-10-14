@@ -24,7 +24,7 @@ public class VehicleType implements Serializable {
    @Column(name="codification",nullable=false)
     private String codification;
     
-    @Column(name="Name",nullable=false,length=15)
+    @Column(name="Name",nullable=false,length=25)
     private String name;
 
     public String getCodification() {
@@ -51,9 +51,7 @@ public class VehicleType implements Serializable {
         this.number = number;
     }
 
-    
-
-    @Override
+     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) number;
