@@ -6,6 +6,7 @@ package controller;
 
 import DAO.BandsRateJpaController;
 import Entity.BandsRate;
+import Entity.Exits;
 import Entity.Facture;
 import Entity.FactureTurn;
 import java.sql.Date;
@@ -21,6 +22,9 @@ public class InitializeController {
     }
 
     public void initialize() {
+        
+        //TODO: Create tables. Thanks.
+        
         //Creacion de tabla bandsrate
         BandsRate br = new BandsRate();
         br.setFromm(1);
@@ -29,6 +33,10 @@ public class InitializeController {
         br.setUnitValue(1500);
         br.setUnits(3);
         brJpaController.create(br);
+        //Creacion de tabla exits
+        Exits exits = new Exits();
+        //exits.set
+        
         //Creacion de tabla factureTurn
         FactureTurn ft = new FactureTurn();
         Date date = new Date(Long.valueOf(0));

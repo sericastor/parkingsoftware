@@ -36,7 +36,7 @@ public class AdministrationView extends javax.swing.JFrame {
     /** Creates new form AdministrationView */
     public AdministrationView() {
         initComponents();
-        
+
 
     }
 
@@ -47,7 +47,7 @@ public class AdministrationView extends javax.swing.JFrame {
     public void setEmployeeList(JList EmployeeList) {
         this.EmployeeList = EmployeeList;
     }
-    
+
     public JTable getPlatesTable() {
         return PlatesTable;
     }
@@ -717,6 +717,19 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }
 }//GEN-LAST:event_SearchButtonActionPerformed
 
+    public void showMessage(String title, String message, int messageType) {
+        JOptionPane.showMessageDialog(rootPane, message, title, messageType);
+        PlateExampleTextField.setText("");
+        IdentifierPlateTextField.setText("");
+        IdentifierPlateTextField.requestFocus();
+    }
+    
+    public int showOptionMessage(String title, String message, int messageType){
+        int option = JOptionPane.showConfirmDialog(rootPane, "Esta seguro crear un nuevo tipo de placa? ("
+                + IdentifierPlateTextField.getText() + " )");
+        return option;
+    }
+
 private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_EmployeeListValueChanged
     int emp = EmployeeList.getSelectedIndex();
     if (emp >= 0) {
@@ -749,8 +762,7 @@ private void SavePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//G
                         "Error", JOptionPane.WARNING_MESSAGE);
                 PlateExampleTextField.setText("");
                 PlateExampleTextField.requestFocus();
-            } 
-            else {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Se ha creado exitosamente el tipo de placa " + IdentifierPlateTextField.getText(),
                         "Se ha creado un nuevo tipo de placa", JOptionPane.INFORMATION_MESSAGE);
                 PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
@@ -781,13 +793,11 @@ private void SavePlateButtonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FI
 
 private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateReportButtonActionPerformed
     int confirm = JOptionPane.showConfirmDialog(rootPane, "¿Desea guardar este reporte en el sistema?");
-        if (confirm == 0) {
-            //codigo para guardar el reporte en el sistema
-            } 
-            else {
-                //codigo solo para generar reporte
-
-            }
+    if (confirm == 0) {
+        //codigo para guardar el reporte en el sistema
+    } else {
+        //codigo solo para generar reporte
+    }
 }//GEN-LAST:event_GenerateReportButtonActionPerformed
 
     private void AdminTabbedPanelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AdminTabbedPanelFocusGained
@@ -800,25 +810,24 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
     }//GEN-LAST:event_AdminTabbedPanelFocusGained
 
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
-        if(flag){
+        if (flag) {
             CreateEmployeeButton.setText("Guardar Empleado");
             IdEmployeeTextField.setText("ID según BD"); // Lo trae de la DB
             this.setEnabledEmp();
             flag = false;
-        }else if(JOptionPane.showConfirmDialog(null, 
+        } else if (JOptionPane.showConfirmDialog(null,
                 ("¿Esta seguro de crear al empleado " + NameEmployeeTextField.getText() + "?"))
-                ==JOptionPane.OK_OPTION){
-                    CreateEmployeeButton.setText("Crear Empleado");
-                    // Aquí lo crea
-                    this.setEnabledEmp();
-                    this.setNullEmp();
-                    flag = true;
+                == JOptionPane.OK_OPTION) {
+            CreateEmployeeButton.setText("Crear Empleado");
+            // Aquí lo crea
+            this.setEnabledEmp();
+            this.setNullEmp();
+            flag = true;
         }
     }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
-
     private boolean flag = true;
-    
-    private void setEnabledEmp(){
+
+    private void setEnabledEmp() {
         NameEmployeeTextField.setEnabled(flag);
         LastNameEmployeeTextField.setEnabled(flag);
         DocumentEmployeeTextField.setEnabled(flag);
@@ -827,8 +836,8 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
         isAdminEmployeeCheckBox.setEnabled(flag);
         isActiveEmployeeCheckBox.setEnabled(flag);
     }
-    
-    private void setNullEmp(){
+
+    private void setNullEmp() {
         IdEmployeeTextField.setText(null);
         NameEmployeeTextField.setText(null);
         LastNameEmployeeTextField.setText(null);
@@ -839,6 +848,8 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
         isAdminEmployeeCheckBox.setSelected(false);
     }
     
+    private final String verifyCreateTypeMessage = "Esta seguro crear un nuevo tipo de placa? (";
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressParkwayLabel;
     private javax.swing.JTextField AddressTextField;
