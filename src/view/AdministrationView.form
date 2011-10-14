@@ -270,29 +270,36 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="EmployeeListScroll" min="-2" pref="147" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="1">
+                                      <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="isActiveEmployeeCheckBox" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="IdEmployeeLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="NameEmployeeLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="LastNameEmployeeLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="DocumentEmployeeLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="UserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="PasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="PasswordField" max="32767" attributes="1"/>
+                                          <Component id="UserTextField" max="32767" attributes="1"/>
                                           <Component id="DocumentEmployeeTextField" max="32767" attributes="1"/>
                                           <Component id="IdEmployeeTextField" alignment="1" max="32767" attributes="1"/>
                                           <Component id="NameEmployeeTextField" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="LastNameEmployeeTextField" alignment="0" min="-2" pref="123" max="-2" attributes="1"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="DeleteEmployeeButton" max="32767" attributes="1"/>
-                                          <Component id="CreateEmployeeButton" max="32767" attributes="1"/>
-                                          <Component id="UpdateEmployeeButton" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="LastNameEmployeeTextField" alignment="0" pref="123" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
-                                  <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="CreateEmployeeButton" max="32767" attributes="1"/>
+                                  <Component id="UpdateEmployeeButton" alignment="0" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Component id="EmployeeListLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -305,7 +312,7 @@
                               <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -322,6 +329,7 @@
                       <Component id="EmployeeListLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="EmployeeListScroll" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="3" pref="3" max="3" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -351,14 +359,25 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="DocumentEmployeeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="DocumentEmployeeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DeleteEmployeeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="UserLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="UserTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="PasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="isAdminEmployeeCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="isActiveEmployeeCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="EmployeeListScroll" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -406,16 +425,19 @@
             <Component class="javax.swing.JTextField" name="NameEmployeeTextField">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Nombre empleado."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="LastNameEmployeeTextField">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Apellido empleado."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="DocumentEmployeeTextField">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Documento empleado."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="NameEmployeeLabel">
@@ -440,27 +462,22 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Administrador"/>
                 <Property name="toolTipText" type="java.lang.String" value="Seleccione aqu&#xed; para dar permisos de Administador al empleado cuya informaci&#xf3;n aparece arriba."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="CreateEmployeeButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Empleado"/>
                 <Property name="toolTipText" type="java.lang.String" value="Crear un nuevo empleado de acuerdo a lo ingresado."/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateEmployeeButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="UpdateEmployeeButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar Empleado"/>
                 <Property name="toolTipText" type="java.lang.String" value="Actualizar un empleado existente con la informaci&#xf3;n ingresada."/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="DeleteEmployeeButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Desactivar Empleado"/>
-                <Property name="toolTipText" type="java.lang.String" value="Desactiva un empleado existente."/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ConsultEmployeeTextField">
@@ -481,6 +498,38 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="UserLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Usuario:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="PasswordLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="UserTextField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Nombre con que el empleado acceder&#xe1; al sistema."/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="PasswordField">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Contrase&#xf1;a con al que el empleado acceder&#xe1; al sistema."/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="isActiveEmployeeCheckBox">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Activo"/>
+                <Property name="toolTipText" type="java.lang.String" value="Seleccione aqu&#xed; para permitir al empleado acceso al sistema."/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

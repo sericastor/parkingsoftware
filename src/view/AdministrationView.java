@@ -99,10 +99,14 @@ public class AdministrationView extends javax.swing.JFrame {
         isAdminEmployeeCheckBox = new javax.swing.JCheckBox();
         CreateEmployeeButton = new javax.swing.JButton();
         UpdateEmployeeButton = new javax.swing.JButton();
-        DeleteEmployeeButton = new javax.swing.JButton();
         ConsultEmployeeTextField = new javax.swing.JTextField();
         SearchEmployeeLabel = new javax.swing.JLabel();
         SearchButton = new javax.swing.JButton();
+        UserLabel = new javax.swing.JLabel();
+        PasswordLabel = new javax.swing.JLabel();
+        UserTextField = new javax.swing.JTextField();
+        PasswordField = new javax.swing.JPasswordField();
+        isActiveEmployeeCheckBox = new javax.swing.JCheckBox();
         RateAdminPanel = new javax.swing.JPanel();
         RatesScroll = new javax.swing.JScrollPane();
         RatesTable = new javax.swing.JTable();
@@ -147,7 +151,7 @@ public class AdministrationView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("Cerrar");
         ExitButton.setToolTipText("Terminar la configuración.");
@@ -263,10 +267,13 @@ public class AdministrationView extends javax.swing.JFrame {
         IdEmployeeLabel.setText("ID:");
 
         NameEmployeeTextField.setToolTipText("Nombre empleado.");
+        NameEmployeeTextField.setEnabled(false);
 
         LastNameEmployeeTextField.setToolTipText("Apellido empleado.");
+        LastNameEmployeeTextField.setEnabled(false);
 
         DocumentEmployeeTextField.setToolTipText("Documento empleado.");
+        DocumentEmployeeTextField.setEnabled(false);
 
         NameEmployeeLabel.setText("Nombre:");
 
@@ -277,18 +284,18 @@ public class AdministrationView extends javax.swing.JFrame {
         isAdminEmployeeCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         isAdminEmployeeCheckBox.setText("Administrador");
         isAdminEmployeeCheckBox.setToolTipText("Seleccione aquí para dar permisos de Administador al empleado cuya información aparece arriba.");
+        isAdminEmployeeCheckBox.setEnabled(false);
 
         CreateEmployeeButton.setText("Crear Empleado");
         CreateEmployeeButton.setToolTipText("Crear un nuevo empleado de acuerdo a lo ingresado.");
-        CreateEmployeeButton.setEnabled(false);
+        CreateEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateEmployeeButtonActionPerformed(evt);
+            }
+        });
 
         UpdateEmployeeButton.setText("Actualizar Empleado");
         UpdateEmployeeButton.setToolTipText("Actualizar un empleado existente con la información ingresada.");
-        UpdateEmployeeButton.setEnabled(false);
-
-        DeleteEmployeeButton.setText("Desactivar Empleado");
-        DeleteEmployeeButton.setToolTipText("Desactiva un empleado existente.");
-        DeleteEmployeeButton.setEnabled(false);
 
         ConsultEmployeeTextField.setToolTipText("Ingrese el código del empleado que desee buscar.");
 
@@ -302,6 +309,21 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
+        UserLabel.setText("Usuario:");
+
+        PasswordLabel.setText("Contraseña:");
+
+        UserTextField.setToolTipText("Nombre con que el empleado accederá al sistema.");
+        UserTextField.setEnabled(false);
+
+        PasswordField.setToolTipText("Contraseña con al que el empleado accederá al sistema.");
+        PasswordField.setEnabled(false);
+
+        isActiveEmployeeCheckBox.setBackground(new java.awt.Color(255, 255, 255));
+        isActiveEmployeeCheckBox.setText("Activo");
+        isActiveEmployeeCheckBox.setToolTipText("Seleccione aquí para permitir al empleado acceso al sistema.");
+        isActiveEmployeeCheckBox.setEnabled(false);
+
         javax.swing.GroupLayout EmployeeAdminPanelLayout = new javax.swing.GroupLayout(EmployeeAdminPanel);
         EmployeeAdminPanel.setLayout(EmployeeAdminPanelLayout);
         EmployeeAdminPanelLayout.setHorizontalGroup(
@@ -312,25 +334,31 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addGroup(EmployeeAdminPanelLayout.createSequentialGroup()
                         .addComponent(EmployeeListScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93)
-                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(EmployeeAdminPanelLayout.createSequentialGroup()
+                                .addComponent(isAdminEmployeeCheckBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(isActiveEmployeeCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(EmployeeAdminPanelLayout.createSequentialGroup()
                                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(IdEmployeeLabel)
                                     .addComponent(NameEmployeeLabel)
                                     .addComponent(LastNameEmployeeLabel)
-                                    .addComponent(DocumentEmployeeLabel))
-                                .addGap(51, 51, 51)
+                                    .addComponent(DocumentEmployeeLabel)
+                                    .addComponent(UserLabel)
+                                    .addComponent(PasswordLabel))
+                                .addGap(49, 49, 49)
                                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(PasswordField)
+                                    .addComponent(UserTextField)
                                     .addComponent(DocumentEmployeeTextField)
                                     .addComponent(IdEmployeeTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(NameEmployeeTextField)
-                                    .addComponent(LastNameEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(75, 75, 75)
-                                .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(DeleteEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(UpdateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(isAdminEmployeeCheckBox)))
+                                    .addComponent(LastNameEmployeeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
+                        .addGap(75, 75, 75)
+                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(UpdateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(EmployeeListLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeAdminPanelLayout.createSequentialGroup()
                         .addComponent(SearchEmployeeLabel)
@@ -339,7 +367,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SearchButton)
                         .addGap(248, 248, 248)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         EmployeeAdminPanelLayout.setVerticalGroup(
             EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,6 +381,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addComponent(EmployeeListLabel)
                 .addGap(11, 11, 11)
                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EmployeeListScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(EmployeeAdminPanelLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -375,12 +404,20 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(DocumentEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DocumentEmployeeLabel)
-                            .addComponent(DeleteEmployeeButton))
+                            .addComponent(DocumentEmployeeLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UserLabel)
+                            .addComponent(UserTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(PasswordLabel)
+                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(isAdminEmployeeCheckBox))
-                    .addComponent(EmployeeListScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(isAdminEmployeeCheckBox)
+                            .addComponent(isActiveEmployeeCheckBox))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Administrar Empleados", EmployeeAdminPanel);
@@ -762,13 +799,52 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
         EmployeeList.updateUI();
     }//GEN-LAST:event_AdminTabbedPanelFocusGained
 
+    private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
+        if(flag){
+            CreateEmployeeButton.setText("Guardar Empleado");
+            IdEmployeeTextField.setText("ID según BD"); // Lo trae de la DB
+            this.setEnabledEmp();
+            flag = false;
+        }else if(JOptionPane.showConfirmDialog(null, 
+                ("¿Esta seguro de crear al empleado " + NameEmployeeTextField.getText() + "?"))
+                ==JOptionPane.OK_OPTION){
+                    CreateEmployeeButton.setText("Crear Empleado");
+                    // Aquí lo crea
+                    this.setEnabledEmp();
+                    this.setNullEmp();
+                    flag = true;
+        }
+    }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
+
+    private boolean flag = true;
+    
+    private void setEnabledEmp(){
+        NameEmployeeTextField.setEnabled(flag);
+        LastNameEmployeeTextField.setEnabled(flag);
+        DocumentEmployeeTextField.setEnabled(flag);
+        UserTextField.setEnabled(flag);
+        PasswordField.setEnabled(flag);
+        isAdminEmployeeCheckBox.setEnabled(flag);
+        isActiveEmployeeCheckBox.setEnabled(flag);
+    }
+    
+    private void setNullEmp(){
+        IdEmployeeTextField.setText(null);
+        NameEmployeeTextField.setText(null);
+        LastNameEmployeeTextField.setText(null);
+        DocumentEmployeeTextField.setText(null);
+        UserTextField.setText(null);
+        PasswordField.setText(null);
+        isActiveEmployeeCheckBox.setSelected(false);
+        isAdminEmployeeCheckBox.setSelected(false);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressParkwayLabel;
     private javax.swing.JTextField AddressTextField;
     private javax.swing.JTabbedPane AdminTabbedPanel;
     private javax.swing.JTextField ConsultEmployeeTextField;
     private javax.swing.JButton CreateEmployeeButton;
-    private javax.swing.JButton DeleteEmployeeButton;
     private javax.swing.JLabel DocumentEmployeeLabel;
     private javax.swing.JTextField DocumentEmployeeTextField;
     private javax.swing.JPanel EmployeeAdminPanel;
@@ -793,6 +869,8 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
     private javax.swing.JLabel NameParkwayLabel;
     private javax.swing.JTextField NameParkwayTextField;
     private javax.swing.JPanel ParkwayAdminPanel;
+    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPanel PlateAdmin;
     private javax.swing.JTextField PlateExampleTextField;
     private javax.swing.JLabel PlateSampleLabel;
@@ -815,10 +893,13 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
     private javax.swing.JLabel TelephoneParkwayLabel;
     private javax.swing.JTextField TelephoneTextField;
     private javax.swing.JButton UpdateEmployeeButton;
+    private javax.swing.JLabel UserLabel;
+    private javax.swing.JTextField UserTextField;
     private javax.swing.JComboBox VehicleTypeComboBox;
     private javax.swing.JLabel VehicleTypeLabel;
     private javax.swing.JLabel VehicleTypeNameLabel;
     private javax.swing.JScrollPane VehicleTypeScroll;
+    private javax.swing.JCheckBox isActiveEmployeeCheckBox;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel12;
