@@ -88,7 +88,7 @@
             <StringItem index="3" value="Item 4"/>
           </StringArray>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Selecciones el tipo de tarifa para el cliente."/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione el tipo de tarifa para el cliente."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="RateLabel">

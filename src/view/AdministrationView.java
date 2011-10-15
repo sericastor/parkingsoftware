@@ -39,8 +39,6 @@ public class AdministrationView extends javax.swing.JFrame {
     /** Creates new form AdministrationView */
     public AdministrationView() {
         initComponents();
-
-
     }
 
     public JList getEmployeeList() {
@@ -299,6 +297,11 @@ public class AdministrationView extends javax.swing.JFrame {
 
         UpdateEmployeeButton.setText("Actualizar Empleado");
         UpdateEmployeeButton.setToolTipText("Actualizar un empleado existente con la información ingresada.");
+        UpdateEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateEmployeeButtonActionPerformed(evt);
+            }
+        });
 
         ConsultEmployeeTextField.setToolTipText("Ingrese el código del empleado que desee buscar.");
 
@@ -352,12 +355,12 @@ public class AdministrationView extends javax.swing.JFrame {
                                     .addComponent(PasswordLabel))
                                 .addGap(49, 49, 49)
                                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(PasswordField)
+                                    .addComponent(LastNameEmployeeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                     .addComponent(UserTextField)
                                     .addComponent(DocumentEmployeeTextField)
-                                    .addComponent(IdEmployeeTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(NameEmployeeTextField)
-                                    .addComponent(LastNameEmployeeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
+                                    .addComponent(IdEmployeeTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(PasswordField))))
                         .addGap(75, 75, 75)
                         .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -751,6 +754,9 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         LastNameEmployeeTextField.setText(e.getLastName());
         DocumentEmployeeTextField.setText(e.getDocument());
         isAdminEmployeeCheckBox.setSelected(e.isAdministrator());
+        isActiveEmployeeCheckBox.setSelected(e.isIsActive());
+        UserTextField.setText(e.getUser());
+        PasswordField.setText(e.getPassword()); // Aquí toca convertirla XD
     }
 }//GEN-LAST:event_EmployeeListValueChanged
 
@@ -811,16 +817,24 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
 
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
         if (flag) {
+            this.setNullEmp();
             CreateEmployeeButton.setText("Guardar Empleado");
-            IdEmployeeTextField.setText("ID según BD"); // Lo trae de la DB
-            this.setEnabledEmp();
+            IdEmployeeTextField.setText("ID según BD"); 
+            // Trae de la DB el último y le suma 1
+            this.setEnabledEmp(flag);
             flag = false;
-        } else if (JOptionPane.showConfirmDialog(null,
-                ("¿Esta seguro de crear al empleado " + NameEmployeeTextField.getText() + "?"))
-                == JOptionPane.OK_OPTION) {
+        } else {
+            int option = this.askToAdmin(create);
+            if (option == JOptionPane.OK_OPTION) {
+                // Aquí lo crea
+                System.out.println("Usemos la imaginación y hagamos de cuenta "
+                        + "que lo creamos XD");
+            }else if(option == JOptionPane.CANCEL_OPTION || option == 
+                    JOptionPane.CLOSED_OPTION){
+                        return;
+            }
             CreateEmployeeButton.setText("Crear Empleado");
-            // Aquí lo crea
-            this.setEnabledEmp();
+            this.setEnabledEmp(flag);
             this.setNullEmp();
             flag = true;
         }
@@ -850,16 +864,41 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
     RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
     RatesTable.updateUI();
 }//GEN-LAST:event_VehicleTypeComboBoxItemStateChanged
-    private boolean flag = true;
 
-    private void setEnabledEmp() {
-        NameEmployeeTextField.setEnabled(flag);
-        LastNameEmployeeTextField.setEnabled(flag);
-        DocumentEmployeeTextField.setEnabled(flag);
-        UserTextField.setEnabled(flag);
-        PasswordField.setEnabled(flag);
-        isAdminEmployeeCheckBox.setEnabled(flag);
-        isActiveEmployeeCheckBox.setEnabled(flag);
+private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateEmployeeButtonActionPerformed
+    if(IdEmployeeTextField.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Consulte el empleado a modificar", "Error", JOptionPane.WARNING_MESSAGE, null);
+    }else{
+        if (flag2) {
+            UpdateEmployeeButton.setText("Guardar Cambios");
+            this.setEnabledEmp(flag2);
+            flag2 = false;
+        } else {
+            int option = this.askToAdmin(update);
+            if (option == JOptionPane.OK_OPTION) {
+                // Aquí lo modifica
+                System.out.println("Usemos la imaginación y hagamos de cuenta "
+                        + "que lo modificamos XD");
+            }else if(option == JOptionPane.CANCEL_OPTION || option == 
+                    JOptionPane.CLOSED_OPTION){
+                        return;
+            }
+            CreateEmployeeButton.setText("Actualizar Empleado");
+            this.setEnabledEmp(flag2);
+            this.setNullEmp();
+            flag2 = true;
+        }
+    }
+}//GEN-LAST:event_UpdateEmployeeButtonActionPerformed
+
+    private void setEnabledEmp(boolean bool) {
+        NameEmployeeTextField.setEnabled(bool);
+        LastNameEmployeeTextField.setEnabled(bool);
+        DocumentEmployeeTextField.setEnabled(bool);
+        UserTextField.setEnabled(bool);
+        PasswordField.setEnabled(bool);
+        isAdminEmployeeCheckBox.setEnabled(bool);
+        isActiveEmployeeCheckBox.setEnabled(bool);
     }
 
     private void setNullEmp() {
@@ -872,6 +911,16 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         isActiveEmployeeCheckBox.setSelected(false);
         isAdminEmployeeCheckBox.setSelected(false);
     }
+    
+    private int askToAdmin(String message){
+        return JOptionPane.showConfirmDialog(null,(message + NameEmployeeTextField.getText() + "?"));
+    }
+    
+    private boolean flag = true;
+    private boolean flag2 = true;
+    private final String create = "¿Está seguro de crear al empleado ";
+    private final String update = "¿Está seguro de modificar al empleado ";
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressParkwayLabel;
     private javax.swing.JTextField AddressTextField;
