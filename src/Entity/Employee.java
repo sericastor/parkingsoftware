@@ -27,12 +27,16 @@ public class Employee implements Serializable {
     private String name; 
     @Column(name="Document",nullable=false,length=15)
     private String document;
-    @Column(name="User",nullable=false,length=10)
+    @Column(name="PUser",nullable=false,length=10)
     private String user;
     @Column(name="Password",nullable=false,length=32)
     private String password;
     @Column(name="Rol",nullable=false)
     private boolean administrator;
+    @Column(name="Active",nullable=false)
+    private boolean isActive;
+    
+    //TODO: Relación con Entradas, su getter & setter
    
     public boolean isAdministrator() {
         return administrator;
@@ -82,9 +86,6 @@ public class Employee implements Serializable {
         this.user = user;
     }
     
-    //TODO : @OneToMany
-    //private Entries entries=new Entries ();
-
     public long getId() {
         return id;
     }
@@ -93,6 +94,14 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

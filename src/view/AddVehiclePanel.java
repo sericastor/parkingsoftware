@@ -42,7 +42,7 @@ public class AddVehiclePanel extends javax.swing.JPanel {
         TypeVehicleCombobox.setToolTipText("Seleccione el tipo de vehículo del cliente.");
 
         TypeClientCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        TypeClientCombobox.setToolTipText("Selecciones el tipo de tarifa para el cliente.");
+        TypeClientCombobox.setToolTipText("Seleccione el tipo de tarifa para el cliente.");
 
         RateLabel.setText("Tipo de Cobro:");
 
