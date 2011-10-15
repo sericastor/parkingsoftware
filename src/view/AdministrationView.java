@@ -14,7 +14,7 @@ import DAO.exceptions.PreexistingEntityException;
 import Entity.Employee;
 import Entity.VehicleType;
 import controller.Administration.AdministrateEmployeeController;
-import controller.Administration.AdministrateRates;
+import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.AdministrationController;
 import controller.MainController;
@@ -27,6 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
@@ -450,8 +451,18 @@ public class AdministrationView extends javax.swing.JFrame {
         VehicleTypeLabel.setText("Tipo de Vehículo:");
 
         new javax.swing.DefaultComboBoxModel(new String[] { "-" });
+        VehicleTypeComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                VehicleTypeComboBoxItemStateChanged(evt);
+            }
+        });
 
         SaveRateChangesButton.setText("Guardar cambios");
+        SaveRateChangesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveRateChangesButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RateAdminPanelLayout = new javax.swing.GroupLayout(RateAdminPanel);
         RateAdminPanel.setLayout(RateAdminPanelLayout);
@@ -547,22 +558,21 @@ public class AdministrationView extends javax.swing.JFrame {
         PlateAdminLayout.setHorizontalGroup(
             PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PlateAdminLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(108, 108, 108)
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PlateAdminLayout.createSequentialGroup()
-                        .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(PlateAdminLayout.createSequentialGroup()
-                        .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(VehicleTypeNameLabel)
-                            .addComponent(PlateSampleLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PlateExampleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                            .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
-                        .addGap(44, 44, 44)
-                        .addComponent(SavePlateButton)
-                        .addGap(58, 58, 58))))
+                    .addComponent(VehicleTypeNameLabel)
+                    .addComponent(PlateSampleLabel))
+                .addGap(18, 18, 18)
+                .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PlateExampleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                    .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(SavePlateButton)
+                .addGap(58, 58, 58))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlateAdminLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         PlateAdminLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IdentifierPlateTextField, PlateExampleTextField});
@@ -788,12 +798,15 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
 }//GEN-LAST:event_GenerateReportButtonActionPerformed
 
     private void AdminTabbedPanelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AdminTabbedPanelFocusGained
-        VehicleTypeComboBox.setModel(AdministrateRates.AllVehicleTypes());
+        VehicleTypeComboBox.setModel(AdministrateBandRates.AllVehicleTypes());
         VehicleTypeComboBox.updateUI();
         PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
         PlatesTable.updateUI();
         EmployeeList.setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
         EmployeeList.updateUI();
+        String id = (String) VehicleTypeComboBox.getSelectedItem();
+        RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
+        RatesTable.updateUI();
     }//GEN-LAST:event_AdminTabbedPanelFocusGained
 
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
@@ -812,6 +825,31 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
             flag = true;
         }
     }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
+
+private void SaveRateChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveRateChangesButtonActionPerformed
+    if (RatesTable.isEditing()) {
+        RatesTable.getCellEditor().stopCellEditing();
+    }
+    String id = (String) VehicleTypeComboBox.getSelectedItem();
+    for (int i=0;i<RatesTable.getRowCount();i++){
+        AdministrateBandRates.rowIsEdited(i, 
+                String.valueOf(RatesTable.getValueAt(i, 1)),
+                String.valueOf(RatesTable.getValueAt(i, 2)),
+                String.valueOf(RatesTable.getValueAt(i, 3)),
+                String.valueOf(RatesTable.getValueAt(i, 4)),
+                AdministrateBandRates.getVehicleTypeSelected(id));
+    }
+    
+    RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
+    RatesTable.updateUI();
+    
+}//GEN-LAST:event_SaveRateChangesButtonActionPerformed
+
+private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_VehicleTypeComboBoxItemStateChanged
+    String id = (String) VehicleTypeComboBox.getSelectedItem();
+    RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
+    RatesTable.updateUI();
+}//GEN-LAST:event_VehicleTypeComboBoxItemStateChanged
     private boolean flag = true;
 
     private void setEnabledEmp() {
@@ -834,7 +872,6 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
         isActiveEmployeeCheckBox.setSelected(false);
         isAdminEmployeeCheckBox.setSelected(false);
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressParkwayLabel;
     private javax.swing.JTextField AddressTextField;

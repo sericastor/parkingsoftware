@@ -72,7 +72,27 @@ public class SystemSession {
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
-        
+    }
+    public void AddBandRate(long id,String description){
+         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        Log log = new Log();
+        log.setAction("AddBandRate: Id="+id+" "+description);
+        log.setDate(Calendar.getInstance().getTime());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
+        ctrllog.create(log);
+    }
+    
+     public void UpdateBandRate(long id,String description){
+         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        Log log = new Log();
+        log.setAction("UpdateBandRate: Id="+id+" "+description);
+        log.setDate(Calendar.getInstance().getTime());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
+        ctrllog.create(log);
     }
     
     public static void setEmployee(Employee employee) {
