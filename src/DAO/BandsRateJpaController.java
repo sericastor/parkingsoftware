@@ -6,6 +6,7 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import Entity.BandsRate;
+import Entity.VehicleType;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -28,6 +29,23 @@ public class BandsRateJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+     public List queryByVehicleTypes(VehicleType vehicle) {
+        EntityManager em = getEntityManager();
+
+        String id =vehicle.getName();
+        Query q = em.createQuery("SELECT u FROM BandsRate u "
+                + "where u.vehicletype LIKE :id").setParameter("id", id);
+        try {
+
+            List <BandsRate> result =q.getResultList();
+            return result;
+        } catch (Exception ex) {
+            System.out.println("Aja ve y tu que, no tengo datos");
+            return null;
+        } finally {
+            em.close();
+        }
     }
 
     public void create(BandsRate bandsRate) {
@@ -54,7 +72,7 @@ public class BandsRateJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = bandsRate.getId();
+                long id = bandsRate.getId();
                 if (findBandsRate(id) == null) {
                     throw new NonexistentEntityException("The bandsRate with id " + id + " no longer exists.");
                 }
@@ -67,7 +85,7 @@ public class BandsRateJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -112,7 +130,7 @@ public class BandsRateJpaController implements Serializable {
         }
     }
 
-    public BandsRate findBandsRate(Long id) {
+    public BandsRate findBandsRate(long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(BandsRate.class, id);

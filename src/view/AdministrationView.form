@@ -645,6 +645,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="VehicleTypeComboBox">
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="VehicleTypeComboBoxItemStateChanged"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="new javax.swing.DefaultComboBoxModel(new String[] { &quot;-&quot; });"/>
               </AuxValues>
@@ -653,6 +656,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar cambios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveRateChangesButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -674,27 +680,24 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="VehicleTypeScroll" pref="640" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="VehicleTypeNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="PlateSampleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PlateExampleTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
-                                  <Component id="IdentifierPlateTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="SavePlateButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="VehicleTypeNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="PlateSampleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PlateExampleTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
+                          <Component id="IdentifierPlateTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="SavePlateButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <Component id="VehicleTypeScroll" min="-2" pref="676" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -1,11 +1,12 @@
 package controller;
 
+import DAO.BandsRateJpaController;
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
-import controller.Administration.AdministrateRates;
+import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
@@ -59,7 +60,7 @@ public class MainController {
                     adminView.showMessage("Se ha creado un nuevo tipo de placa", "Se ha creado exitosamente el tipo de placa " + plate, 1);
                     adminView.setPlatesTableModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
                     adminView.updatePlatesTable();
-                    adminView.setVehicleTypeComboBoxModel(AdministrateRates.AllVehicleTypes());
+                    adminView.setVehicleTypeComboBoxModel(AdministrateBandRates.AllVehicleTypes());
                     adminView.updateVehicleTypeComboBox();
                 }
             }
@@ -116,6 +117,7 @@ public class MainController {
     public static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
     private static AdministrationView adminView = new AdministrationView();
+    public static BandsRateJpaController bandsRateJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
     public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
     public static MD5Security md5Security = new MD5Security();
     public static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());

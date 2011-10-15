@@ -5,26 +5,24 @@
 package Entity;
 
 import java.io.Serializable;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Grupo E
+ * @author miguel
  */
 @Entity
 public class BandsRate implements Serializable {
     private static final long serialVersionUID = 1L;
-    
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Id")
-    private Long id;
+    private long id;
     @Column(name="UnitFrom",nullable=false)
     private int fromm;
     @Column(name="UnitTo",nullable=false)
@@ -33,9 +31,11 @@ public class BandsRate implements Serializable {
     private double unitValue;
     @Column(name="Units",nullable=false)
     private int units;
-    
-    public BandsRate() {
-    }
+
+    @ManyToOne
+    VehicleType vehicletype;
+
+
 
     public int getFromm() {
         return fromm;
@@ -69,18 +69,26 @@ public class BandsRate implements Serializable {
         this.units = units;
     }
 
-    public Long getId() {
+    public VehicleType getVehicletype() {
+        return vehicletype;
+    }
+
+    public void setVehicletype(VehicleType vehicletype) {
+        this.vehicletype = vehicletype;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
@@ -91,7 +99,7 @@ public class BandsRate implements Serializable {
             return false;
         }
         BandsRate other = (BandsRate) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
