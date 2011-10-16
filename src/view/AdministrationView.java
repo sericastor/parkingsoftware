@@ -901,12 +901,24 @@ private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt)
 }//GEN-LAST:event_UpdateEmployeeButtonActionPerformed
 
 private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveParkwayChangesButtonActionPerformed
-    this.setEnableParkway(flag3);
     if(flag3){
         SaveParkwayChangesButton.setText("Guardar Cambios");
+        this.setEnableParkway(flag3);
         flag3 = false;
     }else{
+        int option = this.askToParkway();
+        if(option == JOptionPane.OK_OPTION){
+            //Aquí van los cambios
+            System.out.println("Usemos la imaginación y hagamos de cuenta "
+                        + "que lo modificamos XD");
+        }else if(option == JOptionPane.NO_OPTION){
+            // Aquí algo para que vuelva a sus datos originales sin modificaciones
+        }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.
+                CLOSED_OPTION){
+                    return;
+        }
         SaveParkwayChangesButton.setText("Cambiar Datos");
+        this.setEnableParkway(flag3);
         flag3 = true;
     }
 }//GEN-LAST:event_SaveParkwayChangesButtonActionPerformed
@@ -942,6 +954,11 @@ private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent 
     
     private int askToAdmin(String message){
         return JOptionPane.showConfirmDialog(null,(message + NameEmployeeTextField.getText() + "?"));
+    }
+    
+    private int askToParkway(){
+        return JOptionPane.showConfirmDialog(null,"¿Está seguro de modificar la "
+                + "información de " + NameParkwayTextField.getText() + "?");
     }
     
     private boolean flag = true;
