@@ -19,10 +19,11 @@ public class LoginController {
         Employee employee1=new Employee();
         employee1.setAdministrator(true);
         employee1.setDocument("12356");
-        employee1.setLastName("miguel");
-        employee1.setName("miguel");
-        employee1.setPassword(controller.MainController.md5Security.MD5Security("miguel"));
-        employee1.setUser("miguel");
+        employee1.setLastName("user");
+        employee1.setName("user");
+        employee1.setPassword(controller.MainController.md5Security.MD5Security("pass"));
+        employee1.setUser("user");
+        employee1.setIsActive(true);
         controller.MainController.employeeJpaController.create(employee1);*/
         /*generador de codigo de barras
          *bar.Create("introduzca un string")

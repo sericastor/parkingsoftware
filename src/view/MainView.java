@@ -11,6 +11,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -23,6 +24,8 @@ public class MainView extends javax.swing.JFrame {
     /** Creates new form MainFrame */
     
     public MainView() {
+        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
+         setIconImage(img.getImage()); 
         initComponents();
         this.setResizable(false);
         PlateTextField.requestFocus();        

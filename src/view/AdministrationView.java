@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -38,6 +39,8 @@ public class AdministrationView extends javax.swing.JFrame {
 
     /** Creates new form AdministrationView */
     public AdministrationView() {
+        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
+         setIconImage(img.getImage()); 
         initComponents();
     }
 
@@ -572,10 +575,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(SavePlateButton)
                 .addGap(58, 58, 58))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlateAdminLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+            .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
         );
 
         PlateAdminLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IdentifierPlateTextField, PlateExampleTextField});
@@ -601,9 +601,8 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addGroup(PlateAdminLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(SavePlateButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(11, 11, 11)
+                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         AdminTabbedPanel.addTab("Administrar Placas", PlateAdmin);

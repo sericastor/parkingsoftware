@@ -10,6 +10,8 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author r4wd3r
@@ -18,6 +20,7 @@ public class AddVehiclePanel extends javax.swing.JPanel {
 
     /** Creates new form EntryPanel */
     public AddVehiclePanel() {
+        
         initComponents();
     }
 

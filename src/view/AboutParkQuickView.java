@@ -10,6 +10,8 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Grupo E
@@ -18,6 +20,8 @@ public class AboutParkQuickView extends javax.swing.JFrame {
 
     /** Creates new form AboutParkQuickView */
     public AboutParkQuickView() {
+        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
+         setIconImage(img.getImage()); 
         initComponents();
         CountLabel.setText("null");
         ClientLabel.setText("null");

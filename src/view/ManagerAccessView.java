@@ -2,6 +2,7 @@ package view;
 
 import controller.MainController;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
@@ -14,6 +15,8 @@ public class ManagerAccessView extends javax.swing.JFrame {
 
     /** Creates new form ManagerAccessView */
     public ManagerAccessView() {
+        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
+         setIconImage(img.getImage()); 
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }

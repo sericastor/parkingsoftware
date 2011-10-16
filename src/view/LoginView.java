@@ -22,6 +22,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -32,6 +33,9 @@ import javax.swing.JOptionPane;
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
+        
+        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
+         setIconImage(img.getImage()); 
         this.setVisible(true);
         this.centerForm();
         initComponents();

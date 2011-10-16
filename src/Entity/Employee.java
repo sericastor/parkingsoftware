@@ -19,7 +19,7 @@ import javax.persistence.Id;
 public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name="LastName",nullable=false,length=25)
     private String lastName;
