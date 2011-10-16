@@ -146,7 +146,7 @@
                           <Component id="AddressTextField" min="-2" pref="135" max="-2" attributes="0"/>
                           <Component id="MaxCapacityTextField" min="-2" pref="135" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="84" max="32767" attributes="0"/>
+                      <EmptySpace pref="96" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -187,6 +187,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="NameParkwayTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ingrese el nombre de su negocio."/>
               </Properties>
             </Component>
@@ -197,21 +198,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="AddressTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ingrese la direcci&#xf3;n de su negocio."/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TelephoneTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ingrese el tel&#xe9;fono de su negocio."/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="NITParkwayTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ingrese el n&#xfa;mero del NIT de su negocio."/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="MaxCapacityTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Ingrese la capacidad m&#xe1;xima de su negocio."/>
               </Properties>
             </Component>
@@ -240,10 +245,12 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/Database.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
+                <Property name="text" type="java.lang.String" value="Cambiar Datos"/>
                 <Property name="toolTipText" type="java.lang.String" value="Cambia los datos de la base de datos seg&#xfa;n los cambios."/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveParkwayChangesButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

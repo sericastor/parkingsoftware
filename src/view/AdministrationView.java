@@ -170,16 +170,21 @@ public class AdministrationView extends javax.swing.JFrame {
 
         ParkwayAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
+        NameParkwayTextField.setEditable(false);
         NameParkwayTextField.setToolTipText("Ingrese el nombre de su negocio.");
 
         NameParkwayLabel.setText("Nombre:");
 
+        AddressTextField.setEditable(false);
         AddressTextField.setToolTipText("Ingrese la dirección de su negocio.");
 
+        TelephoneTextField.setEditable(false);
         TelephoneTextField.setToolTipText("Ingrese el teléfono de su negocio.");
 
+        NITParkwayTextField.setEditable(false);
         NITParkwayTextField.setToolTipText("Ingrese el número del NIT de su negocio.");
 
+        MaxCapacityTextField.setEditable(false);
         MaxCapacityTextField.setToolTipText("Ingrese la capacidad máxima de su negocio.");
 
         AddressParkwayLabel.setText("Dirección:");
@@ -191,9 +196,13 @@ public class AdministrationView extends javax.swing.JFrame {
         MaxCapacityLabel.setText("Capacidad Máxima:");
 
         SaveParkwayChangesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Database.png"))); // NOI18N
-        SaveParkwayChangesButton.setText("Guardar Cambios");
+        SaveParkwayChangesButton.setText("Cambiar Datos");
         SaveParkwayChangesButton.setToolTipText("Cambia los datos de la base de datos según los cambios.");
-        SaveParkwayChangesButton.setEnabled(false);
+        SaveParkwayChangesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveParkwayChangesButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ParkwayAdminPanelLayout = new javax.swing.GroupLayout(ParkwayAdminPanel);
         ParkwayAdminPanel.setLayout(ParkwayAdminPanelLayout);
@@ -217,7 +226,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(NameParkwayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MaxCapacityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         ParkwayAdminPanelLayout.setVerticalGroup(
             ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -891,6 +900,25 @@ private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt)
     }
 }//GEN-LAST:event_UpdateEmployeeButtonActionPerformed
 
+private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveParkwayChangesButtonActionPerformed
+    this.setEnableParkway(flag3);
+    if(flag3){
+        SaveParkwayChangesButton.setText("Guardar Cambios");
+        flag3 = false;
+    }else{
+        SaveParkwayChangesButton.setText("Cambiar Datos");
+        flag3 = true;
+    }
+}//GEN-LAST:event_SaveParkwayChangesButtonActionPerformed
+
+    private void setEnableParkway(boolean bool){
+        NameParkwayTextField.setEditable(bool);
+        AddressTextField.setEditable(bool);
+        NITParkwayTextField.setEditable(bool);
+        TelephoneTextField.setEditable(bool);
+        MaxCapacityTextField.setEditable(bool);
+    }
+
     private void setEnabledEmp(boolean bool) {
         NameEmployeeTextField.setEnabled(bool);
         LastNameEmployeeTextField.setEnabled(bool);
@@ -918,6 +946,7 @@ private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt)
     
     private boolean flag = true;
     private boolean flag2 = true;
+    private boolean flag3 = true;
     private final String create = "¿Está seguro de crear al empleado ";
     private final String update = "¿Está seguro de modificar al empleado ";
     
