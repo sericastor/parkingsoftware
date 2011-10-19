@@ -32,6 +32,7 @@ public class EmployeeJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+    
     public Employee findEmployeeByUser(String user) {
         EntityManager em = getEntityManager();
         Employee employee = null;
@@ -45,13 +46,13 @@ public class EmployeeJpaController implements Serializable {
             
             //TODO: fuck yeah!! xD, mirar Hechepchion :) 
             System.out.println("Aja ve y tu que, no tengo datos");
-        }
-finally{
+        }finally{
             em.close();
             return employee;
         }
 
     }
+    
     public void create(Employee employee) {
         EntityManager em = null;
         try {

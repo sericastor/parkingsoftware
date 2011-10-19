@@ -38,7 +38,7 @@ public class LoginController {
         bar.Create("pruebacodigo 123456");
         Employee employee = MainController.employeeJpaController.findEmployeeByUser(user);
         if (employee==null){return false;}
-        if (employee.getUser().equals(user) && employee.getPassword().equals(password)) {
+        if (employee.getUser().equals(user) && employee.getPassword().equals(password) && employee.isIsActive()==true) {
             controller.MainController.system.setEmployee(employee);
             controller.MainController.system.Login();
             return true;
