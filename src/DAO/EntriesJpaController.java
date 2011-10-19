@@ -91,10 +91,11 @@ public class EntriesJpaController implements Serializable {
     public Entries getEntriesByPlate(String plate) {
         EntityManager em = getEntityManager();
         Entries entries = null;
-        Query q = em.createQuery("SELECT u FROM Entries u "
+        
+        try{
+            Query q = em.createQuery("SELECT u FROM Entries u "
                 + "where u.plate LIKE :plate")
                 .setParameter("plate", plate);
-        try{
             entries = (Entries) q.getSingleResult();
         }catch(Exception ex){
             //TODO: fuck yeah!! xD, mirar Hechepchion :) 

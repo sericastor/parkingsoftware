@@ -8,14 +8,12 @@ import DAO.ExitsJpaController;
 import DAO.FactureJpaController;
 import DAO.FactureTurnJpaController;
 import DAO.InfoParkwayJpaController;
-import DAO.ParkingRateJpaController;
 import DAO.VehicleTypeJpaController;
 import Entity.BandsRate;
 import Entity.Employee;
 import Entity.Entries;
 import Entity.Facture;
 import Entity.FactureTurn;
-import Entity.ParkingRate;
 import Entity.VehicleType;
 import Entity.Exits;
 import Entity.InfoParkway;
@@ -81,20 +79,13 @@ public class InitializeController {
         factureJpaController.create(facture);
 
 
-        //Creacion de la tabla ParkingRate
-        ParkingRate parkingrate = new ParkingRate();
-        parkingrate.setBandRate(br);
-        parkingrate.setId(Long.valueOf(1));
-        parkingrate.setName("InitialName");
-        parkingrateJpaController.create(parkingrate);
-
         //Creacion de la tabla Entries
         Entries entrie = new Entries();
         entrie.setEmployee(em);
         entrie.setEntryDate(date);
         entrie.setEntryOrder(Long.valueOf(1));
         entrie.setPlate("InitialPlate");
-        entrie.setRate(parkingrate);
+        //entrie.setRate(parkingrate);
         entrie.setTicket(1);
         entrie.setVehicleType(vt);
         entrieJpaController.create(entrie);
@@ -136,7 +127,6 @@ public class InitializeController {
     public static VehicleTypeJpaController vtJpaController = new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
     public static FactureTurnJpaController ftJpaController = new FactureTurnJpaController(controller.MainController.system.getPersistence_factory());
     public static FactureJpaController factureJpaController = new FactureJpaController(controller.MainController.system.getPersistence_factory());
-    public static ParkingRateJpaController parkingrateJpaController = new ParkingRateJpaController(controller.MainController.system.getPersistence_factory());
     public static EntriesJpaController entrieJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
     public static ExitsJpaController exitJpaController = new ExitsJpaController(controller.MainController.system.getPersistence_factory());
     public static InfoParkwayJpaController infopJpaController = new InfoParkwayJpaController(controller.MainController.system.getPersistence_factory());

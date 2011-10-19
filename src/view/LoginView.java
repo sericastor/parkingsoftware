@@ -78,10 +78,10 @@ public class LoginView extends javax.swing.JFrame {
         HelpPanel.setBackground(new java.awt.Color(255, 255, 255));
         HelpPanel.setForeground(new java.awt.Color(153, 153, 255));
 
-        NeedHelpLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        NeedHelpLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         NeedHelpLabel.setText("¿Necesita ayuda con el Sistema? ");
 
-        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
         ManualButton.setToolTipText("Pulse aquí para obtener ayuda.");
@@ -95,7 +95,7 @@ public class LoginView extends javax.swing.JFrame {
 
         UserTextField.setToolTipText("Ingrese su nombre.");
 
-        NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         NameLabel.setText("Nombre de Usuario:");
 
         PasswordField.setToolTipText("Ingrese su contraseña.");
@@ -105,10 +105,10 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
 
-        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         PasswordLabel.setText("Contraseña:");
 
-        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lock.png"))); // NOI18N
         LoginButton.setText("Iniciar Sesión");
         LoginButton.setToolTipText("Pulse aquí para comprobar sus datos.");
@@ -131,11 +131,11 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(UserTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
                 .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(LoginButton)
-                .addGap(83, 83, 83))
+                .addGap(93, 93, 93))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +150,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(PasswordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LoginButton)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout HelpPanelLayout = new javax.swing.GroupLayout(HelpPanel);
@@ -175,7 +175,7 @@ public class LoginView extends javax.swing.JFrame {
                 .addComponent(NeedHelpLabel)
                 .addGap(28, 28, 28)
                 .addComponent(ManualButton)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
             .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -183,14 +183,12 @@ public class LoginView extends javax.swing.JFrame {
         IntroPanel.setLayout(IntroPanelLayout);
         IntroPanelLayout.setHorizontalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IntroPanelLayout.createSequentialGroup()
-                .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(HelpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         IntroPanelLayout.setVerticalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroPanelLayout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
+            .addGroup(IntroPanelLayout.createSequentialGroup()
+                .addContainerGap(224, Short.MAX_VALUE)
                 .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -198,7 +196,7 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(IntroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+            .addComponent(IntroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
