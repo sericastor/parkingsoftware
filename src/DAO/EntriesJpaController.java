@@ -1,0 +1,157 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package DAO;
+
+import DAO.exceptions.NonexistentEntityException;
+import Entity.Entries;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+/**
+ *
+ * @author miguel
+ */
+public class EntriesJpaController implements Serializable {
+
+    public EntriesJpaController(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+    private EntityManagerFactory emf = null;
+
+    public EntriesJpaController() {
+    }
+
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
+
+    public void create(Entries entries) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            em.persist(entries);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void edit(Entries entries) throws NonexistentEntityException, Exception {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            entries = em.merge(entries);
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            String msg = ex.getLocalizedMessage();
+            if (msg == null || msg.length() == 0) {
+                Long id = entries.getEntryOrder();
+                if (findEntries(id) == null) {
+                    throw new NonexistentEntityException("The entries with id " + id + " no longer exists.");
+                }
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public void destroy(Long id) throws NonexistentEntityException {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            Entries entries;
+            try {
+                entries = em.getReference(Entries.class, id);
+                entries.getEntryOrder();
+            } catch (EntityNotFoundException enfe) {
+                throw new NonexistentEntityException("The entries with id " + id + " no longer exists.", enfe);
+            }
+            em.remove(entries);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public Entries getEntriesByPlate(String plate) {
+        EntityManager em = getEntityManager();
+        Entries entries = null;
+
+        try {
+            Query q = em.createQuery("SELECT u FROM Entries u "
+                    + "where u.plate LIKE :plate").setParameter("plate", plate);
+            entries = (Entries) q.getSingleResult();
+        } catch (Exception ex) {
+            //TODO: fuck yeah!! xD, mirar Hechepchion :) 
+            System.out.println("Aja ve y tu que, no tengo datos");
+        } finally {
+            em.close();
+            return entries;
+        }
+
+    }
+
+    public List<Entries> findEntriesEntities() {
+        return findEntriesEntities(true, -1, -1);
+    }
+
+    public List<Entries> findEntriesEntities(int maxResults, int firstResult) {
+        return findEntriesEntities(false, maxResults, firstResult);
+    }
+
+    private List<Entries> findEntriesEntities(boolean all, int maxResults, int firstResult) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            cq.select(cq.from(Entries.class));
+            Query q = em.createQuery(cq);
+            if (!all) {
+                q.setMaxResults(maxResults);
+                q.setFirstResult(firstResult);
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public Entries findEntries(Long id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Entries.class, id);
+        } finally {
+            em.close();
+        }
+    }
+
+    public int getEntriesCount() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Entries> rt = cq.from(Entries.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+}
