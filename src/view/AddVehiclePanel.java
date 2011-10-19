@@ -2,6 +2,7 @@ package view;
 
 import controller.MainController;
 import java.awt.event.KeyEvent;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -15,8 +16,8 @@ public class AddVehiclePanel extends javax.swing.JFrame {
 
     /** Creates new form ManagerAccessView */
     public AddVehiclePanel() {
-        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
-         setIconImage(img.getImage()); 
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");
+        setIconImage(img.getImage());
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
@@ -119,17 +120,24 @@ public class AddVehiclePanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-System.out.println("aca toy");
-    VehicleTypeCombobox.setModel(MainController.addVehicleManagementController.AllVehicleTypes());
-    VehicleTypeCombobox.updateUI();
-}//GEN-LAST:event_formComponentShown
+    DefaultComboBoxModel model = MainController.addVehicleManagementController.getModelComboBox(
+            MainController.mainView.getPlate());
+    if (model.getSize() == 0) {
+       JOptionPane.showMessageDialog(rootPane, "Tipo de placa no existente, "
+               + "por favor, inserte un tipo de placa valido", "error", WIDTH);
+    } else {
+        VehicleTypeCombobox.setModel(model);
+        VehicleTypeCombobox.updateUI();
+    }
 
+}//GEN-LAST:event_formComponentShown
+public void setVehicleTypeCombobox(DefaultComboBoxModel model){
+    this.VehicleTypeCombobox.setModel(model);
+}
 private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
     String id = (String) VehicleTypeCombobox.getSelectedItem();
     MainController.addVehicleManagementController.CreateVehicle(id);
 }//GEN-LAST:event_AddVehicleButtonActionPerformed
-
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddVehicleButton;
     private javax.swing.JPanel LogoPanel;

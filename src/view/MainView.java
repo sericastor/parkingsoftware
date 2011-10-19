@@ -7,8 +7,6 @@ import edu.stanford.ejalbert.BrowserLauncher;
 import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
 import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -490,7 +488,13 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        MainController.verifyCarInParkway(PlateTextField.getText().toString());
+        String result=MainController.addVehicleManagementController.verifyCarInParkway(PlateTextField.getText());
+        if(result.equals("Inserte un tipo de placa valida")){
+            JOptionPane.showMessageDialog(CopyMenu, result);
+        }
+        else if(result.equals("Se ha creado una entrada exitosamente")){
+            JOptionPane.showMessageDialog(CopyMenu, result);
+        }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
         //panel.setBounds(AoQPanel.getBounds());
@@ -561,10 +565,9 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_formWindowClosing
 
 private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyPressed
-    PlateTextField.setText(PlateTextField.getText().toUpperCase());
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        SearchButtonActionPerformed(null);
-    }
+            SearchButtonActionPerformed(null);
+        }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
