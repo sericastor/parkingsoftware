@@ -3,10 +3,10 @@ package view;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
-import controller.ParkingController;
 import edu.stanford.ejalbert.BrowserLauncher;
 import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
 import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
@@ -22,13 +22,12 @@ import javax.swing.JPanel;
 public class MainView extends javax.swing.JFrame {
 
     /** Creates new form MainFrame */
-    
     public MainView() {
-        ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
-         setIconImage(img.getImage()); 
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");
+        setIconImage(img.getImage());
         initComponents();
         this.setResizable(false);
-        PlateTextField.requestFocus();        
+        PlateTextField.requestFocus();
     }
 
     /** This method is called from within the constructor to
@@ -101,7 +100,7 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
+        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36));
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -115,7 +114,7 @@ public class MainView extends javax.swing.JFrame {
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +163,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
         LogoutButton.setText("Cerrar Sesión");
         LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
@@ -262,23 +261,25 @@ public class MainView extends javax.swing.JFrame {
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36)); // NOI18N
+        ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
+        ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);
         ClockPanelLayout.setHorizontalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClockPanelLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ClockPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
                 .addContainerGap())
         );
         ClockPanelLayout.setVerticalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ClockPanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(29, 29, 29)
                 .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         EntryPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -491,7 +492,7 @@ public class MainView extends javax.swing.JFrame {
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         MainController.verifyCarInParkway(PlateTextField.getText().toString());
     }//GEN-LAST:event_SearchButtonActionPerformed
-    public void setAddOrQuitPanel(JPanel panel){
+    public void setAddOrQuitPanel(JPanel panel) {
         //panel.setBounds(AoQPanel.getBounds());
         //panel.setLocation(AoQPanel.getLocation());
         AoQPanel.removeAll();
@@ -501,7 +502,7 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.repaint();
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?" , "Cerrar Sesión" , JOptionPane.YES_NO_OPTION));
+        LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
         controller.MainController.system.Logout();
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
@@ -539,7 +540,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_GenerateReportsMenuActionPerformed
 
     private void ViewHelpMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewHelpMenuActionPerformed
-         try {
+        try {
             //System.out.println("Help");
 
             BrowserLauncher launcher = new BrowserLauncher();
@@ -560,43 +561,49 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_formWindowClosing
 
 private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyPressed
-PlateTextField.setText(PlateTextField.getText().toUpperCase());
+    PlateTextField.setText(PlateTextField.getText().toUpperCase());
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        SearchButtonActionPerformed(null);
+    }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
-PlateTextField.setText(PlateTextField.getText().toUpperCase());
+    PlateTextField.setText(PlateTextField.getText().toUpperCase());
 }//GEN-LAST:event_PlateTextFieldKeyReleased
 
-    public void start(){
+    public void start() {
         Thread thread = new Thread();
         thread.start();
     }
-    
-    public void run(){
-    
-        while(true){
-            try{
-            Thread.sleep(1000);
-            MainController.updateClockInFrame();
-            }catch(Exception ex){
+
+    public void run() {
+
+        while (true) {
+            try {
+                Thread.sleep(1000);
+                MainController.updateClockInFrame();
+            } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
         }
-        
+
     }
-    public void updateFrame(String date){
+
+    public void updateFrame(String date) {
         this.ClockLabel.setText(date);
         this.repaint();
     }
-    
-    public void askToExit(){
-        int confirm=JOptionPane.showConfirmDialog(CopyMenu, "¿Esta seguro que desea salir?");
-        if (confirm == 0){
+
+    public void askToExit() {
+        int confirm = JOptionPane.showConfirmDialog(CopyMenu, "¿Esta seguro que desea salir?");
+        if (confirm == 0) {
             controller.MainController.system.Close();
             ExitController.exit(0);
         }
     }
-    
+    public String getPlate(){
+        return PlateTextField.getText();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutEParkingMenu;
     private javax.swing.JButton AdministerButton;

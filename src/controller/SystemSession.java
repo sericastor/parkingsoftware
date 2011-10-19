@@ -98,6 +98,11 @@ public class SystemSession {
     public static void setEmployee(Employee employee) {
         SystemSession.sesionemployee = employee;
     }
+
+    public static Employee getSesionemployee() {
+        return sesionemployee;
+    }
+    
     
 
     

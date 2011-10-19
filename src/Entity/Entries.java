@@ -5,7 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -27,6 +29,7 @@ public class Entries implements Serializable {
     private Long entryOrder;
     @Column(name="Ticket",nullable=false)
     private int ticket;
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;
     @Column(name="Plate",nullable=false)
@@ -34,7 +37,7 @@ public class Entries implements Serializable {
     
     @ManyToOne
     @Column(name="Rate",nullable=false)
-    private ParkingRate rate;
+    private BandsRate rate;
     
     @ManyToOne
     @Column(name="VehicleType",nullable=false)
@@ -66,11 +69,11 @@ public class Entries implements Serializable {
         this.plate = plate;
     }
 
-    public ParkingRate getRate() {
+    public BandsRate getRate() {
         return rate;
     }
 
-    public void setRate(ParkingRate rate) {
+    public void setRate(BandsRate rate) {
         this.rate = rate;
     }
 

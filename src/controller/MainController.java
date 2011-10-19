@@ -6,6 +6,7 @@ import DAO.EntriesJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
+import Entity.Entries;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import view.AboutParkQuickView;
@@ -13,6 +14,7 @@ import view.AddVehiclePanel;
 import view.ManagerAccessView;
 import view.MainView;
 import view.AdministrationView;
+
 import view.QuitVehiclePanel;
 
 /**
@@ -70,21 +72,16 @@ public class MainController {
 
     }
 
-    public static void verifyCarInParkway(String p) {
-        plate = p;
-        if (p.equals("")) {
+    public static void verifyCarInParkway(String plate) {
+   
+        if (plate.equals("")) {
             return;
         } else {
-            //entriesJpaController.getEntriesByPlate(p);
-            System.out.println(employeeJpaController.findEmployeeByUser("martin"));
-            /*for (Entries e : entriesJpaController.findEntriesEntities()) {
-            if (e.getPlate().equals(p)) {
-            mainView.setAddOrQuitPanel(quitPanel);
-            return;
-            }
-            }*/
+           Entries entries=entriesJpaController.getEntriesByPlate(plate);
+           if(entries == null){
+               addPanel.setVisible(true);
+           }
         }
-        mainView.setAddOrQuitPanel(addPanel);
     }
 
     public static void setVisibleMainView(boolean isVisible) {
@@ -110,8 +107,7 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible) {
         adminView.setVisible(isVisible);
     }
-    private static String plate;
-    private static MainView mainView = new MainView();
+    public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
     public static LoginController loginController = new LoginController();
@@ -125,4 +121,5 @@ public class MainController {
     public static AddVehicleManagementController addVehicleManagementController = new AddVehicleManagementController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
+  
 }

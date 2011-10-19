@@ -71,7 +71,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         AccessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Key.png"))); // NOI18N
         AccessButton.setText("Ingresar");
         AccessButton.setToolTipText("Ingresar a la sección de Administradores.");
@@ -81,7 +81,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         CancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         CancelButton.setText("  Cancelar");
         CancelButton.setToolTipText("Retorna a la vista anterior.");
