@@ -1,24 +1,25 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * AddVehiclePanel.java
- *
- * Created on 19-oct-2011, 12:02:53
- */
 package view;
+
+import controller.MainController;
+import java.awt.event.KeyEvent;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author r4wd3r
  */
-public class AddVehiclePanel extends javax.swing.JPanel {
+public class AddVehiclePanel extends javax.swing.JFrame {
 
-    /** Creates new form AddVehiclePanel */
+    /** Creates new form ManagerAccessView */
     public AddVehiclePanel() {
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");
+        setIconImage(img.getImage());
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -30,54 +31,118 @@ public class AddVehiclePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        VehicleTypeComboBox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        LogoPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         AddVehicleButton = new javax.swing.JButton();
+        VehicleTypeCombobox = new javax.swing.JComboBox();
+        VehicleTypeLabel = new javax.swing.JLabel();
 
-        VehicleTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
-        jLabel1.setText("Tipo de Vehículo:");
+        LogoPanel.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout LogoPanelLayout = new javax.swing.GroupLayout(LogoPanel);
+        LogoPanel.setLayout(LogoPanelLayout);
+        LogoPanelLayout.setHorizontalGroup(
+            LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 287, Short.MAX_VALUE)
+        );
+        LogoPanelLayout.setVerticalGroup(
+            LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 131, Short.MAX_VALUE)
+        );
 
         AddVehicleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
-        AddVehicleButton.setText("Ingresar Vehículo");
+        AddVehicleButton.setText("Crear una nueva entrada");
+        AddVehicleButton.setToolTipText("Ingresa el vehículo y la tarifa seleccionada al parqueadero.");
         AddVehicleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddVehicleButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        VehicleTypeCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        VehicleTypeCombobox.setToolTipText("Seleccione el tipo de vehículo del cliente.");
+
+        VehicleTypeLabel.setText("Tipo de Vehículo:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(AddVehicleButton)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(VehicleTypeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VehicleTypeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddVehicleButton)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LogoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(VehicleTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(AddVehicleButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(VehicleTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddVehicleButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(LogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddVehicleButtonActionPerformed
+private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+    DefaultComboBoxModel model = MainController.addVehicleManagementController.getModelComboBox(
+            MainController.mainView.getPlate());
+    if (model.getSize() == 0) {
+       JOptionPane.showMessageDialog(rootPane, "Tipo de placa no existente, "
+               + "por favor, inserte un tipo de placa valido", "error", WIDTH);
+    } else {
+        VehicleTypeCombobox.setModel(model);
+        VehicleTypeCombobox.updateUI();
+    }
 
+}//GEN-LAST:event_formComponentShown
+public void setVehicleTypeCombobox(DefaultComboBoxModel model){
+    this.VehicleTypeCombobox.setModel(model);
+}
+private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
+    String id = (String) VehicleTypeCombobox.getSelectedItem();
+    MainController.addVehicleManagementController.CreateVehicle(id);
+}//GEN-LAST:event_AddVehicleButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddVehicleButton;
-    private javax.swing.JComboBox VehicleTypeComboBox;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel LogoPanel;
+    private javax.swing.JComboBox VehicleTypeCombobox;
+    private javax.swing.JLabel VehicleTypeLabel;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

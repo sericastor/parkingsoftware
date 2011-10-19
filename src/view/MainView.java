@@ -6,10 +6,7 @@ import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
 import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
 import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
-import java.awt.Dimension;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -252,7 +249,7 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.setLayout(AoQPanelLayout);
         AoQPanelLayout.setHorizontalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGap(0, 738, Short.MAX_VALUE)
         );
         AoQPanelLayout.setVerticalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +258,7 @@ public class MainView extends javax.swing.JFrame {
 
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
-        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36));
+        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36)); // NOI18N
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
         ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -466,9 +463,8 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -492,18 +488,22 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        MainController.verifyCarInParkway(PlateTextField.getText().toString());
-        
+        String result=MainController.addVehicleManagementController.verifyCarInParkway(PlateTextField.getText());
+        if(result.equals("Inserte un tipo de placa valida")){
+            JOptionPane.showMessageDialog(CopyMenu, result);
+        }
+        else if(result.equals("Se ha creado una entrada exitosamente")){
+            JOptionPane.showMessageDialog(CopyMenu, result);
+        }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
         //panel.setBounds(AoQPanel.getBounds());
-        AoQPanel.setBounds(panel.getBounds());
         //panel.setLocation(AoQPanel.getLocation());
         AoQPanel.removeAll();
         AoQPanel.setVisible(false);
         AoQPanel.add(panel);
         AoQPanel.setVisible(true);
-        //cargarPanel(AoQPanel,panel);
+        AoQPanel.repaint();
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
@@ -565,10 +565,9 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_formWindowClosing
 
 private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyPressed
-    PlateTextField.setText(PlateTextField.getText().toUpperCase());
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        SearchButtonActionPerformed(null);
-    }
+            SearchButtonActionPerformed(null);
+        }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
@@ -608,9 +607,6 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
     public String getPlate(){
         return PlateTextField.getText();
     }
-    
-   
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutEParkingMenu;
     private javax.swing.JButton AdministerButton;

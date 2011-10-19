@@ -1,4 +1,4 @@
-package controller.Administration;
+package controller;
 
 public class RateManagementController {
 

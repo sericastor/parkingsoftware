@@ -26,9 +26,6 @@ public class EntriesJpaController implements Serializable {
     }
     private EntityManagerFactory emf = null;
 
-    public EntriesJpaController() {
-    }
-
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -94,15 +91,16 @@ public class EntriesJpaController implements Serializable {
     public Entries getEntriesByPlate(String plate) {
         EntityManager em = getEntityManager();
         Entries entries = null;
-
-        try {
+        
+        try{
             Query q = em.createQuery("SELECT u FROM Entries u "
-                    + "where u.plate LIKE :plate").setParameter("plate", plate);
+                + "where u.plate LIKE :plate")
+                .setParameter("plate", plate);
             entries = (Entries) q.getSingleResult();
-        } catch (Exception ex) {
+        }catch(Exception ex){
             //TODO: fuck yeah!! xD, mirar Hechepchion :) 
             System.out.println("Aja ve y tu que, no tengo datos");
-        } finally {
+        }finally{
             em.close();
             return entries;
         }

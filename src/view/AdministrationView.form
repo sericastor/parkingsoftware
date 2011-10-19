@@ -179,7 +179,7 @@
                           <Component id="MaxCapacityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MaxCapacityTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <EmptySpace pref="141" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -271,29 +271,27 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
-                              <Component id="CreateEmployeeButton" linkSize="2" pref="197" max="32767" attributes="1"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="557" max="32767" attributes="0"/>
-                              <Component id="UpdateEmployeeButton" linkSize="2" min="-2" max="-2" attributes="1"/>
+                              <Component id="SearchEmployeeLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="ConsultEmployeeTextField" min="-2" pref="256" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="SearchButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="EmployeeListScroll" min="-2" pref="147" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="SearchEmployeeLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ConsultEmployeeTextField" min="-2" pref="256" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="SearchButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                                      <Component id="isActiveEmployeeCheckBox" min="-2" pref="66" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="EmployeeListScroll" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="IdEmployeeLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="NameEmployeeLabel" min="-2" max="-2" attributes="0"/>
@@ -301,27 +299,31 @@
                                           <Component id="DocumentEmployeeLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="UserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="PasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="isAdminEmployeeCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ConfirmPasswordField" max="32767" attributes="1"/>
-                                              <Component id="LastNameEmployeeTextField" alignment="0" pref="123" max="32767" attributes="1"/>
-                                              <Component id="UserTextField" alignment="0" max="32767" attributes="1"/>
-                                              <Component id="DocumentEmployeeTextField" alignment="0" max="32767" attributes="1"/>
-                                              <Component id="NameEmployeeTextField" alignment="0" max="32767" attributes="1"/>
-                                              <Component id="IdEmployeeTextField" alignment="1" max="32767" attributes="1"/>
-                                              <Component id="PasswordField" alignment="0" pref="123" max="32767" attributes="1"/>
-                                          </Group>
-                                          <Component id="isActiveEmployeeCheckBox" min="-2" pref="66" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="LastNameEmployeeTextField" alignment="0" pref="123" max="32767" attributes="1"/>
+                                          <Component id="UserTextField" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="DocumentEmployeeTextField" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="NameEmployeeTextField" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="IdEmployeeTextField" alignment="1" max="32767" attributes="1"/>
+                                          <Component id="PasswordField" alignment="0" min="-2" pref="123" max="-2" attributes="1"/>
                                       </Group>
                                   </Group>
-                                  <Component id="EmployeeListLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="EmployeeListLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="296" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
+                      <Component id="CreateEmployeeButton" linkSize="2" pref="197" max="32767" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="557" max="32767" attributes="0"/>
+                      <Component id="UpdateEmployeeButton" linkSize="2" min="-2" max="-2" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -371,10 +373,9 @@
                                           <Component id="PasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="PasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="ConfirmPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="isAdminEmployeeCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="isActiveEmployeeCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="EmployeeListScroll" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
@@ -387,7 +388,7 @@
                               <Component id="UpdateEmployeeButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="80" max="32767" attributes="0"/>
+                      <EmptySpace pref="100" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -548,16 +549,6 @@
                 <Property name="text" type="java.lang.String" value="Activo"/>
                 <Property name="toolTipText" type="java.lang.String" value="Seleccione aqu&#xed; para permitir al empleado acceso al sistema."/>
                 <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="ConfirmPasswordField">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Confirmar Contrase&#xf1;a:"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -936,7 +927,7 @@
                           <Component id="GenerateReportButton" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="ReportScroll" pref="223" max="32767" attributes="0"/>
+                      <Component id="ReportScroll" pref="243" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>

@@ -13,7 +13,7 @@ public class LoginController {
     
 
     public static boolean verifyUser(String user, String password) {
-          
+       
         /* este codigo crea un nuevo usuario en la base de datos, 
          * desmarcarlo solo en caso que no se tengan usuarios creados con anterioridad
         Employee employee1=new Employee();
@@ -44,6 +44,7 @@ public class LoginController {
             return true;
         }
         return false;
+
     }
 
     public static void setVisibleLoginView(boolean isVisible) {
