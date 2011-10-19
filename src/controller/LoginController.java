@@ -1,7 +1,6 @@
 package controller;
 
 import view.LoginView;
-import DAO.EmployeeJpaController;
 import Entity.Employee;
 
 /**

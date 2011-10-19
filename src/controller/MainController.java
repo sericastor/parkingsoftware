@@ -6,7 +6,6 @@ import DAO.EntriesJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
-import Entity.Entries;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
@@ -67,7 +66,6 @@ public class MainController {
 	    }
     
     public static void saveNewVehicleType(String plate, String example) {
-
         if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
             adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
         } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
@@ -87,8 +85,6 @@ public class MainController {
                     adminView.updateVehicleTypeComboBox();
                 }
             }
-
-
         }
 
     }
