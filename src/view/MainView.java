@@ -6,6 +6,7 @@ import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
 import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
 import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -251,7 +252,7 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.setLayout(AoQPanelLayout);
         AoQPanelLayout.setHorizontalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
+            .addGap(0, 724, Short.MAX_VALUE)
         );
         AoQPanelLayout.setVerticalGroup(
             AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +261,7 @@ public class MainView extends javax.swing.JFrame {
 
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
-        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36)); // NOI18N
+        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36));
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
         ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -465,8 +466,9 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -491,15 +493,17 @@ public class MainView extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         MainController.verifyCarInParkway(PlateTextField.getText().toString());
+        
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
         //panel.setBounds(AoQPanel.getBounds());
+        AoQPanel.setBounds(panel.getBounds());
         //panel.setLocation(AoQPanel.getLocation());
         AoQPanel.removeAll();
         AoQPanel.setVisible(false);
         AoQPanel.add(panel);
         AoQPanel.setVisible(true);
-        AoQPanel.repaint();
+        //cargarPanel(AoQPanel,panel);
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
@@ -604,6 +608,9 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
     public String getPlate(){
         return PlateTextField.getText();
     }
+    
+   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutEParkingMenu;
     private javax.swing.JButton AdministerButton;

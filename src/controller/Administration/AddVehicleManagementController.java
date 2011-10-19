@@ -1,7 +1,8 @@
-package controller;
+package controller.Administration;
 
 import Entity.Entries;
 import Entity.VehicleType;
+import controller.MainController;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -46,9 +47,6 @@ public class AddVehicleManagementController {
      
      }
      
-    
-    
-   
-     private static VehicleType vehicleTypeIsSelected = null;
+    private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
 }

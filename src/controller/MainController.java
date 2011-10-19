@@ -1,5 +1,6 @@
 package controller;
 
+import controller.Administration.AddVehicleManagementController;
 import DAO.BandsRateJpaController;
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
@@ -73,15 +74,20 @@ public class MainController {
     }
 
     public static void verifyCarInParkway(String plate) {
-   
-        if (plate.equals("")) {
-            return;
+
+        if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
+            adminView.showMessage("Error en Placa", "La placa ingresada no es válida.", 0);
         } else {
-           Entries entries=entriesJpaController.getEntriesByPlate(plate);
-           if(entries == null){
-               addPanel.setVisible(true);
-           }
+            if (!AddVehicleController.verifyCarInEntries(plate)) {
+                mainView.setAddOrQuitPanel(addPanel);
+            }
+            else{
+                mainView.setAddOrQuitPanel(quitPanel);
+            }
+
         }
+
+
     }
 
     public static void setVisibleMainView(boolean isVisible) {
@@ -121,5 +127,4 @@ public class MainController {
     public static AddVehicleManagementController addVehicleManagementController = new AddVehicleManagementController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
-  
 }

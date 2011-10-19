@@ -40,7 +40,7 @@ public class AdministrationView extends javax.swing.JFrame {
     /** Creates new form AdministrationView */
     public AdministrationView() {
         ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
-         setIconImage(img.getImage()); 
+        setIconImage(img.getImage()); 
         initComponents();
     }
 

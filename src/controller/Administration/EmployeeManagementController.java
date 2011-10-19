@@ -1,8 +1,8 @@
-package controller;
+package controller.Administration;
 
-public class EmployeeManagmentController {
+public class EmployeeManagementController {
 
-    public EmployeeManagmentController() {
+    public EmployeeManagementController() {
     }
 
     
