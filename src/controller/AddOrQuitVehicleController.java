@@ -1,15 +1,26 @@
 package controller;
 
+import DAO.EntriesJpaController;
 import Entity.Entries;
 import Entity.VehicleType;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
-public class AddVehicleManagementController {
+public class AddOrQuitVehicleController {
 
-    public AddVehicleManagementController() {
+    public AddOrQuitVehicleController() {
     }
+    
+    public static boolean verifyCarParked(String plate){
+        Entries entry = new Entries();
+        entry = entriesJpaController.getEntriesByPlate(plate);
+        if (entry == null){
+            return false;
+        }
+        return true;
+    }
+    
 
     public static String verifyCarInParkway(String plate) {
         String codification = encodePlate(plate);
@@ -22,13 +33,17 @@ public class AddVehicleManagementController {
         }
         else if(AllVehicleTypes.size()==1){
             CreateVehicle(plate);
-            return "Se ha creado una entrada exitosamente";
+            return "Vehículo Ingresado";
         }
-        else {
+        else if (AllVehicleTypes.size() > 1 && !verifyCarParked(plate)){
                 MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(plate));
                 MainController.addPanel.setVisible(true);
-                return "Tipo de placa encontrado";     
+                return "Tipo de placa encontrado y vehículo no encontrado";     
         }
+        else if (AllVehicleTypes.size() > 1 && verifyCarParked(plate)){
+            return "Tipo de placa encontrado y vehículo encontrado";
+        }
+        return null;
     }
 
     public static DefaultComboBoxModel getModelComboBox(String plate) {
@@ -86,4 +101,5 @@ public class AddVehicleManagementController {
     public static DefaultComboBoxModel comboBoxModel=null;
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
+    private static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
 }

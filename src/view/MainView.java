@@ -488,12 +488,17 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        String result=MainController.addVehicleManagementController.verifyCarInParkway(PlateTextField.getText());
-        if(result.equals("Inserte un tipo de placa valida")){
+        String result = MainController.addVehicleController.verifyCarInParkway(PlateTextField.getText());
+        if (result.equals("Inserte un tipo de placa valida")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
-        }
-        else if(result.equals("Se ha creado una entrada exitosamente")){
+        } else if (result.equals("Vehículo Ingresado")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
+            PlateTextField.removeAll();
+        } else if (result.equals("Do Nothing")) {
+        } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")){
+            setAddOrQuitPanel(MainController.addPanel);
+        } else if (result.equals("Tipo de placa encontrado y vehículo encontrado")){
+            setAddOrQuitPanel(MainController.quitPanel);
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
@@ -504,6 +509,7 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.add(panel);
         AoQPanel.setVisible(true);
         AoQPanel.repaint();
+        System.out.println(panel);
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
@@ -566,8 +572,8 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
 private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyPressed
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            SearchButtonActionPerformed(null);
-        }
+        SearchButtonActionPerformed(null);
+    }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
@@ -604,7 +610,8 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
             ExitController.exit(0);
         }
     }
-    public String getPlate(){
+
+    public String getPlate() {
         return PlateTextField.getText();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

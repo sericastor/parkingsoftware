@@ -7,9 +7,9 @@ import java.util.Calendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
-public class AddVehicleController {
+public class AddVehicleManagementController {
 
-    public AddVehicleController() {
+    public AddVehicleManagementController() {
     }
     
      public static DefaultComboBoxModel AllVehicleTypes() {
