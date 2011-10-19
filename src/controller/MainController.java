@@ -72,18 +72,6 @@ public class MainController {
 
     }
 
-    public static void verifyCarInParkway(String plate) {
-   
-        if (plate.equals("")) {
-            return;
-        } else {
-           Entries entries=entriesJpaController.getEntriesByPlate(plate);
-           if(entries == null){
-               addPanel.setVisible(true);
-           }
-        }
-    }
-
     public static void setVisibleMainView(boolean isVisible) {
         mainView.setVisible(isVisible);
     }

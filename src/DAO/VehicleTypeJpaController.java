@@ -30,25 +30,21 @@ public class VehicleTypeJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public boolean matchPlateType(String codification) {
+    public List <VehicleType>  matchPlateType(String codification) {
         EntityManager em = getEntityManager();
-        VehicleType vehi = null;
-        Query q = em.createQuery("SELECT u FROM VehicleType u "
-                + "where u.codification LIKE :codification").setParameter("user", codification);
+        List <VehicleType> vehi = null;
         try {
-            vehi = (VehicleType) q.getSingleResult();
-            return true;
-
+        Query q = em.createQuery("SELECT u FROM VehicleType u "
+                + "where u.codification LIKE :codification").setParameter("codification", codification);
+        
+            vehi = q.getResultList();
+            return vehi;
         } catch (Exception ex) {
-
             System.out.println("Aja ve y tu que, no tengo datos");
-            return false;
+            return vehi;
         } finally {
             em.close();
-
         }
-
-
     }
 
     public void create(VehicleType vehicleType) {
