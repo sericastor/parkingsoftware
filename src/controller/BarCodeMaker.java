@@ -30,7 +30,7 @@ public class BarCodeMaker {
             bean.doQuietZone(false);
             
             //Open output file
-            File outputFile = new File("barcode.jpg");
+            File outputFile = new File("src/images/barcode.jpg");
             OutputStream out = new FileOutputStream(outputFile);
             try {
                 //Set up the canvas provider for monochrome JPEG output 
