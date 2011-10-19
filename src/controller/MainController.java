@@ -44,7 +44,27 @@ public class MainController {
         }
         return false;
     }
-
+ public static void saveNewEmployee(String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator){
+        if(!EmployeeManagementController.validatePasswords(password, confirmPass)){
+            adminView.showMessage("Error", "Las contraseñas no coinciden", 0);
+        }else if(!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)){
+            adminView.showMessage("Error", "Todos los datos son obligatorios", 0);
+        }else if(EmployeeManagementController.validateAll(lastName, name, document, user, password)){
+            Employee newEmployee = new Employee();
+            newEmployee.setLastName(lastName);
+            newEmployee.setName(name);
+            newEmployee.setDocument(document);
+            newEmployee.setUser(user);
+            newEmployee.setPassword(controller.MainController.md5Security.MD5Security(password));
+            newEmployee.setAdministrator(administrator);
+            newEmployee.setIsActive(active);
+            employeeJpaController.create(newEmployee);
+        }
+    }
+  public static int getNextID(){
+	        return employeeJpaController.getEmployeeCount() +1;
+	    }
+    
     public static void saveNewVehicleType(String plate, String example) {
 
         if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
@@ -93,7 +113,7 @@ public class MainController {
     }
 
     public static void setVisibleAdminView(boolean isVisible) {
-        adminView.setVisible(isVisible);
+       adminView.setVisible(isVisible);
     }
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
