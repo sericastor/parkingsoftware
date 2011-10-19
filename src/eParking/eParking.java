@@ -20,25 +20,16 @@ import view.LoginView;
  *
  * @author r4wd3r
  */
-public class eParking{ 
-    public static void main(String args[]) throws ClassNotFoundException{   
+public class eParking {
+    public static void main(String args[]) throws ClassNotFoundException {
         try {
-            //inserta la piel segun el sistema operativo
-            //UIManager.setLookAndFeel(
-            //UIManager.getSystemLookAndFeelClassName());
-            //inserta la piel de la libreria agregada "jtatoo" que contiene varios skins
-             UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
-        } catch (InstantiationException ex) {
-            Logger.getLogger(eParking.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(eParking.class.getName()).log(Level.SEVERE, null, ex);
+            //nuevo look and feel modificable!!!
+            UIManager.setLookAndFeel(new com.nilo.plaf.nimrod.NimRODLookAndFeel());
+
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(eParking.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
         new MainController();
-       // new Parkway();
-        new AdministrationController();
         MainController.startClock();
     }
 }
