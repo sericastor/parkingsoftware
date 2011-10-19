@@ -4,10 +4,8 @@ package controller.Administration;
 
 public class ParkingManagementController {
 
-    public ParkingManagementController() {
-    }
-    
-    
+     public ParkingManagementController() {
+     }
     
      public static boolean validateName(String Name) {
 
@@ -15,8 +13,6 @@ public class ParkingManagementController {
 
             return true;
         }
-
-        //mandar error
         return false;
     }
      
