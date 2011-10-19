@@ -6,8 +6,10 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import Entity.BandsRate;
+import Entity.BandsRate_;
 import Entity.VehicleType;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,22 +32,20 @@ public class BandsRateJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-     public List queryByVehicleTypes(VehicleType vehicle) {
+     public List<BandsRate> queryByVehicleTypes(VehicleType vehicle) {
+         //se debe cambiar este metodo ALTAMENTE INEFICIENTE POR UN QUERY JPA!
         EntityManager em = getEntityManager();
-
-        String id =vehicle.getName();
-        Query q = em.createQuery("SELECT u FROM BandsRate u "
-                + "where u.vehicletype LIKE :id").setParameter("id", id);
-        try {
-
-            List <BandsRate> result =q.getResultList();
-            return result;
-        } catch (Exception ex) {
-            System.out.println("Aja ve y tu que, no tengo datos");
-            return null;
-        } finally {
-            em.close();
+        CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+        cq.select(cq.from(BandsRate.class));
+        Query q = em.createQuery(cq);
+        List <BandsRate> aux =q.getResultList();
+        List<BandsRate> result=new ArrayList<BandsRate>();
+        for(BandsRate b:aux){
+            if(b.getVehicletype().equals(vehicle)){
+                result.add(b);
+            }
         }
+        return result;
     }
 
     public void create(BandsRate bandsRate) {

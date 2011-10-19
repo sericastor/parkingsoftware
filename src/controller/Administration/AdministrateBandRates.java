@@ -34,8 +34,8 @@ public class AdministrateBandRates {
 
     public static TableModel getModelTable(VehicleType vehicletype) {
         DefaultTableModel results = new DefaultTableModel();
-        //AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
-        AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();
+        AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
+        //AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();
         results.addColumn("Identificador");
         results.addColumn("Desde (Minuto)");
         results.addColumn("Hasta (Minuto)");
@@ -73,8 +73,6 @@ public class AdministrateBandRates {
         } catch (Exception ex) {
             Logger.getLogger(AdministrateBandRates.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
 
     public static void createRow(int row, String from, String to, String fraction, String value,VehicleType vehicletype) {
@@ -92,8 +90,6 @@ public class AdministrateBandRates {
     }
 
     public static void rowIsEdited(int row, String from, String to, String fraction, String value,VehicleType vehicletype) {
-       
-
         if (AllBandsRate.isEmpty() || AllBandsRate.size() <= row) {
             try {
                 createRow(row, from, to, fraction, value, vehicletype);
