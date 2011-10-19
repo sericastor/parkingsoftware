@@ -8,6 +8,7 @@ import java.util.Calendar;
 import Entity.Employee;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
+import controller.Administration.EmployeeManagementController;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
 import view.ManagerAccessView;
@@ -122,7 +123,7 @@ public class MainController {
     public static MD5Security md5Security = new MD5Security();
     public static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
     public static VehicleTypeJpaController vehicleTypeJpaController = new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
-    public static AddVehicleManagementController addVehicleManagementController = new AddVehicleManagementController();
+    public static AddOrQuitVehicleController addVehicleController = new AddOrQuitVehicleController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
   
