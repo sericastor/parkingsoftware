@@ -42,6 +42,7 @@ public class AdministrateBandRates {
 
     public static TableModel getModelTable(VehicleType vehicletype) {
         DefaultTableModel results = new DefaultTableModel() {
+
             public boolean isCellEditable(int rowIndex, int mColIndex) {
                 if (mColIndex == 0) {
                     return false;
@@ -52,22 +53,19 @@ public class AdministrateBandRates {
         };
         AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
         results.addColumn("Identificador");
-        results.addColumn("Desde (Minuto)");
-        results.addColumn("Hasta (Minuto)");
-        results.addColumn("Fracción");
+        results.addColumn("Desde (Minutos)");
+        results.addColumn("Hasta (Minutos)");
+        results.addColumn("Fracción (Minutos)");
         results.addColumn("Valor Fracción");
         for (BandsRate b : AllBandsRate) {
-            if (b.getVehicletype().getName().equals(vehicletype.getName())) {
-
-                results.addRow(new Object[]{b.getId(), b.getFromm(), b.getToo(), b.getUnits(), b.getUnitValue()});
-            }
+            results.addRow(new Object[]{b.getId(), b.getFromm(), b.getToo(), b.getUnits(), b.getUnitValue()});
         }
         results.addRow(new Object[]{"nueva regla -->", "", "", "", ""});
         return results;
     }
 
     public static void updateRow(int row, String id, String from, String to, String fraction, String value, VehicleType vehicletype) {
-        AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();//actualiza listado
+        AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);//actualiza listado
         try {
             BandsRate aux = new BandsRate();
             aux.setFromm(Integer.parseInt(from));
@@ -76,14 +74,13 @@ public class AdministrateBandRates {
             aux.setUnitValue(Double.parseDouble(value));
             aux.setVehicletype(vehicleTypeIsSelected);
             aux.setId(Integer.parseInt(id));
-
             MainController.bandsRateJpaController.edit(aux);
             String description = "from: " + AllBandsRate.get(row).getFromm() + " -> " + from
                     + " to:" + AllBandsRate.get(row).getToo() + " -> " + to
                     + " frac:" + AllBandsRate.get(row).getUnits() + " -> " + fraction
                     + " value:" + AllBandsRate.get(row).getUnitValue() + " -> " + value;
             MainController.system.UpdateBandRate(aux.getId(), description);
-            AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();
+            AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
         } catch (NumberFormatException ex) {
             //error generado al tratar de hacer un parse con un string ""
         } catch (NonexistentEntityException ex) {
@@ -103,36 +100,115 @@ public class AdministrateBandRates {
         MainController.bandsRateJpaController.create(aux);
         String description = "from: " + from + " to:" + to + " frac:" + fraction + " value:" + value;
         MainController.system.AddBandRate(aux.getId(), description);
-        AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();
+        AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
+    }
 
+    public static boolean Validations(int row, String id, String from, String to, String fraction, String value) {
+        boolean consistency = true;
+        try {//validaciones de tipo alfanumerico
+            
+            int ifrom = Integer.parseInt(from);
+            int ito = Integer.parseInt(to);
+            int ifrac = Integer.parseInt(fraction);
+            float fval = Float.parseFloat(value);
+            consistency = consistencyValidations(row, ifrom, ito, ifrac, fval);
+        } catch (NumberFormatException e) {
+            
+            consistency = false;
+            String message = "Se ha provocado un error en la fila " + (row + 1) +" por favor inserte valores numéricos.";
+            String type = "Error!";
+            MainController.adminView.confirmationMessages(message, type);
+        }
+        return consistency;
+    }
+
+    public static boolean consistencyValidations(int row,  int from, int to, int fraction, float value) {
+        String message = "";
+        String type = "";
+        if (from >= to) {
+            type = "Error en la fila " + (row + 1);
+            message = "El campo 'Desde' debe ser estrictamente menor que el campo 'Hasta'";
+            MainController.adminView.confirmationMessages(message, type);
+            return false;
+        }
+        if (AllBandsRate.isEmpty() && from != 0) {
+            type = "Error en la fila " + (row + 1);
+            message = "El campo 'Desde' debe empezar estrictamente en cero (0)";
+            MainController.adminView.confirmationMessages(message, type);
+            return false;
+        }
+        if(!AllBandsRate.isEmpty()){
+            boolean flag=false;
+            boolean flag2=false;
+            for (BandsRate bandsRate : AllBandsRate) {
+                if(bandsRate.getToo()==from){
+                    flag=true;
+                }
+                else if(bandsRate.getFromm()==from){
+                    flag2=true;
+                    break;
+                }
+            }
+            if(flag==false){
+                type = "Error en la fila " + (row + 1);
+            message = "El campo 'Desde' debe ser igual a alguno de los valores de la columna 'Hasta'";
+            MainController.adminView.confirmationMessages(message, type);
+            return false;
+            }
+            else if(flag2==true){
+             type = "Error en la fila " + (row + 1);
+            message = "La fila 'Desde' debe ser unica en cada caso";
+            MainController.adminView.confirmationMessages(message, type);
+            return false;
+            }
+
+        }
+
+        return true;
     }
 
     public static void rowIsEdited(int row, String id, String from, String to, String fraction, String value, VehicleType vehicletype) {
-        if (AllBandsRate.isEmpty() || AllBandsRate.size() <= row) {
+        if (AllBandsRate.isEmpty() || AllBandsRate.size()<=row) {
             try {
+                boolean flag=true;
+                if(!from.equals("")&&!to.equals("")&&!fraction.equals("")&&!value.equals("")){
+                    flag=Validations(row, id, from, to, fraction, value);
+                }
+                if(flag==true){
                 createRow(row, from, to, fraction, value, vehicletype);
+                }
+                    
             } catch (NumberFormatException e) {
+                
                 //error producido si se edito un campo y se dejo la ultima fila vacia
             } finally {
                 return;
             }
         }
+       
         if (!String.valueOf(AllBandsRate.get(row).getFromm()).equals(from)) {
-            updateRow(row, id, from, to, fraction, value, vehicletype);
+            if (Validations(row, id, from, to, fraction, value)) {
+                updateRow(row, id, from, to, fraction, value, vehicletype);
+            }
             return;
         } else if (!String.valueOf(AllBandsRate.get(row).getToo()).equals(to)) {
-            updateRow(row, id, from, to, fraction, value, vehicletype);
+            if (Validations(row, id, from, to, fraction, value)) {
+                updateRow(row, id, from, to, fraction, value, vehicletype);
+            }
             return;
         } else if (!String.valueOf(AllBandsRate.get(row).getUnits()).equals(fraction)) {
-            updateRow(row, id, from, to, fraction, value, vehicletype);
+            if (Validations(row, id, from, to, fraction, value)) {
+                updateRow(row, id, from, to, fraction, value, vehicletype);
+            }
             return;
         } else if (!String.valueOf(AllBandsRate.get(row).getUnitValue()).equals(value)) {
-            updateRow(row, id, from, to, fraction, value, vehicletype);
+            if (Validations(row, id, from, to, fraction, value)) {
+                updateRow(row, id, from, to, fraction, value, vehicletype);
+            }
             return;
         }
+}
 
-
-    }
 
     public static VehicleType getVehicleTypeSelected(String vehicletype) {
         for (VehicleType v : AllVehicleTypes) {

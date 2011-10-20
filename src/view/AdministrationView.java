@@ -1013,6 +1013,11 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
     private final String create = "¿Está seguro de crear al empleado ";
     private final String update = "¿Está seguro de modificar al empleado ";
     
+    //mensajes para las tarifas
+    public void confirmationMessages(String message,String type){
+        JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressParkwayLabel;
     private javax.swing.JTextField AddressTextField;
