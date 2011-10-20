@@ -32,36 +32,51 @@ public class AdministrateBandRates {
         return results;
     }
 
+    public boolean isCellEditable(int rowIndex, int colIndex) {
+        if (rowIndex == 0) {
+            return false; //Disallow the editing of any cell
+        } else {
+            return true;
+        }
+    }
+
     public static TableModel getModelTable(VehicleType vehicletype) {
-        DefaultTableModel results = new DefaultTableModel();
+        DefaultTableModel results = new DefaultTableModel() {
+            public boolean isCellEditable(int rowIndex, int mColIndex) {
+                if (mColIndex == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        };
         AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
-        //AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();
         results.addColumn("Identificador");
         results.addColumn("Desde (Minuto)");
         results.addColumn("Hasta (Minuto)");
         results.addColumn("Fracción");
         results.addColumn("Valor Fracción");
         for (BandsRate b : AllBandsRate) {
-            if(b.getVehicletype().getName().equals(vehicletype.getName()))
-                {
-            results.addRow(new Object[]{b.getId(), b.getFromm(), b.getToo(), b.getUnits(), b.getUnitValue()});
+            if (b.getVehicletype().getName().equals(vehicletype.getName())) {
+
+                results.addRow(new Object[]{b.getId(), b.getFromm(), b.getToo(), b.getUnits(), b.getUnitValue()});
             }
         }
         results.addRow(new Object[]{"nueva regla -->", "", "", "", ""});
         return results;
     }
 
-    public static void updateRow(int row, String id, String from, String to, String fraction, String value,VehicleType vehicletype) {
+    public static void updateRow(int row, String id, String from, String to, String fraction, String value, VehicleType vehicletype) {
         AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();//actualiza listado
         try {
-        BandsRate aux = new BandsRate();
-        aux.setFromm(Integer.parseInt(from));
-        aux.setToo(Integer.parseInt(to));
-        aux.setUnits(Integer.parseInt(fraction));
-        aux.setUnitValue(Double.parseDouble(value));
-        aux.setVehicletype(vehicleTypeIsSelected);
-        aux.setId(Integer.parseInt(id));
-        
+            BandsRate aux = new BandsRate();
+            aux.setFromm(Integer.parseInt(from));
+            aux.setToo(Integer.parseInt(to));
+            aux.setUnits(Integer.parseInt(fraction));
+            aux.setUnitValue(Double.parseDouble(value));
+            aux.setVehicletype(vehicleTypeIsSelected);
+            aux.setId(Integer.parseInt(id));
+
             MainController.bandsRateJpaController.edit(aux);
             String description = "from: " + AllBandsRate.get(row).getFromm() + " -> " + from
                     + " to:" + AllBandsRate.get(row).getToo() + " -> " + to
@@ -69,17 +84,16 @@ public class AdministrateBandRates {
                     + " value:" + AllBandsRate.get(row).getUnitValue() + " -> " + value;
             MainController.system.UpdateBandRate(aux.getId(), description);
             AllBandsRate = MainController.bandsRateJpaController.findBandsRateEntities();
-        } 
-        catch(NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             //error generado al tratar de hacer un parse con un string ""
-        }catch (NonexistentEntityException ex) {
+        } catch (NonexistentEntityException ex) {
             Logger.getLogger(AdministrateBandRates.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(AdministrateBandRates.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void createRow(int row, String from, String to, String fraction, String value,VehicleType vehicletype) {
+    public static void createRow(int row, String from, String to, String fraction, String value, VehicleType vehicletype) {
         BandsRate aux = new BandsRate();
         aux.setFromm(Integer.parseInt(from));
         aux.setToo(Integer.parseInt(to));
@@ -93,7 +107,7 @@ public class AdministrateBandRates {
 
     }
 
-    public static void rowIsEdited(int row, String id,String from, String to, String fraction, String value,VehicleType vehicletype) {
+    public static void rowIsEdited(int row, String id, String from, String to, String fraction, String value, VehicleType vehicletype) {
         if (AllBandsRate.isEmpty() || AllBandsRate.size() <= row) {
             try {
                 createRow(row, from, to, fraction, value, vehicletype);
@@ -113,7 +127,7 @@ public class AdministrateBandRates {
             updateRow(row, id, from, to, fraction, value, vehicletype);
             return;
         } else if (!String.valueOf(AllBandsRate.get(row).getUnitValue()).equals(value)) {
-            updateRow(row, id,  from, to, fraction, value, vehicletype);
+            updateRow(row, id, from, to, fraction, value, vehicletype);
             return;
         }
 
