@@ -112,7 +112,7 @@ public class MainView extends javax.swing.JFrame {
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -244,21 +244,11 @@ public class MainView extends javax.swing.JFrame {
         );
 
         AoQPanel.setBackground(new java.awt.Color(254, 254, 254));
-
-        javax.swing.GroupLayout AoQPanelLayout = new javax.swing.GroupLayout(AoQPanel);
-        AoQPanel.setLayout(AoQPanelLayout);
-        AoQPanelLayout.setHorizontalGroup(
-            AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
-        );
-        AoQPanelLayout.setVerticalGroup(
-            AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 305, Short.MAX_VALUE)
-        );
+        AoQPanel.setLayout(new java.awt.BorderLayout());
 
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
-        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36)); // NOI18N
+        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36));
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
         ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -464,7 +454,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
             .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -502,14 +492,8 @@ public class MainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
-        //panel.setBounds(AoQPanel.getBounds());
-        //panel.setLocation(AoQPanel.getLocation());
-        AoQPanel.removeAll();
-        AoQPanel.setVisible(false);
         AoQPanel.add(panel);
-        AoQPanel.setVisible(true);
-        AoQPanel.repaint();
-        System.out.println(panel);
+        AoQPanel.updateUI();
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
