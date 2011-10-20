@@ -45,13 +45,14 @@ public class MainController {
         }
         return false;
     }
- public static void saveNewEmployee(String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator){
+ public static void saveNewEmployee(long id,String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator){
         if(!EmployeeManagementController.validatePasswords(password, confirmPass)){
             adminView.showMessage("Error", "Las contraseñas no coinciden", 0);
         }else if(!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)){
             adminView.showMessage("Error", "Todos los datos son obligatorios", 0);
         }else if(EmployeeManagementController.validateAll(lastName, name, document, user, password)){
             Employee newEmployee = new Employee();
+            newEmployee.setId(id);
             newEmployee.setLastName(lastName);
             newEmployee.setName(name);
             newEmployee.setDocument(document);
@@ -59,6 +60,7 @@ public class MainController {
             newEmployee.setPassword(controller.MainController.md5Security.MD5Security(password));
             newEmployee.setAdministrator(administrator);
             newEmployee.setIsActive(active);
+            System.out.println(newEmployee);
             employeeJpaController.create(newEmployee);
         }
     }

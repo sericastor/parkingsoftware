@@ -836,7 +836,7 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
         } else {
             int option = this.askToAdmin(create);
             if (option == JOptionPane.OK_OPTION) {
-                MainController.saveNewEmployee(getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
+                MainController.saveNewEmployee(getUserID(), getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
             }else if(option == JOptionPane.CANCEL_OPTION || option == 
                     JOptionPane.CLOSED_OPTION){
                         return;
@@ -938,6 +938,10 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
     RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
     RatesTable.updateUI();
 }//GEN-LAST:event_VehicleTypeComboBoxItemStateChanged
+
+    private long getUserID(){
+        return Long.parseLong(IdEmployeeTextField.getText());
+    }
 
     private String getUserPass(){
         return String.valueOf(PasswordField.getPassword());
