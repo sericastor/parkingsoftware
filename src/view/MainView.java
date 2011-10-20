@@ -113,7 +113,7 @@ public class MainView extends javax.swing.JFrame {
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -493,14 +493,8 @@ public class MainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
-        //panel.setBounds(AoQPanel.getBounds());
-        //panel.setLocation(AoQPanel.getLocation());
-        AoQPanel.removeAll();
-        AoQPanel.setVisible(false);
         AoQPanel.add(panel);
-        AoQPanel.setVisible(true);
-        AoQPanel.repaint();
-        System.out.println(panel);
+        AoQPanel.updateUI();
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
