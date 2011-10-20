@@ -15,6 +15,7 @@ import view.ManagerAccessView;
 import view.MainView;
 import view.AdministrationView;
 
+import view.BarCodePanel;
 import view.QuitVehiclePanel;
 
 /**
@@ -88,6 +89,10 @@ public class MainController {
         }
 
     }
+    public static void generateBarCode(String plate){
+        BarCodeMaker bar = new BarCodeMaker();
+        bar.Create(plate);
+    }
 
     public static void setVisibleMainView(boolean isVisible) {
         mainView.setVisible(isVisible);
@@ -112,6 +117,7 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible) {
        adminView.setVisible(isVisible);
     }
+    public static BarCodePanel barCodePanel=new BarCodePanel();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();

@@ -6,6 +6,7 @@ import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
 import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
 import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,7 +99,7 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36));
+        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -244,21 +245,11 @@ public class MainView extends javax.swing.JFrame {
         );
 
         AoQPanel.setBackground(new java.awt.Color(254, 254, 254));
-
-        javax.swing.GroupLayout AoQPanelLayout = new javax.swing.GroupLayout(AoQPanel);
-        AoQPanel.setLayout(AoQPanelLayout);
-        AoQPanelLayout.setHorizontalGroup(
-            AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
-        );
-        AoQPanelLayout.setVerticalGroup(
-            AoQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 305, Short.MAX_VALUE)
-        );
+        AoQPanel.setLayout(new java.awt.BorderLayout());
 
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
-        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36)); // NOI18N
+        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36));
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
         ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -464,7 +455,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
             .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1155, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -578,6 +569,15 @@ private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
     PlateTextField.setText(PlateTextField.getText().toUpperCase());
+    MainController.generateBarCode(PlateTextField.getText());
+    MainController.barCodePanel.setImageLabel();
+    AoQPanel.removeAll();
+    AoQPanel.add(MainController.barCodePanel);
+    
+    AoQPanel.setVisible(true);
+    this.repaint();
+   // this.pack();
+    MainController.barCodePanel.updateUI();
 }//GEN-LAST:event_PlateTextFieldKeyReleased
 
     public void start() {
