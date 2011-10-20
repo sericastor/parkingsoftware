@@ -66,7 +66,7 @@ public class MainController {
     }
   public static int getNextID(){
 	        return employeeJpaController.getEmployeeCount() +1;
-	    }
+  }
     
     public static void saveNewVehicleType(String plate, String example) {
         if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
