@@ -21,7 +21,7 @@ public class BarCodeMaker {
             //Create the barcode bean
             Code39Bean bean = new Code39Bean();
             
-            final int dpi =450;
+            final int dpi =250;
             
             //Configure the barcode generator
             bean.setModuleWidth(UnitConv.in2mm(2.0f / dpi)); //makes the narrow bar 
