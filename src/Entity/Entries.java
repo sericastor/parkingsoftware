@@ -12,21 +12,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  *
- * @author miguel
+ * @author Martin Kanayet
  */
 @Entity
 public class Entries implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="EntryOrder")
-    private Long entryOrder;
+    private long id;
     @Column(name="Ticket",nullable=false)
     private int ticket;
     @Temporal(TemporalType.TIMESTAMP)
@@ -35,9 +33,9 @@ public class Entries implements Serializable {
     @Column(name="Plate",nullable=false)
     private String plate;
     
-    @ManyToOne
-    @Column(name="Rate",nullable=false)
-    private BandsRate rate;
+    //@ManyToOne
+    //@Column(name="Rate",nullable=false)
+    //private BandsRate rate;
     
     @ManyToOne
     @Column(name="VehicleType",nullable=false)
@@ -46,35 +44,13 @@ public class Entries implements Serializable {
     @ManyToOne
     @Column(name="Employee",nullable=false)
     private Employee employee;
-    
-    @OneToOne
-    private Exits exit;
-    
-    public Entries() {
+
+    public long getId() {
+        return id;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-    
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
-        this.plate = plate;
-    }
-
-    public BandsRate getRate() {
-        return rate;
-    }
-
-    public void setRate(BandsRate rate) {
-        this.rate = rate;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Employee getEmployee() {
@@ -85,12 +61,20 @@ public class Entries implements Serializable {
         this.employee = employee;
     }
 
-    public Long getEntryOrder() {
-        return entryOrder;
+    public Date getEntryDate() {
+        return entryDate;
     }
 
-    public void setEntryOrder(Long entryOrder) {
-        this.entryOrder = entryOrder;
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
     public int getTicket() {
@@ -108,24 +92,22 @@ public class Entries implements Serializable {
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
-    
-    
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (entryOrder != null ? entryOrder.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the ticket fields are not set
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Entries)) {
             return false;
         }
         Entries other = (Entries) object;
-        if ((this.entryOrder == null && other.entryOrder != null) || (this.entryOrder != null && !this.entryOrder.equals(other.ticket))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
@@ -133,7 +115,7 @@ public class Entries implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Entries[ id=" + entryOrder + " ]";
+        return "Entity.Entries[ id=" + id + " ]";
     }
     
 }

@@ -479,6 +479,7 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+        MainController.addVehicleController.setPlate(PlateTextField.getText());
         String result = MainController.addVehicleController.verifyCarInParkway(PlateTextField.getText());
         if (result.equals("Inserte un tipo de placa valida")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
@@ -563,7 +564,7 @@ private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
     PlateTextField.setText(PlateTextField.getText().toUpperCase());
-    MainController.generateBarCode(PlateTextField.getText());
+/*    MainController.generateBarCode(PlateTextField.getText());
     MainController.barCodePanel.setImageLabel();
     AoQPanel.removeAll();
     AoQPanel.add(MainController.barCodePanel);
@@ -571,7 +572,7 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
     AoQPanel.setVisible(true);
     this.repaint();
    // this.pack();
-    MainController.barCodePanel.updateUI();
+    MainController.barCodePanel.updateUI();*/
 }//GEN-LAST:event_PlateTextFieldKeyReleased
 
     public void start() {

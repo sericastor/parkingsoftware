@@ -83,20 +83,34 @@ public class AddOrQuitVehicleController {
         return code;
     }
 
-    public static String CreateVehicle(String plate) {
-        /* por el momento se deja comentado dado que toca revisar bien el modelo
+    public static String CreateVehicle(String vehicleType) {
+        //por el momento se deja comentado dado que toca revisar bien el modelo
         Entries entries = new Entries();
         entries.setEmployee(MainController.system.getSesionemployee());
         entries.setEntryDate(Calendar.getInstance().getTime());
-        entries.setPlate(MainController.mainView.getPlate());
-        entries.setVehicleType(getVehicleTypeSelected(plate));
+        entries.setPlate(plate);
+        entries.setVehicleType(MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(vehicleType)));
+        entries.setTicket(Integer.valueOf(vehicleType));
+        //Por defecto el primer tipo de Rate asociado al VehicleType
+        //entries.setRate(MainController.bandsRateJpaController.queryByVehicleTypes(MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(vehicleType))).get(0));
+        //Set o no set PK?
+        //entries.setEntryOrder(Long.valueOf(vehicleType));
         //que fuckin es un ticket?
         //para que fuckin es el rate? si se supone que no sabemos cuanto va a durar?
         //es decir, el rate sera determinado por las reglas segun el tiempo transcurrido
         //y NO de ante mano.
-        MainController.entriesJpaController.create(null);*/
+        MainController.entriesJpaController.create(entries);
         return null;
 
+    }
+    private static String plate;
+
+    public static String getPlate() {
+        return plate;
+    }
+
+    public static void setPlate(String plate) {
+        AddOrQuitVehicleController.plate = plate;
     }
     public static DefaultComboBoxModel comboBoxModel=null;
     private static VehicleType vehicleTypeIsSelected = null;
