@@ -261,6 +261,11 @@ public class AdministrationView extends javax.swing.JFrame {
         EmployeeListScroll.setToolTipText("Empleados registrados en el sistema.");
 
         EmployeeList.setToolTipText("Empleados registrados en el sistema.");
+        EmployeeList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EmployeeListMouseClicked(evt);
+            }
+        });
         EmployeeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 EmployeeListValueChanged(evt);
@@ -785,7 +790,6 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         isAdminEmployeeCheckBox.setSelected(e.isAdministrator());
         isActiveEmployeeCheckBox.setSelected(e.isIsActive());
         UserTextField.setText(e.getUser());
-        PasswordField.setText(e.getPassword()); // Aquí toca convertirla XD
     }
 }//GEN-LAST:event_EmployeeListValueChanged
 
@@ -832,6 +836,7 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
             CreateEmployeeButton.setText("Guardar Empleado");
             IdEmployeeTextField.setText(String.valueOf(MainController.getNextID())); 
             this.setEnabledEmp(flag);
+            UpdateEmployeeButton.setEnabled(false);
             flag = false;
         } else {
             int option = this.askToAdmin(create);
@@ -843,31 +848,32 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
             }
             CreateEmployeeButton.setText("Crear Empleado");
             this.setEnabledEmp(flag);
+            UpdateEmployeeButton.setEnabled(true);
             this.setNullEmp();
             flag = true;
         }
     }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
 
 private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateEmployeeButtonActionPerformed
-    if(IdEmployeeTextField.getText().equals("")){
+    if(IdEmployeeTextField.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Consulte el empleado a modificar", "Error", JOptionPane.WARNING_MESSAGE, null);
     }else{
         if (flag2) {
             UpdateEmployeeButton.setText("Guardar Cambios");
             this.setEnabledEmp(flag2);
+            CreateEmployeeButton.setEnabled(false);
             flag2 = false;
         } else {
             int option = this.askToAdmin(update);
             if (option == JOptionPane.OK_OPTION) {
-                // Aquí lo modifica
-                System.out.println("Usemos la imaginación y hagamos de cuenta "
-                        + "que lo modificamos XD");
+                MainController.updateOldEmployee(getUserID(), getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
             }else if(option == JOptionPane.CANCEL_OPTION || option == 
                     JOptionPane.CLOSED_OPTION){
                         return;
             }
-            CreateEmployeeButton.setText("Actualizar Empleado");
+            UpdateEmployeeButton.setText("Actualizar Empleado");
             this.setEnabledEmp(flag2);
+            CreateEmployeeButton.setEnabled(true);
             this.setNullEmp();
             flag2 = true;
         }
@@ -938,6 +944,10 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
     RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
     RatesTable.updateUI();
 }//GEN-LAST:event_VehicleTypeComboBoxItemStateChanged
+
+private void EmployeeListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeListMouseClicked
+    EmployeeListValueChanged(null);
+}//GEN-LAST:event_EmployeeListMouseClicked
 
     private long getUserID(){
         return Long.parseLong(IdEmployeeTextField.getText());

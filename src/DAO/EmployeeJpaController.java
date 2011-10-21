@@ -67,22 +67,24 @@ public class EmployeeJpaController implements Serializable {
         }
     }
 
-    public void edit(Employee employee) throws NonexistentEntityException, Exception {
+    public void edit(Employee employee, long id) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            employee = em.merge(employee);
+            Employee newEmployee = em.find(Employee.class, id);
+            newEmployee.setLastName(employee.getLastName());
+            newEmployee.setName(employee.getName());
+            newEmployee.setDocument(employee.getDocument());
+            newEmployee.setUser(employee.getUser());
+            newEmployee.setPassword(employee.getPassword());
+            newEmployee.setAdministrator(employee.isAdministrator());
+            newEmployee.setIsActive(employee.isIsActive());
+            employee = em.merge(newEmployee);
+            System.out.println(employee);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                long id = employee.getId();
-                if (findEmployee(id) == null) {
-                    throw new NonexistentEntityException("The employee with id " + id + " no longer exists.");
-                }
-            }
-            throw ex;
+            System.out.println(ex.getStackTrace());
         } finally {
             if (em != null) {
                 em.close();

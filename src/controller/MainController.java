@@ -60,12 +60,36 @@ public class MainController {
             newEmployee.setPassword(controller.MainController.md5Security.MD5Security(password));
             newEmployee.setAdministrator(administrator);
             newEmployee.setIsActive(active);
-            System.out.println(newEmployee);
+            System.out.println(newEmployee.getName());
             employeeJpaController.create(newEmployee);
         }
     }
   public static int getNextID(){
 	        return employeeJpaController.getEmployeeCount() +1;
+  }
+  
+  public static void updateOldEmployee(long id,String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator){
+      if(!EmployeeManagementController.validatePasswords(password, confirmPass)){
+            adminView.showMessage("Error", "Las contraseñas no coinciden", 0);
+        }else if(!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)){
+            adminView.showMessage("Error", "Todos los datos son obligatorios", 0);
+        }else if(EmployeeManagementController.validateAll(lastName, name, document, user, password)){
+            Employee oldEmployee = new Employee();
+            oldEmployee.setId(id);
+            oldEmployee.setLastName(lastName);
+            oldEmployee.setName(name);
+            oldEmployee.setDocument(document);
+            oldEmployee.setUser(user);
+            oldEmployee.setPassword(controller.MainController.md5Security.MD5Security(password));
+            oldEmployee.setAdministrator(administrator);
+            oldEmployee.setIsActive(active);
+            System.out.println(oldEmployee.getName());
+            try{
+                employeeJpaController.edit(oldEmployee,id);
+            }catch(Exception ex){
+                adminView.showMessage("Error", "No fue posible modificar a ".concat(oldEmployee.getName()), 0);
+            }
+        }
   }
     
     public static void saveNewVehicleType(String plate, String example) {
