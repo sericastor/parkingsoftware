@@ -149,7 +149,7 @@ public class MainController {
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
     public static LoginController loginController = new LoginController();
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
-    private static AdministrationView adminView = new AdministrationView();
+    public static AdministrationView adminView = new AdministrationView();
     public static BandsRateJpaController bandsRateJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
     public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
     public static MD5Security md5Security = new MD5Security();
