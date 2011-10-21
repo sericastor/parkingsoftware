@@ -17,7 +17,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author miguel
+ * @author Martin Kanayet
  */
 public class EntriesJpaController implements Serializable {
 
@@ -54,7 +54,7 @@ public class EntriesJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = entries.getEntryOrder();
+                long id = entries.getId();
                 if (findEntries(id) == null) {
                     throw new NonexistentEntityException("The entries with id " + id + " no longer exists.");
                 }
@@ -67,7 +67,7 @@ public class EntriesJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -75,7 +75,7 @@ public class EntriesJpaController implements Serializable {
             Entries entries;
             try {
                 entries = em.getReference(Entries.class, id);
-                entries.getEntryOrder();
+                entries.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The entries with id " + id + " no longer exists.", enfe);
             }
@@ -86,25 +86,6 @@ public class EntriesJpaController implements Serializable {
                 em.close();
             }
         }
-    }
-
-    public Entries getEntriesByPlate(String plate) {
-        EntityManager em = getEntityManager();
-        Entries entries = null;
-        
-        try{
-            Query q = em.createQuery("SELECT u FROM Entries u "
-                + "where u.plate LIKE :plate")
-                .setParameter("plate", plate);
-            entries = (Entries) q.getSingleResult();
-        }catch(Exception ex){
-            //TODO: fuck yeah!! xD, mirar Hechepchion :) 
-            System.out.println("Aja ve y tu que, no tengo datos");
-        }finally{
-            em.close();
-            return entries;
-        }
-
     }
 
     public List<Entries> findEntriesEntities() {
@@ -131,7 +112,7 @@ public class EntriesJpaController implements Serializable {
         }
     }
 
-    public Entries findEntries(Long id) {
+    public Entries findEntries(long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Entries.class, id);
@@ -151,5 +132,23 @@ public class EntriesJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public Entries getEntriesByPlate(String plate) {
+        EntityManager em = getEntityManager();
+        Entries entries = null;
+
+        try {
+            Query q = em.createQuery("SELECT u FROM Entries u "
+                    + "where u.plate LIKE :plate").setParameter("plate", plate);
+            entries = (Entries) q.getSingleResult();
+        } catch (Exception ex) {
+            //TODO: fuck yeah!! xD, mirar Hechepchion :) 
+            System.out.println("Aja ve y tu que, no tengo datos");
+        } finally {
+            em.close();
+            return entries;
+        }
+
     }
 }

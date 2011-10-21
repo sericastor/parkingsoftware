@@ -83,7 +83,7 @@ public class InitializeController {
         Entries entrie = new Entries();
         entrie.setEmployee(em);
         entrie.setEntryDate(date);
-        entrie.setEntryOrder(Long.valueOf(1));
+        entrie.setId(Long.valueOf(1));
         entrie.setPlate("InitialPlate");
         //entrie.setRate(parkingrate);
         entrie.setTicket(1);
