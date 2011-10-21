@@ -27,11 +27,12 @@ public class AdministrateEmployeeController {
         return results;
     }
     
-    public static DefaultListModel SearchOfEmployees (String searchString){
+    public static DefaultListModel SearchOfEmployees (int search){
         DefaultListModel results = new DefaultListModel();
         employeeListSearch= MainController.employeeJpaController.findEmployeeEntities();
         for(Employee e : employeeListSearch){
-            results.addElement(e.getId() +" "+ e.getUser());
+            if(search == e.getId())
+                results.addElement(e.getId() +" "+ e.getUser());
         }
         return results;
     }

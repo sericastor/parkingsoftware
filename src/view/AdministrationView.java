@@ -762,8 +762,14 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     if (searchText.isEmpty()) {
         EmployeeList.setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
     } else {
-        EmployeeList.setModel(AdministrateEmployeeController.SearchOfEmployees(searchText));
+        try{
+            int searchInt = Integer.parseInt(searchText);
+            EmployeeList.setModel(AdministrateEmployeeController.SearchOfEmployees(searchInt));
+        }catch(Exception e){
+            showMessage("Advertencia","La busqueda debe hacerse por ID", JOptionPane.WARNING_MESSAGE);
+        };
     }
+    ConsultEmployeeTextField.setText(null);
 }//GEN-LAST:event_SearchButtonActionPerformed
 
     public void showMessage(String title, String message, int messageType) {
@@ -842,6 +848,7 @@ private void GenerateReportButtonActionPerformed(java.awt.event.ActionEvent evt)
             int option = this.askToAdmin(create);
             if (option == JOptionPane.OK_OPTION) {
                 MainController.saveNewEmployee(getUserID(), getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
+                SearchButtonActionPerformed(null);
             }else if(option == JOptionPane.CANCEL_OPTION || option == 
                     JOptionPane.CLOSED_OPTION){
                         return;
@@ -867,6 +874,7 @@ private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt)
             int option = this.askToAdmin(update);
             if (option == JOptionPane.OK_OPTION) {
                 MainController.updateOldEmployee(getUserID(), getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
+                SearchButtonActionPerformed(null);
             }else if(option == JOptionPane.CANCEL_OPTION || option == 
                     JOptionPane.CLOSED_OPTION){
                         return;
