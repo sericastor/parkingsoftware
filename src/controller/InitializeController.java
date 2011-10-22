@@ -26,25 +26,30 @@ public class InitializeController {
         initialize();
     }
 
-    public void initialize() {
+    public static void initialize() {
 
         //Creacion de la tabla Employee
+        
+        
         Employee em = new Employee();
-        em.setId(Long.valueOf(1));
-        em.setLastName("InitialLastName");
-        em.setName("InitialName");
-        em.setDocument("1");
-        em.setPassword("InitialPassword");
+        em.setId(MainController.employeeJpaController.getEmployeeCount());
+        em.setLastName("ILastName");
+        em.setIsActive(true);
         em.setAdministrator(true);
-        em.setUser("InitialUser");
+        em.setName("IName");
+        em.setDocument("1");
+        em.setPassword(controller.MainController.md5Security.MD5Security("Ipass"));
+        em.setAdministrator(true);
+        em.setUser("IUser");
         emJpaController.create(em);
+        //controller.MainController.employeeJpaController.create(em);
 
 
         //Creacion de la tabla VehicleType
         VehicleType vt = new VehicleType();
-        vt.setCodification("InitialCodification");
-        vt.setName("InitialName");
-        vt.setNumber(Long.valueOf(1));
+        vt.setCodification("ICodification");
+        vt.setName("IName");
+        vt.setNumber(MainController.vehicleTypeJpaController.getVehicleTypeCount());
         vtJpaController.create(vt);
 
 
@@ -52,12 +57,13 @@ public class InitializeController {
         BandsRate br = new BandsRate();
         br.setFromm(1);
         br.setToo(5);
-        br.setId(Long.valueOf(1));
+        br.setId(MainController.bandsRateJpaController.getBandsRateCount());
         br.setUnitValue(1500);
         br.setUnits(3);
+        br.setVehicletype(vt);
         brJpaController.create(br);
 
-
+/*
         //Creacion de tabla factureTurn
         FactureTurn ft = new FactureTurn();
         Date date = new Date(Long.valueOf(0));
@@ -119,7 +125,7 @@ public class InitializeController {
         infop.setTelephone("1");
         infopJpaController.create(infop);
         
-
+*/
 
     }
     public static BandsRateJpaController brJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
