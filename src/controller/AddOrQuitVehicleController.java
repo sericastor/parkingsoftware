@@ -11,36 +11,31 @@ public class AddOrQuitVehicleController {
 
     public AddOrQuitVehicleController() {
     }
-    
-    public static boolean verifyCarParked(String plate){
+
+    public static boolean verifyCarParked(String plate) {
         Entries entry = new Entries();
         entry = entriesJpaController.getEntriesByPlate(plate);
-        if (entry == null){
+        if (entry == null) {
             return false;
         }
         return true;
     }
-    
 
     public static String verifyCarInParkway(String plate) {
         String codification = encodePlate(plate);
         AllVehicleTypes = MainController.vehicleTypeJpaController.matchPlateType(codification);
         if (plate.equals("")) {
             return "Do Nothing";
-        } 
-        else if(AllVehicleTypes.size()==0){
+        } else if (AllVehicleTypes.size() == 0) {
             return "Inserte un tipo de placa valida";
-        }
-        else if(AllVehicleTypes.size()==1){
+        } else if (AllVehicleTypes.size() == 1) {
             CreateVehicle(plate);
             return "Vehículo Ingresado";
-        }
-        else if (AllVehicleTypes.size() > 1 && !verifyCarParked(plate)){
-                MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(plate));
-                MainController.addPanel.setVisible(true);
-                return "Tipo de placa encontrado y vehículo no encontrado";     
-        }
-        else if (AllVehicleTypes.size() > 1 && verifyCarParked(plate)){
+        } else if (AllVehicleTypes.size() > 1 && !verifyCarParked(plate)) {
+            MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(plate));
+            MainController.addPanel.setVisible(true);
+            return "Tipo de placa encontrado y vehículo no encontrado";
+        } else if (AllVehicleTypes.size() > 1 && verifyCarParked(plate)) {
             return "Tipo de placa encontrado y vehículo encontrado";
         }
         return null;
@@ -55,7 +50,7 @@ public class AddOrQuitVehicleController {
         for (VehicleType e : AllVehicleTypes) {
             results.addElement(e.getName());
         }
-        comboBoxModel=results;
+        comboBoxModel = results;
         return results;
     }
 
@@ -83,35 +78,22 @@ public class AddOrQuitVehicleController {
         return code;
     }
 
-    public static String CreateVehicle(String vehicleType) {
+    public static void CreateVehicle(String vehicleType) {
         //por el momento se deja comentado dado que toca revisar bien el modelo
-        Entries m=new Entries();
+        Entries m = new Entries();
         m.setEmployee(MainController.system.getSesionemployee());
         m.setEntryDate(Calendar.getInstance().getTime());
         m.setPlate(plate);
         m.setTicket(123);
         m.setVehicleType(getVehicleTypeSelected(vehicleType));
-        
-       /* 
-        Entries entries = new Entries();
-        entries.setEmployee(MainController.system.getSesionemployee());
-        entries.setEntryDate(Calendar.getInstance().getTime());
-        entries.setPlate(plate);
-        VehicleType a=new VehicleType();
-        a=getVehicleTypeSelected(vehicleType);
-        entries.setVehicleType(a);
-        entries.setTicket(0);
-*/
-        //Por defecto el primer tipo de Rate asociado al VehicleType
-        //entries.setRate(MainController.bandsRateJpaController.queryByVehicleTypes(MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(vehicleType))).get(0));
-        //Set o no set PK?
-        //entries.setEntryOrder(Long.valueOf(vehicleType));
-        //que fuckin es un ticket?
-        //para que fuckin es el rate? si se supone que no sabemos cuanto va a durar?
-        //es decir, el rate sera determinado por las reglas segun el tiempo transcurrido
-        //y NO de ante mano.
-        MainController.entriesJpaController.create(m);
-        return null;
+        //Verificar existencia de tarifas para el tipo de vehiculo
+        if (!MainController.bandsRateJpaController.queryByVehicleTypes(vehicleTypeIsSelected).isEmpty()) {
+            MainController.entriesJpaController.create(m);
+            MainController.adminView.showMessage("Información", "El vehiculo con placas " + plate + " ha sido registrado", 1);
+            MainController.mainView.setPlateTextField("");
+        } else {
+            MainController.adminView.showMessage("Error", "El tipo de vehiculo seleccionado no tiene tarifas. Por favor cree una nueva tarifa", 0);
+        }
 
     }
     private static String plate;
@@ -123,7 +105,7 @@ public class AddOrQuitVehicleController {
     public static void setPlate(String plate) {
         AddOrQuitVehicleController.plate = plate;
     }
-    public static DefaultComboBoxModel comboBoxModel=null;
+    public static DefaultComboBoxModel comboBoxModel = null;
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
     private static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
