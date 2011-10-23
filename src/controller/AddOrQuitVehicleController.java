@@ -85,12 +85,23 @@ public class AddOrQuitVehicleController {
 
     public static String CreateVehicle(String vehicleType) {
         //por el momento se deja comentado dado que toca revisar bien el modelo
+        Entries m=new Entries();
+        m.setEmployee(MainController.system.getSesionemployee());
+        m.setEntryDate(Calendar.getInstance().getTime());
+        m.setPlate(plate);
+        m.setTicket(123);
+        m.setVehicleType(getVehicleTypeSelected(vehicleType));
+        
+       /* 
         Entries entries = new Entries();
         entries.setEmployee(MainController.system.getSesionemployee());
         entries.setEntryDate(Calendar.getInstance().getTime());
         entries.setPlate(plate);
-        entries.setVehicleType(MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(vehicleType)));
-        entries.setTicket(Integer.valueOf(vehicleType));
+        VehicleType a=new VehicleType();
+        a=getVehicleTypeSelected(vehicleType);
+        entries.setVehicleType(a);
+        entries.setTicket(0);
+*/
         //Por defecto el primer tipo de Rate asociado al VehicleType
         //entries.setRate(MainController.bandsRateJpaController.queryByVehicleTypes(MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(vehicleType))).get(0));
         //Set o no set PK?
@@ -99,7 +110,7 @@ public class AddOrQuitVehicleController {
         //para que fuckin es el rate? si se supone que no sabemos cuanto va a durar?
         //es decir, el rate sera determinado por las reglas segun el tiempo transcurrido
         //y NO de ante mano.
-        MainController.entriesJpaController.create(entries);
+        MainController.entriesJpaController.create(m);
         return null;
 
     }
