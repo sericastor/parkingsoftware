@@ -11,13 +11,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  *
- * @author Martin Kanayet
+ * @author miguel
  */
 @Entity
 public class Entries implements Serializable {
@@ -31,27 +33,18 @@ public class Entries implements Serializable {
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;
     @Column(name="Plate",nullable=false)
-    private String plate;
-    
+    private String plate;  
+    @ManyToOne
+    @JoinColumn(name="VehicleType")
+    private VehicleType vehicleType;
+    @ManyToOne
+    @JoinColumn(name="Employee")
+    private Employee employee;
     //@ManyToOne
     //@Column(name="Rate",nullable=false)
     //private BandsRate rate;
-    
-    @ManyToOne
-    @Column(name="VehicleType",nullable=false)
-    private VehicleType vehicleType;
-    
-    @ManyToOne
-    @Column(name="Employee",nullable=false)
-    private Employee employee;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    @OneToOne
+    private Exits exit;
 
     public Employee getEmployee() {
         return employee;
@@ -91,6 +84,15 @@ public class Entries implements Serializable {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override

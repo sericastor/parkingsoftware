@@ -81,8 +81,9 @@ public void setVehicleTypeCombobox(DefaultComboBoxModel model){
     this.VehicleTypeCombobox.setModel(model);
 }
     private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
-        String id = String.valueOf(VehicleTypeCombobox.getSelectedIndex());
+        String id = (String) VehicleTypeCombobox.getSelectedItem();
         MainController.addVehicleController.CreateVehicle(id);
+  
     }//GEN-LAST:event_AddVehicleButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -94,8 +94,6 @@ public class InitializeController {
         Exits exit = new Exits();
         exit.setEmployee(1);
         exit.setEntry(entrie);
-        exit.setEntryDate(date);
-        exit.setExitDate(date);
         exit.setIVA(0.0);
         exit.setId(Long.valueOf(1));
         exit.setPlate("InitialPlate");
