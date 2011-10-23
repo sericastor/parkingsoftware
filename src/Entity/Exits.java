@@ -5,33 +5,34 @@
 package Entity;
 
 import java.io.Serializable;
-
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
- * @author Grupo E
+ * @author miguel
  */
 @Entity
 public class Exits implements Serializable {
-    private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
-    private Long id;
+    @Column(name="Exits_ID")
+    private long id;
     @Column(name="Plate",nullable=false)
     private String plate; // No necesario
     @Column(name="Ticket",nullable=false)
     private int ticket; // No necesario
-    @Column(name="EntryDate",nullable=false) 
-    private Date entryDate; // No necesario
+     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="ExitDate",nullable=false)
     private Date exitDate;
     @Column(name="Units",nullable=false)
@@ -44,18 +45,23 @@ public class Exits implements Serializable {
     private int vehicleType; // No necesario
     @Column(name="Subtotal",nullable=false)
     private double subtotal;
-    @Column(name="Subtotal",nullable=false)
+    @Column(name="IVA",nullable=false)
     private double IVA;
-    @Column(name="Subtotal",nullable=false)
+    @Column(name="Total",nullable=false)
     private double total;
     
     @OneToOne(mappedBy="exit")
     private Entries entry;
-    
+
     @ManyToOne
     private FactureTurn turn;
-    
-    public Exits() {
+
+    public double getIVA() {
+        return IVA;
+    }
+
+    public void setIVA(double IVA) {
+        this.IVA = IVA;
     }
 
     public int getEmployee() {
@@ -66,12 +72,12 @@ public class Exits implements Serializable {
         this.employee = employee;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
+    public Entries getEntry() {
+        return entry;
     }
 
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+    public void setEntry(Entries entry) {
+        this.entry = entry;
     }
 
     public Date getExitDate() {
@@ -98,60 +104,20 @@ public class Exits implements Serializable {
         this.rate = rate;
     }
 
-    public int getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(int ticket) {
-        this.ticket = ticket;
-    }
-
-    public int getUnits() {
-        return units;
-    }
-
-    public void setUnits(int units) {
-        this.units = units;
-    }
-
-    public int getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(int vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public double getIVA() {
-        return IVA;
-    }
-
-    public void setIVA(double IVA) {
-        this.IVA = IVA;
-    }
-
-    public Entries getEntry() {
-        return entry;
-    }
-
-    public void setEntry(Entries entry) {
-        this.entry = entry;
-    }
-
     public double getSubtotal() {
         return subtotal;
     }
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public int getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(int ticket) {
+        this.ticket = ticket;
     }
 
     public double getTotal() {
@@ -169,11 +135,34 @@ public class Exits implements Serializable {
     public void setTurn(FactureTurn turn) {
         this.turn = turn;
     }
-    
+
+    public int getUnits() {
+        return units;
+    }
+
+    public void setUnits(int units) {
+        this.units = units;
+    }
+
+    public int getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(int vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
@@ -184,7 +173,7 @@ public class Exits implements Serializable {
             return false;
         }
         Exits other = (Exits) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;

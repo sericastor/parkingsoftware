@@ -17,7 +17,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author Martin Kanayet
+ * @author miguel
  */
 public class EntriesJpaController implements Serializable {
 
@@ -133,11 +133,10 @@ public class EntriesJpaController implements Serializable {
             em.close();
         }
     }
-
+    
     public Entries getEntriesByPlate(String plate) {
         EntityManager em = getEntityManager();
         Entries entries = null;
-
         try {
             Query q = em.createQuery("SELECT u FROM Entries u "
                     + "where u.plate LIKE :plate").setParameter("plate", plate);
@@ -151,4 +150,5 @@ public class EntriesJpaController implements Serializable {
         }
 
     }
+    
 }
