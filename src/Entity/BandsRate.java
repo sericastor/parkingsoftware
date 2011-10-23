@@ -34,7 +34,7 @@ public class BandsRate implements Serializable {
     private int units;
 
     @ManyToOne
-    @JoinColumn(name="VehicleType")
+    //@JoinColumn(name="VehicleType")
     VehicleType vehicletype;
 
 

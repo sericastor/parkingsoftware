@@ -37,14 +37,12 @@ public class Entries implements Serializable {
     @ManyToOne
     @JoinColumn(name="VehicleType")
     private VehicleType vehicleType;
+    /*
     @ManyToOne
-    @JoinColumn(name="Employee")
+    @JoinColumn(name="Employee")*/
+    @ManyToOne
     private Employee employee;
-    //@ManyToOne
-    //@Column(name="Rate",nullable=false)
-    //private BandsRate rate;
-    @OneToOne
-    private Exits exit;
+
 
     public Employee getEmployee() {
         return employee;
