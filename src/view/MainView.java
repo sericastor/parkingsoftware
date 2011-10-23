@@ -484,7 +484,7 @@ public class MainView extends javax.swing.JFrame {
         if (result.equals("Inserte un tipo de placa valida")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
         } else if (result.equals("Vehículo Ingresado")) {
-            JOptionPane.showMessageDialog(CopyMenu, result);
+            //JOptionPane.showMessageDialog(CopyMenu, result);
             PlateTextField.removeAll();
         } else if (result.equals("Do Nothing")) {
         } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")){
@@ -494,6 +494,7 @@ public class MainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void setAddOrQuitPanel(JPanel panel) {
+        AoQPanel.removeAll();
         AoQPanel.add(panel);
         AoQPanel.updateUI();
     }
@@ -561,6 +562,10 @@ private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
         SearchButtonActionPerformed(null);
     }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
+
+public void setPlateTextField(String text){
+    PlateTextField.setText(text);
+}
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
     PlateTextField.setText(PlateTextField.getText().toUpperCase());
