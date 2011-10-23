@@ -50,7 +50,8 @@ public class Exits implements Serializable {
     @Column(name="Total",nullable=false)
     private double total;
     
-    @OneToOne(mappedBy="exit")
+
+    @OneToOne
     private Entries entry;
 
     @ManyToOne
