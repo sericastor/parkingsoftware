@@ -5,11 +5,9 @@
 package Entity;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -27,9 +27,10 @@ public class FactureTurn implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
-    private Long id;
+    @Column(name="FactureTurn_ID")
+    private long id;
     @Column(name="ActualDate",nullable=false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date actualDate;
     @Column(name="Subtotal",nullable=false)
     private double subtotal;
@@ -37,19 +38,17 @@ public class FactureTurn implements Serializable {
     private double IVA;
     @Column(name="Total",nullable=false)
     private double total;
+
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="id")
+    @OneToMany
     private List<Exits> exits = new ArrayList();
-    
-    public FactureTurn() {
-    }
-    
-    public Long getId() {
-        return id;
+
+    public double getIVA() {
+        return IVA;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIVA(double IVA) {
+        this.IVA = IVA;
     }
 
     public Date getActualDate() {
@@ -60,20 +59,12 @@ public class FactureTurn implements Serializable {
         this.actualDate = actualDate;
     }
 
-    public double getIVA() {
-        return IVA;
-    }
-
-    public void setIVA(double IVA) {
-        this.IVA = IVA;
-    }
-
     public List<Exits> getExits() {
         return exits;
     }
 
-    public void setExits(Exits exits) {
-        this.exits.add(exits);
+    public void setExits(List<Exits> exits) {
+        this.exits = exits;
     }
 
     public double getSubtotal() {
@@ -92,10 +83,22 @@ public class FactureTurn implements Serializable {
         this.total = total;
     }
     
+    
+    
+    
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
@@ -106,7 +109,7 @@ public class FactureTurn implements Serializable {
             return false;
         }
         FactureTurn other = (FactureTurn) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;

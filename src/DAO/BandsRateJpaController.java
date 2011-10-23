@@ -6,7 +6,6 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import Entity.BandsRate;
-import Entity.BandsRate_;
 import Entity.VehicleType;
 import java.io.Serializable;
 import java.util.ArrayList;

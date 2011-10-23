@@ -5,10 +5,9 @@
 package Entity;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,23 +26,40 @@ import javax.persistence.OneToMany;
 public class Facture implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private Long id;
+    private long id;
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="ActualDate",nullable=false)
     private Date actualDate;
-    @Column(name="ActualDate",nullable=false)
+    @Column(name="Subtotal",nullable=false)
     private double subtotal; 
-    @Column(name="ActualDate",nullable=false)
+    @Column(name="IVA",nullable=false)
     private double iva;
-    @Column(name="ActualDate",nullable=false)
+    @Column(name="Total",nullable=false)
     private double total;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy="id")
+
+    @OneToMany
     private List<FactureTurn> facturesTurn = new ArrayList();
 
-    public Facture() {
+    public Date getActualDate() {
+        return actualDate;
     }
+
+    public void setActualDate(Date actualDate) {
+        this.actualDate = actualDate;
+    }
+
+    public List<FactureTurn> getFacturesTurn() {
+        return facturesTurn;
+    }
+
+    public void setFacturesTurn(List<FactureTurn> facturesTurn) {
+        this.facturesTurn = facturesTurn;
+    }
+
+    
 
     public double getIva() {
         return iva;
@@ -66,35 +84,20 @@ public class Facture implements Serializable {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    public Long getId() {
+
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Date getActualDate() {
-        return actualDate;
-    }
-
-    public void setActualDate(Date actualDate) {
-        this.actualDate = actualDate;
-    }
-
-    public List<FactureTurn> getFacturesTurn() {
-        return facturesTurn;
-    }
-
-    public void setFacturesTurn(FactureTurn facturesTurn) {
-        this.facturesTurn.add(facturesTurn);
-    }
-    
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (int) id;
         return hash;
     }
 
@@ -105,7 +108,7 @@ public class Facture implements Serializable {
             return false;
         }
         Facture other = (Facture) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
