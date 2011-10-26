@@ -39,6 +39,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
         InfoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administración ParkQuick");
         setBackground(new java.awt.Color(255, 255, 255));
 
         LogoPanel.setBackground(new java.awt.Color(0, 0, 0));
