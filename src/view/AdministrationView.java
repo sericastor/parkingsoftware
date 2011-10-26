@@ -150,6 +150,12 @@ public class AdministrationView extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administración de ParkQuick");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
@@ -753,6 +759,7 @@ public class AdministrationView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+        formWindowClosed(null);
         MainController.setVisibleAdminView(false);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
@@ -896,9 +903,7 @@ private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent 
     }else{
         int option = this.askToParkway();
         if(option == JOptionPane.OK_OPTION){
-            //Aquí van los cambios
-            System.out.println("Usemos la imaginación y hagamos de cuenta "
-                        + "que lo modificamos XD");
+            //Crear
         }else if(option == JOptionPane.NO_OPTION){
             // Aquí algo para que vuelva a sus datos originales sin modificaciones
         }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.
@@ -957,6 +962,16 @@ private void EmployeeListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRS
     EmployeeListValueChanged(null);
 }//GEN-LAST:event_EmployeeListMouseClicked
 
+private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+    // "Reinicia" la clase
+    flag = flag2 = flag3 = true;
+    this.setNullEmp();
+    this.setEnabledEmp(false);
+    this.setEnableParkway(false);
+    UpdateEmployeeButton.setEnabled(true);
+    CreateEmployeeButton.setEnabled(true);
+}//GEN-LAST:event_formWindowClosed
+
     private long getUserID(){
         return Long.parseLong(IdEmployeeTextField.getText());
     }
@@ -992,7 +1007,7 @@ private void EmployeeListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRS
         TelephoneTextField.setEditable(bool);
         MaxCapacityTextField.setEditable(bool);
     }
-
+    
     private void setEnabledEmp(boolean bool) {
         NameEmployeeTextField.setEnabled(bool);
         LastNameEmployeeTextField.setEnabled(bool);
@@ -1025,16 +1040,15 @@ private void EmployeeListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRS
                 + "información de " + NameParkwayTextField.getText() + "?");
     }
     
+    public void confirmationMessages(String message,String type){
+        JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
+    }
+    
     private boolean flag = true;
     private boolean flag2 = true;
     private boolean flag3 = true;
     private final String create = "¿Está seguro de crear al empleado ";
     private final String update = "¿Está seguro de modificar al empleado ";
-    
-    //mensajes para las tarifas
-    public void confirmationMessages(String message,String type){
-        JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressParkwayLabel;
