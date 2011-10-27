@@ -89,6 +89,7 @@ public class AddOrQuitVehicleController {
             MainController.entriesJpaController.create(m);
             MainController.adminView.showMessage("Información", "El vehiculo con placas " + plate + " ha sido registrado", 1);
             MainController.mainView.setPlateTextField("");
+            MainController.mainView.removePanel();
         } else {
             MainController.adminView.showMessage("Error", "El tipo de vehiculo seleccionado no tiene tarifas. Por favor cree una nueva tarifa", 0);
         }
