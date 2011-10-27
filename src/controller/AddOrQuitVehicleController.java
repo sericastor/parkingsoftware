@@ -4,6 +4,7 @@ import DAO.EntriesJpaController;
 import Entity.Entries;
 import Entity.VehicleType;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
@@ -28,14 +29,11 @@ public class AddOrQuitVehicleController {
             return "Do Nothing";
         } else if (AllVehicleTypes.size() == 0) {
             return "Inserte un tipo de placa valida";
-        } else if (AllVehicleTypes.size() == 1) {
-            CreateVehicle(plate);
-            return "Vehículo Ingresado";
-        } else if (AllVehicleTypes.size() > 1 && !verifyCarParked(plate)) {
+        } else if (AllVehicleTypes.size() >= 1 && !verifyCarParked(plate)) {
             MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(plate));
             MainController.addPanel.setVisible(true);
             return "Tipo de placa encontrado y vehículo no encontrado";
-        } else if (AllVehicleTypes.size() > 1 && verifyCarParked(plate)) {
+        } else if (AllVehicleTypes.size() >= 1 && verifyCarParked(plate)) {
             return "Tipo de placa encontrado y vehículo encontrado";
         }
         return null;
@@ -101,7 +99,17 @@ public class AddOrQuitVehicleController {
     public static String getPlate() {
         return plate;
     }
-
+    public Date getEntryDateByPlate(String Plate){
+        Entries entry = new Entries();
+        entry = MainController.entriesJpaController.getEntriesByPlate(plate);
+        return entry.getEntryDate();
+    }
+    public String getEntryRateByPlate(String plate){
+        Entries entry = new Entries();
+        entry = MainController.entriesJpaController.getEntriesByPlate(plate);
+        return entry.getVehicleType().getName();
+    }
+    
     public static void setPlate(String plate) {
         AddOrQuitVehicleController.plate = plate;
     }

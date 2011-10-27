@@ -144,6 +144,11 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible) {
        adminView.setVisible(isVisible);
     }
+    
+    public static void setQuitPanelParameters(String plate){
+        quitPanel.setPanelParameters(plate, addVehicleController.getEntryRateByPlate(plate), addVehicleController.getEntryDateByPlate(plate).toLocaleString(), Calendar.getInstance().getTime().toLocaleString());
+    }
+    
     public static BarCodePanel barCodePanel=new BarCodePanel();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();

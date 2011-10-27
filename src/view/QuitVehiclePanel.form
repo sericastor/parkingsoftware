@@ -32,11 +32,11 @@
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="ExitHourFormatted" min="0" pref="0" max="32767" attributes="1"/>
-                  <Component id="PlateTextField" alignment="0" pref="89" max="32767" attributes="1"/>
                   <Component id="RateTextField" alignment="0" pref="89" max="32767" attributes="1"/>
-                  <Component id="EntryHourFormatted" alignment="0" min="-2" pref="118" max="-2" attributes="1"/>
+                  <Component id="PlateTextField" alignment="0" pref="138" max="32767" attributes="1"/>
+                  <Component id="EntryHourFormatted" alignment="0" max="32767" attributes="1"/>
               </Group>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="CostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="CostTextField" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
@@ -120,6 +120,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="PlateTextField">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="toolTipText" type="java.lang.String" value="Placa de veh&#xed;culo a retirar."/>
       </Properties>
     </Component>

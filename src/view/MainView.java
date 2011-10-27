@@ -490,6 +490,7 @@ public class MainView extends javax.swing.JFrame {
         } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")){
             setAddOrQuitPanel(MainController.addPanel);
         } else if (result.equals("Tipo de placa encontrado y vehículo encontrado")){
+            MainController.setQuitPanelParameters(PlateTextField.getText());
             setAddOrQuitPanel(MainController.quitPanel);
         }
     }//GEN-LAST:event_SearchButtonActionPerformed

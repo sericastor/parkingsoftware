@@ -11,6 +11,7 @@
 package view;
 
 import controller.FormatDate;
+import java.util.Date;
 
 /**
  *
@@ -22,7 +23,13 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
     public QuitVehiclePanel() {
         initComponents();
     }
-
+    public void setPanelParameters(String plate, String rate, String entry, String exit){
+        PlateTextField.setText(plate);
+        RateTextField.setText(rate);
+        EntryHourFormatted.setText(entry);
+        ExitHourFormatted.setText(exit);
+        
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -52,7 +59,7 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         FactureButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Clock.png"))); // NOI18N
         FactureButton.setText("Facturar");
         FactureButton.setToolTipText("Pulse aquí después de efectuar el cobro.");
@@ -61,9 +68,10 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         RateTextField.setToolTipText("Tarifa a cobrar por el vehículo a retirar.");
 
         CostTextField.setEditable(false);
-        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
         CostTextField.setToolTipText("Valor total a pagar por el servicio.");
 
+        PlateTextField.setEditable(false);
         PlateTextField.setToolTipText("Placa de vehículo a retirar.");
 
         CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36));
@@ -97,10 +105,10 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ExitHourFormatted, 0, 0, Short.MAX_VALUE)
-                    .addComponent(PlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                     .addComponent(RateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(EntryHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                    .addComponent(PlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                    .addComponent(EntryHourFormatted))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CostLabel)
                     .addComponent(CostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
