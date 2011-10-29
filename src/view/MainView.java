@@ -575,7 +575,7 @@ public void setPlateTextField(String text){
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
     PlateTextField.setText(PlateTextField.getText().toUpperCase());
-/*    MainController.generateBarCode(PlateTextField.getText());
+    /*MainController.generateBarCode(PlateTextField.getText());
     MainController.barCodePanel.setImageLabel();
     AoQPanel.removeAll();
     AoQPanel.add(MainController.barCodePanel);
