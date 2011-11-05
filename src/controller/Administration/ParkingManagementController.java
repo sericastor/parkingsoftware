@@ -14,6 +14,12 @@ public class ParkingManagementController {
      // CRUD
      
      public static InfoParkway getInfo(){
+         if(MainController.infoJpaController.findInfoParkway(idParkway)==null){
+             InfoParkway parkway = new InfoParkway();
+             parkway.setId(idParkway);
+             parkway.setMaxCapacity(1);
+             MainController.infoJpaController.create(parkway);
+         }
          return MainController.infoJpaController.findInfoParkway(idParkway);
      }
      
