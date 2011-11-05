@@ -3,9 +3,11 @@ package controller;
 import DAO.BandsRateJpaController;
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
+import DAO.ExitsJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
+import controller.Administration.AddVehicleManagementController;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
@@ -45,12 +47,13 @@ public class MainController {
         }
         return false;
     }
- public static void saveNewEmployee(long id, String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator){
-        if(!EmployeeManagementController.validatePasswords(password, confirmPass)){
+
+    public static void saveNewEmployee(long id, String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator) {
+        if (!EmployeeManagementController.validatePasswords(password, confirmPass)) {
             adminView.showMessage("Error", "Las contraseñas no coinciden", 0);
-        }else if(!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)){
+        } else if (!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)) {
             adminView.showMessage("Error", "Todos los datos son obligatorios", 0);
-        }else if(EmployeeManagementController.validateAll(lastName, name, document, user, password)){
+        } else if (EmployeeManagementController.validateAll(lastName, name, document, user, password)) {
             Employee newEmployee = new Employee();
             newEmployee.setId(id);
             newEmployee.setLastName(lastName);
@@ -61,20 +64,21 @@ public class MainController {
             newEmployee.setAdministrator(administrator);
             newEmployee.setIsActive(active);
             employeeJpaController.create(newEmployee);
-        }else{
+        } else {
             adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
         }
     }
-  public static int getNextID(){
-	        return employeeJpaController.getEmployeeCount() +1;
-  }
-  
-  public static void updateOldEmployee(long id,String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator){
-      if(!EmployeeManagementController.validatePasswords(password, confirmPass)){
+
+    public static int getNextID() {
+        return employeeJpaController.getEmployeeCount() + 1;
+    }
+
+    public static void updateOldEmployee(long id, String lastName, String name, String document, String user, String password, String confirmPass, boolean active, boolean administrator) {
+        if (!EmployeeManagementController.validatePasswords(password, confirmPass)) {
             adminView.showMessage("Error", "Las contraseñas no coinciden", 0);
-        }else if(!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)){
+        } else if (!EmployeeManagementController.validateNotEmptyFields(lastName, name, document, user, password)) {
             adminView.showMessage("Error", "Todos los datos son obligatorios", 0);
-        }else if(EmployeeManagementController.validateAll(lastName, name, document, user, password)){
+        } else if (EmployeeManagementController.validateAll(lastName, name, document, user, password)) {
             Employee oldEmployee = new Employee();
             oldEmployee.setId(id);
             oldEmployee.setLastName(lastName);
@@ -85,14 +89,14 @@ public class MainController {
             oldEmployee.setAdministrator(administrator);
             oldEmployee.setIsActive(active);
             System.out.println(oldEmployee.getName());
-            try{
-                employeeJpaController.edit(oldEmployee,id);
-            }catch(Exception ex){
+            try {
+                employeeJpaController.edit(oldEmployee, id);
+            } catch (Exception ex) {
                 adminView.showMessage("Error", "No fue posible modificar a ".concat(oldEmployee.getName()), 0);
             }
         }
-  }
-    
+    }
+
     public static void saveNewVehicleType(String plate, String example) {
         if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
             adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
@@ -116,7 +120,21 @@ public class MainController {
         }
 
     }
-    public static void generateBarCode(String plate){
+
+    public static void managementStateTabbed(int selectedTab) {
+        if(selectedTab == 0){
+            mainView.setEntriesTableModel(AddVehicleManagementController.TotalSearchOfEntries());
+        }
+        if(selectedTab == 1){
+            mainView.setExitsTableModel(AddVehicleManagementController.TotalSearchOfExits());
+        }
+        if (selectedTab == 4) {
+            mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+        }
+        
+    }
+
+    public static void generateBarCode(String plate) {
         BarCodeMaker bar = new BarCodeMaker();
         bar.Create(plate);
     }
@@ -142,14 +160,13 @@ public class MainController {
     }
 
     public static void setVisibleAdminView(boolean isVisible) {
-       adminView.setVisible(isVisible);
+        adminView.setVisible(isVisible);
     }
-    
-    public static void setQuitPanelParameters(String plate){
+
+    public static void setQuitPanelParameters(String plate) {
         quitPanel.setPanelParameters(plate, addVehicleController.getEntryRateByPlate(plate), addVehicleController.getEntryDateByPlate(plate).toLocaleString(), Calendar.getInstance().getTime().toLocaleString());
     }
-    
-    public static BarCodePanel barCodePanel=new BarCodePanel();
+    public static BarCodePanel barCodePanel = new BarCodePanel();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
@@ -164,5 +181,5 @@ public class MainController {
     public static AddOrQuitVehicleController addVehicleController = new AddOrQuitVehicleController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
-  
+    public static ExitsJpaController exitsJpaController = new ExitsJpaController(controller.MainController.system.getPersistence_factory());
 }

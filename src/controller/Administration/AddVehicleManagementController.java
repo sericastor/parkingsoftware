@@ -1,11 +1,13 @@
 package controller.Administration;
 
 import Entity.Entries;
+import Entity.Exits;
 import Entity.VehicleType;
 import controller.MainController;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class AddVehicleManagementController {
 
@@ -22,6 +24,33 @@ public class AddVehicleManagementController {
         }
         return results;
     }
+     
+    public static DefaultTableModel TotalSearchOfEntries() {
+        DefaultTableModel results = new DefaultTableModel();
+        AllEntries = MainController.entriesJpaController.findEntriesEntities();
+        results.addColumn("Placa");
+        results.addColumn("Fecha de Ingreso");
+        results.addColumn("Tipo de Vehiculo");
+        
+        for (Entries e : AllEntries) {
+            results.addRow( new Object []{String.valueOf(e.getPlate()), e.getEntryDate().toLocaleString(), e.getVehicleType().getName()});
+        }
+        return results;
+    }
+
+    public static DefaultTableModel TotalSearchOfExits() {
+        DefaultTableModel results = new DefaultTableModel();
+        AllExits = MainController.exitsJpaController.findExitsEntities();
+        results.addColumn("Placa");
+        results.addColumn("Fecha de Ingreso");
+        results.addColumn("Fecha de Salida");
+        results.addColumn("Valor");
+        
+        for (Exits e : AllExits) {
+            results.addRow( new Object []{String.valueOf(e.getPlate()), e.getEntry().getEntryDate().toLocaleString(), e.getExitDate().toLocaleString(),String.valueOf(e.getTotal())});
+        }
+        return results;
+    }    
      public static VehicleType getVehicleTypeSelected(String vehicletype) {
         for (VehicleType v : AllVehicleTypes) {
             if (v.getName().equals(vehicletype)) {
@@ -49,4 +78,6 @@ public class AddVehicleManagementController {
      
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
+    private static List<Entries> AllEntries = null;
+    private static List<Exits> AllExits = null;
 }

@@ -13,6 +13,8 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -57,10 +59,16 @@ public class MainView extends javax.swing.JFrame {
         ClockLabel = new javax.swing.JLabel();
         StateTabbed = new javax.swing.JTabbedPane();
         EntryPanel = new javax.swing.JPanel();
+        EntriesScrollPane = new javax.swing.JScrollPane();
+        EntriesTable = new javax.swing.JTable();
         ExitPanel = new javax.swing.JPanel();
+        ExitsScrollPane = new javax.swing.JScrollPane();
+        ExitsTable = new javax.swing.JTable();
         FacturePanel = new javax.swing.JPanel();
         FactureTurnPanel = new javax.swing.JPanel();
         VehicleTypePanel = new javax.swing.JPanel();
+        VehicleTypeSrollPane = new javax.swing.JScrollPane();
+        VehicleTypeTable = new javax.swing.JTable();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         AdministerMenu = new javax.swing.JMenuItem();
@@ -99,7 +107,7 @@ public class MainView extends javax.swing.JFrame {
 
         DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
+        PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36));
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -113,7 +121,7 @@ public class MainView extends javax.swing.JFrame {
         PlateLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         PlateLabel.setText("Placa:");
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SearchButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         SearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         SearchButton.setToolTipText("Pulse aquí para buscar el vehículo.");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -271,32 +279,80 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
+        StateTabbed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StateTabbedMouseClicked(evt);
+            }
+        });
+
         EntryPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        EntriesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Placa", "Tipo de Vehiculo", "Hora de Entrada"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        EntriesScrollPane.setViewportView(EntriesTable);
 
         javax.swing.GroupLayout EntryPanelLayout = new javax.swing.GroupLayout(EntryPanel);
         EntryPanel.setLayout(EntryPanelLayout);
         EntryPanelLayout.setHorizontalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         EntryPanelLayout.setVerticalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Entradas", EntryPanel);
 
         ExitPanel.setBackground(new java.awt.Color(255, 255, 255));
 
+        ExitsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Placa", "Hora de Ingreso", "Hora de Salida"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ExitsScrollPane.setViewportView(ExitsTable);
+
         javax.swing.GroupLayout ExitPanelLayout = new javax.swing.GroupLayout(ExitPanel);
         ExitPanel.setLayout(ExitPanelLayout);
         ExitPanelLayout.setHorizontalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         ExitPanelLayout.setVerticalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Salidas", ExitPanel);
@@ -333,15 +389,36 @@ public class MainView extends javax.swing.JFrame {
 
         VehicleTypePanel.setBackground(new java.awt.Color(255, 255, 255));
 
+        VehicleTypeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        VehicleTypeSrollPane.setViewportView(VehicleTypeTable);
+
         javax.swing.GroupLayout VehicleTypePanelLayout = new javax.swing.GroupLayout(VehicleTypePanel);
         VehicleTypePanel.setLayout(VehicleTypePanelLayout);
         VehicleTypePanelLayout.setHorizontalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         VehicleTypePanelLayout.setVerticalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Tipo de Vehículos", VehicleTypePanel);
@@ -487,9 +564,9 @@ public class MainView extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(CopyMenu, result);
             PlateTextField.removeAll();
         } else if (result.equals("Do Nothing")) {
-        } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")){
+        } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")) {
             setAddOrQuitPanel(MainController.addPanel);
-        } else if (result.equals("Tipo de placa encontrado y vehículo encontrado")){
+        } else if (result.equals("Tipo de placa encontrado y vehículo encontrado")) {
             MainController.setQuitPanelParameters(PlateTextField.getText());
             setAddOrQuitPanel(MainController.quitPanel);
         }
@@ -499,11 +576,12 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.add(panel);
         AoQPanel.updateUI();
     }
-    public void removePanel(){
+
+    public void removePanel() {
         AoQPanel.removeAll();
         AoQPanel.repaint();
     }
-    
+
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
         controller.MainController.system.Logout();
@@ -569,9 +647,9 @@ private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
     }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
 
-public void setPlateTextField(String text){
-    PlateTextField.setText(text);
-}
+    public void setPlateTextField(String text) {
+        PlateTextField.setText(text);
+    }
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
     PlateTextField.setText(PlateTextField.getText().toUpperCase());
@@ -582,9 +660,25 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
     
     AoQPanel.setVisible(true);
     this.repaint();
-   // this.pack();
+    // this.pack();
     MainController.barCodePanel.updateUI();*/
 }//GEN-LAST:event_PlateTextFieldKeyReleased
+
+public void setVehicleTypeTableModel(DefaultTableModel model){
+    VehicleTypeTable.setModel(model);
+}
+public void setEntriesTableModel(DefaultTableModel model){
+    EntriesTable.setModel(model);
+}
+
+public void setExitsTableModel(DefaultTableModel model){
+    ExitsTable.setModel(model);
+}
+
+private void StateTabbedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StateTabbedMouseClicked
+    System.out.println(StateTabbed.getSelectedIndex());
+    MainController.managementStateTabbed(StateTabbed.getSelectedIndex());
+}//GEN-LAST:event_StateTabbedMouseClicked
 
     public void start() {
         Thread thread = new Thread();
@@ -635,10 +729,14 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
     private javax.swing.JMenuItem DeleteMenu;
     private javax.swing.JMenu EditMenu;
     private javax.swing.JPopupMenu.Separator EditSeparator1;
+    private javax.swing.JScrollPane EntriesScrollPane;
+    private javax.swing.JTable EntriesTable;
     private javax.swing.JPanel EntryPanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JMenuItem ExitMenu;
     private javax.swing.JPanel ExitPanel;
+    private javax.swing.JScrollPane ExitsScrollPane;
+    private javax.swing.JTable ExitsTable;
     private javax.swing.JPanel FacturePanel;
     private javax.swing.JPanel FactureTurnPanel;
     private javax.swing.JMenu FileMenu;
@@ -660,6 +758,8 @@ private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST
     private javax.swing.JTabbedPane StateTabbed;
     private javax.swing.JMenuItem UndoMenu;
     private javax.swing.JPanel VehicleTypePanel;
+    private javax.swing.JScrollPane VehicleTypeSrollPane;
+    private javax.swing.JTable VehicleTypeTable;
     private javax.swing.JMenuItem ViewHelpMenu;
     private javax.swing.JMenu ViewMenu;
     private javax.swing.JMenu jMenu1;
