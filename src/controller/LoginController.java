@@ -41,6 +41,7 @@ public class LoginController {
         if (employee.getUser().equals(user) && employee.getPassword().equals(password) && employee.isIsActive()==true) {
             controller.MainController.system.setEmployee(employee);
             controller.MainController.system.Login();
+            MainController.managementStateTabbed(0);
             return true;
         }
         return false;
