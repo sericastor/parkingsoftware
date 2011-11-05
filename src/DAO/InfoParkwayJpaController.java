@@ -66,6 +66,28 @@ public class InfoParkwayJpaController implements Serializable {
             }
         }
     }
+    
+    public void edit(InfoParkway infoParkway, long id) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            InfoParkway newInfoPark = em.find(InfoParkway.class, id);
+            newInfoPark.setName(infoParkway.getName());
+            newInfoPark.setAddress(infoParkway.getAddress());
+            newInfoPark.setNit(infoParkway.getNit());
+            newInfoPark.setTelephone(infoParkway.getTelephone());
+            newInfoPark.setMaxCapacity(infoParkway.getMaxCapacity());
+            infoParkway = em.merge(newInfoPark);
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            System.out.println(ex.getStackTrace());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 
     public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;

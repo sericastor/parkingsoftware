@@ -16,6 +16,7 @@ import controller.Administration.AdministrateEmployeeController;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
+import controller.Administration.ParkingManagementController;
 import controller.MainController;
 import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
@@ -972,6 +973,7 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         String id = (String) VehicleTypeComboBox.getSelectedItem();
         RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
         RatesTable.updateUI();
+        getInfoParkway();
     }//GEN-LAST:event_AdminTabbedPanelFocusGained
 
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
@@ -1034,13 +1036,12 @@ private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent 
     }else{
         int option = this.askToParkway();
         if(option == JOptionPane.OK_OPTION){
-            //Crear
-        }else if(option == JOptionPane.NO_OPTION){
-            // Aquí algo para que vuelva a sus datos originales sin modificaciones
+            ParkingManagementController.updateInfoParway(getNamePark(), getAddressPark(), getNitPark(), getPhonePark(), getMaxCapacityPark());
         }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.
                 CLOSED_OPTION){
                     return;
         }
+        getInfoParkway();
         SaveParkwayChangesButton.setText("Cambiar Datos");
         this.setEnableParkway(flag3);
         flag3 = true;
@@ -1111,6 +1112,26 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_CustomReportGenerateButtonActionPerformed
 
+    private String getNamePark(){
+        return NameParkwayTextField.getText();
+    }
+    
+    private String getAddressPark(){
+        return AddressTextField.getText();
+    }
+    
+    private String getNitPark(){
+        return NITParkwayTextField.getText();
+    }
+    
+    private String getPhonePark(){
+        return TelephoneTextField.getText();
+    }
+    
+    private String getMaxCapacityPark(){
+        return MaxCapacityTextField.getText();
+    }
+    
     private long getUserID(){
         return Long.parseLong(IdEmployeeTextField.getText());
     }
@@ -1137,6 +1158,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private String getUserTF() {
         return UserTextField.getText().toLowerCase();
+    }
+    
+    private void getInfoParkway(){
+        NameParkwayTextField.setText(ParkingManagementController.getName());
+        AddressTextField.setText(ParkingManagementController.getAddress());
+        NITParkwayTextField.setText(ParkingManagementController.getNit());
+        TelephoneTextField.setText(ParkingManagementController.getPhone());
+        MaxCapacityTextField.setText(ParkingManagementController.getMaxCapacity());
     }
     
     private void setEnableParkway(boolean bool){
