@@ -6,6 +6,7 @@ package controller.Administration;
 
 import DAO.exceptions.NonexistentEntityException;
 import Entity.BandsRate;
+import Entity.Entries;
 import Entity.VehicleType;
 import controller.MainController;
 import java.util.List;
@@ -40,6 +41,30 @@ public class AdministrateBandRates {
         }
     }
 
+    public static void deleteRateFromVehicleType(String vehicleType) {
+        VehicleType vt = new VehicleType();
+        vt = getVehicleTypeSelected(vehicleType);
+        try {
+            modifyBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vt);
+            if (modifyBandsRate.size() > 0 && verifyRateUse(vt)) {
+                MainController.bandsRateJpaController.destroy(modifyBandsRate.get(modifyBandsRate.size() - 1).getId());
+            }
+        } catch (Exception e) {
+            System.out.println("Está vacia la lista de tarifas");
+        }
+    }
+
+    public static boolean verifyRateUse(VehicleType v){
+        //TODO: hacer query elegante
+        for (Entries entries : MainController.entriesJpaController.findEntriesEntities()) {
+            if (entries.getVehicleType().equals(v)){
+                MainController.adminView.showMessage("Error", "La tarifa esta asociada a una entrada", 0);
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public static TableModel getModelTable(VehicleType vehicletype) {
         DefaultTableModel results = new DefaultTableModel() {
 
@@ -106,23 +131,23 @@ public class AdministrateBandRates {
     public static boolean Validations(int row, String id, String from, String to, String fraction, String value) {
         boolean consistency = true;
         try {//validaciones de tipo alfanumerico
-            
+
             int ifrom = Integer.parseInt(from);
             int ito = Integer.parseInt(to);
             int ifrac = Integer.parseInt(fraction);
             float fval = Float.parseFloat(value);
             consistency = consistencyValidations(row, ifrom, ito, ifrac, fval);
         } catch (NumberFormatException e) {
-            
+
             consistency = false;
-            String message = "Se ha provocado un error en la fila " + (row + 1) +" por favor inserte valores numéricos.";
+            String message = "Se ha provocado un error en la fila " + (row + 1) + " por favor inserte valores numéricos.";
             String type = "Error!";
             MainController.adminView.confirmationMessages(message, type);
         }
         return consistency;
     }
 
-    public static boolean consistencyValidations(int row,  int from, int to, int fraction, float value) {
+    public static boolean consistencyValidations(int row, int from, int to, int fraction, float value) {
         String message = "";
         String type = "";
         if (from >= to) {
@@ -137,29 +162,27 @@ public class AdministrateBandRates {
             MainController.adminView.confirmationMessages(message, type);
             return false;
         }
-        if(!AllBandsRate.isEmpty()){
-            boolean flag=false;
-            boolean flag2=false;
+        if (!AllBandsRate.isEmpty()) {
+            boolean flag = false;
+            boolean flag2 = false;
             for (BandsRate bandsRate : AllBandsRate) {
-                if(bandsRate.getToo()==from){
-                    flag=true;
-                }
-                else if(bandsRate.getFromm()==from){
-                    flag2=true;
+                if (bandsRate.getToo() == from) {
+                    flag = true;
+                } else if (bandsRate.getFromm() == from) {
+                    flag2 = true;
                     break;
                 }
             }
-            if(flag==false){
+            if (flag == false) {
                 type = "Error en la fila " + (row + 1);
-            message = "El campo 'Desde' debe ser igual a alguno de los valores de la columna 'Hasta'";
-            MainController.adminView.confirmationMessages(message, type);
-            return false;
-            }
-            else if(flag2==true){
-             type = "Error en la fila " + (row + 1);
-            message = "La fila 'Desde' debe ser unica en cada caso";
-            MainController.adminView.confirmationMessages(message, type);
-            return false;
+                message = "El campo 'Desde' debe ser igual a alguno de los valores de la columna 'Hasta'";
+                MainController.adminView.confirmationMessages(message, type);
+                return false;
+            } else if (flag2 == true) {
+                type = "Error en la fila " + (row + 1);
+                message = "La fila 'Desde' debe ser unica en cada caso";
+                MainController.adminView.confirmationMessages(message, type);
+                return false;
             }
 
         }
@@ -168,24 +191,23 @@ public class AdministrateBandRates {
     }
 
     public static void rowIsEdited(int row, String id, String from, String to, String fraction, String value, VehicleType vehicletype) {
-        if (AllBandsRate.isEmpty() || AllBandsRate.size()<=row) {
+        if (AllBandsRate.isEmpty() || AllBandsRate.size() <= row) {
             try {
-                boolean flag=true;
-                if(!from.equals("")&&!to.equals("")&&!fraction.equals("")&&!value.equals("")){
-                    flag=Validations(row, id, from, to, fraction, value);
+                boolean flag = true;
+                if (!from.equals("") && !to.equals("") && !fraction.equals("") && !value.equals("")) {
+                    flag = Validations(row, id, from, to, fraction, value);
                 }
-                if(flag==true){
-                createRow(row, from, to, fraction, value, vehicletype);
+                if (flag == true) {
+                    createRow(row, from, to, fraction, value, vehicletype);
                 }
-                    
+
             } catch (NumberFormatException e) {
-                
                 //error producido si se edito un campo y se dejo la ultima fila vacia
             } finally {
                 return;
             }
         }
-       
+
         if (!String.valueOf(AllBandsRate.get(row).getFromm()).equals(from)) {
             if (Validations(row, id, from, to, fraction, value)) {
                 updateRow(row, id, from, to, fraction, value, vehicletype);
@@ -207,8 +229,7 @@ public class AdministrateBandRates {
             }
             return;
         }
-}
-
+    }
 
     public static VehicleType getVehicleTypeSelected(String vehicletype) {
         for (VehicleType v : AllVehicleTypes) {
@@ -222,4 +243,5 @@ public class AdministrateBandRates {
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<BandsRate> AllBandsRate = null;
     private static List<VehicleType> AllVehicleTypes = null;
+    private static List<BandsRate> modifyBandsRate = null;
 }

@@ -122,6 +122,7 @@ public class AdministrationView extends javax.swing.JFrame {
         VehicleTypeLabel = new javax.swing.JLabel();
         VehicleTypeComboBox = new javax.swing.JComboBox();
         SaveRateChangesButton = new javax.swing.JButton();
+        DeleteLastRate = new javax.swing.JButton();
         ReportAdminPanel = new javax.swing.JPanel();
         ReportsTabbedPanel = new javax.swing.JTabbedPane();
         PartialReportPanel = new javax.swing.JPanel();
@@ -173,7 +174,7 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("Cerrar");
         ExitButton.setToolTipText("Terminar la configuración.");
@@ -623,6 +624,14 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
+        DeleteLastRate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Undo.png"))); // NOI18N
+        DeleteLastRate.setText("Borrar última regla");
+        DeleteLastRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteLastRateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout RateAdminPanelLayout = new javax.swing.GroupLayout(RateAdminPanel);
         RateAdminPanel.setLayout(RateAdminPanelLayout);
         RateAdminPanelLayout.setHorizontalGroup(
@@ -631,9 +640,11 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(VehicleTypeLabel)
                 .addGap(52, 52, 52)
-                .addComponent(VehicleTypeComboBox, 0, 298, Short.MAX_VALUE)
-                .addGap(223, 223, 223)
+                .addComponent(VehicleTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(SaveRateChangesButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DeleteLastRate)
                 .addContainerGap())
             .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 867, Short.MAX_VALUE)
         );
@@ -644,7 +655,8 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VehicleTypeLabel)
                     .addComponent(VehicleTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SaveRateChangesButton))
+                    .addComponent(SaveRateChangesButton)
+                    .addComponent(DeleteLastRate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
         );
@@ -880,9 +892,7 @@ public class AdministrationView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(738, Short.MAX_VALUE)
-                        .addComponent(ExitButton)))
+                    .addComponent(ExitButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1111,6 +1121,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_CustomReportGenerateButtonActionPerformed
 
+private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteLastRateActionPerformed
+    AdministrateBandRates.deleteRateFromVehicleType(VehicleTypeComboBox.getSelectedItem().toString());
+}//GEN-LAST:event_DeleteLastRateActionPerformed
+
     private long getUserID(){
         return Long.parseLong(IdEmployeeTextField.getText());
     }
@@ -1205,6 +1219,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTable CustomReportTable;
     private javax.swing.JTextField CustomReportToTextField;
     private javax.swing.JTextField CustomReportTotalTextField;
+    private javax.swing.JButton DeleteLastRate;
     private javax.swing.JLabel DocumentEmployeeLabel;
     private javax.swing.JTextField DocumentEmployeeTextField;
     private javax.swing.JPanel EmployeeAdminPanel;
