@@ -1,11 +1,71 @@
 
 package controller.Administration;
 
+import DAO.InfoParkwayJpaController;
+import Entity.InfoParkway;
+import controller.MainController;
+
 
 public class ParkingManagementController {
 
      public ParkingManagementController() {
      }
+     
+     // CRUD
+     
+     public static InfoParkway getInfo(){
+         if(MainController.infoJpaController.findInfoParkway(idParkway)==null){
+             InfoParkway parkway = new InfoParkway();
+             parkway.setId(idParkway);
+             parkway.setMaxCapacity(1);
+             MainController.infoJpaController.create(parkway);
+         }
+         return MainController.infoJpaController.findInfoParkway(idParkway);
+     }
+     
+     public static String getName(){
+         return getInfo().getName();
+     }
+     
+     public static String getAddress(){
+         return getInfo().getAddress();
+     }
+     
+     public static String getNit(){
+         return getInfo().getNit();
+     }
+     
+     public static String getPhone(){
+         return getInfo().getTelephone();
+     }
+     
+     public static String getMaxCapacity(){
+         return String.valueOf(getInfo().getMaxCapacity());
+     }
+     
+     public static void updateInfoParway(String name, String address, String nit, String phone, String maxCapacity){
+         if(!validateNotEmptyFields(name, address, nit, phone, maxCapacity)){
+             MainController.adminView.showMessage("Error", "Todos los campos son obligatorios", 0);
+         }else if(validateAll(name, address, nit, phone, maxCapacity)){
+             InfoParkway infoParkway = new InfoParkway();
+             infoParkway.setId(idParkway);
+             infoParkway.setName(name);
+             infoParkway.setAddress(address);
+             infoParkway.setNit(nit);
+             infoParkway.setTelephone(phone);
+             infoParkway.setMaxCapacity(Integer.parseInt(maxCapacity));
+             System.out.println(infoParkway.getName());
+             try {
+                MainController.infoJpaController.edit(infoParkway, idParkway);
+             } catch (Exception ex) {
+                MainController.adminView.showMessage("Error", "No fue posible modificar  ".concat(infoParkway.getName()), 0);
+             }
+         }else{
+             MainController.adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
+         }
+     }
+     
+     //Reglas de Negocio
      
      public static boolean validateNotEmptyFields(String name, String address, String nit, String phone, String maxC){
         if(name.isEmpty() || address.isEmpty() || nit.isEmpty() || phone.isEmpty() || maxC.isEmpty()){
@@ -57,8 +117,11 @@ public class ParkingManagementController {
                 return true;
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage());
         }
         return false;
     }
+     
+    private static final long idParkway = 1; 
+     
 }
