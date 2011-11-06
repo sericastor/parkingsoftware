@@ -943,7 +943,12 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }
 
 private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_EmployeeListValueChanged
-    int emp = Integer.parseInt(EmployeeList.getSelectedValue().toString().substring(0, EmployeeList.getSelectedValue().toString().indexOf(" "))) - 1;
+    int emp;
+    if(EmployeeList.getSelectedValue()==null){
+        emp = EmployeeList.getSelectedIndex();
+    }else{
+        emp = Integer.parseInt(EmployeeList.getSelectedValue().toString().substring(0, EmployeeList.getSelectedValue().toString().indexOf(" "))) - 1;
+    }
     if (emp >= 0) {
         Employee e = AdministrateEmployeeController.getEmployeeListSearch().get(emp);
         AdministrateEmployeeController.setTempEmployee(e);
