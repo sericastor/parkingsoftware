@@ -4,6 +4,7 @@ import DAO.BandsRateJpaController;
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
 import DAO.ExitsJpaController;
+import DAO.InfoParkwayJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
@@ -126,6 +127,7 @@ public class MainController {
     public static AdministrationView adminView = new AdministrationView();
     public static BandsRateJpaController bandsRateJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
     public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
+    public static InfoParkwayJpaController infoJpaController = new InfoParkwayJpaController(controller.MainController.system.getPersistence_factory());
     public static MD5Security md5Security = new MD5Security();
     public static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
     public static VehicleTypeJpaController vehicleTypeJpaController = new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
