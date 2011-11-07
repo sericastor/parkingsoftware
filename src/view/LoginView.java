@@ -17,9 +17,12 @@ import controller.MainController;
 import edu.stanford.ejalbert.BrowserLauncher;
 import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
 import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -235,16 +238,36 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
-        try {
-            //System.out.println("Help");
+        
+            /*try {
+                //System.out.println("Help");
 
-            BrowserLauncher launcher = new BrowserLauncher();
-            launcher.openURLinBrowser("http://parkingsoftware.isgreat.org");
-        } catch (BrowserLaunchingInitializingException ex) {
-            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedOperatingSystemException ex) {
-            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+                BrowserLauncher launcher = new BrowserLauncher();
+                launcher.openURLinBrowser("http://parkingsoftware.isgreat.org");
+            } catch (BrowserLaunchingInitializingException ex) {
+                Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedOperatingSystemException ex) {
+                Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+            
+         Desktop desktop; /* Declaro un objeto Desktop que es una nueva API en JAVA
+        Para mas detalle sobre ésta API ver la siguiente Página web > 
+        http://java.sun.com/developer/technicalArticles/J2SE/Desktop/javase6/desktop_api/
+         */
+        File file = new File("C:/Users/Pipe/Documents/NetBeansProjects/parkingsoftware/documentation/web_site/default.html");//declaro un Objeto File que apunte a mi archivo html
+        if (Desktop.isDesktopSupported()) {// si éste pc soporta esta API 
+            desktop = Desktop.getDesktop();//objtengo una instancia del Desktop(Escritorio)de mi pc 
+            try {
+                desktop.open(file);//abro el archivo con el programa predeterminado
+            } catch (IOException ex) {
+                System.out.println("Se genro un error abriendo el archivo html del manual" + ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Lo lamento,no se puede abrir el archivo; ésta Maquina no soporta la API Desktop");
         }
+          
+        
+        
 
     }//GEN-LAST:event_ManualButtonActionPerformed
 
