@@ -28,9 +28,13 @@ public class InitializeController {
 
     public static void initialize() {
 
-        //Creacion de la tabla Employee
         
+        Integer employeecount=-1;
+        employeecount=MainController.employeeJpaController.getEmployeeCount();
         
+        if(employeecount != -1 && employeecount != null){
+            
+            //Creacion de la tabla Employee
         Employee em = new Employee();
         em.setId(MainController.employeeJpaController.getEmployeeCount());
         em.setLastName("ILastName");
@@ -124,6 +128,8 @@ public class InitializeController {
         infopJpaController.create(infop);
         
 */
+        }
+        
 
     }
     public static BandsRateJpaController brJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
