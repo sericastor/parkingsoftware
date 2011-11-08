@@ -12,6 +12,7 @@ import controller.Administration.AddVehicleManagementController;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
+import java.util.Date;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
 import view.ManagerAccessView;
@@ -116,7 +117,11 @@ public class MainController {
     }
 
     public static void setQuitPanelParameters(String plate) {
-        quitPanel.setPanelParameters(plate, addVehicleController.getEntryRateByPlate(plate), addVehicleController.getEntryDateByPlate(plate).toLocaleString(), Calendar.getInstance().getTime().toLocaleString());
+        Date entryDate = addVehicleController.getEntryDateByPlate(plate);
+        Date exitDate = Calendar.getInstance().getTime();
+        String rate = addVehicleController.getEntryRateByPlate(plate);
+        quitPanel.setCostTextField(entryDate, exitDate);
+        quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString());
     }
     public static BarCodePanel barCodePanel = new BarCodePanel();
     public static MainView mainView = new MainView();
