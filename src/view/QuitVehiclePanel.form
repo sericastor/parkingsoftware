@@ -102,6 +102,9 @@
         <Property name="text" type="java.lang.String" value="Facturar"/>
         <Property name="toolTipText" type="java.lang.String" value="Pulse aqu&#xed; despu&#xe9;s de efectuar el cobro."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FactureButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="RateTextField">
       <Properties>
