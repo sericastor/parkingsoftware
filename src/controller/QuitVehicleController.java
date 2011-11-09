@@ -52,6 +52,7 @@ public class QuitVehicleController {
                 cost = cost + (numberOfUnits * value);
             }
         }
+        cost = roundTo50(cost);
         return cost;
     }
     
@@ -61,7 +62,10 @@ public class QuitVehicleController {
             result = x;
         }
         else{
-            
+            x = x/50;
+            x = Math.round(x);
+            x = x*50;
+            result = x;
         }
         return result;
     }
