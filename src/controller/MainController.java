@@ -8,6 +8,7 @@ import DAO.InfoParkwayJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
+import Entity.VehicleType;
 import controller.Administration.AddVehicleManagementController;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
@@ -120,7 +121,8 @@ public class MainController {
         Date entryDate = addVehicleController.getEntryDateByPlate(plate);
         Date exitDate = Calendar.getInstance().getTime();
         String rate = addVehicleController.getEntryRateByPlate(plate);
-        quitPanel.setCostTextField(entryDate, exitDate);
+        VehicleType vehicleType = addVehicleController.getVehicleTypeByPlate(plate);
+        quitPanel.setCostTextField(entryDate, exitDate, vehicleType);
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString());
     }
     public static BarCodePanel barCodePanel = new BarCodePanel();

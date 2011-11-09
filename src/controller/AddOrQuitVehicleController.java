@@ -9,10 +9,10 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 public class AddOrQuitVehicleController {
-
+    
     public AddOrQuitVehicleController() {
     }
-
+    
     public static boolean verifyCarParked(String plate) {
         Entries entry = new Entries();
         entry = entriesJpaController.getEntriesByPlate(plate);
@@ -21,7 +21,7 @@ public class AddOrQuitVehicleController {
         }
         return true;
     }
-
+    
     public static String verifyCarInParkway(String plate) {
         String codification = encodePlate(plate);
         AllVehicleTypes = MainController.vehicleTypeJpaController.matchPlateType(codification);
@@ -38,7 +38,7 @@ public class AddOrQuitVehicleController {
         }
         return null;
     }
-
+    
     public static DefaultComboBoxModel getModelComboBox(String plate) {
         //actualiza el combo box con la informacion de la base de datos
         //de vehicletype
@@ -51,7 +51,7 @@ public class AddOrQuitVehicleController {
         comboBoxModel = results;
         return results;
     }
-
+    
     public static VehicleType getVehicleTypeSelected(String vehicletype) {
         for (VehicleType v : AllVehicleTypes) {
             if (v.getName().equals(vehicletype)) {
@@ -61,7 +61,7 @@ public class AddOrQuitVehicleController {
         }
         return null;
     }
-
+    
     public static String encodePlate(String plate) {
         String code = "";
         for (int i = 0; i < plate.length(); i++) {
@@ -75,7 +75,7 @@ public class AddOrQuitVehicleController {
         }
         return code;
     }
-
+    
     public static void CreateVehicle(String vehicleType) {
         //por el momento se deja comentado dado que toca revisar bien el modelo
         Entries m = new Entries();
@@ -93,24 +93,35 @@ public class AddOrQuitVehicleController {
         } else {
             MainController.adminView.showMessage("Error", "El tipo de vehiculo seleccionado no tiene tarifas. Por favor cree una nueva tarifa", 0);
         }
-
+        
     }
     private static String plate;
-
+    
     public static String getPlate() {
         return plate;
     }
-    public Date getEntryDateByPlate(String Plate){
+
+    public Date getEntryDateByPlate(String Plate) {
         Entries entry = new Entries();
         entry = MainController.entriesJpaController.getEntriesByPlate(plate);
         return entry.getEntryDate();
     }
-    public String getEntryRateByPlate(String plate){
+
+    public String getEntryRateByPlate(String plate) {
         Entries entry = new Entries();
         entry = MainController.entriesJpaController.getEntriesByPlate(plate);
         return entry.getVehicleType().getName();
     }
     
+    public VehicleType getVehicleTypeByPlate(String plate){
+        Entries entry = new Entries();
+        entry = MainController.entriesJpaController.getEntriesByPlate(plate);
+        return entry.getVehicleType();
+    }
+
+    /*public String getEntryVehicleTypeByPlate(String plate){
+    
+    }*/
     public static void setPlate(String plate) {
         AddOrQuitVehicleController.plate = plate;
     }

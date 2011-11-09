@@ -10,6 +10,7 @@
  */
 package view;
 
+import Entity.VehicleType;
 import controller.FormatDate;
 import controller.QuitVehicleController;
 import java.util.Date;
@@ -32,8 +33,9 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         ExitHourFormatted.setText(exit);
     }
     
-    public void setCostTextField(Date entry, Date exit){
-        QuitVehicleController.calculateCost(entry, exit, null);
+    public void setCostTextField(Date entry, Date exit, VehicleType vehicleType){
+        double cost = QuitVehicleController.calculateCost(entry, exit, vehicleType);
+        CostTextField.setText(Double.toString(cost));
     }
 
     /** This method is called from within the constructor to
@@ -178,4 +180,6 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
     private javax.swing.JLabel RateLabel;
     private javax.swing.JTextField RateTextField;
     // End of variables declaration//GEN-END:variables
+
+    
 }
