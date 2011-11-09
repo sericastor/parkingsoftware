@@ -9,11 +9,9 @@ import Entity.Employee;
  */
 public class LoginController {
 
-    
-
     public static boolean verifyUser(String user, String password) {
-       
-        
+
+
         /* este codigo crea un nuevo usuario en la base de datos, 
          * desmarcarlo solo en caso que no se tengan usuarios creados con anterioridad
         Employee employee1=new Employee();
@@ -37,8 +35,10 @@ public class LoginController {
         BarCodeMaker bar = new BarCodeMaker();
         bar.Create("pruebacodigo 123456");
         Employee employee = MainController.employeeJpaController.findEmployeeByUser(user);
-        if (employee==null){return false;}
-        if (employee.getUser().equals(user) && employee.getPassword().equals(password) && employee.isIsActive()==true) {
+        if (employee == null) {
+            return false;
+        }
+        if (employee.getUser().equals(user) && employee.getPassword().equals(password) && employee.isIsActive() == true) {
             controller.MainController.system.setEmployee(employee);
             controller.MainController.system.Login();
             MainController.managementStateTabbed(0);
