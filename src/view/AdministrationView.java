@@ -36,6 +36,8 @@ public class AdministrationView extends javax.swing.JFrame {
         ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
         setIconImage(img.getImage()); 
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     public JList getEmployeeList() {

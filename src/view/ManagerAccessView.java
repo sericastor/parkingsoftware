@@ -18,6 +18,8 @@ public class ManagerAccessView extends javax.swing.JFrame {
         ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
          setIconImage(img.getImage()); 
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 

@@ -23,6 +23,8 @@ public class AboutParkQuickView extends javax.swing.JFrame {
         ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
          setIconImage(img.getImage()); 
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         CountLabel.setText("null");
         ClientLabel.setText("null");
     }

@@ -14,17 +14,10 @@ package view;
 import controller.ExitController;
 import controller.LoginController;
 import controller.MainController;
-import edu.stanford.ejalbert.BrowserLauncher;
-import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
-import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
 import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -40,10 +33,11 @@ public class LoginView extends javax.swing.JFrame {
         
         ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
          setIconImage(img.getImage()); 
-        this.setVisible(true);
-        this.centerForm();
+         
         initComponents();
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setVisible(true);
         UserTextField.requestFocus();
     }
 
@@ -284,12 +278,6 @@ public class LoginView extends javax.swing.JFrame {
             ExitController.exit(0);
         }
     }//GEN-LAST:event_formWindowClosing
-
-    private void centerForm() {
-        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension window = this.getSize();
-        this.setLocation((screen.width - window.width) / 5, (screen.height - window.height) / 5);
-    }
 
     public String getUserName() {
         return UserTextField.getText().toLowerCase();

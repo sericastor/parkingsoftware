@@ -56,6 +56,8 @@ public class EmployeeManagementController {
             } catch (Exception ex) {
                 MainController.adminView.showMessage("Error", "No fue posible modificar a ".concat(oldEmployee.getName()), 0);
             }
+        }else {
+            MainController.adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
         }
     }
     
