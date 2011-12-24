@@ -27,7 +27,7 @@ public class AddOrQuitVehicleController {
         AllVehicleTypes = MainController.vehicleTypeJpaController.matchPlateType(codification);
         if (plate.equals("")) {
             return "Do Nothing";
-        } else if (AllVehicleTypes.size() == 0) {
+        } else if (AllVehicleTypes.isEmpty()) {
             return "Inserte un tipo de placa valida";
         } else if (AllVehicleTypes.size() >= 1 && !verifyCarParked(plate)) {
             MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(plate));

@@ -55,11 +55,7 @@ public class ParkingManagementController {
              infoParkway.setTelephone(phone);
              infoParkway.setMaxCapacity(Integer.parseInt(maxCapacity));
              System.out.println(infoParkway.getName());
-             try {
-                MainController.infoJpaController.edit(infoParkway, idParkway);
-             } catch (Exception ex) {
-                MainController.adminView.showMessage("Error", "No fue posible modificar  ".concat(infoParkway.getName()), 0);
-             }
+             MainController.infoJpaController.edit(infoParkway, idParkway);
          }else{
              MainController.adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
          }

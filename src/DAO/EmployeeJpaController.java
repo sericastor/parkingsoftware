@@ -6,6 +6,7 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import Entity.Employee;
+import controller.MainController;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -60,6 +61,8 @@ public class EmployeeJpaController implements Serializable {
             em.getTransaction().begin();
             em.persist(employee);
             em.getTransaction().commit();
+        }catch(Exception ex){
+            MainController.adminView.showMessage("Error", "Imposible crear al usaurio" + employee.getUser(), 0);
         } finally {
             if (em != null) {
                 em.close();
@@ -85,6 +88,7 @@ public class EmployeeJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             System.out.println(ex.getStackTrace());
+            MainController.adminView.showMessage("Error", "Imposible mofidicar al usaurio" + employee.getUser(), 0);
         } finally {
             if (em != null) {
                 em.close();

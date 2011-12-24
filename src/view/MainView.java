@@ -3,20 +3,13 @@ package view;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
-import edu.stanford.ejalbert.BrowserLauncher;
-import edu.stanford.ejalbert.exception.BrowserLaunchingInitializingException;
-import edu.stanford.ejalbert.exception.UnsupportedOperatingSystemException;
 import java.awt.Desktop;
-import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -565,7 +558,6 @@ public class MainView extends javax.swing.JFrame {
         if (result.equals("Inserte un tipo de placa valida")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
         } else if (result.equals("Vehículo Ingresado")) {
-            //JOptionPane.showMessageDialog(CopyMenu, result);
             PlateTextField.removeAll();
         } else if (result.equals("Do Nothing")) {
         } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")) {

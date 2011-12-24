@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class AdministrateVehicleTypeController {
 
-    public static DefaultTableModel TotalSearchOfVehicles() {
+    public static DefaultTableModel totalSearchOfVehicles() {
         DefaultTableModel results = new DefaultTableModel();
         AllVehiclesTypes=MainController.vehicleTypeJpaController.findVehicleTypeEntities();
         results.addColumn("Identificador");
@@ -60,7 +60,7 @@ public class AdministrateVehicleTypeController {
         return decode;
     }
     
-    public static String SavePlate(String Name, String Plate){
+    public static String savePlate(String Name, String Plate){
        String code=encodePlate(Plate);
        if(!code.equals("No es un tipo valido de placa")){
            VehicleType v=new VehicleType();
