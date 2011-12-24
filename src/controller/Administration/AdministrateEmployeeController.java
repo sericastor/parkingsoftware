@@ -17,7 +17,7 @@ public class AdministrateEmployeeController {
     public AdministrateEmployeeController(){}
     
     
-    public static DefaultListModel TotalSearchOfEmployees(){
+    public static DefaultListModel totalSearchOfEmployees(){
         DefaultListModel results = new DefaultListModel();
         employeeListTotal = MainController.employeeJpaController.findEmployeeEntities();
         employeeListSearch = employeeListTotal;
@@ -27,7 +27,7 @@ public class AdministrateEmployeeController {
         return results;
     }
     
-    public static DefaultListModel SearchOfEmployees (int search){
+    public static DefaultListModel searchOfEmployees (int search){
         DefaultListModel results = new DefaultListModel();
         employeeListSearch= MainController.employeeJpaController.findEmployeeEntities();
         for(Employee e : employeeListSearch){

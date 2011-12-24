@@ -10,7 +10,6 @@
  */
 package view;
 
-import DAO.EmployeeJpaController;
 import Entity.Employee;
 import controller.Administration.AdministrateEmployeeController;
 import controller.Administration.AdministrateBandRates;
@@ -920,14 +919,18 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     EmployeeList.removeAll();
     String searchText = ConsultEmployeeTextField.getText();
     if (searchText.isEmpty()) {
-        EmployeeList.setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
+        EmployeeList.setModel(AdministrateEmployeeController.totalSearchOfEmployees());
     } else {
         try{
             int searchInt = Integer.parseInt(searchText);
-            EmployeeList.setModel(AdministrateEmployeeController.SearchOfEmployees(searchInt));
+            if(searchInt > 0){
+                EmployeeList.setModel(AdministrateEmployeeController.searchOfEmployees(searchInt));
+            }else{
+                showMessage("Advertencia","No se permiten ID negativos", JOptionPane.WARNING_MESSAGE);
+            }
         }catch(Exception e){
             showMessage("Advertencia","La busqueda debe hacerse por ID", JOptionPane.WARNING_MESSAGE);
-        };
+        }
     }
     ConsultEmployeeTextField.setText(null);
 }//GEN-LAST:event_SearchButtonActionPerformed
@@ -983,9 +986,9 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     private void AdminTabbedPanelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AdminTabbedPanelFocusGained
         VehicleTypeComboBox.setModel(AdministrateBandRates.AllVehicleTypes());
         VehicleTypeComboBox.updateUI();
-        PlatesTable.setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+        PlatesTable.setModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
         PlatesTable.updateUI();
-        EmployeeList.setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
+        EmployeeList.setModel(AdministrateEmployeeController.totalSearchOfEmployees());
         EmployeeList.updateUI();
         String id = (String) VehicleTypeComboBox.getSelectedItem();
         RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));

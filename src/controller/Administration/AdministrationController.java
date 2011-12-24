@@ -18,9 +18,9 @@ public class AdministrationController {
         initializeAdminEmployee();
     }
     public static void initializeAdminEmployee(){
-        MainController.getAdminView().getEmployeeList().setModel(AdministrateEmployeeController.TotalSearchOfEmployees());
+        MainController.getAdminView().getEmployeeList().setModel(AdministrateEmployeeController.totalSearchOfEmployees());
     }
     public static void initializeAdminPlate(){
-        MainController.getAdminView().getPlatesTable().setModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+        MainController.getAdminView().getPlatesTable().setModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
     }
 }

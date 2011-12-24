@@ -43,9 +43,12 @@ public class MainController {
     }
 
     public static boolean verifyAdminAccess(String password) {
-        for (Employee e : employeeJpaController.findEmployeeEntities(true, -1, -1)) {
-            if (e.getPassword().equals(md5Security.MD5Security(password)) && e.isAdministrator() == true) {
-                return true;
+        if(EmployeeManagementController.validatePassword(password)){
+            for (Employee e : employeeJpaController.findEmployeeEntities(true, -1, -1)) {
+                if (e.getPassword().equals(md5Security.MD5Security(password)) && 
+                        e.isAdministrator() == true && e.isIsActive() == true) {
+                            return true;
+                }
             }
         }
         return false;
@@ -60,12 +63,12 @@ public class MainController {
             int confirm = adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("
                     + plate + ")");
             if (confirm == 0) {
-                String state = AdministrateVehicleTypeController.SavePlate(plate, example);
+                String state = AdministrateVehicleTypeController.savePlate(plate, example);
                 if (state.equals("Failure")) {
                     adminView.showMessage("Error", "Solo se permiten valores alfa-numericos en la placa", 0);
                 } else {
                     adminView.showMessage("Se ha creado un nuevo tipo de placa", "Se ha creado exitosamente el tipo de placa " + plate, 1);
-                    adminView.setPlatesTableModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+                    adminView.setPlatesTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
                     adminView.updatePlatesTable();
                     adminView.setVehicleTypeComboBoxModel(AdministrateBandRates.AllVehicleTypes());
                     adminView.updateVehicleTypeComboBox();
@@ -83,7 +86,7 @@ public class MainController {
             mainView.setExitsTableModel(AddVehicleManagementController.TotalSearchOfExits());
         }
         if (selectedTab == 4) {
-            mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.TotalSearchOfVehicles());
+            mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
         }
         
     }

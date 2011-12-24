@@ -6,6 +6,7 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import Entity.InfoParkway;
+import controller.MainController;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -82,6 +83,7 @@ public class InfoParkwayJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             System.out.println(ex.getStackTrace());
+            MainController.adminView.showMessage("Error", "No fue posible modificar  ".concat(infoParkway.getName()), 0);
         } finally {
             if (em != null) {
                 em.close();
