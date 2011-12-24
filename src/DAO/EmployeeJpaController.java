@@ -46,7 +46,6 @@ public class EmployeeJpaController implements Serializable {
         }catch(Exception ex){
             
             //TODO: fuck yeah!! xD, mirar Hechepchion :) 
-            System.out.println("Aja ve y tu que, no tengo datos");
         }finally{
             em.close();
             return employee;
@@ -62,7 +61,7 @@ public class EmployeeJpaController implements Serializable {
             em.persist(employee);
             em.getTransaction().commit();
         }catch(Exception ex){
-            MainController.adminView.showMessage("Error", "Imposible crear al usaurio" + employee.getUser(), 0);
+            MainController.adminView.showMessage("Error", "Imposible crear al usaurio " + employee.getUser(), 0);
         } finally {
             if (em != null) {
                 em.close();
@@ -88,7 +87,7 @@ public class EmployeeJpaController implements Serializable {
             em.getTransaction().commit();
         } catch (Exception ex) {
             System.out.println(ex.getStackTrace());
-            MainController.adminView.showMessage("Error", "Imposible mofidicar al usaurio" + employee.getUser(), 0);
+            MainController.adminView.showMessage("Error", "Imposible mofidicar al usaurio " + employee.getUser(), 0);
         } finally {
             if (em != null) {
                 em.close();
