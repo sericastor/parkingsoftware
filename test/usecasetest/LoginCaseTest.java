@@ -45,6 +45,33 @@ public class LoginCaseTest {
         assertFalse(EmployeeManagementController.validateUser(user));
         assertFalse(EmployeeManagementController.validatePassword(password));
     }
+    
+    @Test
+    public void emptyCredentials(){
+        setUser("");
+        setPassword("");
+        
+        assertFalse(EmployeeManagementController.validateUser(user));
+        assertFalse(EmployeeManagementController.validatePassword(password));
+    }
+    
+    @Test
+    public void validsCredentials(){
+        setUser("Usuario");
+        setPassword("1234567");
+        
+        assertTrue(EmployeeManagementController.validateUser(user));
+        assertTrue(EmployeeManagementController.validateUser(user));
+    }
+    
+    @Test
+    public void userAndPasswordLimitExceeded(){
+        setUser("UsuarioEjemplo");
+        setPassword("12345678910");
+        
+        assertFalse(EmployeeManagementController.validateUser(user));
+        assertFalse(EmployeeManagementController.validatePassword(password));
+    }
 
     // Class variables, getters and setters methods
     public String getPassword() {
