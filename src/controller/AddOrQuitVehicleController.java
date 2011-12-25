@@ -125,6 +125,11 @@ public class AddOrQuitVehicleController {
     public static void setPlate(String plate) {
         AddOrQuitVehicleController.plate = plate;
     }
+    
+    public static void setAllVehicleTypes(List<VehicleType> AllVehicleTypes) {
+        AddOrQuitVehicleController.AllVehicleTypes = AllVehicleTypes;
+    }
+    
     public static DefaultComboBoxModel comboBoxModel = null;
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;

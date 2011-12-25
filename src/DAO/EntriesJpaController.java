@@ -116,6 +116,8 @@ public class EntriesJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             return em.find(Entries.class, id);
+        }catch(Exception ex){
+            return null;
         } finally {
             em.close();
         }
