@@ -40,7 +40,6 @@ public class VehicleTypeJpaController implements Serializable {
             vehi = q.getResultList();
             return vehi;
         } catch (Exception ex) {
-            System.out.println("Aja ve y tu que, no tengo datos");
             return vehi;
         } finally {
             em.close();
