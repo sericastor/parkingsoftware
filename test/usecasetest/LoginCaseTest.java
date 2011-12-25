@@ -4,6 +4,7 @@
  */
 package usecasetest;
 
+import controller.Administration.EmployeeManagementController;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Administrador
+ * @author DiegoAl
  */
 public class LoginCaseTest {
     
@@ -35,9 +36,34 @@ public class LoginCaseTest {
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test
+    public void userAndPasswordInvalids() {
+        setUser("usu");
+        setPassword("12");
+        
+        assertFalse(EmployeeManagementController.validateUser(user));
+        assertFalse(EmployeeManagementController.validatePassword(password));
+    }
+
+    // Class variables, getters and setters methods
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+    
+    private String user;
+    private String password;
+
 }
