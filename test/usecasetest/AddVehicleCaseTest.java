@@ -16,6 +16,7 @@ import Entity.Entries;
 import Entity.VehicleType;
 import controller.AddOrQuitVehicleController;
 import java.util.Calendar;
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -78,8 +79,10 @@ public class AddVehicleCaseTest {
             bicyclesRates.setVehicletype(bicycle);
             bandsRateJpaController.create(bicyclesRates);
             
+            Date date = new Date(111, 11, 22, 14, 00, 00);
+            
             Entries vehicleParked = new Entries();
-            vehicleParked.setEntryDate(Calendar.getInstance().getTime());
+            vehicleParked.setEntryDate(date);
             vehicleParked.setPlate("ABC123");
             vehicleParked.setTicket(123);
             vehicleParked.setVehicleType(hovercraft);
@@ -89,6 +92,21 @@ public class AddVehicleCaseTest {
 
     @AfterClass
     public static void tearDownClass() throws Exception {
+        persistence_factory = Persistence.createEntityManagerFactory("ParkingSoftwarePU");
+        entriesJpaController = new EntriesJpaController(persistence_factory);
+        vehicleTypeJpaController = new VehicleTypeJpaController(persistence_factory);
+        
+        Long id = new Long(4);
+        Date date = new Date(111, 11, 22, 13, 45, 00);
+        VehicleType bicycle = vehicleTypeJpaController.findVehicleType(id);
+
+        Entries newEntry = new Entries();
+        newEntry.setEmployee(null);
+        newEntry.setEntryDate(date);
+        newEntry.setPlate("123");
+        newEntry.setTicket(123);
+        newEntry.setVehicleType(bicycle);
+        entriesJpaController.edit(newEntry, 2);
     }
     
     @Before

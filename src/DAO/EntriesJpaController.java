@@ -66,6 +66,28 @@ public class EntriesJpaController implements Serializable {
             }
         }
     }
+    
+    public void edit(Entries entries, long id){
+        EntityManager em = null;
+        try{
+            em = getEntityManager();
+            em.getTransaction().begin();
+            Entries newEntry = em.find(Entries.class, id);
+            newEntry.setEmployee(entries.getEmployee());
+            newEntry.setEntryDate(entries.getEntryDate());
+            newEntry.setPlate(entries.getPlate());
+            newEntry.setTicket(entries.getTicket());
+            newEntry.setVehicleType(entries.getVehicleType());
+            entries = em.merge(newEntry);
+            em.getTransaction().commit();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 
     public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
