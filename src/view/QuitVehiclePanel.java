@@ -29,13 +29,11 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
     public void setPanelParameters(String plate, String rate, String entry, String exit) {
         PlateTextField.setText(plate);
         RateTextField.setText(rate);
-        System.out.println("estoy imprimiendo entries2"+entry);
         EntryHourFormatted.setText(entry);
         ExitHourFormatted.setText(exit);
     }
     
     public void setCostTextField(double cost){
-
         CostTextField.setText(Double.toString(cost));
     }
 
