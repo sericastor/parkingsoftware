@@ -124,9 +124,6 @@ public class AddOrQuitVehicleController {
         return entry.getVehicleType();
     }
 
-    /*public String getEntryVehicleTypeByPlate(String plate){
-    
-    }*/
     public static void setPlate(String plate) {
         AddOrQuitVehicleController.plate = plate;
     }

@@ -248,7 +248,7 @@ public class LoginView extends javax.swing.JFrame {
         Para mas detalle sobre ésta API ver la siguiente Página web > 
         http://java.sun.com/developer/technicalArticles/J2SE/Desktop/javase6/desktop_api/
          */
-        File file = new File("C:/Users/Pipe/Documents/NetBeansProjects/parkingsoftware/documentation/web_site/default.html");//declaro un Objeto File que apunte a mi archivo html
+        File file = new File("documentation/web_site/default.html");//declaro un Objeto File que apunte a mi archivo html
         if (Desktop.isDesktopSupported()) {// si éste pc soporta esta API 
             desktop = Desktop.getDesktop();//objtengo una instancia del Desktop(Escritorio)de mi pc 
             try {
