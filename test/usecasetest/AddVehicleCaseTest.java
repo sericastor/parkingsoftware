@@ -15,7 +15,6 @@ import Entity.BandsRate;
 import Entity.Entries;
 import Entity.VehicleType;
 import controller.AddOrQuitVehicleController;
-import java.util.Calendar;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
