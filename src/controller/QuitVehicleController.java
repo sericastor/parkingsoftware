@@ -40,7 +40,7 @@ public class QuitVehicleController {
                 minimumUnitRate = b;
             }
         }
-
+/*
         for (BandsRate b : ratesOfVehicleType) {
             from = b.getFromm();
             to = b.getToo();
@@ -66,7 +66,7 @@ public class QuitVehicleController {
             numberOfUnits = minutesParked/units;
             cost = cost + (numberOfUnits * value);
         }
-        cost = roundTo50(cost);
+        cost = roundTo50(cost);*/
         return cost;
     }
 

@@ -3,10 +3,12 @@ package controller;
 import DAO.EntriesJpaController;
 import Entity.Entries;
 import Entity.VehicleType;
+import controller.Administration.AddVehicleManagementController;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class AddOrQuitVehicleController {
     
@@ -90,6 +92,9 @@ public class AddOrQuitVehicleController {
             MainController.adminView.showMessage("Información", "El vehiculo con placas " + plate + " ha sido registrado", 1);
             MainController.mainView.setPlateTextField("");
             MainController.mainView.removePanel();
+            //actualizar el panel con la nueva entrada automaticamente
+            DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
+            MainController.mainView.setEntriesTableModel(entriesModel);
         } else {
             MainController.adminView.showMessage("Error", "El tipo de vehiculo seleccionado no tiene tarifas. Por favor cree una nueva tarifa", 0);
         }
