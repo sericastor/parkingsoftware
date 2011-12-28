@@ -572,6 +572,9 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.add(panel);
         AoQPanel.updateUI();
     }
+    public void updateStateTabbed(){
+        EntriesTable.updateUI();
+    }
 
     public void removePanel() {
         AoQPanel.removeAll();

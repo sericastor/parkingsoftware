@@ -192,9 +192,9 @@
                   <Component id="DataEntryPanel" alignment="0" max="32767" attributes="1"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="AoQPanel" pref="738" max="32767" attributes="0"/>
+              <Component id="AoQPanel" pref="759" max="32767" attributes="0"/>
           </Group>
-          <Component id="StateTabbed" alignment="0" pref="1155" max="32767" attributes="0"/>
+          <Component id="StateTabbed" alignment="0" pref="1180" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -233,7 +233,7 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="PlateLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="PlateTextField" pref="194" max="32767" attributes="0"/>
+                  <Component id="PlateTextField" pref="211" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="SearchButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -309,7 +309,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="777" max="32767" attributes="0"/>
+                  <EmptySpace pref="808" max="32767" attributes="0"/>
                   <Component id="LogoutButton" min="-2" max="-2" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ExitButton" min="-2" pref="181" max="-2" attributes="1"/>
@@ -518,12 +518,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="EntriesScrollPane" alignment="0" pref="1150" max="32767" attributes="0"/>
+                  <Component id="EntriesScrollPane" alignment="0" pref="1168" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="EntriesScrollPane" alignment="0" pref="148" max="32767" attributes="0"/>
+                  <Component id="EntriesScrollPane" alignment="0" pref="133" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -564,12 +564,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ExitsScrollPane" alignment="0" pref="1150" max="32767" attributes="0"/>
+                  <Component id="ExitsScrollPane" alignment="0" pref="1168" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ExitsScrollPane" alignment="0" pref="148" max="32767" attributes="0"/>
+                  <Component id="ExitsScrollPane" alignment="0" pref="133" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -610,12 +610,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1150" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1168" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="148" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -637,12 +637,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1150" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1168" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="148" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -664,12 +664,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VehicleTypeSrollPane" alignment="0" pref="1150" max="32767" attributes="0"/>
+                  <Component id="VehicleTypeSrollPane" alignment="0" pref="1168" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VehicleTypeSrollPane" alignment="0" pref="148" max="32767" attributes="0"/>
+                  <Component id="VehicleTypeSrollPane" alignment="0" pref="133" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
