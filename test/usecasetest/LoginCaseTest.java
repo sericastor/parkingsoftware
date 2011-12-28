@@ -31,7 +31,7 @@ public class LoginCaseTest {
         persistence_factory = Persistence.createEntityManagerFactory("ParkingSoftwarePU");
         employeeJpaController = new EmployeeJpaController(persistence_factory);
         
-        if(employeeJpaController.findEmployeeEntities(false, 1, 2).isEmpty()){
+        if(employeeJpaController.findEmployeeEntities(false, 2, 1).isEmpty()){
             
             Employee dasalgadoc = new Employee();
             dasalgadoc.setId(1);
