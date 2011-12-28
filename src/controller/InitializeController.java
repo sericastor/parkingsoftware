@@ -34,8 +34,8 @@ public class InitializeController {
         
         if(employeecount != -1 && employeecount != null){
             
-            //Creacion de la tabla Employee
-        Employee em = new Employee();
+        //Creacion de la tabla Employee
+        /*Employee em = new Employee();
         em.setId(MainController.employeeJpaController.getEmployeeCount());
         em.setLastName("ILastName");
         em.setIsActive(true);
@@ -45,7 +45,7 @@ public class InitializeController {
         em.setPassword(controller.MainController.md5Security.MD5Security("Ipass"));
         em.setAdministrator(true);
         em.setUser("IUser");
-        emJpaController.create(em);
+        emJpaController.create(em);*/
         //controller.MainController.employeeJpaController.create(em);
 
 
