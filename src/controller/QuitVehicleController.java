@@ -11,6 +11,8 @@ public class QuitVehicleController {
     }
 
     private static long getDifferenceBetweenHours(Date entry, Date exit) {
+        /*metodo ineficiente, (a menos que en realidad por legislacion cada 30 segs
+         * se tome como un minuto nuevo)
         long resultInMinutes = 0;
         long miliseconds = exit.getTime() - entry.getTime();
         long seconds = miliseconds / 1000;
@@ -24,6 +26,15 @@ public class QuitVehicleController {
             resultInMinutes = resultInMinutes + 1;
         }
         return resultInMinutes;
+         
+         */
+        Date diff=entry;
+        diff.setTime(exit.getTime() - entry.getTime());
+        
+        return diff.getMinutes();
+        
+        
+        
     }
 
     public static double calculateCost(Date entry, Date exit, VehicleType vehicleType) {

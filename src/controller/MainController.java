@@ -122,11 +122,14 @@ public class MainController {
 
     public static void setQuitPanelParameters(String plate) {
         Date entryDate = addVehicleController.getEntryDateByPlate(plate);
+        
         Date exitDate = Calendar.getInstance().getTime();
+        
         String rate = addVehicleController.getEntryRateByPlate(plate);
+        
         VehicleType vehicleType = addVehicleController.getVehicleTypeByPlate(plate);
-        quitPanel.setCostTextField(entryDate, exitDate, vehicleType);
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString());
+        quitPanel.setCostTextField(QuitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
     public static BarCodePanel barCodePanel = new BarCodePanel();
     public static MainView mainView = new MainView();
