@@ -1,9 +1,7 @@
 package controller;
 
-import DAO.BandsRateJpaController;
 import Entity.BandsRate;
 import Entity.VehicleType;
-import java.text.NumberFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +31,6 @@ public class QuitVehicleController {
         int from, to, units;
         double numberOfUnits;
         long minutesParked = getDifferenceBetweenHours(entry, exit);
-        long initialMinute = 0;
-        NumberFormat numberFormat = NumberFormat.getInstance();
         System.out.println(minutesParked);
         List<BandsRate> ratesOfVehicleType = MainController.bandsRateJpaController.queryByVehicleTypes(vehicleType);
         BandsRate lastRate = null;
@@ -43,14 +39,26 @@ public class QuitVehicleController {
             to = b.getToo();
             units = b.getUnits();
             value = b.getUnitValue();
+            if(minutesParked<=0){
+                break;
+            }
             if (minutesParked <= to) {
-                numberOfUnits = (minutesParked - from) / units;
+                numberOfUnits = (minutesParked) / units;
                 cost = cost + (numberOfUnits * value);
             }
             else {
                 numberOfUnits = (to - from) / units;
                 cost = cost + (numberOfUnits * value);
             }
+            minutesParked = minutesParked - to;
+            lastRate = b;
+        }
+        if(minutesParked > 0){
+            units = lastRate.getUnits();
+            value = lastRate.getUnitValue();
+            
+            numberOfUnits = minutesParked/units;
+            cost = cost + (numberOfUnits * value);
         }
         cost = roundTo50(cost);
         return cost;

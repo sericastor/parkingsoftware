@@ -166,8 +166,7 @@ public class EntriesJpaController implements Serializable {
                     + "where u.plate LIKE :plate").setParameter("plate", plate);
             entries = (Entries) q.getSingleResult();
         } catch (Exception ex) {
-            //TODO: fuck yeah!! xD, mirar Hechepchion :) 
-            System.out.println("Aja ve y tu que, no tengo datos");
+            System.out.println(ex.getMessage());
         } finally {
             em.close();
             return entries;
