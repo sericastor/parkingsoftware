@@ -47,10 +47,21 @@ public class AdministrateBandRates {
         try {
             modifyBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vt);
             if (modifyBandsRate.size() > 0 && verifyRateUse(vt)) {
-                MainController.bandsRateJpaController.destroy(modifyBandsRate.get(modifyBandsRate.size() - 1).getId());
+                BandsRate toElimitate=modifyBandsRate.get(modifyBandsRate.size() - 1);
+                MainController.bandsRateJpaController.destroy(toElimitate.getId());
+                String action="Delete a Bandrate";
+                String detail=" VehicleType:" + toElimitate.getVehicletype().getName()+
+                        " From: " + toElimitate.getFromm() + 
+                        " To:" + toElimitate.getToo() + 
+                        " Frac:" + toElimitate.getUnits() + 
+                        " Value:" + toElimitate.getUnitValue();
+                MainController.system.NewLogAction(action, detail);
+            }
+            else{
+                MainController.adminView.confirmationMessages("Está vacia la lista de tarifas", "Error");
             }
         } catch (Exception e) {
-            System.out.println("Está vacia la lista de tarifas");
+            MainController.adminView.confirmationMessages("Está vacia la lista de tarifas", "Error");
         }
     }
 
@@ -100,11 +111,14 @@ public class AdministrateBandRates {
             aux.setVehicletype(vehicleTypeIsSelected);
             aux.setId(Integer.parseInt(id));
             MainController.bandsRateJpaController.edit(aux);
-            String description = "from: " + AllBandsRate.get(row).getFromm() + " -> " + from
-                    + " to:" + AllBandsRate.get(row).getToo() + " -> " + to
-                    + " frac:" + AllBandsRate.get(row).getUnits() + " -> " + fraction
-                    + " value:" + AllBandsRate.get(row).getUnitValue() + " -> " + value;
-            MainController.system.UpdateBandRate(aux.getId(), description);
+            String action="Update a Bandrate";
+            String detail = "VehicleType:" + AllBandsRate.get(row).getVehicletype()
+                    + " From: " + AllBandsRate.get(row).getFromm() + " -> " + from
+                    + " To:" + AllBandsRate.get(row).getToo() + " -> " + to
+                    + " Frac:" + AllBandsRate.get(row).getUnits() + " -> " + fraction
+                    + " Value:" + AllBandsRate.get(row).getUnitValue() + " -> " + value
+                    ;
+            MainController.system.NewLogAction(action, detail);
             AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
         } catch (NumberFormatException ex) {
             //error generado al tratar de hacer un parse con un string ""
@@ -123,8 +137,9 @@ public class AdministrateBandRates {
         aux.setUnitValue(Double.parseDouble(value));
         aux.setVehicletype(vehicleTypeIsSelected);
         MainController.bandsRateJpaController.create(aux);
-        String description = "from: " + from + " to:" + to + " frac:" + fraction + " value:" + value;
-        MainController.system.AddBandRate(aux.getId(), description);
+        String action = "Create a Bandrate";
+        String detail = "VehicleType: " + vehicletype.getName() + " From: " + from + " To:" + to + " Frac:" + fraction + " Value:" + value ;
+        MainController.system.NewLogAction(action, detail);
         AllBandsRate = MainController.bandsRateJpaController.queryByVehicleTypes(vehicletype);
     }
 

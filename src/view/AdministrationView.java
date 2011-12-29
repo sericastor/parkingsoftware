@@ -1125,7 +1125,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
 
 private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteLastRateActionPerformed
-    AdministrateBandRates.deleteRateFromVehicleType(VehicleTypeComboBox.getSelectedItem().toString());
+    String id = (String) VehicleTypeComboBox.getSelectedItem();
+    AdministrateBandRates.deleteRateFromVehicleType(id);
+    RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
+    RatesTable.updateUI();
 }//GEN-LAST:event_DeleteLastRateActionPerformed
 
 

@@ -67,7 +67,8 @@ public class AdministrateVehicleTypeController {
            v.setCodification(code);
            v.setName(Name);
            MainController.vehicleTypeJpaController.create(v);
-           MainController.system.AddPlate(Name);
+           String action="Add vehicle type: "+Name;
+           MainController.system.NewLogAction(action, null);
            return "Succes";
        }
        return "Failure";

@@ -25,11 +25,20 @@ public class Log implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String action;
+    private String detail;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;             
     private String user;
     private String name;
     private String document;
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
 
     public String getAction() {
         return action;
