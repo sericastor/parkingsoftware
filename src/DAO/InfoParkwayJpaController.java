@@ -81,6 +81,7 @@ public class InfoParkwayJpaController implements Serializable {
             newInfoPark.setMaxCapacity(infoParkway.getMaxCapacity());
             infoParkway = em.merge(newInfoPark);
             em.getTransaction().commit();
+            MainController.adminView.showMessage("Proceso OK", "Modificación Exitosa", 1);
         } catch (Exception ex) {
             System.out.println(ex.getStackTrace());
             MainController.adminView.showMessage("Error", "No fue posible modificar  ".concat(infoParkway.getName()), 0);
