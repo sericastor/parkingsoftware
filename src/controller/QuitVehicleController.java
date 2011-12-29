@@ -2,6 +2,7 @@ package controller;
 
 import Entity.BandsRate;
 import Entity.VehicleType;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -11,8 +12,7 @@ public class QuitVehicleController {
     }
 
     private static long getDifferenceBetweenHours(Date entry, Date exit) {
-        /*metodo ineficiente, (a menos que en realidad por legislacion cada 30 segs
-         * se tome como un minuto nuevo)
+        
         long resultInMinutes = 0;
         long miliseconds = exit.getTime() - entry.getTime();
         long seconds = miliseconds / 1000;
@@ -25,24 +25,16 @@ public class QuitVehicleController {
         if (seconds >= 30) {
             resultInMinutes = resultInMinutes + 1;
         }
-        return resultInMinutes;
-         
-         */
-        Date diff=entry;
-        diff.setTime(exit.getTime() - entry.getTime());
-        
-        return diff.getMinutes();
-        
-        
-        
+        return resultInMinutes;   
     }
+    
 
     public static double calculateCost(Date entry, Date exit, VehicleType vehicleType) {
         double cost = 0, value;
         long from, to, units;
         double numberOfUnits;
         long minutesParked = getDifferenceBetweenHours(entry, exit);
-        System.out.println(minutesParked);
+        System.out.println("minutos parqueado: "+minutesParked);
         List<BandsRate> ratesOfVehicleType = MainController.bandsRateJpaController.queryByVehicleTypes(vehicleType);
         BandsRate minimumUnitRate = null;
         /*Ciclo que intenta implementar de manera correcta el manejo de tarifas preferenciales*/
