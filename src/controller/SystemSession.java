@@ -31,12 +31,24 @@ public class SystemSession {
     public static EntityManagerFactory getPersistence_factory() {
         return persistence_factory;
     }
+    public void NewLogAction(String action,String detail){
+        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        Log log = new Log();
+        log.setAction(action);
+        log.setDetail(detail);
+        log.setDate(Calendar.getInstance().getTime());
+        log.setUser(sesionemployee.getUser());
+        log.setName(sesionemployee.getName());
+        log.setDocument(sesionemployee.getDocument());
+        ctrllog.create(log);
 
+    }
     public void Login() {
         //encargado de crear una entrada de login en la tabla log
         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Login");
+        log.setDetail(null);
         log.setDate(Calendar.getInstance().getTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
@@ -47,6 +59,7 @@ public class SystemSession {
         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Logout");
+        log.setDetail(null);
         log.setDate(Calendar.getInstance().getTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
@@ -57,43 +70,14 @@ public class SystemSession {
         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Close System");
+        log.setDetail(null);
         log.setDate(Calendar.getInstance().getTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());
         ctrllog.create(log);
     }
-    public void AddPlate(String typeplate){
-        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
-        Log log = new Log();
-        log.setAction("AddPlate: "+typeplate);
-        log.setDate(Calendar.getInstance().getTime());
-        log.setUser(sesionemployee.getUser());
-        log.setName(sesionemployee.getName());
-        log.setDocument(sesionemployee.getDocument());
-        ctrllog.create(log);
-    }
-    public void AddBandRate(long id,String description){
-         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
-        Log log = new Log();
-        log.setAction("AddBandRate: Id="+id+" "+description);
-        log.setDate(Calendar.getInstance().getTime());
-        log.setUser(sesionemployee.getUser());
-        log.setName(sesionemployee.getName());
-        log.setDocument(sesionemployee.getDocument());
-        ctrllog.create(log);
-    }
-    
-     public void UpdateBandRate(long id,String description){
-         LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
-        Log log = new Log();
-        log.setAction("UpdateBandRate: Id="+id+" "+description);
-        log.setDate(Calendar.getInstance().getTime());
-        log.setUser(sesionemployee.getUser());
-        log.setName(sesionemployee.getName());
-        log.setDocument(sesionemployee.getDocument());
-        ctrllog.create(log);
-    }
+  
     
     public static void setEmployee(Employee employee) {
         SystemSession.sesionemployee = employee;
