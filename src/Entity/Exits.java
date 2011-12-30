@@ -29,33 +29,35 @@ public class Exits implements Serializable {
     @Column(name="Exits_ID")
     private long id;
     @Column(name="Plate",nullable=false)
-    private String plate; // No necesario
+    private String plate; 
     @Column(name="Ticket",nullable=false)
-    private int ticket; // No necesario
-     @Temporal(TemporalType.TIMESTAMP)
+    private int ticket; 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="ExitDate",nullable=false)
     private Date exitDate;
-    @Column(name="Units",nullable=false)
-    private int units;
-    @Column(name="Rate",nullable=false)
-    private int rate; // No necesario
-    @Column(name="Employee",nullable=false)
-    private int employee; // No necesario
-    @Column(name="VehicleType",nullable=false)
-    private int vehicleType; // No necesario
+    @ManyToOne
+    private Employee employee; 
+    @ManyToOne
+    @JoinColumn(name="VehicleType")
+    private VehicleType vehicleType;
     @Column(name="Subtotal",nullable=false)
     private double subtotal;
     @Column(name="IVA",nullable=false)
     private double IVA;
     @Column(name="Total",nullable=false)
     private double total;
-    
-
     @OneToOne
     private Entries entry;
 
-    @ManyToOne
-    private FactureTurn turn;
+ 
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public double getIVA() {
         return IVA;
@@ -63,14 +65,6 @@ public class Exits implements Serializable {
 
     public void setIVA(double IVA) {
         this.IVA = IVA;
-    }
-
-    public int getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(int employee) {
-        this.employee = employee;
     }
 
     public Entries getEntry() {
@@ -97,14 +91,6 @@ public class Exits implements Serializable {
         this.plate = plate;
     }
 
-    public int getRate() {
-        return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
     public double getSubtotal() {
         return subtotal;
     }
@@ -129,36 +115,22 @@ public class Exits implements Serializable {
         this.total = total;
     }
 
-    public FactureTurn getTurn() {
-        return turn;
-    }
 
-    public void setTurn(FactureTurn turn) {
-        this.turn = turn;
-    }
 
-    public int getUnits() {
-        return units;
-    }
-
-    public void setUnits(int units) {
-        this.units = units;
-    }
-
-    public int getVehicleType() {
+    public VehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(int vehicleType) {
+    public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
+
+   
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+   
 
     @Override
     public int hashCode() {

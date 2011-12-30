@@ -111,6 +111,10 @@ public class MainController {
     public static void updateClockInFrame() {
         mainView.updateFrame(Calendar.getInstance().getTime().toLocaleString());
     }
+    //este metodo de ahora en adelante se usara para saber la fecha del sistema!
+    public static Date getSystemTime(){
+        return Calendar.getInstance().getTime();
+    }
 
     public static void startClock() {
         mainView.run();
@@ -123,7 +127,7 @@ public class MainController {
     public static void setQuitPanelParameters(String plate) {
         Date entryDate = addVehicleController.getEntryDateByPlate(plate);
         
-        Date exitDate = Calendar.getInstance().getTime();
+        Date exitDate = MainController.getSystemTime();
         
         String rate = addVehicleController.getEntryRateByPlate(plate);
         

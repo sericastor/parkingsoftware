@@ -4,11 +4,9 @@
  */
 package controller;
 
-import DAO.EmployeeJpaController;
 import DAO.LogJpaController;
 import Entity.Employee;
 import Entity.Log;
-import java.util.Calendar;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -36,7 +34,7 @@ public class SystemSession {
         Log log = new Log();
         log.setAction(action);
         log.setDetail(detail);
-        log.setDate(Calendar.getInstance().getTime());
+        log.setDate(MainController.getSystemTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());
@@ -49,7 +47,7 @@ public class SystemSession {
         Log log = new Log();
         log.setAction("Login");
         log.setDetail(null);
-        log.setDate(Calendar.getInstance().getTime());
+        log.setDate(MainController.getSystemTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());
@@ -60,7 +58,7 @@ public class SystemSession {
         Log log = new Log();
         log.setAction("Logout");
         log.setDetail(null);
-        log.setDate(Calendar.getInstance().getTime());
+        log.setDate(MainController.getSystemTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());
@@ -71,7 +69,7 @@ public class SystemSession {
         Log log = new Log();
         log.setAction("Close System");
         log.setDetail(null);
-        log.setDate(Calendar.getInstance().getTime());
+        log.setDate(MainController.getSystemTime());
         log.setUser(sesionemployee.getUser());
         log.setName(sesionemployee.getName());
         log.setDocument(sesionemployee.getDocument());

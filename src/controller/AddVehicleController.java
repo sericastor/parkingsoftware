@@ -17,7 +17,7 @@ public class AddVehicleController {
     
     public static boolean verifyCarParked(String plate) {
         Entries entry = new Entries();
-        entry = entriesJpaController.getEntriesByPlate(plate);
+        entry=MainController.entriesJpaController.getEntriesByPlate(plate);
         if (entry == null) {
             return false;
         }
@@ -82,7 +82,7 @@ public class AddVehicleController {
         //por el momento se deja comentado dado que toca revisar bien el modelo
         Entries m = new Entries();
         m.setEmployee(MainController.system.getSesionemployee());
-        m.setEntryDate(Calendar.getInstance().getTime());
+        m.setEntryDate(MainController.getSystemTime());
         m.setPlate(plate);
         m.setTicket(123);
         m.setVehicleType(getVehicleTypeSelected(vehicleType));
@@ -135,5 +135,4 @@ public class AddVehicleController {
     public static DefaultComboBoxModel comboBoxModel = null;
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
-    private static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
 }
