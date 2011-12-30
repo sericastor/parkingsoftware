@@ -88,12 +88,11 @@ public class QuitVehicleController {
         return result;
     }
     public static void changeStateOfVehicle(String plate){
-        
         Entries entry=MainController.entriesJpaController.getEntriesByPlate(plate);
         Exits exit=new Exits();
+        
         try{
             //eliminar de la tabla entries
-        exit.setEntry(entry);
         exit.setEmployeeEntry(entry.getEmployee());
         exit.setEmployeeExit(MainController.system.getSesionemployee());
         exit.setEntryDate(entry.getEntryDate());
