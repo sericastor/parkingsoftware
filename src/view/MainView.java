@@ -580,7 +580,9 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel.removeAll();
         AoQPanel.repaint();
     }
-
+    public void confirmationMessages(String message,String type){
+        JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
+    }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
         controller.MainController.system.Logout();

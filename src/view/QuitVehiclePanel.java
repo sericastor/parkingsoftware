@@ -12,6 +12,7 @@ package view;
 
 import Entity.VehicleType;
 import controller.FormatDate;
+import controller.MainController;
 import controller.QuitVehicleController;
 import java.util.Date;
 
@@ -163,7 +164,11 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FactureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FactureButtonActionPerformed
-        // TODO add your handling code here:
+        /*aqui debe ir todo el codigo de la factura, por lo pronto 
+         * solo pondre el codigo para sacar el vehiculo att: miguel
+         */
+        String plate=MainController.mainView.getPlate();
+        MainController.quitVehicleController.changeStateOfVehicle(plate);
     }//GEN-LAST:event_FactureButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

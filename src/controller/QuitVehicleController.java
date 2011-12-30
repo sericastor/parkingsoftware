@@ -1,10 +1,15 @@
 package controller;
 
 import Entity.BandsRate;
+import Entity.Entries;
+import Entity.Exits;
+import Entity.FactureTurn;
 import Entity.VehicleType;
+import controller.Administration.AddVehicleManagementController;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class QuitVehicleController {
 
@@ -82,4 +87,37 @@ public class QuitVehicleController {
         }       
         return result;
     }
+    public static void changeStateOfVehicle(String plate){
+        //eliminar de la tabla entries
+        Entries entry=MainController.entriesJpaController.getEntriesByPlate(plate);
+        Exits exit=new Exits();
+        try{
+        MainController.entriesJpaController.destroy(entry.getId());
+        exit.setEmployee(entry.getEmployee());
+        exit.setEntry(entry);
+        exit.setExitDate(MainController.getSystemTime());
+        exit.setIVA(0);
+        exit.setPlate(entry.getPlate());
+        //v. auxiliar, para hacer los calculos para total sin tener que recurrir
+        //a una busqueda en la BD de subtotal e iva, lo que consume mas tiempo.
+        double subtotal=calculateCost(entry.getEntryDate(),
+                MainController.getSystemTime(),
+                entry.getVehicleType());
+        exit.setSubtotal(subtotal);
+        exit.setTicket(entry.getTicket());
+        exit.setTotal(exit.getIVA()+subtotal);
+        exit.setVehicleType(entry.getVehicleType());
+        MainController.exitsJpaController.create(exit);
+        }
+        catch(Exception e){
+            MainController.mainView.confirmationMessages(
+                    "Error transaccional en la base de datos!", "Error!");
+        }
+        //actualiza tabla entries y exits
+        DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
+        MainController.mainView.setEntriesTableModel(entriesModel);
+        DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
+        MainController.mainView.setExitsTableModel(exitsModel);
+    }
+   
 }
