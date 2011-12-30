@@ -129,7 +129,7 @@ public class MainController {
         
         VehicleType vehicleType = addVehicleController.getVehicleTypeByPlate(plate);
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString());
-        quitPanel.setCostTextField(QuitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
+        quitPanel.setCostTextField(quitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
     public static BarCodePanel barCodePanel = new BarCodePanel();
     public static MainView mainView = new MainView();
@@ -144,7 +144,8 @@ public class MainController {
     public static MD5Security md5Security = new MD5Security();
     public static EntriesJpaController entriesJpaController = new EntriesJpaController(controller.MainController.system.getPersistence_factory());
     public static VehicleTypeJpaController vehicleTypeJpaController = new VehicleTypeJpaController(controller.MainController.system.getPersistence_factory());
-    public static AddOrQuitVehicleController addVehicleController = new AddOrQuitVehicleController();
+    public static AddVehicleController addVehicleController = new AddVehicleController();
+    public static QuitVehicleController quitVehicleController = new QuitVehicleController();
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
     public static ExitsJpaController exitsJpaController = new ExitsJpaController(controller.MainController.system.getPersistence_factory());

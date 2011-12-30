@@ -10,9 +10,9 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
-public class AddOrQuitVehicleController {
+public class AddVehicleController {
     
-    public AddOrQuitVehicleController() {
+    public AddVehicleController() {
     }
     
     public static boolean verifyCarParked(String plate) {
@@ -125,11 +125,11 @@ public class AddOrQuitVehicleController {
     }
 
     public static void setPlate(String plate) {
-        AddOrQuitVehicleController.plate = plate;
+        AddVehicleController.plate = plate;
     }
     
     public static void setAllVehicleTypes(List<VehicleType> AllVehicleTypes) {
-        AddOrQuitVehicleController.AllVehicleTypes = AllVehicleTypes;
+        AddVehicleController.AllVehicleTypes = AllVehicleTypes;
     }
     
     public static DefaultComboBoxModel comboBoxModel = null;
