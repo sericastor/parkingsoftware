@@ -88,11 +88,12 @@ public class QuitVehicleController {
         return result;
     }
     public static void changeStateOfVehicle(String plate){
-        //eliminar de la tabla entries
+        
         Entries entry=MainController.entriesJpaController.getEntriesByPlate(plate);
         Exits exit=new Exits();
         try{
-        MainController.entriesJpaController.destroy(entry.getId());
+            //eliminar de la tabla entries
+       
         exit.setEmployee(entry.getEmployee());
         exit.setEntry(entry);
         exit.setExitDate(MainController.getSystemTime());
@@ -108,6 +109,7 @@ public class QuitVehicleController {
         exit.setTotal(exit.getIVA()+subtotal);
         exit.setVehicleType(entry.getVehicleType());
         MainController.exitsJpaController.create(exit);
+        MainController.entriesJpaController.destroy(entry.getId());
         }
         catch(Exception e){
             MainController.mainView.confirmationMessages(
