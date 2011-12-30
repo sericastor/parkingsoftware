@@ -30,11 +30,11 @@ public class QuitVehicleController {
     
 
     public static double calculateCost(Date entry, Date exit, VehicleType vehicleType) {
-        double cost = 0, value;
-        int from, to, units;
+        double cost = 0, value, units;
+        int from, to;
         double numberOfUnits;
-        long minutesParked = getDifferenceBetweenHours(entry, exit);
-        System.out.println(minutesParked);
+        double minutesParked = getDifferenceBetweenHours(entry, exit);
+        System.out.println(getDifferenceBetweenHours(entry, exit));
         List<BandsRate> ratesOfVehicleType = MainController.bandsRateJpaController.queryByVehicleTypes(vehicleType);
         BandsRate lastRate = null;
         for (BandsRate b : ratesOfVehicleType) {
