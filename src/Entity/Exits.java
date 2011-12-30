@@ -28,13 +28,13 @@ public class Exits implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Exits_ID")
     private long id;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="ExitDate",nullable=false)
+    private Date exitDate;
     @Column(name="Plate",nullable=false)
     private String plate; 
     @Column(name="Ticket",nullable=false)
     private int ticket; 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="ExitDate",nullable=false)
-    private Date exitDate;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;

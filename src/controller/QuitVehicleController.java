@@ -111,12 +111,15 @@ public class QuitVehicleController {
         exit.setVehicleType(entry.getVehicleType());
         MainController.exitsJpaController.create(exit);
         MainController.entriesJpaController.destroy(entry.getId());
+        MainController.system.NewLogAction("Exit Vehicle", plate);
+        MainController.mainView.confirmationMessages(
+                    "El vehiculo ha cambiado satisfactoriamente de estado", "Información",0);
         }
         catch(Exception e){
             MainController.mainView.confirmationMessages(
-                    "Error transaccional en la base de datos!", "Error!");
+                    "Error transaccional en la base de datos!", "Error!",1);
         }
-        //actualiza tabla entries y exits
+        //actualiza tabla entries y exits (vista)
         DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
         MainController.mainView.setEntriesTableModel(entriesModel);
         DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
