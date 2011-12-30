@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -53,8 +52,7 @@ public class Exits implements Serializable {
     private double IVA;
     @Column(name="Total",nullable=false)
     private double total;
-    @OneToOne
-    private Entries entry;
+
 
     public Employee getEmployeeEntry() {
         return employeeEntry;
@@ -92,13 +90,7 @@ public class Exits implements Serializable {
         this.IVA = IVA;
     }
 
-    public Entries getEntry() {
-        return entry;
-    }
-
-    public void setEntry(Entries entry) {
-        this.entry = entry;
-    }
+    
 
     public Date getExitDate() {
         return exitDate;
