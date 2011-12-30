@@ -31,19 +31,12 @@ public class QuitVehicleController {
 
     public static double calculateCost(Date entry, Date exit, VehicleType vehicleType) {
         double cost = 0, value;
-        long from, to, units;
+        int from, to, units;
         double numberOfUnits;
         long minutesParked = getDifferenceBetweenHours(entry, exit);
-        System.out.println("minutos parqueado: "+minutesParked);
+        System.out.println(minutesParked);
         List<BandsRate> ratesOfVehicleType = MainController.bandsRateJpaController.queryByVehicleTypes(vehicleType);
-        BandsRate minimumUnitRate = null;
-        /*Ciclo que intenta implementar de manera correcta el manejo de tarifas preferenciales*/
-        for (BandsRate b : ratesOfVehicleType) {
-            if (minimumUnitRate == null || b.getUnits() < minimumUnitRate.getUnits()) {
-                minimumUnitRate = b;
-            }
-        }
-/*
+        BandsRate lastRate = null;
         for (BandsRate b : ratesOfVehicleType) {
             from = b.getFromm();
             to = b.getToo();
@@ -55,7 +48,8 @@ public class QuitVehicleController {
             if (minutesParked <= to) {
                 numberOfUnits = (minutesParked) / units;
                 cost = cost + (numberOfUnits * value);
-            } else {
+            }
+            else {
                 numberOfUnits = (to - from) / units;
                 cost = cost + (numberOfUnits * value);
             }
@@ -69,7 +63,7 @@ public class QuitVehicleController {
             numberOfUnits = minutesParked/units;
             cost = cost + (numberOfUnits * value);
         }
-        cost = roundTo50(cost);*/
+        cost = roundTo50(cost);
         return cost;
     }
 
