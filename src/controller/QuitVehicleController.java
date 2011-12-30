@@ -93,9 +93,10 @@ public class QuitVehicleController {
         Exits exit=new Exits();
         try{
             //eliminar de la tabla entries
-       
-        exit.setEmployee(entry.getEmployee());
         exit.setEntry(entry);
+        exit.setEmployeeEntry(entry.getEmployee());
+        exit.setEmployeeExit(MainController.system.getSesionemployee());
+        exit.setEntryDate(entry.getEntryDate());
         exit.setExitDate(MainController.getSystemTime());
         exit.setIVA(0);
         exit.setPlate(entry.getPlate());
