@@ -95,10 +95,9 @@ public class QuitVehicleCaseTest {
             newEntry.setVehicleType(bicycle);
             entriesJpaController.create(newEntry);
         }
-        if(entriesJpaController.findEntriesEntities(1, 2).isEmpty()){
-            Long id = new Long(3);
+        if(entriesJpaController.findEntriesEntities(2, 2).isEmpty()){
             Date date = new Date(111, 11, 22, 15, 35, 00);
-            VehicleType hovercraft = vehicleTypeJpaController.findVehicleType(id);
+            VehicleType hovercraft = vehicleTypeJpaController.findVehicleType(Long.valueOf(3));
             
             Entries newEntry = new Entries();
             newEntry.setEmployee(null);
@@ -107,7 +106,46 @@ public class QuitVehicleCaseTest {
             newEntry.setTicket(123);
             newEntry.setVehicleType(hovercraft);
             entriesJpaController.create(newEntry);
+            
+            VehicleType bus = new VehicleType();
+            bus.setCodification("000111");
+            bus.setName("Bus");
+            vehicleTypeJpaController.create(bus);
+            
+            BandsRate busRates = new BandsRate();
+            busRates.setFromm(0);
+            busRates.setToo(30);
+            busRates.setUnits(1);
+            busRates.setUnitValue(70.0);
+            busRates.setVehicletype(bus);
+            bandsRateJpaController.create(busRates);
+            
+            busRates.setFromm(31);
+            busRates.setToo(120);
+            busRates.setUnits(2);
+            busRates.setUnitValue(100.0);
+            busRates.setVehicletype(bus);
+            bandsRateJpaController.create(busRates);
+            
+            busRates.setFromm(121);
+            busRates.setToo(10000);
+            busRates.setUnits(2);
+            busRates.setUnitValue(90.0);
+            busRates.setVehicletype(bus);
+            bandsRateJpaController.create(busRates);
+            
+            Entries nEntry = new Entries();
+            Date dat = new Date(111, 11, 22, 16, 00, 00);
+            
+            nEntry.setEmployee(null);
+            nEntry.setEntryDate(dat);
+            nEntry.setPlate("456HGL");
+            nEntry.setTicket(123);
+            nEntry.setVehicleType(bus);
+            entriesJpaController.create(nEntry);
+            
         }
+            
     }
 
     @AfterClass
@@ -259,6 +297,42 @@ public class QuitVehicleCaseTest {
         assertTrue(listBands.size()==2);
         assertEquals(listBands.get(0).getUnitValue(),50,0);
         assertEquals(listBands.get(1).getUnitValue(),90,0);
+    }
+    
+    @Test
+    public void vehicleFound4(){
+        setPlate("456HGL");
+        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
+        
+        assertEquals(codification,"000111");
+        assertTrue(types.size()==1);
+        assertTrue(types.get(0) instanceof VehicleType);
+        assertEquals(types.get(0).getName(),"Bus");
+        assertTrue(AddOrQuitVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+    }
+    
+    // This method could be bigger or create the method calculateCostVehicleFound3 with actual code.
+    @Test
+    public void quitVehicleFound4(){
+        setPlate("456HGL");
+        Date entryDate = new Date(111, 11, 22, 16, 00, 00);
+        Date exitDate = new Date(111, 11, 22, 23, 30, 00);
+        Entries nextExit = entriesJpaController.getEntriesByPlate(getPlate());
+        
+        assertEquals(nextExit.getPlate(),"456HGL");
+        assertEquals(nextExit.getVehicleType().getName(),"Bus");
+        assertEquals(nextExit.getEntryDate(),entryDate);
+        
+        double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
+        assertEquals(cost, 20050, 0);
+        
+        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(5)));
+        assertTrue(listBands.size()==3);
+        assertEquals(listBands.get(0).getUnitValue(),70,0);
+        assertEquals(listBands.get(1).getUnitValue(),100,0);
+        assertEquals(listBands.get(2).getUnitValue(),90,0);
     }
     
     // Class Variables, getters and setters methods

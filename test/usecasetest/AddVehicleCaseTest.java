@@ -188,10 +188,10 @@ public class AddVehicleCaseTest {
     
     @Test
     public void plateWithoutVehicleType3(){
-        setPlate("123BCD");
+        setPlate("123BC");
         String codification = AddOrQuitVehicleController.encodePlate(getPlate());
         
-        assertEquals(codification,"000111");
+        assertEquals(codification,"00011");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).isEmpty());
         assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
     }
