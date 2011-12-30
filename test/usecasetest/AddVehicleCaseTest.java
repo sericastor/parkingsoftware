@@ -14,7 +14,7 @@ import DAO.VehicleTypeJpaController;
 import Entity.BandsRate;
 import Entity.Entries;
 import Entity.VehicleType;
-import controller.AddOrQuitVehicleController;
+import controller.AddVehicleController;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -120,40 +120,40 @@ public class AddVehicleCaseTest {
     public void notAlphanumericPlate(){
         setPlate("#@7/");
         
-        assertEquals(AddOrQuitVehicleController.encodePlate(getPlate()),invalidPlate);
+        assertEquals(AddVehicleController.encodePlate(getPlate()),invalidPlate);
     }
     
     @Test
     public void plateWithoutVehicleType(){
         setPlate("1");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"0");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).isEmpty());
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
     }
     
     @Test
     public void plateWithoutVehicleType2(){
         setPlate("1234");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"0000");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).isEmpty());
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
     }
     
     @Test
     public void plateOkVehicleNotFound(){
         setPlate("123");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"000");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).size()==1);
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).get(0) instanceof VehicleType);
         assertEquals(vehicleTypeJpaController.matchPlateType(codification).get(0).getName(),"Bicicleta");
-        assertFalse(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
+        assertFalse(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
     }
     
     @Test
@@ -162,17 +162,17 @@ public class AddVehicleCaseTest {
         String id = "Bicicleta";
         List<VehicleType> list = MainController.vehicleTypeJpaController.matchPlateType("000");
         
-        AddOrQuitVehicleController.setAllVehicleTypes(list);
-        AddOrQuitVehicleController.setPlate(getPlate());
+        AddVehicleController.setAllVehicleTypes(list);
+        AddVehicleController.setPlate(getPlate());
         
-        AddOrQuitVehicleController.CreateVehicle(id);
+        AddVehicleController.CreateVehicle(id);
         assertEquals(entriesJpaController.findEntries(2).getPlate(),getPlate());
     }
     
     @Test
     public void plateOkVehicleFound(){
         setPlate("ABC123");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
@@ -182,44 +182,44 @@ public class AddVehicleCaseTest {
         }
         assertEquals(types.get(0).getName(),"CarritoViejo");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
-        assertTrue(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertTrue(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
     @Test
     public void plateWithoutVehicleType3(){
         setPlate("123BC");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"00011");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).isEmpty());
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
     }
     
     @Test
     public void plateWithoutVehicleType4(){
         setPlate("B1C1Z2");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"101010");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).isEmpty());
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
     }
     
     @Test
     public void plateWithoutVehicleType5(){
         setPlate("BPD");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"111");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).isEmpty());
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),insertValidPlate);
     }
     
     @Test
     public void addValidPlate2(){
         setPlate("PQR200");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
@@ -229,8 +229,8 @@ public class AddVehicleCaseTest {
         }
         assertEquals(types.get(0).getName(),"CarritoViejo");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
-        assertFalse(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
+        assertFalse(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
     }
     
     @Test
@@ -239,10 +239,10 @@ public class AddVehicleCaseTest {
         String id = "CarritoViejo";
         List<VehicleType> list = MainController.vehicleTypeJpaController.matchPlateType("111000");
         
-        AddOrQuitVehicleController.setAllVehicleTypes(list);
-        AddOrQuitVehicleController.setPlate(getPlate());
+        AddVehicleController.setAllVehicleTypes(list);
+        AddVehicleController.setPlate(getPlate());
         
-        AddOrQuitVehicleController.CreateVehicle(id);
+        AddVehicleController.CreateVehicle(id);
         
         assertNull(entriesJpaController.findEntries(3));
     }

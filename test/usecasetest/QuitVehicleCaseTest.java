@@ -5,7 +5,7 @@
 package usecasetest;
 
 import java.util.List;
-import controller.AddOrQuitVehicleController;
+import controller.AddVehicleController;
 import java.util.Date;
 import javax.persistence.Persistence;
 import Entity.Entries;
@@ -163,7 +163,7 @@ public class QuitVehicleCaseTest {
     @Test
     public void vehicleNotFound() {
         setPlate("QWE456");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
@@ -173,34 +173,34 @@ public class QuitVehicleCaseTest {
         }
         assertEquals(types.get(0).getName(),"CarritoViejo");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
-        assertFalse(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
+        assertFalse(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
     }
     
     @Test
     public void vehicleNotFound2(){
         setPlate("987");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"000");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).size()==1);
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).get(0) instanceof VehicleType);
         assertEquals(vehicleTypeJpaController.matchPlateType(codification).get(0).getName(),"Bicicleta");
-        assertFalse(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
+        assertFalse(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
     }
     
     @Test
     public void vehicleFound(){
         setPlate("123");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         
         assertEquals(codification,"000");
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).size()==1);
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).get(0) instanceof VehicleType);
         assertEquals(vehicleTypeJpaController.matchPlateType(codification).get(0).getName(),"Bicicleta");
-        assertTrue(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertTrue(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
     // This method could be bigger or create the method calculateCostVehicleFound with actual code.
@@ -227,7 +227,7 @@ public class QuitVehicleCaseTest {
     @Test
     public void vehicleFound2(){
         setPlate("ABC123");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
@@ -236,8 +236,8 @@ public class QuitVehicleCaseTest {
         }
         assertEquals(types.get(0).getName(),"CarritoViejo");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
-        assertTrue(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertTrue(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
     // This method could be bigger or create the method calculateCostVehicleFound2 with actual code.
@@ -265,7 +265,7 @@ public class QuitVehicleCaseTest {
     @Test
     public void vehicleFound3(){
         setPlate("DSC889");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
@@ -274,8 +274,8 @@ public class QuitVehicleCaseTest {
         }
         assertEquals(types.get(0).getName(),"CarritoViejo");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
-        assertTrue(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertTrue(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
     // This method could be bigger or create the method calculateCostVehicleFound3 with actual code.
@@ -302,15 +302,15 @@ public class QuitVehicleCaseTest {
     @Test
     public void vehicleFound4(){
         setPlate("456HGL");
-        String codification = AddOrQuitVehicleController.encodePlate(getPlate());
+        String codification = AddVehicleController.encodePlate(getPlate());
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"000111");
         assertTrue(types.size()==1);
         assertTrue(types.get(0) instanceof VehicleType);
         assertEquals(types.get(0).getName(),"Bus");
-        assertTrue(AddOrQuitVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddOrQuitVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertTrue(AddVehicleController.verifyCarParked(getPlate()));
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
     // This method could be bigger or create the method calculateCostVehicleFound3 with actual code.
