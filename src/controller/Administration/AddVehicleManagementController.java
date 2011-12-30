@@ -45,10 +45,10 @@ public class AddVehicleManagementController {
         results.addColumn("Fecha de Ingreso");
         results.addColumn("Fecha de Salida");
         results.addColumn("Valor");
-        
         for (Exits e : AllExits) {
-            results.addRow( new Object []{String.valueOf(e.getPlate()), e.getEntry().getEntryDate().toLocaleString(), e.getExitDate().toLocaleString(),String.valueOf(e.getTotal())});
+            results.addRow( new Object []{String.valueOf(e.getPlate()), e.getEntryDate().toLocaleString(), e.getExitDate().toLocaleString(),String.valueOf(e.getTotal())});
         }
+        
         return results;
     }    
      public static VehicleType getVehicleTypeSelected(String vehicletype) {
