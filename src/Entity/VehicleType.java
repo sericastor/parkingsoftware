@@ -23,7 +23,7 @@ public class VehicleType implements Serializable {
     private long number;
     @Column(name="codification",nullable=false)
     private String codification;
-    @Column(name="Name",nullable=false,length=25)
+    @Column(unique=true,name="Name",nullable=false,length=25)
     private String name;
 
     public String getCodification() {
