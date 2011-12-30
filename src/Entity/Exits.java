@@ -35,8 +35,15 @@ public class Exits implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="ExitDate",nullable=false)
     private Date exitDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="EntryDate",nullable=false)
+    private Date entryDate;
     @ManyToOne
-    private Employee employee; 
+    @JoinColumn(name="EmployeeExit")
+    private Employee employeeExit; 
+    @ManyToOne
+    @JoinColumn(name="EmployeeEntry")
+    private Employee employeeEntry; 
     @ManyToOne
     @JoinColumn(name="VehicleType")
     private VehicleType vehicleType;
@@ -49,15 +56,33 @@ public class Exits implements Serializable {
     @OneToOne
     private Entries entry;
 
+    public Employee getEmployeeEntry() {
+        return employeeEntry;
+    }
+
+    public void setEmployeeEntry(Employee employeeEntry) {
+        this.employeeEntry = employeeEntry;
+    }
+
+    public Employee getEmployeeExit() {
+        return employeeExit;
+    }
+
+    public void setEmployeeExit(Employee employeeExit) {
+        this.employeeExit = employeeExit;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
  
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+  
 
     public double getIVA() {
         return IVA;
