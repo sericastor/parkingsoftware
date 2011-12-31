@@ -83,6 +83,7 @@ public class QuitVehicleCaseTest {
             vehicleParked.setPlate("ABC123");
             vehicleParked.setTicket(123);
             vehicleParked.setVehicleType(hovercraft);
+            vehicleParked.setComentary("Automovil con forro para lluvia");
             entriesJpaController.create(vehicleParked);
             
             date.setHours(13);
@@ -105,6 +106,7 @@ public class QuitVehicleCaseTest {
             newEntry.setPlate("DSC889");
             newEntry.setTicket(123);
             newEntry.setVehicleType(hovercraft);
+            newEntry.setComentary("Aerodelizador con radio");
             entriesJpaController.create(newEntry);
             
             VehicleType bus = new VehicleType();
@@ -142,6 +144,7 @@ public class QuitVehicleCaseTest {
             nEntry.setPlate("456HGL");
             nEntry.setTicket(123);
             nEntry.setVehicleType(bus);
+            nEntry.setComentary("Bus con un vidrio roto");
             entriesJpaController.create(nEntry);
             
         }

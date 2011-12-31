@@ -78,6 +78,7 @@ public class EntriesJpaController implements Serializable {
             newEntry.setPlate(entries.getPlate());
             newEntry.setTicket(entries.getTicket());
             newEntry.setVehicleType(entries.getVehicleType());
+            newEntry.setComentary(entries.getComentary());
             entries = em.merge(newEntry);
             em.getTransaction().commit();
         }catch(Exception ex){

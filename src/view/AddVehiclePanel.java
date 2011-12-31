@@ -3,6 +3,7 @@ package view;
 import controller.MainController;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -26,7 +27,10 @@ public class AddVehiclePanel extends javax.swing.JPanel {
 
         AddVehicleButton = new javax.swing.JButton();
         VehicleTypeCombobox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        VehicleTypeLabel = new javax.swing.JLabel();
+        ComentaryLabel = new javax.swing.JLabel();
+        ComentaryScroll = new javax.swing.JScrollPane();
+        ComentaryArea = new javax.swing.JTextArea();
 
         AddVehicleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
         AddVehicleButton.setText("Ingresar");
@@ -38,30 +42,51 @@ public class AddVehiclePanel extends javax.swing.JPanel {
 
         VehicleTypeCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setText("Tipo de Vehículo:");
+        VehicleTypeLabel.setText("Tipo de Vehículo:");
+
+        ComentaryLabel.setText("Comentarios:");
+
+        ComentaryArea.setColumns(20);
+        ComentaryArea.setRows(5);
+        ComentaryScroll.setViewportView(ComentaryArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(AddVehicleButton)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(VehicleTypeLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ComentaryLabel))
+                            .addContainerGap(189, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(AddVehicleButton)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddVehicleButton)
-                    .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(VehicleTypeLabel)
+                    .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(ComentaryLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(AddVehicleButton)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -76,19 +101,28 @@ public class AddVehiclePanel extends javax.swing.JPanel {
         VehicleTypeCombobox.updateUI();
     }
 
-}                                   
-public void setVehicleTypeCombobox(DefaultComboBoxModel model){
-    this.VehicleTypeCombobox.setModel(model);
-}
+    }
+    
+    public void setVehicleTypeCombobox(DefaultComboBoxModel model){
+        this.VehicleTypeCombobox.setModel(model);
+    }
+
+    public void setComentaryArea(String text) {
+        this.ComentaryArea.setText(text);
+    }
+    
     private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
         String id = (String) VehicleTypeCombobox.getSelectedItem();
-        MainController.addVehicleController.CreateVehicle(id);
+        MainController.addVehicleController.CreateVehicle(id, ComentaryArea.getText());
   
     }//GEN-LAST:event_AddVehicleButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddVehicleButton;
+    private javax.swing.JTextArea ComentaryArea;
+    private javax.swing.JLabel ComentaryLabel;
+    private javax.swing.JScrollPane ComentaryScroll;
     private javax.swing.JComboBox VehicleTypeCombobox;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel VehicleTypeLabel;
     // End of variables declaration//GEN-END:variables
 }

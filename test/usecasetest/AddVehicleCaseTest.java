@@ -4,6 +4,7 @@
  */
 package usecasetest;
 
+import DAO.EmployeeJpaController;
 import controller.MainController;
 import java.util.List;
 import DAO.BandsRateJpaController;
@@ -12,9 +13,11 @@ import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
 import DAO.VehicleTypeJpaController;
 import Entity.BandsRate;
+import Entity.Employee;
 import Entity.Entries;
 import Entity.VehicleType;
 import controller.AddVehicleController;
+import controller.SystemSession;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -38,6 +41,7 @@ public class AddVehicleCaseTest {
         vehicleTypeJpaController = new VehicleTypeJpaController(persistence_factory);
         bandsRateJpaController = new BandsRateJpaController(persistence_factory);
         entriesJpaController = new EntriesJpaController(persistence_factory);
+        employeeJpaController = new EmployeeJpaController(persistence_factory);
         
         if(vehicleTypeJpaController.findVehicleTypeEntities(3,2).isEmpty()){
             VehicleType oldCar = new VehicleType();
@@ -85,8 +89,24 @@ public class AddVehicleCaseTest {
             vehicleParked.setPlate("ABC123");
             vehicleParked.setTicket(123);
             vehicleParked.setVehicleType(hovercraft);
+            vehicleParked.setComentary("Automovil con forro para lluvia");
             entriesJpaController.create(vehicleParked);
         }
+        
+        if(employeeJpaController.findEmployeeEntities(false, 1, 1).isEmpty()){
+            Employee dasalgadoc = new Employee();
+            dasalgadoc.setId(1);
+            dasalgadoc.setLastName("Salgado");
+            dasalgadoc.setName("Diego");
+            dasalgadoc.setDocument("257889");
+            dasalgadoc.setUser("dasalgadoc");
+            dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
+            dasalgadoc.setAdministrator(true);
+            dasalgadoc.setIsActive(true);
+            employeeJpaController.create(dasalgadoc);
+        }
+        
+        sessionEmployee = employeeJpaController.findEmployee(1);
     }
 
     @AfterClass
@@ -105,6 +125,7 @@ public class AddVehicleCaseTest {
         newEntry.setPlate("123");
         newEntry.setTicket(123);
         newEntry.setVehicleType(bicycle);
+        newEntry.setComentary("Bicicleta Roja en buen estado");
         entriesJpaController.edit(newEntry, 2);
     }
     
@@ -159,13 +180,15 @@ public class AddVehicleCaseTest {
     @Test
     public void addValidPlate(){
         setPlate("123");
+        setComentary("Bicicleta Roja en buen estado");
         String id = "Bicicleta";
         List<VehicleType> list = MainController.vehicleTypeJpaController.matchPlateType("000");
         
+        SystemSession.setEmployee(sessionEmployee);
         AddVehicleController.setAllVehicleTypes(list);
         AddVehicleController.setPlate(getPlate());
         
-        AddVehicleController.CreateVehicle(id);
+        AddVehicleController.CreateVehicle(id,getComentary());
         assertEquals(entriesJpaController.findEntries(2).getPlate(),getPlate());
     }
     
@@ -236,13 +259,15 @@ public class AddVehicleCaseTest {
     @Test
     public void plateOkVehicleFoundWithoutBandsRate(){
         setPlate("PQR200");
+        setComentary("Aerodelizador Azul, con rayones en la puerta");
         String id = "CarritoViejo";
         List<VehicleType> list = MainController.vehicleTypeJpaController.matchPlateType("111000");
         
+        SystemSession.setEmployee(sessionEmployee);
         AddVehicleController.setAllVehicleTypes(list);
         AddVehicleController.setPlate(getPlate());
         
-        AddVehicleController.CreateVehicle(id);
+        AddVehicleController.CreateVehicle(id, getComentary());
         
         assertNull(entriesJpaController.findEntries(3));
     }
@@ -255,13 +280,24 @@ public class AddVehicleCaseTest {
     public void setPlate(String plate) {
         this.plate = plate;
     }
+
+    public String getComentary() {
+        return comentary;
+    }
+
+    public void setComentary(String comentary) {
+        this.comentary = comentary;
+    }
     
     private String plate;
+    private String comentary;
+    private static Employee sessionEmployee;
     
     private static VehicleTypeJpaController vehicleTypeJpaController;
     private static BandsRateJpaController bandsRateJpaController;
     private static EntityManagerFactory persistence_factory;
     private static EntriesJpaController entriesJpaController;
+    private static EmployeeJpaController employeeJpaController;
     
     // Expected Constants
     private final String invalidPlate = "No es un tipo valido de placa";
