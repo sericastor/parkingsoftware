@@ -561,6 +561,7 @@ public class MainView extends javax.swing.JFrame {
             PlateTextField.removeAll();
         } else if (result.equals("Do Nothing")) {
         } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")) {
+            MainController.addPanel.setComentaryArea("");
             setAddOrQuitPanel(MainController.addPanel);
         } else if (result.equals("Tipo de placa encontrado y vehículo encontrado")) {
             MainController.setQuitPanelParameters(PlateTextField.getText());

@@ -78,7 +78,7 @@ public class AddVehicleController {
         return code;
     }
     
-    public static void CreateVehicle(String vehicleType) {
+    public static void CreateVehicle(String vehicleType, String coment) {
         //por el momento se deja comentado dado que toca revisar bien el modelo
         Entries m = new Entries();
         m.setEmployee(MainController.system.getSesionemployee());
@@ -86,6 +86,7 @@ public class AddVehicleController {
         m.setPlate(plate);
         m.setTicket(123);
         m.setVehicleType(getVehicleTypeSelected(vehicleType));
+        m.setComentary(coment);
         //Verificar existencia de tarifas para el tipo de vehiculo
         if (!MainController.bandsRateJpaController.queryByVehicleTypes(vehicleTypeIsSelected).isEmpty()) {
             MainController.entriesJpaController.create(m);

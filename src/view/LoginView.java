@@ -60,7 +60,7 @@ public class LoginView extends javax.swing.JFrame {
         PasswordField = new javax.swing.JPasswordField();
         PasswordLabel = new javax.swing.JLabel();
         LoginButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        IconLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ChiquiParking Iniciar Sesión");
@@ -129,9 +129,9 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(UserTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
+                .addContainerGap(188, Short.MAX_VALUE)
                 .addComponent(LoginButton)
                 .addGap(93, 93, 93))
         );
@@ -148,7 +148,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(PasswordLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LoginButton)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout HelpPanelLayout = new javax.swing.GroupLayout(HelpPanel);
@@ -173,11 +173,11 @@ public class LoginView extends javax.swing.JFrame {
                 .addComponent(NeedHelpLabel)
                 .addGap(28, 28, 28)
                 .addComponent(ManualButton)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
             .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo7.1.png"))); // NOI18N
+        IconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo7.1.png"))); // NOI18N
 
         javax.swing.GroupLayout IntroPanelLayout = new javax.swing.GroupLayout(IntroPanel);
         IntroPanel.setLayout(IntroPanelLayout);
@@ -186,14 +186,14 @@ public class LoginView extends javax.swing.JFrame {
             .addComponent(HelpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(IntroPanelLayout.createSequentialGroup()
                 .addGap(99, 99, 99)
-                .addComponent(jLabel1)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addComponent(IconLabel)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         IntroPanelLayout.setVerticalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(IconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(HelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -301,6 +301,7 @@ public class LoginView extends javax.swing.JFrame {
     private final int infoIcon = 1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HelpPanel;
+    private javax.swing.JLabel IconLabel;
     private javax.swing.JPanel IntroPanel;
     private javax.swing.JButton LoginButton;
     private javax.swing.JPanel LoginPanel;
@@ -310,6 +311,5 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JTextField UserTextField;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

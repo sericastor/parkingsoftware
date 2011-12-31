@@ -41,7 +41,19 @@ public class Entries implements Serializable {
     @JoinColumn(name="Employee")*/
     @ManyToOne
     private Employee employee;
+    @Column(name="Comentary",nullable=true)
+    private String comentary;
 
+    public Entries() {
+    }
+    
+    public String getComentary() {
+        return comentary;
+    }
+
+    public void setComentary(String comentary) {
+        this.comentary = comentary;
+    }
 
     public Employee getEmployee() {
         return employee;
