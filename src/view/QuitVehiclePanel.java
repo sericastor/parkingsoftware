@@ -27,11 +27,12 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setPanelParameters(String plate, String rate, String entry, String exit) {
+    public void setPanelParameters(String plate, String rate, String entry, String exit, String comentary) {
         PlateTextField.setText(plate);
         RateTextField.setText(rate);
         EntryHourFormatted.setText(entry);
         ExitHourFormatted.setText(exit);
+        ComentaryArea.setText(comentary);
     }
     
     public void setCostTextField(double cost){
@@ -64,6 +65,9 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
             ExitHourFormatted = new javax.swing.JFormattedTextField(new FormatDate());
         }catch(Exception e) {
             e.getMessage();}
+        ComentaryLabel = new javax.swing.JLabel();
+        ComentaryScroll = new javax.swing.JScrollPane();
+        ComentaryArea = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -81,13 +85,13 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         RateTextField.setToolTipText("Tarifa a cobrar por el vehículo a retirar.");
 
         CostTextField.setEditable(false);
-        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
+        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         CostTextField.setToolTipText("Valor total a pagar por el servicio.");
 
         PlateTextField.setEditable(false);
         PlateTextField.setToolTipText("Placa de vehículo a retirar.");
 
-        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36));
+        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         CostLabel.setText("Costo:");
 
         PlateLabel.setText("Placa:");
@@ -104,6 +108,13 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         ExitHourFormatted.setEditable(false);
         ExitHourFormatted.setToolTipText("Hora de finalizado el servicio.");
 
+        ComentaryLabel.setText("Comentario:");
+
+        ComentaryArea.setColumns(20);
+        ComentaryArea.setEditable(false);
+        ComentaryArea.setRows(5);
+        ComentaryScroll.setViewportView(ComentaryArea);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,37 +122,47 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PlateLabel)
-                    .addComponent(RateLabel)
-                    .addComponent(EntryHourLabel)
-                    .addComponent(ExitHourLabel))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ExitHourFormatted, 0, 0, Short.MAX_VALUE)
-                    .addComponent(RateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(PlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addComponent(EntryHourFormatted))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CostLabel)
-                    .addComponent(CostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComentaryLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PlateLabel)
+                                    .addComponent(RateLabel)
+                                    .addComponent(EntryHourLabel)
+                                    .addComponent(ExitHourLabel))
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ExitHourFormatted)
+                                    .addComponent(RateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                    .addComponent(PlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                    .addComponent(EntryHourFormatted))
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(CostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(FactureButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(CostLabel)))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
-                .addComponent(FactureButton)
-                .addGap(176, 176, 176))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(CostLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(CostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PlateLabel))
@@ -154,12 +175,19 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
                             .addComponent(EntryHourLabel)
                             .addComponent(EntryHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ExitHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ExitHourLabel))))
-                .addGap(32, 32, 32)
-                .addComponent(FactureButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ExitHourLabel)
+                                .addGap(6, 6, 6))
+                            .addComponent(ExitHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(ComentaryLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                    .addComponent(FactureButton))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,6 +200,9 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_FactureButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea ComentaryArea;
+    private javax.swing.JLabel ComentaryLabel;
+    private javax.swing.JScrollPane ComentaryScroll;
     private javax.swing.JLabel CostLabel;
     private javax.swing.JTextField CostTextField;
     private javax.swing.JFormattedTextField EntryHourFormatted;

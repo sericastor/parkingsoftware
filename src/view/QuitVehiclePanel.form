@@ -24,44 +24,61 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="PlateLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="RateLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="EntryHourLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="ExitHourLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="ComentaryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PlateLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RateLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="EntryHourLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ExitHourLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="ExitHourFormatted" max="32767" attributes="1"/>
+                                  <Component id="RateTextField" alignment="0" pref="89" max="32767" attributes="1"/>
+                                  <Component id="PlateTextField" alignment="0" pref="138" max="32767" attributes="1"/>
+                                  <Component id="EntryHourFormatted" alignment="0" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+                              <Component id="ComentaryScroll" pref="254" max="32767" attributes="1"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="CostTextField" min="-2" pref="184" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="FactureButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="CostLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="ExitHourFormatted" min="0" pref="0" max="32767" attributes="1"/>
-                  <Component id="RateTextField" alignment="0" pref="89" max="32767" attributes="1"/>
-                  <Component id="PlateTextField" alignment="0" pref="138" max="32767" attributes="1"/>
-                  <Component id="EntryHourFormatted" alignment="0" max="32767" attributes="1"/>
-              </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="CostTextField" alignment="0" min="-2" pref="184" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="203" max="32767" attributes="0"/>
-              <Component id="FactureButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="CostLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="CostTextField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="PlateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="PlateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -76,16 +93,26 @@
                           <Component id="EntryHourLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="EntryHourFormatted" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ExitHourFormatted" min="-2" max="-2" attributes="0"/>
-                          <Component id="ExitHourLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="ExitHourLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="ExitHourFormatted" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="FactureButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="ComentaryLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ComentaryScroll" pref="96" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="FactureButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -179,5 +206,26 @@
         <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.JLabel" name="ComentaryLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comentario:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="ComentaryScroll">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="ComentaryArea">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

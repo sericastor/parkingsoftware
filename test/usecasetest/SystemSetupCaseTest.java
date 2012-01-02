@@ -18,7 +18,8 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Administrador
+ * @author DiegoAl
+ * Test Case Number 5
  */
 public class SystemSetupCaseTest {
     

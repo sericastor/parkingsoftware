@@ -4,6 +4,10 @@
  */
 package usecasetest;
 
+import Entity.Exits;
+import controller.SystemSession;
+import Entity.Employee;
+import DAO.EmployeeJpaController;
 import java.util.List;
 import controller.AddVehicleController;
 import java.util.Date;
@@ -14,6 +18,7 @@ import Entity.VehicleType;
 import DAO.EntriesJpaController;
 import javax.persistence.EntityManagerFactory;
 import DAO.BandsRateJpaController;
+import DAO.ExitsJpaController;
 import DAO.VehicleTypeJpaController;
 import controller.QuitVehicleController;
 import org.junit.After;
@@ -26,6 +31,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DiegoAl
+ * Test Case Number 3
  */
 public class QuitVehicleCaseTest {
     
@@ -36,6 +42,8 @@ public class QuitVehicleCaseTest {
         vehicleTypeJpaController = new VehicleTypeJpaController(persistence_factory);
         bandsRateJpaController = new BandsRateJpaController(persistence_factory);
         entriesJpaController = new EntriesJpaController(persistence_factory);
+        exitJpaController = new ExitsJpaController(persistence_factory);
+        employeeJpaController = new EmployeeJpaController(persistence_factory);
         
         if(vehicleTypeJpaController.findVehicleTypeEntities(3,2).isEmpty()){
             VehicleType oldCar = new VehicleType();
@@ -148,7 +156,22 @@ public class QuitVehicleCaseTest {
             entriesJpaController.create(nEntry);
             
         }
-            
+        
+        if(employeeJpaController.findEmployeeEntities(false, 1, 1).isEmpty()){
+            Employee dasalgadoc = new Employee();
+            dasalgadoc.setId(1);
+            dasalgadoc.setLastName("Salgado");
+            dasalgadoc.setName("Diego");
+            dasalgadoc.setDocument("257889");
+            dasalgadoc.setUser("dasalgadoc");
+            dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
+            dasalgadoc.setAdministrator(true);
+            dasalgadoc.setIsActive(true);
+            employeeJpaController.create(dasalgadoc);
+        }
+        
+        sessionEmployee = employeeJpaController.findEmployee(1);
+        
     }
 
     @AfterClass
@@ -206,9 +229,8 @@ public class QuitVehicleCaseTest {
         assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
-    // This method could be bigger or create the method calculateCostVehicleFound with actual code.
     @Test
-    public void quitVehicleFound(){
+    public void calculateCostVehicleFound(){
         setPlate("123");
         Date entryDate = new Date(111, 11, 22, 13, 45, 00);
         Date exitDate = new Date(111, 11, 22, 17, 00, 00);
@@ -218,6 +240,7 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"123");
         assertEquals(nextExit.getVehicleType().getName(),"Bicicleta");
         assertEquals(nextExit.getEntryDate(),entryDate);
+        assertEquals(nextExit.getComentary(),redBicycle);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 4900, 0);
@@ -225,6 +248,24 @@ public class QuitVehicleCaseTest {
         List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(4)));
         assertTrue(listBands.size()==1);
         assertEquals(listBands.get(0).getUnitValue(),25,0);
+    }
+    
+    @Test
+    public void quitVehicleFound(){
+        setPlate("123");
+        Date entryDate = new Date(111, 11, 22, 13, 45, 00);
+        
+        SystemSession.setEmployee(sessionEmployee);
+        QuitVehicleController.changeStateOfVehicle(getPlate());
+        
+        Exits newExit = exitJpaController.findExits(Long.valueOf(1));
+        
+        assertNull(entriesJpaController.getEntriesByPlate(getPlate()));
+        
+        assertEquals(newExit.getEmployeeExit(),sessionEmployee);
+        assertEquals(newExit.getEntryDate(), entryDate);
+        assertEquals(newExit.getPlate(),getPlate());
+        assertEquals(newExit.getVehicleType().getName(),"Bicicleta");
     }
     
     @Test
@@ -243,9 +284,8 @@ public class QuitVehicleCaseTest {
         assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
-    // This method could be bigger or create the method calculateCostVehicleFound2 with actual code.
     @Test 
-    public void quitVehicleFound2(){
+    public void calculateCostVehicleFound2(){
         setPlate("ABC123");
         Date entryDate = new Date(111, 11, 22, 14, 00, 00);
         Date exitDate = new Date(111, 11, 22, 14, 55, 00);
@@ -255,6 +295,7 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"ABC123");
         assertEquals(nextExit.getVehicleType().getName(),"Aerodeslizador");
         assertEquals(nextExit.getEntryDate(),entryDate);
+        assertEquals(nextExit.getComentary(),vehicleWithLining);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 2750, 0);
@@ -263,6 +304,24 @@ public class QuitVehicleCaseTest {
         assertTrue(listBands.size()==2);
         assertEquals(listBands.get(0).getUnitValue(),50,0);
         assertEquals(listBands.get(1).getUnitValue(),90,0);
+    }
+    
+    @Test
+    public void quitVehicleFound2(){
+        setPlate("ABC123");
+        Date entryDate = new Date(111, 11, 22, 14, 00, 00);
+        
+        SystemSession.setEmployee(sessionEmployee);
+        QuitVehicleController.changeStateOfVehicle(getPlate());
+        
+        Exits newExit = exitJpaController.findExits(Long.valueOf(2));
+        
+        assertNull(entriesJpaController.getEntriesByPlate(getPlate()));
+        
+        assertEquals(newExit.getEmployeeExit(),sessionEmployee);
+        assertEquals(newExit.getEntryDate(), entryDate);
+        assertEquals(newExit.getPlate(),getPlate());
+        assertEquals(newExit.getVehicleType().getName(),"Aerodeslizador");
     }
     
     @Test
@@ -281,9 +340,8 @@ public class QuitVehicleCaseTest {
         assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
-    // This method could be bigger or create the method calculateCostVehicleFound3 with actual code.
     @Test
-    public void quitVehicleFound3(){
+    public void calculateCostVehicleFound3(){
         setPlate("DSC889");
         Date entryDate = new Date(111, 11, 22, 15, 35, 00);
         Date exitDate = new Date(111, 11, 22, 20, 55, 00);
@@ -292,6 +350,7 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"DSC889");
         assertEquals(nextExit.getVehicleType().getName(),"Aerodeslizador");
         assertEquals(nextExit.getEntryDate(),entryDate);
+        assertEquals(nextExit.getComentary(),vehicleWithRadio);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 14700, 0);
@@ -300,6 +359,24 @@ public class QuitVehicleCaseTest {
         assertTrue(listBands.size()==2);
         assertEquals(listBands.get(0).getUnitValue(),50,0);
         assertEquals(listBands.get(1).getUnitValue(),90,0);
+    }
+    
+    @Test
+    public void quitVehicleFound3(){
+        setPlate("DSC889");
+        Date entryDate = new Date(111, 11, 22, 15, 35, 00);
+        
+        SystemSession.setEmployee(sessionEmployee);
+        QuitVehicleController.changeStateOfVehicle(getPlate());
+        
+        Exits newExit = exitJpaController.findExits(Long.valueOf(3));
+        
+        assertNull(entriesJpaController.getEntriesByPlate(getPlate()));
+        
+        assertEquals(newExit.getEmployeeExit(),sessionEmployee);
+        assertEquals(newExit.getEntryDate(), entryDate);
+        assertEquals(newExit.getPlate(),getPlate());
+        assertEquals(newExit.getVehicleType().getName(),"Aerodeslizador");
     }
     
     @Test
@@ -316,9 +393,8 @@ public class QuitVehicleCaseTest {
         assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
     }
     
-    // This method could be bigger or create the method calculateCostVehicleFound3 with actual code.
     @Test
-    public void quitVehicleFound4(){
+    public void calculateCostVehicleFound4(){
         setPlate("456HGL");
         Date entryDate = new Date(111, 11, 22, 16, 00, 00);
         Date exitDate = new Date(111, 11, 22, 23, 30, 00);
@@ -327,6 +403,7 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"456HGL");
         assertEquals(nextExit.getVehicleType().getName(),"Bus");
         assertEquals(nextExit.getEntryDate(),entryDate);
+        assertEquals(nextExit.getComentary(),busWithBrokenGlass);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 20050, 0);
@@ -336,6 +413,24 @@ public class QuitVehicleCaseTest {
         assertEquals(listBands.get(0).getUnitValue(),70,0);
         assertEquals(listBands.get(1).getUnitValue(),100,0);
         assertEquals(listBands.get(2).getUnitValue(),90,0);
+    }
+    
+    @Test
+    public void quitVehicleFound4(){
+        setPlate("456HGL");
+        Date entryDate = new Date(111, 11, 22, 16, 00, 00);
+        
+        SystemSession.setEmployee(sessionEmployee);
+        QuitVehicleController.changeStateOfVehicle(getPlate());
+        
+        Exits newExit = exitJpaController.findExits(Long.valueOf(4));
+        
+        assertNull(entriesJpaController.getEntriesByPlate(getPlate()));
+        
+        assertEquals(newExit.getEmployeeExit(),sessionEmployee);
+        assertEquals(newExit.getEntryDate(), entryDate);
+        assertEquals(newExit.getPlate(),getPlate());
+        assertEquals(newExit.getVehicleType().getName(),"Bus");
     }
     
     // Class Variables, getters and setters methods
@@ -349,13 +444,20 @@ public class QuitVehicleCaseTest {
     }
     
     private String plate;
+    private static Employee sessionEmployee;
     
     private static VehicleTypeJpaController vehicleTypeJpaController;
     private static BandsRateJpaController bandsRateJpaController;
     private static EntityManagerFactory persistence_factory;
     private static EntriesJpaController entriesJpaController;
+    private static EmployeeJpaController employeeJpaController;
+    private static ExitsJpaController exitJpaController;
     
     // Expected Constants
     private final String plateOkVehicleNotFound = "Tipo de placa encontrado y vehículo no encontrado";
     private final String plateOkVehicleFound = "Tipo de placa encontrado y vehículo encontrado";
+    private final String vehicleWithLining = "Automovil con forro para lluvia";
+    private final String redBicycle = "Bicicleta Roja en buen estado";
+    private final String vehicleWithRadio = "Aerodelizador con radio";
+    private final String busWithBrokenGlass = "Bus con un vidrio roto";
 }
