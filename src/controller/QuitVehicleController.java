@@ -87,6 +87,13 @@ public class QuitVehicleController {
         }       
         return result;
     }
+    
+    private static double calculateIVA(double subtotal) {
+        // This variable(percent) must be editable by user, I will do later =)
+        double percent = 0.16;
+        return subtotal*percent;
+    }
+
     public static void changeStateOfVehicle(String plate){
         Entries entry=MainController.entriesJpaController.getEntriesByPlate(plate);
         Exits exit=new Exits();
@@ -97,7 +104,6 @@ public class QuitVehicleController {
         exit.setEmployeeExit(MainController.system.getSesionemployee());
         exit.setEntryDate(entry.getEntryDate());
         exit.setExitDate(MainController.getSystemTime());
-        exit.setIVA(0);
         exit.setPlate(entry.getPlate());
         //v. auxiliar, para hacer los calculos para total sin tener que recurrir
         //a una busqueda en la BD de subtotal e iva, lo que consume mas tiempo.
@@ -105,6 +111,8 @@ public class QuitVehicleController {
                 MainController.getSystemTime(),
                 entry.getVehicleType());
         exit.setSubtotal(subtotal);
+        double IVA = calculateIVA(subtotal);
+        exit.setIVA(IVA);
         exit.setTicket(entry.getTicket());
         exit.setTotal(exit.getIVA()+subtotal);
         exit.setVehicleType(entry.getVehicleType());

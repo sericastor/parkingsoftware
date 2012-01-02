@@ -23,6 +23,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DiegoAl
+ * Test Case Number 6
  */
 public class AdministerUserCaseTest {
     

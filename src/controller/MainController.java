@@ -131,8 +131,10 @@ public class MainController {
         
         String rate = addVehicleController.getEntryRateByPlate(plate);
         
+        String comentary = addVehicleController.getEntryComentaryByPlate(plate); 
+        
         VehicleType vehicleType = addVehicleController.getVehicleTypeByPlate(plate);
-        quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString());
+        quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString(), comentary);
         quitPanel.setCostTextField(quitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
     public static BarCodePanel barCodePanel = new BarCodePanel();

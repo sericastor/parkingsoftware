@@ -120,6 +120,12 @@ public class AddVehicleController {
         return entry.getVehicleType().getName();
     }
     
+    public String getEntryComentaryByPlate(String plate){
+        Entries entry = new Entries();
+        entry = MainController.entriesJpaController.getEntriesByPlate(plate);
+        return entry.getComentary();
+    }
+    
     public VehicleType getVehicleTypeByPlate(String plate){
         Entries entry = new Entries();
         entry = MainController.entriesJpaController.getEntriesByPlate(plate);

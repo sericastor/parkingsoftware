@@ -13,7 +13,8 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Administrador
+ * @author DiegoAl
+ * Test Case Number 4 
  */
 public class AdministrateBoxCaseTest {
     

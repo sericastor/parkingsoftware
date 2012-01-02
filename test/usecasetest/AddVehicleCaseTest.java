@@ -29,6 +29,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author DiegoAl
+ * Test Case Number 2
  */
 public class AddVehicleCaseTest {
     
