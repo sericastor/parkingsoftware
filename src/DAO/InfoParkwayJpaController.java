@@ -79,6 +79,7 @@ public class InfoParkwayJpaController implements Serializable {
             newInfoPark.setNit(infoParkway.getNit());
             newInfoPark.setTelephone(infoParkway.getTelephone());
             newInfoPark.setMaxCapacity(infoParkway.getMaxCapacity());
+            newInfoPark.setIVAPercent(infoParkway.getIVAPercent());
             infoParkway = em.merge(newInfoPark);
             em.getTransaction().commit();
             MainController.adminView.showMessage("Proceso OK", "Modificación Exitosa", 1);

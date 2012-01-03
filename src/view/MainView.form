@@ -147,7 +147,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="AboutEParkingMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Acerca de e-Parking"/>
+                <Property name="text" type="java.lang.String" value="Acerca de ParQuick"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AboutEParkingMenuActionPerformed"/>

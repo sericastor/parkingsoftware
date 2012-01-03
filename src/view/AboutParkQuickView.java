@@ -188,7 +188,7 @@ public class AboutParkQuickView extends javax.swing.JFrame {
     private void OkLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkLabelActionPerformed
         this.dispose();
     }//GEN-LAST:event_OkLabelActionPerformed
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ClientLabel;
     private javax.swing.JLabel CopyrightLabel;

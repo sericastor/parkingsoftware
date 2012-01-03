@@ -24,6 +24,7 @@ import static org.junit.Assert.*;
  */
 public class ParkwayDataCaseTest {
     
+    // Must Be Chande some parameters
     public ParkwayDataCaseTest() {
     }
 
@@ -89,7 +90,7 @@ public class ParkwayDataCaseTest {
         assertTrue(ParkingManagementController.validateNotEmptyFields(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         assertTrue(ParkingManagementController.validateAll(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         
-        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()));
+        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),0.01);
         
         info = infoParkwayJpaController.findInfoParkway(idParkway);
         
@@ -118,7 +119,7 @@ public class ParkwayDataCaseTest {
         
         assertFalse(ParkingManagementController.validateNotEmptyFields(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         
-        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()));
+        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),0.01);
         
         info = infoParkwayJpaController.findInfoParkway(idParkway);
         
@@ -149,7 +150,7 @@ public class ParkwayDataCaseTest {
         assertTrue(ParkingManagementController.validateNotEmptyFields(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         assertTrue(ParkingManagementController.validateAll(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         
-        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()));
+        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),0.01);
         
         info = infoParkwayJpaController.findInfoParkway(idParkway);
        
