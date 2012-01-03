@@ -114,7 +114,7 @@ public class AddVehiclePanel extends javax.swing.JPanel {
     private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
         String id = (String) VehicleTypeCombobox.getSelectedItem();
         MainController.addVehicleController.CreateVehicle(id, ComentaryArea.getText());
-  
+        MainController.mainView.setPlateTextField("");  
     }//GEN-LAST:event_AddVehicleButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

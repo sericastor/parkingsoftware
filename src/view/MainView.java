@@ -3,13 +3,16 @@ package view;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
+import controller.SystemSession;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,12 +23,20 @@ public class MainView extends javax.swing.JFrame {
 
     /** Creates new form MainFrame */
     public MainView() {
-        ImageIcon img = new ImageIcon("src/images/parking1.gif");
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");        
         setIconImage(img.getImage());
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         PlateTextField.requestFocus();
+    }
+
+    public JLabel getUserLabel() {
+        return UserLabel;
+    }
+
+    public void setUserLabel(JLabel UserLabel) {
+        this.UserLabel = UserLabel;
     }
 
     /** This method is called from within the constructor to
@@ -54,6 +65,7 @@ public class MainView extends javax.swing.JFrame {
         AoQPanel = new javax.swing.JPanel();
         ClockPanel = new javax.swing.JPanel();
         ClockLabel = new javax.swing.JLabel();
+        UserLabel = new javax.swing.JLabel();
         StateTabbed = new javax.swing.JTabbedPane();
         EntryPanel = new javax.swing.JPanel();
         EntriesScrollPane = new javax.swing.JScrollPane();
@@ -254,10 +266,13 @@ public class MainView extends javax.swing.JFrame {
 
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
-        ClockLabel.setFont(new java.awt.Font("Bell MT", 2, 36));
+        ClockLabel.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
         ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        UserLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        UserLabel.setText("Aquí va el nombre del Usuario");
 
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);
@@ -265,15 +280,21 @@ public class MainView extends javax.swing.JFrame {
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ClockPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ClockPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(UserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ClockPanelLayout.setVerticalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ClockPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(UserLabel)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         StateTabbed.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -557,6 +578,7 @@ public class MainView extends javax.swing.JFrame {
         String result = MainController.addVehicleController.verifyCarInParkway(PlateTextField.getText());
         if (result.equals("Inserte un tipo de placa valida")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
+            PlateTextField.removeAll();
         } else if (result.equals("Vehículo Ingresado")) {
             PlateTextField.removeAll();
         } else if (result.equals("Do Nothing")) {
@@ -769,6 +791,7 @@ private void StateTabbedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST
     private javax.swing.JButton SearchButton;
     private javax.swing.JTabbedPane StateTabbed;
     private javax.swing.JMenuItem UndoMenu;
+    private javax.swing.JLabel UserLabel;
     private javax.swing.JPanel VehicleTypePanel;
     private javax.swing.JScrollPane VehicleTypeSrollPane;
     private javax.swing.JTable VehicleTypeTable;

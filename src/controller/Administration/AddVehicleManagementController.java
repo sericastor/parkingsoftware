@@ -63,7 +63,7 @@ public class AddVehicleManagementController {
      
      public static String CreateVehicle(String plate){
          Entries entries=new Entries();
-         entries.setEmployee(MainController.system.getSesionemployee());
+         entries.setEmployee(MainController.system.getSessionEmployee());
          entries.setEntryDate(Calendar.getInstance().getTime());
          entries.setPlate(MainController.mainView.getPlate());
          entries.setVehicleType(getVehicleTypeSelected(plate));

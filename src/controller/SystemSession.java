@@ -81,7 +81,7 @@ public class SystemSession {
         SystemSession.sesionemployee = employee;
     }
 
-    public static Employee getSesionemployee() {
+    public static Employee getSessionEmployee() {
         return sesionemployee;
     }
     

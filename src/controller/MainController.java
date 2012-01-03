@@ -98,6 +98,7 @@ public class MainController {
 
     public static void setVisibleMainView(boolean isVisible) {
         mainView.setVisible(isVisible);
+        mainView.getUserLabel().setText(SystemSession.getSessionEmployee().getUser().toString());
     }
 
     public static void setVisibleAdminAccessView(boolean isVisible) {

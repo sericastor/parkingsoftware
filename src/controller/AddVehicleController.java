@@ -81,7 +81,7 @@ public class AddVehicleController {
     public static void CreateVehicle(String vehicleType, String coment) {
         //por el momento se deja comentado dado que toca revisar bien el modelo
         Entries m = new Entries();
-        m.setEmployee(MainController.system.getSesionemployee());
+        m.setEmployee(MainController.system.getSessionEmployee());
         m.setEntryDate(MainController.getSystemTime());
         m.setPlate(plate);
         m.setTicket(123);
