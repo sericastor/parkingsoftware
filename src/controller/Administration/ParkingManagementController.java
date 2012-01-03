@@ -18,6 +18,7 @@ public class ParkingManagementController {
              InfoParkway parkway = new InfoParkway();
              parkway.setId(idParkway);
              parkway.setMaxCapacity(1);
+             parkway.setIVAPercent(0.01);
              MainController.infoJpaController.create(parkway);
          }
          return MainController.infoJpaController.findInfoParkway(idParkway);
@@ -43,7 +44,11 @@ public class ParkingManagementController {
          return String.valueOf(getInfo().getMaxCapacity());
      }
      
-     public static void updateInfoParway(String name, String address, String nit, String phone, String maxCapacity){
+     public static double getIVAPercent(){
+         return getInfo().getIVAPercent();
+     }
+     
+     public static void updateInfoParway(String name, String address, String nit, String phone, String maxCapacity, double ivaPercent){
          if(!validateNotEmptyFields(name, address, nit, phone, maxCapacity)){
              MainController.adminView.showMessage("Error", "Todos los campos son obligatorios", 0);
          }else if(validateAll(name, address, nit, phone, maxCapacity)){
@@ -54,6 +59,7 @@ public class ParkingManagementController {
              infoParkway.setNit(nit);
              infoParkway.setTelephone(phone);
              infoParkway.setMaxCapacity(Integer.parseInt(maxCapacity));
+             infoParkway.setIVAPercent(ivaPercent);
              System.out.println(infoParkway.getName());
              MainController.infoJpaController.edit(infoParkway, idParkway);
          }else{

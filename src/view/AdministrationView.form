@@ -130,24 +130,30 @@
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="NameParkwayLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="AddressParkwayLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="TelephoneParkwayLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="NITParkwayLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="MaxCapacityLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="AddressParkwayLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="TelephoneParkwayLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="IVALabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TelephoneTextField" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="NITParkwayTextField" min="-2" pref="135" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="NITParkwayTextField" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <Component id="TelephoneTextField" min="-2" pref="135" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                               <Component id="SaveParkwayChangesButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="NameParkwayTextField" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                           <Component id="AddressTextField" min="-2" pref="135" max="-2" attributes="0"/>
-                          <Component id="MaxCapacityTextField" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="IVAFText" alignment="0" max="32767" attributes="1"/>
+                              <Component id="MaxCapacityTextField" alignment="0" pref="135" max="32767" attributes="1"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="197" max="32767" attributes="0"/>
+                      <EmptySpace pref="241" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -164,23 +170,35 @@
                           <Component id="AddressParkwayLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="AddressTextField" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="NITParkwayTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="NITParkwayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SaveParkwayChangesButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="SaveParkwayChangesButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="NITParkwayTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NITParkwayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TelephoneTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TelephoneParkwayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TelephoneParkwayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TelephoneTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="MaxCapacityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MaxCapacityTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MaxCapacityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="IVAFText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="IVALabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="127" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -253,6 +271,22 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveParkwayChangesButtonActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="IVALabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="IVA (Porcentaje):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="IVAFText">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#0.00%" subtype="-1" type="3"/>
+                </Property>
+                <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new VerifyEntryFormatted()" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="EmployeeAdminPanel">
@@ -279,7 +313,7 @@
                               <Component id="CreateEmployeeButton" linkSize="2" pref="211" max="32767" attributes="1"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="642" max="32767" attributes="0"/>
+                              <EmptySpace pref="651" max="32767" attributes="0"/>
                               <Component id="UpdateEmployeeButton" linkSize="2" min="-2" max="-2" attributes="1"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -393,7 +427,7 @@
                           <Component id="isAdminEmployeeCheckBox" min="-2" max="-2" attributes="0"/>
                           <Component id="isActiveEmployeeCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -581,7 +615,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SubPanel" alignment="0" pref="865" max="32767" attributes="0"/>
+                  <Component id="SubPanel" alignment="0" pref="872" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -627,7 +661,7 @@
                               <Component id="SavePlateButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="VehicleTypeScroll" alignment="0" pref="853" max="32767" attributes="0"/>
+                          <Component id="VehicleTypeScroll" alignment="0" pref="867" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -642,7 +676,7 @@
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace pref="24" max="32767" attributes="0"/>
+                                              <EmptySpace pref="27" max="32767" attributes="0"/>
                                               <Component id="PlateSampleLabel" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                           </Group>
@@ -765,13 +799,13 @@
                               <Component id="VehicleTypeLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Component id="VehicleTypeComboBox" min="-2" pref="186" max="-2" attributes="0"/>
-                              <EmptySpace pref="77" max="32767" attributes="0"/>
+                              <EmptySpace pref="140" max="32767" attributes="0"/>
                               <Component id="SaveRateChangesButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="DeleteLastRate" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Component id="RatesScroll" alignment="0" pref="853" max="32767" attributes="0"/>
+                          <Component id="RatesScroll" alignment="0" pref="867" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -785,7 +819,7 @@
                                   <Component id="DeleteLastRate" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="RatesScroll" pref="264" max="32767" attributes="0"/>
+                              <Component id="RatesScroll" pref="283" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -956,7 +990,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="PartialReportPrintButton" alignment="1" pref="186" max="32767" attributes="1"/>
+                                  <Component id="PartialReportPrintButton" alignment="1" max="32767" attributes="1"/>
                                   <Component id="PartialReportGenerateButton" alignment="1" min="-2" max="-2" attributes="1"/>
                               </Group>
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
@@ -988,7 +1022,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1137,7 +1171,7 @@
                               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="CustomReportPrintButton" pref="192" max="32767" attributes="1"/>
+                                      <Component id="CustomReportPrintButton" max="32767" attributes="1"/>
                                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -1150,7 +1184,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="363" max="-2" attributes="0"/>
                                   <Component id="PartialReportSearchButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="381" max="32767" attributes="0"/>
+                                  <EmptySpace pref="363" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1180,13 +1214,13 @@
                                   <Component id="CustomReportTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="31" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                                   <Component id="PartialReportSearchButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="122" max="32767" attributes="0"/>
+                                  <EmptySpace pref="140" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

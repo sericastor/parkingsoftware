@@ -6,6 +6,7 @@ import Entity.Exits;
 import Entity.FactureTurn;
 import Entity.VehicleType;
 import controller.Administration.AddVehicleManagementController;
+import controller.Administration.ParkingManagementController;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -89,8 +90,7 @@ public class QuitVehicleController {
     }
     
     private static double calculateIVA(double subtotal) {
-        // This variable(percent) must be editable by user, I will do later =)
-        double percent = 0.16;
+        double percent = ParkingManagementController.getInfo().getIVAPercent();
         return subtotal*percent;
     }
 
