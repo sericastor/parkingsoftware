@@ -80,7 +80,6 @@ public class CustomEntryTicketJpaController implements Serializable {
             em.getTransaction().begin();
             CustomEntryTicket newTicket = em.find(CustomEntryTicket.class, id);
             newTicket.setTittle(ticket.getTittle());
-            newTicket.setEntryDate(ticket.isEntryDate());
             newTicket.setEntryEmployee(ticket.isEntryEmployee());
             newTicket.setBarcode(ticket.isBarcode());
             newTicket.setFootPage(ticket.getFootPage());
