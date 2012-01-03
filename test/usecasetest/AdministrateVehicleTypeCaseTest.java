@@ -13,6 +13,7 @@ import DAO.EmployeeJpaController;
 import DAO.BandsRateJpaController;
 import DAO.VehicleTypeJpaController;
 import controller.Administration.AdministrateVehicleTypeController;
+import controller.SystemSession;
 import javax.persistence.EntityManagerFactory;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -177,6 +178,7 @@ public class AdministrateVehicleTypeCaseTest {
         setName("MiiBus");
         setExample("#$6");
         
+        SystemSession.setEmployee(sessionEmployee);
         assertTrue(AdministrateVehicleTypeController.verifyTypePlate(getName()));
         assertTrue(AdministrateVehicleTypeController.verifyExamplePlate(getExample()));
         
@@ -192,6 +194,7 @@ public class AdministrateVehicleTypeCaseTest {
         setName("MiniBus");
         setExample("123ABC");
         
+        SystemSession.setEmployee(sessionEmployee);
         assertTrue(AdministrateVehicleTypeController.verifyTypePlate(getName()));
         assertTrue(AdministrateVehicleTypeController.verifyExamplePlate(getExample()));
         
