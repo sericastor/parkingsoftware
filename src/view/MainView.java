@@ -621,7 +621,10 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void AdministerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministerButtonActionPerformed
-        MainController.setVisibleAdminAccessView(true);
+        if(SystemSession.getSessionEmployee().isAdministrator()){
+            MainController.setVisibleAdminView(true);
+        }else{
+        MainController.setVisibleAdminAccessView(true);}
     }//GEN-LAST:event_AdministerButtonActionPerformed
 
     private void ExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuActionPerformed
