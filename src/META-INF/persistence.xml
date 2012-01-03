@@ -11,7 +11,8 @@
     <class>Entity.InfoParkway</class>
     <class>Entity.FactureTurn</class>
     <class>Entity.Facture</class>
-    <class>Entity.CustomTicket</class>
+    <class>Entity.CustomEntryTicket</class>
+    <class>Entity.CustomExitTicket</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/eparkdb"/>
       <property name="javax.persistence.jdbc.password" value=""/>

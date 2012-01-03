@@ -6,7 +6,7 @@ package DAO;
 
 import DAO.exceptions.NonexistentEntityException;
 import DAO.exceptions.PreexistingEntityException;
-import Entity.CustomTicket;
+import Entity.CustomEntryTicket;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -20,9 +20,9 @@ import javax.persistence.criteria.Root;
  *
  * @author DiegoAl
  */
-public class CustomTicketJpaController implements Serializable {
+public class CustomEntryTicketJpaController implements Serializable {
 
-    public CustomTicketJpaController(EntityManagerFactory emf) {
+    public CustomEntryTicketJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,7 +31,7 @@ public class CustomTicketJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(CustomTicket customTicket) throws PreexistingEntityException, Exception {
+    public void create(CustomEntryTicket customTicket) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -50,7 +50,7 @@ public class CustomTicketJpaController implements Serializable {
         }
     }
 
-    public void edit(CustomTicket customTicket) throws NonexistentEntityException, Exception {
+    public void edit(CustomEntryTicket customTicket) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -73,17 +73,20 @@ public class CustomTicketJpaController implements Serializable {
         }
     }
     
-    public void edit(CustomTicket ticket, Long id){
+    public void edit(CustomEntryTicket ticket, Long id){
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            CustomTicket newTicket = em.find(CustomTicket.class, id);
+            CustomEntryTicket newTicket = em.find(CustomEntryTicket.class, id);
             newTicket.setTittle(ticket.getTittle());
             newTicket.setEntryDate(ticket.isEntryDate());
             newTicket.setEntryEmployee(ticket.isEntryEmployee());
             newTicket.setBarcode(ticket.isBarcode());
             newTicket.setFootPage(ticket.getFootPage());
+            newTicket.setParkwayNit(ticket.isParkwayNit());
+            newTicket.setParkwayName(ticket.isParkwayName());
+            newTicket.setParkwayAddress(ticket.isParkwayAddress());
             ticket = em.merge(newTicket);
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -100,9 +103,9 @@ public class CustomTicketJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            CustomTicket customTicket;
+            CustomEntryTicket customTicket;
             try {
-                customTicket = em.getReference(CustomTicket.class, id);
+                customTicket = em.getReference(CustomEntryTicket.class, id);
                 customTicket.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The customTicket with id " + id + " no longer exists.", enfe);
@@ -116,19 +119,19 @@ public class CustomTicketJpaController implements Serializable {
         }
     }
 
-    public List<CustomTicket> findCustomTicketEntities() {
+    public List<CustomEntryTicket> findCustomTicketEntities() {
         return findCustomTicketEntities(true, -1, -1);
     }
 
-    public List<CustomTicket> findCustomTicketEntities(int maxResults, int firstResult) {
+    public List<CustomEntryTicket> findCustomTicketEntities(int maxResults, int firstResult) {
         return findCustomTicketEntities(false, maxResults, firstResult);
     }
 
-    private List<CustomTicket> findCustomTicketEntities(boolean all, int maxResults, int firstResult) {
+    private List<CustomEntryTicket> findCustomTicketEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(CustomTicket.class));
+            cq.select(cq.from(CustomEntryTicket.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -140,10 +143,10 @@ public class CustomTicketJpaController implements Serializable {
         }
     }
 
-    public CustomTicket findCustomTicket(Long id) {
+    public CustomEntryTicket findCustomTicket(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(CustomTicket.class, id);
+            return em.find(CustomEntryTicket.class, id);
         } finally {
             em.close();
         }
@@ -153,7 +156,7 @@ public class CustomTicketJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<CustomTicket> rt = cq.from(CustomTicket.class);
+            Root<CustomEntryTicket> rt = cq.from(CustomEntryTicket.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
