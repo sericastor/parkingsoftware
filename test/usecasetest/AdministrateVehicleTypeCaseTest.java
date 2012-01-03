@@ -173,10 +173,39 @@ public class AdministrateVehicleTypeCaseTest {
     }
     
     @Test
-    public void createAnInvalidVehicleType(){}
+    public void createAnInvalidVehicleType(){
+        setName("MiiBus");
+        setExample("#$6");
+        
+        assertTrue(AdministrateVehicleTypeController.verifyTypePlate(getName()));
+        assertTrue(AdministrateVehicleTypeController.verifyExamplePlate(getExample()));
+        
+        assertEquals(AdministrateVehicleTypeController.encodePlate(getExample()),invalidPlate);
+        
+        String result = AdministrateVehicleTypeController.savePlate(getName(), getExample());
+        
+        assertEquals(result,"Failure");
+    }
     
     @Test
-    public void createAValidVehicleType(){}
+    public void createAValidVehicleType(){
+        setName("MiniBus");
+        setExample("123ABC");
+        
+        assertTrue(AdministrateVehicleTypeController.verifyTypePlate(getName()));
+        assertTrue(AdministrateVehicleTypeController.verifyExamplePlate(getExample()));
+        
+        assertEquals(AdministrateVehicleTypeController.encodePlate(getExample()),"000111");
+        
+        String result = AdministrateVehicleTypeController.savePlate(getName(), getExample());
+        
+        assertEquals(result,"Succes");
+        
+        VehicleType newVehicle = vehicleTypeJpaController.findVehicleType(Long.valueOf(6));
+        
+        assertEquals(newVehicle.getName(),getName());
+        assertEquals(newVehicle.getCodification(),"000111");
+    }
     
     // This test cant be developed because there arent code implementation
     @Test
@@ -212,4 +241,7 @@ public class AdministrateVehicleTypeCaseTest {
     private static VehicleTypeJpaController vehicleTypeJpaController;
     private static BandsRateJpaController bandsRateJpaController;
     private static EmployeeJpaController employeeJpaController;
+    
+    // Expected Constants
+    private final String invalidPlate = "No es un tipo valido de placa";
 }
