@@ -28,7 +28,7 @@ public class CustomExitTicket implements Serializable {
     private boolean parkwayNit;
     @Column(name="ExitEmployee")
     private boolean exitEmployee;
-    @Column(name="FootPage")
+    @Column(name="FootPage",length=100)
     private String footPage;
 
     public CustomExitTicket() {

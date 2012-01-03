@@ -27,8 +27,6 @@ public class CustomEntryTicket implements Serializable {
     private boolean parkwayAddress;
     @Column(name="ParkwayNit")
     private boolean parkwayNit;
-    @Column(name="EntryDate")
-    private boolean entryDate;
     @Column(name="EntryEmployee")
     private boolean entryEmployee;
     @Column(name="Barcode")
@@ -69,14 +67,6 @@ public class CustomEntryTicket implements Serializable {
 
     public void setBarcode(boolean barcode) {
         this.barcode = barcode;
-    }
-
-    public boolean isEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(boolean entryDate) {
-        this.entryDate = entryDate;
     }
 
     public boolean isEntryEmployee() {
