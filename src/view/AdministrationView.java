@@ -152,6 +152,15 @@ public class AdministrationView extends javax.swing.JFrame {
         CustomReportToTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         PartialReportSearchButton2 = new javax.swing.JButton();
+        TicketAdminPanel = new javax.swing.JPanel();
+        Tittle = new javax.swing.JLabel();
+        TitlleTextArea = new javax.swing.JTextField();
+        EnableEntryDate = new javax.swing.JCheckBox();
+        EnableEmployee = new javax.swing.JCheckBox();
+        EnableBarCode = new javax.swing.JCheckBox();
+        FootPage = new javax.swing.JLabel();
+        FootPageTextArea = new javax.swing.JTextField();
+        SaveChanges = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -300,7 +309,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
-        AdminTabbedPanel.addTab("Administrar Parqueadero", ParkwayAdminPanel);
+        AdminTabbedPanel.addTab("Parqueadero", ParkwayAdminPanel);
 
         EmployeeAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -500,7 +509,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        AdminTabbedPanel.addTab("Administrar Empleados", EmployeeAdminPanel);
+        AdminTabbedPanel.addTab("Empleados", EmployeeAdminPanel);
 
         PlateAdmin.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -692,7 +701,7 @@ public class AdministrationView extends javax.swing.JFrame {
             .addComponent(SubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
         );
 
-        AdminTabbedPanel.addTab("Administrar Vehiculos y Tarifas", AdministrateVehicles);
+        AdminTabbedPanel.addTab("Vehiculos y Tarifas", AdministrateVehicles);
 
         ReportAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -889,6 +898,80 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         AdminTabbedPanel.addTab("Reportes", ReportAdminPanel);
+
+        TicketAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        Tittle.setText("Titulo");
+
+        TitlleTextArea.setToolTipText("Escriba un titulo con máximo 25 caracteres");
+
+        EnableEntryDate.setText("Mostrar hora de entrada");
+
+        EnableEmployee.setText("Mostrar quien atiende");
+
+        EnableBarCode.setText("Mostrar código de barras");
+
+        FootPage.setText("Pie de página");
+
+        FootPageTextArea.setToolTipText("Escriba un pie de página con máximo de 100 caracteres");
+
+        SaveChanges.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Floppy.png"))); // NOI18N
+        SaveChanges.setText("Guardar");
+
+        javax.swing.GroupLayout TicketAdminPanelLayout = new javax.swing.GroupLayout(TicketAdminPanel);
+        TicketAdminPanel.setLayout(TicketAdminPanelLayout);
+        TicketAdminPanelLayout.setHorizontalGroup(
+            TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                        .addGroup(TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EnableEmployee)
+                            .addComponent(EnableBarCode))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 458, Short.MAX_VALUE)
+                        .addComponent(SaveChanges)
+                        .addGap(86, 86, 86))
+                    .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                        .addComponent(EnableEntryDate)
+                        .addContainerGap(685, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TicketAdminPanelLayout.createSequentialGroup()
+                        .addGroup(TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                                .addComponent(Tittle)
+                                .addGap(78, 78, 78)
+                                .addComponent(TitlleTextArea, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                            .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                                .addComponent(FootPage)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addComponent(FootPageTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(256, 256, 256))))
+        );
+        TicketAdminPanelLayout.setVerticalGroup(
+            TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Tittle)
+                    .addComponent(TitlleTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(EnableEntryDate)
+                .addGap(54, 54, 54)
+                .addComponent(EnableEmployee)
+                .addGap(56, 56, 56)
+                .addComponent(EnableBarCode)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(TicketAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FootPage)
+                    .addComponent(FootPageTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
+            .addGroup(TicketAdminPanelLayout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(SaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+
+        AdminTabbedPanel.addTab("Tiquete", TicketAdminPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1296,7 +1379,12 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JList EmployeeList;
     private javax.swing.JLabel EmployeeListLabel;
     private javax.swing.JScrollPane EmployeeListScroll;
+    private javax.swing.JCheckBox EnableBarCode;
+    private javax.swing.JCheckBox EnableEmployee;
+    private javax.swing.JCheckBox EnableEntryDate;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JLabel FootPage;
+    private javax.swing.JTextField FootPageTextArea;
     private javax.swing.JFormattedTextField IVAFText;
     private javax.swing.JLabel IVALabel;
     private javax.swing.JLabel IdEmployeeLabel;
@@ -1332,6 +1420,7 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JTable RatesTable;
     private javax.swing.JPanel ReportAdminPanel;
     private javax.swing.JTabbedPane ReportsTabbedPanel;
+    private javax.swing.JButton SaveChanges;
     private javax.swing.JButton SaveParkwayChangesButton;
     private javax.swing.JButton SavePlateButton;
     private javax.swing.JButton SaveRateChangesButton;
@@ -1340,6 +1429,9 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JTabbedPane SubPanel;
     private javax.swing.JLabel TelephoneParkwayLabel;
     private javax.swing.JTextField TelephoneTextField;
+    private javax.swing.JPanel TicketAdminPanel;
+    private javax.swing.JTextField TitlleTextArea;
+    private javax.swing.JLabel Tittle;
     private javax.swing.JButton UpdateEmployeeButton;
     private javax.swing.JLabel UserLabel;
     private javax.swing.JTextField UserTextField;
