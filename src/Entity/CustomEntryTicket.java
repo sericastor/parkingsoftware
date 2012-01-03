@@ -7,8 +7,6 @@ package Entity;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -16,13 +14,19 @@ import javax.persistence.Id;
  * @author DiegoAl
  */
 @Entity
-public class CustomTicket implements Serializable {
+public class CustomEntryTicket implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name="CustomID")
     private Long id;
     @Column(name="Tittle",length=25)
     private String tittle;
+    @Column(name="ParkwayName")
+    private boolean parkwayName;
+    @Column(name="ParkwayAddress")
+    private boolean parkwayAddress;
+    @Column(name="ParkwayNit")
+    private boolean parkwayNit;
     @Column(name="EntryDate")
     private boolean entryDate;
     @Column(name="EntryEmployee")
@@ -32,7 +36,31 @@ public class CustomTicket implements Serializable {
     @Column(name="FootPage",length=100)
     private String footPage;
 
-    public CustomTicket() {
+    public CustomEntryTicket() {
+    }
+
+    public boolean isParkwayAddress() {
+        return parkwayAddress;
+    }
+
+    public void setParkwayAddress(boolean parkwayAddress) {
+        this.parkwayAddress = parkwayAddress;
+    }
+
+    public boolean isParkwayName() {
+        return parkwayName;
+    }
+
+    public void setParkwayName(boolean parkwayName) {
+        this.parkwayName = parkwayName;
+    }
+
+    public boolean isParkwayNit() {
+        return parkwayNit;
+    }
+
+    public void setParkwayNit(boolean parkwayNit) {
+        this.parkwayNit = parkwayNit;
     }
 
     public boolean isBarcode() {
@@ -93,10 +121,10 @@ public class CustomTicket implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CustomTicket)) {
+        if (!(object instanceof CustomEntryTicket)) {
             return false;
         }
-        CustomTicket other = (CustomTicket) object;
+        CustomEntryTicket other = (CustomEntryTicket) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
