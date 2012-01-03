@@ -24,7 +24,7 @@ public class VerifyEntryFormatted extends InputVerifier{
         try {
             jf.commitEdit();
             double d = Double.valueOf(jf.getValue().toString());
-            if (d >= 0.0) {
+            if (d >= 0.0 && d <=1.00) {
                 jf.setValue(d);
                 return true;
             } else {

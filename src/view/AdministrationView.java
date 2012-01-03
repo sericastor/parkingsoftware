@@ -151,7 +151,6 @@ public class AdministrationView extends javax.swing.JFrame {
         CustomReportGenerateButton = new javax.swing.JButton();
         CustomReportToTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        PartialReportSearchButton1 = new javax.swing.JButton();
         PartialReportSearchButton2 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
@@ -235,6 +234,7 @@ public class AdministrationView extends javax.swing.JFrame {
 
         IVAFText.setEditable(false);
         IVAFText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00%"))));
+        IVAFText.setToolTipText("Ingrese aquí el porcentaje de IVA que cobrará en su parqueadero (Ejenplo: 16,00%)");
         IVAFText.setInputVerifier(new VerifyEntryFormatted());
 
         javax.swing.GroupLayout ParkwayAdminPanelLayout = new javax.swing.GroupLayout(ParkwayAdminPanel);
@@ -813,9 +813,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         jLabel6.setText("Hasta:");
 
-        PartialReportSearchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Portfolio.png"))); // NOI18N
-        PartialReportSearchButton1.setText("   Buscar");
-
         PartialReportSearchButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Portfolio.png"))); // NOI18N
         PartialReportSearchButton2.setText("   Buscar");
 
@@ -853,11 +850,6 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addGroup(CustomReportPanelLayout.createSequentialGroup()
                         .addComponent(CustomReportGenerateButton)
                         .addContainerGap())))
-            .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(CustomReportPanelLayout.createSequentialGroup()
-                    .addGap(363, 363, 363)
-                    .addComponent(PartialReportSearchButton1)
-                    .addContainerGap(363, Short.MAX_VALUE)))
         );
         CustomReportPanelLayout.setVerticalGroup(
             CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,11 +873,6 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(CustomReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(CustomReportPanelLayout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addComponent(PartialReportSearchButton1)
-                    .addContainerGap(140, Short.MAX_VALUE)))
         );
 
         ReportsTabbedPanel.addTab("Reporte Personalizado", CustomReportPanel);
@@ -1130,8 +1117,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     // "Reinicia" la clase
     flag = flag2 = flag3 = true;
     this.setNullEmp();
+    this.setNullVehicleTypeFields();
+    this.setNullReportsFields();
     this.setEnabledEmp(false);
     this.setEnableParkway(false);
+    this.AdminTabbedPanelFocusGained(null);
+    AdminTabbedPanel.setSelectedComponent(ParkwayAdminPanel);
+    SubPanel.setSelectedComponent(PlateAdmin);
+    ReportsTabbedPanel.setSelectedComponent(PartialReportPanel);
     UpdateEmployeeButton.setEnabled(true);
     CreateEmployeeButton.setEnabled(true);
 }//GEN-LAST:event_formWindowClosed
@@ -1236,6 +1229,7 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
     }
 
     private void setNullEmp() {
+        ConsultEmployeeTextField.setText(null);
         IdEmployeeTextField.setText(null);
         NameEmployeeTextField.setText(null);
         LastNameEmployeeTextField.setText(null);
@@ -1245,6 +1239,19 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
         ConfirmPasswordField.setText(null);
         isActiveEmployeeCheckBox.setSelected(false);
         isAdminEmployeeCheckBox.setSelected(false);
+    }
+    
+    public void setNullVehicleTypeFields(){
+        IdentifierPlateTextField.setText(null); 
+        PlateExampleTextField.setText(null);
+    }
+    
+    public void setNullReportsFields(){
+        PartialReportDateTextField.setText(null);
+        PartialReportTotalTextField.setText(null);
+        CustomReportFromTextField.setText(null);
+        CustomReportToTextField.setText(null);
+        CustomReportTotalTextField.setText(null);
     }
     
     private int askToAdmin(String message){
@@ -1311,7 +1318,6 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JPanel PartialReportPanel;
     private javax.swing.JButton PartialReportPrintButton;
     private javax.swing.JButton PartialReportSearchButton;
-    private javax.swing.JButton PartialReportSearchButton1;
     private javax.swing.JButton PartialReportSearchButton2;
     private javax.swing.JTable PartialReportTable;
     private javax.swing.JTextField PartialReportTotalTextField;

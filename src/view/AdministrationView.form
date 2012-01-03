@@ -282,6 +282,7 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="#0.00%" subtype="-1" type="3"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Ingrese aqu&#xed; el porcentaje de IVA que cobrar&#xe1; en su parqueadero (Ejenplo: 16,00%)"/>
                 <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new VerifyEntryFormatted()" type="code"/>
                 </Property>
@@ -1180,13 +1181,6 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="363" max="-2" attributes="0"/>
-                                  <Component id="PartialReportSearchButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="363" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1215,13 +1209,6 @@
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="31" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="PartialReportSearchButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="140" max="32767" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1319,14 +1306,6 @@
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Hasta:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="PartialReportSearchButton1">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Portfolio.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="   Buscar"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="PartialReportSearchButton2">

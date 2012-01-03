@@ -24,7 +24,6 @@ import static org.junit.Assert.*;
  */
 public class ParkwayDataCaseTest {
     
-    // Must Be Chande some parameters
     public ParkwayDataCaseTest() {
     }
 
@@ -37,6 +36,7 @@ public class ParkwayDataCaseTest {
              InfoParkway parkway = new InfoParkway();
              parkway.setId(idParkway);
              parkway.setMaxCapacity(1);
+             parkway.setIVAPercent(0.01);
              MainController.infoJpaController.create(parkway);
         }
     }
@@ -50,6 +50,7 @@ public class ParkwayDataCaseTest {
         info.setNit("123456789");
         info.setTelephone("1234567");
         info.setMaxCapacity(100);
+        info.setIVAPercent(0.16);
         
         infoParkwayJpaController.edit(info, idParkway);
     }
@@ -67,6 +68,7 @@ public class ParkwayDataCaseTest {
         info.setNit(null);
         info.setTelephone(null);
         info.setMaxCapacity(1);
+        info.setIVAPercent(0.01);
         
         infoParkwayJpaController.edit(info, idParkway);
     }
@@ -80,17 +82,19 @@ public class ParkwayDataCaseTest {
         assertNull(info.getNit());
         assertNull(info.getTelephone());
         assertEquals(info.getMaxCapacity(),1);
+        assertEquals(info.getIVAPercent(),0.01,0);
         
         setName("parquick");
         setAddress("Calle 123 45-67");
         setNit("123456789");
         setTelephone("1234567");
         setMaxCapacity(100);
+        setIvaPercent(0.10);
         
         assertTrue(ParkingManagementController.validateNotEmptyFields(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         assertTrue(ParkingManagementController.validateAll(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         
-        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),0.01);
+        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),getIvaPercent());
         
         info = infoParkwayJpaController.findInfoParkway(idParkway);
         
@@ -99,6 +103,7 @@ public class ParkwayDataCaseTest {
         assertEquals(info.getNit(), "123456789");
         assertEquals(info.getTelephone(), "1234567");
         assertEquals(info.getMaxCapacity(),100);
+        assertEquals(info.getIVAPercent(),0.10,0);
     }
     
     @Test
@@ -110,16 +115,18 @@ public class ParkwayDataCaseTest {
         assertNull(info.getNit());
         assertNull(info.getTelephone());
         assertEquals(info.getMaxCapacity(),1);
+        assertEquals(info.getIVAPercent(),0.01,0);
         
         setName("ChiquiParking");
         setAddress("");
         setNit("");
         setTelephone("");
         setMaxCapacity(0);
+        setIvaPercent(0.00);
         
         assertFalse(ParkingManagementController.validateNotEmptyFields(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         
-        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),0.01);
+        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),getIvaPercent());
         
         info = infoParkwayJpaController.findInfoParkway(idParkway);
         
@@ -128,7 +135,7 @@ public class ParkwayDataCaseTest {
         assertNull(info.getNit());
         assertNull(info.getTelephone());
         assertEquals(info.getMaxCapacity(),1);
-        
+        assertEquals(info.getIVAPercent(),0.01,0);
     }
     
     @Test
@@ -140,17 +147,19 @@ public class ParkwayDataCaseTest {
         assertNull(info.getNit());
         assertNull(info.getTelephone());
         assertEquals(info.getMaxCapacity(),1);
+        assertEquals(info.getIVAPercent(),0.01,0);
         
         setName("ExamplePark");
         setAddress("Calle 123 45-67");
         setNit("123456789");
         setTelephone("1234567");
         setMaxCapacity(70);
+        setIvaPercent(0.16);
         
         assertTrue(ParkingManagementController.validateNotEmptyFields(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         assertTrue(ParkingManagementController.validateAll(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity())));
         
-        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),0.01);
+        ParkingManagementController.updateInfoParway(getName(), getAddress(), getNit(), getTelephone(), String.valueOf(getMaxCapacity()),getIvaPercent());
         
         info = infoParkwayJpaController.findInfoParkway(idParkway);
        
@@ -159,6 +168,7 @@ public class ParkwayDataCaseTest {
         assertEquals(info.getNit(), "123456789");
         assertEquals(info.getTelephone(), "1234567");
         assertEquals(info.getMaxCapacity(),70);
+        assertEquals(info.getIVAPercent(), 0.16, 0);
     }
     
     // Class variables, getters and setters methods
@@ -202,12 +212,21 @@ public class ParkwayDataCaseTest {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
-   
+
+    public double getIvaPercent() {
+        return IvaPercent;
+    }
+
+    public void setIvaPercent(double IvaPercent) {
+        this.IvaPercent = IvaPercent;
+    }
+    
     private String name;
     private String address;
     private String nit;
     private String telephone;
     private int maxCapacity;
+    private double IvaPercent;
     
     private static EntityManagerFactory persistence_factory;
     private static InfoParkwayJpaController infoParkwayJpaController;
