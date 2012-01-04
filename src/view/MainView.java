@@ -98,6 +98,9 @@ public class MainView extends javax.swing.JFrame {
         PasteMenu = new javax.swing.JMenuItem();
         DeleteMenu = new javax.swing.JMenuItem();
         ViewMenu = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         HelpMenu = new javax.swing.JMenu();
         ViewHelpMenu = new javax.swing.JMenuItem();
         HelpSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -534,6 +537,17 @@ public class MainView extends javax.swing.JFrame {
         MenuBar.add(EditMenu);
 
         ViewMenu.setText("Ver");
+
+        jMenu3.setText("Vista previa de tiquetes");
+
+        jMenuItem2.setText("Entrada");
+        jMenu3.add(jMenuItem2);
+
+        jMenuItem1.setText("Salida");
+        jMenu3.add(jMenuItem1);
+
+        ViewMenu.add(jMenu3);
+
         MenuBar.add(ViewMenu);
 
         HelpMenu.setText("Ayuda");
@@ -833,7 +847,10 @@ updateStatusBar(MainController.ocupationController.returnStatus());
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JProgressBar statusProgressBar;
     // End of variables declaration//GEN-END:variables
 }
