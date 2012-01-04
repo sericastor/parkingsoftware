@@ -24,6 +24,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.table.TableModel;
 
 /**
@@ -71,6 +73,7 @@ public class AdministrationView extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         ExitButton = new javax.swing.JButton();
         AdminTabbedPanel = new javax.swing.JTabbedPane();
         ParkwayAdminPanel = new javax.swing.JPanel();
@@ -122,6 +125,11 @@ public class AdministrationView extends javax.swing.JFrame {
         IdentifierPlateTextField = new javax.swing.JTextField();
         VehicleTypeScroll = new javax.swing.JScrollPane();
         PlatesTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        yesRadioButton = new javax.swing.JRadioButton();
+        noRadioButton = new javax.swing.JRadioButton();
+        answerLabel = new javax.swing.JLabel();
+        numberSpacesSpinner = new javax.swing.JSpinner();
         RateAdminPanel = new javax.swing.JPanel();
         RatesScroll = new javax.swing.JScrollPane();
         RatesTable = new javax.swing.JTable();
@@ -289,7 +297,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addGroup(ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(IVAFText, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(MaxCapacityTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addContainerGap(398, Short.MAX_VALUE))
         );
         ParkwayAdminPanelLayout.setVerticalGroup(
             ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +331,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(ParkwayAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IVAFText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(IVALabel))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Parqueadero", ParkwayAdminPanel);
@@ -431,7 +439,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addGap(557, 557, 557)
                         .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeAdminPanelLayout.createSequentialGroup()
-                        .addContainerGap(845, Short.MAX_VALUE)
+                        .addContainerGap(843, Short.MAX_VALUE)
                         .addComponent(UpdateEmployeeButton))
                     .addGroup(EmployeeAdminPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -523,7 +531,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(isAdminEmployeeCheckBox)
                     .addComponent(isActiveEmployeeCheckBox))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Empleados", EmployeeAdminPanel);
@@ -554,21 +562,21 @@ public class AdministrationView extends javax.swing.JFrame {
 
         PlatesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Identificador", "Tipo de Vehiculo", "Ejemplo de Placa"
+                "Identificador", "Tipo de Vehiculo", "Ejemplo de Placa", "Cantidad de espacio ocupado por vehículo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -580,23 +588,57 @@ public class AdministrationView extends javax.swing.JFrame {
         PlatesTable.getColumnModel().getColumn(0).setPreferredWidth(80);
         PlatesTable.getColumnModel().getColumn(0).setMaxWidth(150);
 
+        jLabel1.setText("¿El vehiculo ocupa más de un espacio?:");
+
+        buttonGroup1.add(yesRadioButton);
+        yesRadioButton.setText("Si");
+        yesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesRadioButtonActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(noRadioButton);
+        noRadioButton.setSelected(true);
+        noRadioButton.setText("No");
+        noRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noRadioButtonActionPerformed(evt);
+            }
+        });
+
+        answerLabel.setText("Seleccione el número de vehículos por espacio");
+
         javax.swing.GroupLayout PlateAdminLayout = new javax.swing.GroupLayout(PlateAdmin);
         PlateAdmin.setLayout(PlateAdminLayout);
         PlateAdminLayout.setHorizontalGroup(
             PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PlateAdminLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlateAdminLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(VehicleTypeNameLabel)
                     .addComponent(PlateSampleLabel))
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PlateExampleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                     .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(answerLabel))
+                .addGap(18, 18, 18)
+                .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PlateAdminLayout.createSequentialGroup()
+                        .addComponent(noRadioButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(yesRadioButton))
+                    .addComponent(numberSpacesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(SavePlateButton)
-                .addGap(58, 58, 58))
-            .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)
+                .addGap(104, 104, 104))
+            .addGroup(PlateAdminLayout.createSequentialGroup()
+                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PlateAdminLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IdentifierPlateTextField, PlateExampleTextField});
@@ -604,26 +646,31 @@ public class AdministrationView extends javax.swing.JFrame {
         PlateAdminLayout.setVerticalGroup(
             PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PlateAdminLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PlateAdminLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VehicleTypeNameLabel)
-                            .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PlateAdminLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                .addComponent(PlateSampleLabel)
-                                .addGap(25, 25, 25))
-                            .addGroup(PlateAdminLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(PlateExampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44))
+                        .addGap(5, 5, 5)
+                        .addComponent(VehicleTypeNameLabel)
+                        .addGap(29, 29, 29)
+                        .addComponent(PlateSampleLabel))
                     .addGroup(PlateAdminLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(SavePlateButton)))
-                .addGap(11, 11, 11)
-                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(IdentifierPlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(PlateExampleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PlateAdminLayout.createSequentialGroup()
+                        .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(noRadioButton)
+                                .addComponent(yesRadioButton)))
+                        .addGap(18, 18, 18)
+                        .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(answerLabel)
+                            .addComponent(numberSpacesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(SavePlateButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
         );
 
         SubPanel.addTab("Administrar Vehículos", PlateAdmin);
@@ -685,12 +732,14 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addComponent(VehicleTypeLabel)
                 .addGap(52, 52, 52)
                 .addComponent(VehicleTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(SaveRateChangesButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addComponent(DeleteLastRate)
+                .addGap(104, 104, 104))
+            .addGroup(RateAdminPanelLayout.createSequentialGroup()
+                .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1057, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)
         );
         RateAdminPanelLayout.setVerticalGroup(
             RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,7 +751,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(SaveRateChangesButton)
                     .addComponent(DeleteLastRate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
         );
 
         SubPanel.addTab("Administrar Tarifas", RateAdminPanel);
@@ -711,11 +760,11 @@ public class AdministrationView extends javax.swing.JFrame {
         AdministrateVehicles.setLayout(AdministrateVehiclesLayout);
         AdministrateVehiclesLayout.setHorizontalGroup(
             AdministrateVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE)
+            .addComponent(SubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
         AdministrateVehiclesLayout.setVerticalGroup(
             AdministrateVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+            .addComponent(SubPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
         );
 
         AdminTabbedPanel.addTab("Vehiculos y Tarifas", AdministrateVehicles);
@@ -807,7 +856,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(PartialReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ReportsTabbedPanel.addTab("Reporte Parcial Diario", PartialReportPanel);
@@ -876,7 +925,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CustomReportPanelLayout.createSequentialGroup()
-                        .addComponent(CustomReportPrintButton, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                        .addComponent(CustomReportPrintButton, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                         .addGap(74, 74, 74))
                     .addGroup(CustomReportPanelLayout.createSequentialGroup()
                         .addComponent(CustomReportGenerateButton)
@@ -903,7 +952,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CustomReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ReportsTabbedPanel.addTab("Reporte Personalizado", CustomReportPanel);
@@ -982,8 +1031,8 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(TitleExTextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(FootPageExitScroll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(SaveExitTicketButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(431, Short.MAX_VALUE))
+                        .addComponent(SaveExitTicketButton, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
         ExitTicketLayout.setVerticalGroup(
             ExitTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1006,7 +1055,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addGroup(ExitTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(FootPageExitScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(SaveExitTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         Tickets.addTab("Salida", ExitTicket);
@@ -1078,7 +1127,7 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(BarCodeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(EmployeeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NITCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(707, Short.MAX_VALUE))))
+                        .addContainerGap(629, Short.MAX_VALUE))))
         );
         EntryTicketLayout.setVerticalGroup(
             EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1097,7 +1146,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addComponent(EmployeeCB)
                 .addGap(18, 18, 18)
                 .addComponent(BarCodeCB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FootPageTicketLabel)
                     .addComponent(FootPageEntryScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1111,7 +1160,7 @@ public class AdministrationView extends javax.swing.JFrame {
         TicketAdmin.setLayout(TicketAdminLayout);
         TicketAdminLayout.setHorizontalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tickets)
+            .addComponent(Tickets, javax.swing.GroupLayout.DEFAULT_SIZE, 1066, Short.MAX_VALUE)
         );
         TicketAdminLayout.setVerticalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1125,10 +1174,12 @@ public class AdministrationView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ExitButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(956, Short.MAX_VALUE)
+                .addComponent(ExitButton)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1078, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1217,6 +1268,8 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     }
     
     private void AdminTabbedPanelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AdminTabbedPanelFocusGained
+        SpinnerModel model = new SpinnerNumberModel(1, 1, 100, 1);
+        this.numberSpacesSpinner.setModel(model);
         VehicleTypeComboBox.setModel(AdministrateBandRates.AllVehicleTypes());
         VehicleTypeComboBox.updateUI();
         PlatesTable.setModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
@@ -1292,6 +1345,7 @@ private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent 
         int option = this.askToParkway();
         if(option == JOptionPane.OK_OPTION){
             ParkingManagementController.updateInfoParway(getNamePark(), getAddressPark(), getNitPark(), getPhonePark(), getMaxCapacityPark(), getIvaPercentPark());
+            
         }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.
                 CLOSED_OPTION){
                     return;
@@ -1304,7 +1358,9 @@ private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent 
 }//GEN-LAST:event_SaveParkwayChangesButtonActionPerformed
 
 private void SavePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavePlateButtonActionPerformed
-    MainController.saveNewVehicleType(IdentifierPlateTextField.getText(), PlateExampleTextField.getText());
+    MainController.saveNewVehicleType(IdentifierPlateTextField.getText(), PlateExampleTextField.getText(),
+            noRadioButton.isSelected(),
+            numberSpacesSpinner.getValue().toString());
 }//GEN-LAST:event_SavePlateButtonActionPerformed
 
 private void PlateExampleTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateExampleTextFieldKeyReleased
@@ -1391,6 +1447,14 @@ private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt
     TicketManagementController.updateEntryTicket(TitleTextField.getText(), FootPageEntryArea.getText(), NameCB.isSelected(), AddressCB.isSelected(), NITCB.isSelected(), EmployeeCB.isSelected(), BarCodeCB.isSelected());
     getInfoEntryTicket();
 }//GEN-LAST:event_SaveEntryTicketButtonActionPerformed
+
+private void yesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesRadioButtonActionPerformed
+    this.answerLabel.setText("Seleccione el número de espacios consumidos por un vehículo");
+}//GEN-LAST:event_yesRadioButtonActionPerformed
+
+private void noRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noRadioButtonActionPerformed
+     this.answerLabel.setText("Seleccione el número de vehículos por espacio");
+}//GEN-LAST:event_noRadioButtonActionPerformed
 
 
     private String getNamePark(){
@@ -1638,9 +1702,12 @@ private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JLabel VehicleTypeLabel;
     private javax.swing.JLabel VehicleTypeNameLabel;
     private javax.swing.JScrollPane VehicleTypeScroll;
+    private javax.swing.JLabel answerLabel;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox isActiveEmployeeCheckBox;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1652,5 +1719,8 @@ private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
+    private javax.swing.JRadioButton noRadioButton;
+    private javax.swing.JSpinner numberSpacesSpinner;
+    private javax.swing.JRadioButton yesRadioButton;
     // End of variables declaration//GEN-END:variables
 }

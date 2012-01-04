@@ -23,6 +23,7 @@ import view.MainView;
 import view.AdministrationView;
 
 import view.BarCodePanel;
+import view.FinishTurnView;
 import view.QuitVehiclePanel;
 
 /**
@@ -56,7 +57,14 @@ public class MainController {
         return false;
     }
 
-    public static void saveNewVehicleType(String plate, String example) {
+    public static void saveNewVehicleType(String plate, String example,Boolean places, String numberOfPlaces) {
+        double indexPlace=1;
+        if(places){
+            indexPlace=1/Double.parseDouble(numberOfPlaces);
+        }
+        else{
+            indexPlace=Double.parseDouble(numberOfPlaces);
+        }
         if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
             adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
         } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
@@ -65,7 +73,7 @@ public class MainController {
             int confirm = adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("
                     + plate + ")");
             if (confirm == 0) {
-                String state = AdministrateVehicleTypeController.savePlate(plate, example);
+                String state = AdministrateVehicleTypeController.savePlate(plate, example, indexPlace);
                 if (state.equals("Failure")) {
                     adminView.showMessage("Error", "Solo se permiten valores alfa-numericos en la placa", 0);
                 } else {
@@ -126,6 +134,9 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible) {
         adminView.setVisible(isVisible);
     }
+    public static void setVisibleFinishTurnView(boolean isVisible){
+        finishTurnView.setVisible(isVisible);
+    }
 
     public static void setQuitPanelParameters(String plate) {
         Date entryDate = addVehicleController.getEntryDateByPlate(plate);
@@ -140,7 +151,9 @@ public class MainController {
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString(), comentary);
         quitPanel.setCostTextField(quitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
+    public static OcupationController ocupationController = new OcupationController();
     public static BarCodePanel barCodePanel = new BarCodePanel();
+    public static FinishTurnView finishTurnView = new FinishTurnView();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();

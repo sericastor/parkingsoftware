@@ -40,7 +40,6 @@ public class QuitVehicleController {
         int from, to;
         double numberOfUnits;
         double minutesParked = getDifferenceBetweenHours(entry, exit);
-        System.out.println(getDifferenceBetweenHours(entry, exit));
         List<BandsRate> ratesOfVehicleType = MainController.bandsRateJpaController.queryByVehicleTypes(vehicleType);
         BandsRate lastRate = null;
         for (BandsRate b : ratesOfVehicleType) {
@@ -118,6 +117,7 @@ public class QuitVehicleController {
         exit.setVehicleType(entry.getVehicleType());
         MainController.exitsJpaController.create(exit);
         MainController.entriesJpaController.destroy(entry.getId());
+        MainController.ocupationController.subsstractionOcupation(entry.getVehicleType().getPlaces());
         MainController.system.NewLogAction("Exit Vehicle", plate);
         MainController.mainView.confirmationMessages(
                     "El vehiculo ha cambiado satisfactoriamente de estado", "Información",0);

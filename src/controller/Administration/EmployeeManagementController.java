@@ -50,7 +50,6 @@ public class EmployeeManagementController {
             oldEmployee.setPassword(controller.MainController.md5Security.MD5Security(password));
             oldEmployee.setAdministrator(administrator);
             oldEmployee.setIsActive(active);
-            System.out.println(oldEmployee.getName());
             try {
                 MainController.employeeJpaController.edit(oldEmployee, id);
             } catch (Exception ex) {

@@ -32,7 +32,7 @@ public class eParking {
 
         //////////////////////////Inicializar Tablas////////////////////////
         try {
-            Employee employee = MainController.employeeJpaController.findEmployeeByUser("IUser");
+            Employee employee = MainController.employeeJpaController.findEmployeeByUser("user");
             VehicleType vehicle = MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(1));
             BandsRate bandsRate = MainController.bandsRateJpaController.findBandsRate(Long.valueOf(1));
             //FactureTurn factureTurn = MainController.FactureTurnJpaController.

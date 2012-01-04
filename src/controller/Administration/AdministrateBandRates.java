@@ -57,7 +57,7 @@ public class AdministrateBandRates {
                         " Value:" + toElimitate.getUnitValue();
                 MainController.system.NewLogAction(action, detail);
             }
-            else{
+            else if(modifyBandsRate.isEmpty()){
                 MainController.adminView.confirmationMessages("Está vacia la lista de tarifas", "Error");
             }
         } catch (Exception e) {

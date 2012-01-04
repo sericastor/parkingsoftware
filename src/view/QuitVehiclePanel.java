@@ -198,6 +198,7 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         String plate=MainController.mainView.getPlate();
         MainController.quitVehicleController.changeStateOfVehicle(plate);
         MainController.mainView.setPlateTextField("");
+        MainController.mainView.removePanel();
     }//GEN-LAST:event_FactureButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
