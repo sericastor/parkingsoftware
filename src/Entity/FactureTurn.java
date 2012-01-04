@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +40,7 @@ public class FactureTurn implements Serializable {
     @JoinColumn(name="fExit")
     @ManyToOne
     private Exits exit;
-    
+  
     //@OneToMany
     //private List<Exits> exits = new ArrayList();
 
@@ -65,14 +66,6 @@ public class FactureTurn implements Serializable {
 
     public void setActualDate(Date actualDate) {
         this.actualDate = actualDate;
-    }
-
-    public Exits getExits() {
-        return exit;
-    }
-
-    public void setExits(Exits exit) {
-        this.exit = exit;
     }
 
     public double getSubtotal() {
