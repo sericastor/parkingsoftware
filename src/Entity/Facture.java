@@ -5,16 +5,14 @@
 package Entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,11 +36,31 @@ public class Facture implements Serializable {
     private double iva;
     @Column(name="Total",nullable=false)
     private double total;
+    @OneToOne
+    private FactureTurn factureTurn;
+    @Column(name="Employee")
+    @ManyToOne
+    private Employee factureEmployee;
+
+    //@OneToMany
+    //private List<FactureTurn> facturesTurn = new ArrayList();
+
+    public Employee getFactureEmployee() {
+        return factureEmployee;
+    }
+
+    public void setFactureEmployee(Employee factureEmployee) {
+        this.factureEmployee = factureEmployee;
+    }
+
+    public FactureTurn getFactureTurn() {
+        return factureTurn;
+    }
+
+    public void setFactureTurn(FactureTurn factureTurn) {
+        this.factureTurn = factureTurn;
+    }
     
-
-    @OneToMany
-    private List<FactureTurn> facturesTurn = new ArrayList();
-
     public Date getActualDate() {
         return actualDate;
     }
@@ -50,16 +68,6 @@ public class Facture implements Serializable {
     public void setActualDate(Date actualDate) {
         this.actualDate = actualDate;
     }
-
-    public List<FactureTurn> getFacturesTurn() {
-        return facturesTurn;
-    }
-
-    public void setFacturesTurn(List<FactureTurn> facturesTurn) {
-        this.facturesTurn = facturesTurn;
-    }
-
-    
 
     public double getIva() {
         return iva;
