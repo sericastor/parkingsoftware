@@ -6,6 +6,8 @@ import DAO.CustomExitTicketJpaController;
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
 import DAO.ExitsJpaController;
+import DAO.FactureJpaController;
+import DAO.FactureTurnJpaController;
 import DAO.InfoParkwayJpaController;
 import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
@@ -161,6 +163,8 @@ public class MainController {
     private static ManagerAccessView adminAccessView = new ManagerAccessView();
     public static AdministrationView adminView = new AdministrationView();
     public static BandsRateJpaController bandsRateJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
+    public static FactureTurnJpaController factureTurnJpaController = new FactureTurnJpaController(controller.MainController.system.getPersistence_factory());
+    public static FactureJpaController factureJpaController = new FactureJpaController(controller.MainController.system.getPersistence_factory());
     public static EmployeeJpaController employeeJpaController = new EmployeeJpaController(controller.MainController.system.getPersistence_factory());
     public static InfoParkwayJpaController infoJpaController = new InfoParkwayJpaController(controller.MainController.system.getPersistence_factory());
     public static MD5Security md5Security = new MD5Security();
