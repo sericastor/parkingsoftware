@@ -23,6 +23,7 @@ import view.MainView;
 import view.AdministrationView;
 
 import view.BarCodePanel;
+import view.FinishTurnView;
 import view.QuitVehiclePanel;
 
 /**
@@ -133,6 +134,9 @@ public class MainController {
     public static void setVisibleAdminView(boolean isVisible) {
         adminView.setVisible(isVisible);
     }
+    public static void setVisibleFinishTurnView(boolean isVisible){
+        finishTurnView.setVisible(isVisible);
+    }
 
     public static void setQuitPanelParameters(String plate) {
         Date entryDate = addVehicleController.getEntryDateByPlate(plate);
@@ -149,6 +153,7 @@ public class MainController {
     }
     public static OcupationController ocupationController = new OcupationController();
     public static BarCodePanel barCodePanel = new BarCodePanel();
+    public static FinishTurnView finishTurnView = new FinishTurnView();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();

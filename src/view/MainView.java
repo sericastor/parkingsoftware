@@ -663,7 +663,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
     private void CloseBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBoxButtonActionPerformed
         // TODO add your handling code here:
-        System.out.println("Cerrar Caja");
+        MainController.setVisibleFinishTurnView(true);
     }//GEN-LAST:event_CloseBoxButtonActionPerformed
 
     private void CloseBoxMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBoxMenuActionPerformed
