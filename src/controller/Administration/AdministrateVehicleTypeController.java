@@ -22,11 +22,12 @@ public class AdministrateVehicleTypeController {
         DefaultTableModel results = new DefaultTableModel();
         AllVehiclesTypes=MainController.vehicleTypeJpaController.findVehicleTypeEntities();
         results.addColumn("Identificador");
-        results.addColumn("Tipo de Vehiculo");
+        results.addColumn("Tipo de Vehículo");
         results.addColumn("Ejemplo de Placa");
+        results.addColumn("Cantidad de espacio ocupado por vehículo");
         
         for (VehicleType e : AllVehiclesTypes) {
-            results.addRow( new Object []{String.valueOf(e.getNumber()), e.getName(), decodePlate(e.getCodification())});
+            results.addRow( new Object []{String.valueOf(e.getNumber()), e.getName(), decodePlate(e.getCodification()), e.getPlaces()});
         }
         return results;
     }
@@ -60,12 +61,13 @@ public class AdministrateVehicleTypeController {
         return decode;
     }
     
-    public static String savePlate(String Name, String Plate){
+    public static String savePlate(String Name, String Plate,double Places){
        String code=encodePlate(Plate);
        if(!code.equals("No es un tipo valido de placa")){
            VehicleType v=new VehicleType();
            v.setCodification(code);
            v.setName(Name);
+           v.setPlaces(Places);
            MainController.vehicleTypeJpaController.create(v);
            String action="Add vehicle type: "+Name;
            MainController.system.NewLogAction(action, null);
