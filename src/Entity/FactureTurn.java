@@ -5,16 +5,13 @@
 package Entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,13 +35,34 @@ public class FactureTurn implements Serializable {
     private double IVA;
     @Column(name="Total",nullable=false)
     private double total;
-
+    @Column(name="Employee")
+    @ManyToOne
+    private Employee factureEmployee;
+    @Column(name="fExit")
+    @ManyToOne
+    private Exits exit;
     
-    @OneToMany
-    private List<Exits> exits = new ArrayList();
+    //@OneToMany
+    //private List<Exits> exits = new ArrayList();
 
     public double getIVA() {
         return IVA;
+    }
+
+    public Exits getExit() {
+        return exit;
+    }
+
+    public void setExit(Exits exit) {
+        this.exit = exit;
+    }
+
+    public Employee getFactureEmployee() {
+        return factureEmployee;
+    }
+
+    public void setFactureEmployee(Employee factureEmployee) {
+        this.factureEmployee = factureEmployee;
     }
 
     public void setIVA(double IVA) {
@@ -59,12 +77,12 @@ public class FactureTurn implements Serializable {
         this.actualDate = actualDate;
     }
 
-    public List<Exits> getExits() {
-        return exits;
+    public Exits getExits() {
+        return exit;
     }
 
-    public void setExits(List<Exits> exits) {
-        this.exits = exits;
+    public void setExits(Exits exit) {
+        this.exit = exit;
     }
 
     public double getSubtotal() {
