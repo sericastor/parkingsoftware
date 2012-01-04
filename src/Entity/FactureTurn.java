@@ -35,9 +35,6 @@ public class FactureTurn implements Serializable {
     private double IVA;
     @Column(name="Total",nullable=false)
     private double total;
-    @Column(name="Employee")
-    @ManyToOne
-    private Employee factureEmployee;
     @Column(name="fExit")
     @ManyToOne
     private Exits exit;
@@ -55,14 +52,6 @@ public class FactureTurn implements Serializable {
 
     public void setExit(Exits exit) {
         this.exit = exit;
-    }
-
-    public Employee getFactureEmployee() {
-        return factureEmployee;
-    }
-
-    public void setFactureEmployee(Employee factureEmployee) {
-        this.factureEmployee = factureEmployee;
     }
 
     public void setIVA(double IVA) {
