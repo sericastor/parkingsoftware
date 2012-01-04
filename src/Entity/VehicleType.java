@@ -25,9 +25,19 @@ public class VehicleType implements Serializable {
     private String codification;
     @Column(unique=true,name="Name",nullable=false,length=25)
     private String name;
+    @Column (name="places")
+    private double places;
 
     public String getCodification() {
         return codification;
+    }
+
+    public double getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(double places) {
+        this.places = places;
     }
 
     public void setCodification(String codification) {
