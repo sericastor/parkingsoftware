@@ -5,7 +5,6 @@
 package usecasetest;
 
 import javax.swing.DefaultListModel;
-import java.util.List;
 import Entity.Employee;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
