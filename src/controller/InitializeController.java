@@ -35,25 +35,26 @@ public class InitializeController {
         if(employeecount != -1 && employeecount != null){
             
         //Creacion de la tabla Employee
-        /*Employee em = new Employee();
+        Employee em = new Employee();
         em.setId(MainController.employeeJpaController.getEmployeeCount());
-        em.setLastName("ILastName");
+        em.setLastName("user");
         em.setIsActive(true);
         em.setAdministrator(true);
-        em.setName("IName");
-        em.setDocument("1");
-        em.setPassword(controller.MainController.md5Security.MD5Security("Ipass"));
+        em.setName("user");
+        em.setDocument("1016016019");
+        em.setPassword(controller.MainController.md5Security.MD5Security("pass"));
         em.setAdministrator(true);
-        em.setUser("IUser");
-        emJpaController.create(em);*/
-        //controller.MainController.employeeJpaController.create(em);
+        em.setUser("user");
+        emJpaController.create(em);
+        controller.MainController.employeeJpaController.create(em);
 
 
         //Creacion de la tabla VehicleType
         VehicleType vt = new VehicleType();
-        vt.setCodification("ICodification");
-        vt.setName("IName");
+        vt.setCodification("ASD132");
+        vt.setName("carro");
         vt.setNumber(MainController.vehicleTypeJpaController.getVehicleTypeCount());
+        vt.setPlaces(5);
         vtJpaController.create(vt);
 
 

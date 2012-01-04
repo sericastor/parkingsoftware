@@ -29,8 +29,7 @@ public class VehicleTypeJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
-    public List <VehicleType>  matchPlateType(String codification) {
+public List <VehicleType>  matchPlateType(String codification) {
         EntityManager em = getEntityManager();
         List <VehicleType> vehi = null;
         try {
@@ -45,7 +44,6 @@ public class VehicleTypeJpaController implements Serializable {
             em.close();
         }
     }
-
     public void create(VehicleType vehicleType) {
         EntityManager em = null;
         try {
@@ -70,7 +68,7 @@ public class VehicleTypeJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = vehicleType.getNumber();
+                long id = vehicleType.getNumber();
                 if (findVehicleType(id) == null) {
                     throw new NonexistentEntityException("The vehicleType with id " + id + " no longer exists.");
                 }
@@ -83,7 +81,7 @@ public class VehicleTypeJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -115,7 +113,7 @@ public class VehicleTypeJpaController implements Serializable {
     private List<VehicleType> findVehicleTypeEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(VehicleType.class));
             Query q = em.createQuery(cq);
             if (!all) {
@@ -128,7 +126,7 @@ public class VehicleTypeJpaController implements Serializable {
         }
     }
 
-    public VehicleType findVehicleType(Long id) {
+    public VehicleType findVehicleType(long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(VehicleType.class, id);
@@ -149,4 +147,5 @@ public class VehicleTypeJpaController implements Serializable {
             em.close();
         }
     }
+    
 }
