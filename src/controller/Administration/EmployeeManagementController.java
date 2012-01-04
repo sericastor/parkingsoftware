@@ -106,7 +106,7 @@ public class EmployeeManagementController {
     }
     
     public static boolean validateUser(String user) {
-        if (user.length() >= 6 && user.length() <= 10) {
+        if (user.length() >= 4 && user.length() <= 10) {
             return true;
         }
         return false;

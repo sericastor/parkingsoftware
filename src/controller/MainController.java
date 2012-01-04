@@ -1,6 +1,8 @@
 package controller;
 
 import DAO.BandsRateJpaController;
+import DAO.CustomEntryTicketJpaController;
+import DAO.CustomExitTicketJpaController;
 import DAO.EmployeeJpaController;
 import DAO.EntriesJpaController;
 import DAO.ExitsJpaController;
@@ -155,4 +157,6 @@ public class MainController {
     public static QuitVehiclePanel quitPanel = new QuitVehiclePanel();
     public static AddVehiclePanel addPanel = new AddVehiclePanel();
     public static ExitsJpaController exitsJpaController = new ExitsJpaController(controller.MainController.system.getPersistence_factory());
+    public static CustomEntryTicketJpaController customEntryJpaController = new CustomEntryTicketJpaController(controller.MainController.system.getPersistence_factory());
+    public static CustomExitTicketJpaController customExitJpaController = new CustomExitTicketJpaController(controller.MainController.system.getPersistence_factory());
 }
