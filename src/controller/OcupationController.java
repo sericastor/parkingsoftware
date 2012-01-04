@@ -34,11 +34,7 @@ public class OcupationController {
         try{
         List<InfoParkway> list=MainController.infoJpaController.findInfoParkwayEntities();
         InfoParkway info=list.get(0);
-            System.out.println("estoy imprimiendo capacidad maxima"+info.getMaxCapacity());
         double percentage=(sub/info.getMaxCapacity())*100;
-            System.out.println("estoy imprimiendo percentage"+percentage);
-            System.out.println("estoy lo que hay guardado"+info.getCapacityStatus());
-            System.out.println("estoy imprimiendo la resta"+(info.getCapacityStatus()-percentage));
         info.setCapacityStatus(info.getCapacityStatus()-percentage);
         
         MainController.infoJpaController.edit(info);

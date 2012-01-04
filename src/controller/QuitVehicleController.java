@@ -40,7 +40,6 @@ public class QuitVehicleController {
         int from, to;
         double numberOfUnits;
         double minutesParked = getDifferenceBetweenHours(entry, exit);
-        System.out.println(getDifferenceBetweenHours(entry, exit));
         List<BandsRate> ratesOfVehicleType = MainController.bandsRateJpaController.queryByVehicleTypes(vehicleType);
         BandsRate lastRate = null;
         for (BandsRate b : ratesOfVehicleType) {

@@ -16,12 +16,10 @@ public class LogoutController {
     public static void logout(int logout){
     
         if(logout==0){
-            System.out.println("yes");
             MainController.setVisibleMainView(false);
             LoginController.setVisibleLoginView(true);
         }
         else{
-            System.out.println("no");
         }
     }
 }
