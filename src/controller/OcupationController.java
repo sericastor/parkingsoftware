@@ -4,11 +4,10 @@
  */
 package controller;
 
-import DAO.exceptions.NonexistentEntityException;
+
+import Entity.Entries;
 import Entity.InfoParkway;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +28,6 @@ public class OcupationController {
         }
           
     }
-    
     public void subsstractionOcupation(double sub){
         try{
         List<InfoParkway> list=MainController.infoJpaController.findInfoParkwayEntities();
@@ -51,6 +49,24 @@ public class OcupationController {
         return info.getCapacityStatus();}
         catch(Exception e){
         return 0;
+        }
+    }
+    public void recalculateStatus(double places){
+        try{
+        List<Entries> entries=MainController.entriesJpaController.findEntriesEntities();
+        List<InfoParkway> list=MainController.infoJpaController.findInfoParkwayEntities();
+        InfoParkway info=list.get(0);
+        double acumulate=0;
+        for (Entries e : entries) {
+            acumulate+=e.getVehicleType().getPlaces();
+        }
+        acumulate=(acumulate/places)*100;
+        info.setCapacityStatus(acumulate);
+        MainController.infoJpaController.edit(info);
+        MainController.mainView.updateStatusBar(info.getCapacityStatus());
+        }
+        catch(Exception e){
+        MainController.mainView.confirmationMessages("Error en el recalculo de la capacidad", "Error", 1);
         }
     }
 }

@@ -611,6 +611,10 @@ public class MainView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
     public void updateStatusBar(double value){
+        if(value>=100){
+            confirmationMessages("Ha sobrepasado la capacidad máxima del establecimiento, "
+                    + "consulte con el administrador si requiere modificar la capacidad en el sistema","Atención",1);
+        }
         statusProgressBar.setValue((int)value);
         statusProgressBar.setStringPainted(true);
         statusProgressBar.updateUI();

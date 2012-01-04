@@ -61,6 +61,7 @@ public class ParkingManagementController {
             infoParkway.setMaxCapacity(Integer.parseInt(maxCapacity));
             infoParkway.setIVAPercent(ivaPercent);
             MainController.infoJpaController.edit(infoParkway, idParkway);
+            MainController.ocupationController.recalculateStatus(infoParkway.getMaxCapacity());
         } else {
             MainController.adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
         }
