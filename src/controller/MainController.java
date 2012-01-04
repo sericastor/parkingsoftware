@@ -56,7 +56,14 @@ public class MainController {
         return false;
     }
 
-    public static void saveNewVehicleType(String plate, String example) {
+    public static void saveNewVehicleType(String plate, String example,Boolean places, String numberOfPlaces) {
+        double indexPlace=1;
+        if(places){
+            indexPlace=1/Double.parseDouble(numberOfPlaces);
+        }
+        else{
+            indexPlace=Double.parseDouble(numberOfPlaces);
+        }
         if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
             adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
         } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
@@ -65,7 +72,7 @@ public class MainController {
             int confirm = adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("
                     + plate + ")");
             if (confirm == 0) {
-                String state = AdministrateVehicleTypeController.savePlate(plate, example);
+                String state = AdministrateVehicleTypeController.savePlate(plate, example, indexPlace);
                 if (state.equals("Failure")) {
                     adminView.showMessage("Error", "Solo se permiten valores alfa-numericos en la placa", 0);
                 } else {
