@@ -36,17 +36,16 @@ public class InitializeController {
             
         //Creacion de la tabla Employee
         Employee em = new Employee();
-        em.setId(MainController.employeeJpaController.getEmployeeCount());
         em.setLastName("user");
         em.setIsActive(true);
         em.setAdministrator(true);
         em.setName("user");
-        em.setDocument("1016016019");
+        em.setDocument("1011011011");
         em.setPassword(controller.MainController.md5Security.MD5Security("pass"));
         em.setAdministrator(true);
         em.setUser("user");
         emJpaController.create(em);
-        controller.MainController.employeeJpaController.create(em);
+        
 
 
         //Creacion de la tabla VehicleType

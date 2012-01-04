@@ -60,7 +60,6 @@ public class ParkingManagementController {
             infoParkway.setTelephone(phone);
             infoParkway.setMaxCapacity(Integer.parseInt(maxCapacity));
             infoParkway.setIVAPercent(ivaPercent);
-            System.out.println(infoParkway.getName());
             MainController.infoJpaController.edit(infoParkway, idParkway);
         } else {
             MainController.adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
