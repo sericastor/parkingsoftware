@@ -18,6 +18,7 @@ public class ParkingManagementController {
              parkway.setId(idParkway);
              parkway.setMaxCapacity(1);
              parkway.setIVAPercent(0.00);
+             parkway.setCapacityStatus(0);
              MainController.infoJpaController.create(parkway);
          }
          return MainController.infoJpaController.findInfoParkway(idParkway);

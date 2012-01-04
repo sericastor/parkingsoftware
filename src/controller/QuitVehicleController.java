@@ -118,6 +118,7 @@ public class QuitVehicleController {
         exit.setVehicleType(entry.getVehicleType());
         MainController.exitsJpaController.create(exit);
         MainController.entriesJpaController.destroy(entry.getId());
+        MainController.ocupationController.subsstractionOcupation(entry.getVehicleType().getPlaces());
         MainController.system.NewLogAction("Exit Vehicle", plate);
         MainController.mainView.confirmationMessages(
                     "El vehiculo ha cambiado satisfactoriamente de estado", "Información",0);

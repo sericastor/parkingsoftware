@@ -29,6 +29,7 @@ public class MainView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         PlateTextField.requestFocus();
+        //updateStatusBar(MainController.ocupationController.returnStatus());
     }
 
     public JLabel getUserLabel() {
@@ -66,6 +67,8 @@ public class MainView extends javax.swing.JFrame {
         ClockPanel = new javax.swing.JPanel();
         ClockLabel = new javax.swing.JLabel();
         UserLabel = new javax.swing.JLabel();
+        statusProgressBar = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
         StateTabbed = new javax.swing.JTabbedPane();
         EntryPanel = new javax.swing.JPanel();
         EntriesScrollPane = new javax.swing.JScrollPane();
@@ -111,6 +114,11 @@ public class MainView extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+        });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
             }
         });
 
@@ -266,25 +274,33 @@ public class MainView extends javax.swing.JFrame {
 
         ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
-        ClockLabel.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
+        ClockLabel.setFont(new java.awt.Font("Tahoma", 2, 36));
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ClockLabel.setToolTipText("Hora actual.");
         ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        UserLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        UserLabel.setFont(new java.awt.Font("Tahoma", 0, 36));
         UserLabel.setText("Aquí va el nombre del Usuario");
+
+        jLabel1.setText("Porcentaje de ocupación");
 
         javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
         ClockPanel.setLayout(ClockPanelLayout);
         ClockPanelLayout.setHorizontalGroup(
             ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ClockPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ClockPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(UserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(statusProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ClockPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(UserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ClockLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)))
+                    .addGroup(ClockPanelLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
         ClockPanelLayout.setVerticalGroup(
@@ -294,7 +310,11 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UserLabel)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(statusProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         StateTabbed.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -545,13 +565,13 @@ public class MainView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ParkingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(OptionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ClockPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DataEntryPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE))
-            .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,6 +610,12 @@ public class MainView extends javax.swing.JFrame {
             setAddOrQuitPanel(MainController.quitPanel);
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
+    public void updateStatusBar(double value){
+        statusProgressBar.setValue((int)value);
+        statusProgressBar.setStringPainted(true);
+        statusProgressBar.updateUI();
+    }
+    
     public void setAddOrQuitPanel(JPanel panel) {
         AoQPanel.removeAll();
         AoQPanel.add(panel);
@@ -717,6 +743,10 @@ private void StateTabbedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST
     MainController.managementStateTabbed(StateTabbed.getSelectedIndex());
 }//GEN-LAST:event_StateTabbedMouseClicked
 
+private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+updateStatusBar(MainController.ocupationController.returnStatus());
+}//GEN-LAST:event_formComponentShown
+
     public void start() {
         Thread thread = new Thread();
         thread.start();
@@ -800,8 +830,10 @@ private void StateTabbedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST
     private javax.swing.JTable VehicleTypeTable;
     private javax.swing.JMenuItem ViewHelpMenu;
     private javax.swing.JMenu ViewMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JProgressBar statusProgressBar;
     // End of variables declaration//GEN-END:variables
 }
