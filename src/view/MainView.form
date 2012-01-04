@@ -129,6 +129,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMenu3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vista previa de tiquetes"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Entrada"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Salida"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="HelpMenu">
           <Properties>
