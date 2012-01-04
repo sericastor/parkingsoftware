@@ -90,6 +90,7 @@ public class AddVehicleController {
         //Verificar existencia de tarifas para el tipo de vehiculo
         if (!MainController.bandsRateJpaController.queryByVehicleTypes(vehicleTypeIsSelected).isEmpty()) {
             MainController.entriesJpaController.create(m);
+            MainController.ocupationController.sumOcupation(getVehicleTypeSelected(vehicleType).getPlaces());
             MainController.system.NewLogAction("Entry Vehicle", plate);
             MainController.adminView.showMessage("Información", "El vehiculo con placas " + plate + " ha sido registrado", 1);
             MainController.mainView.setPlateTextField("");

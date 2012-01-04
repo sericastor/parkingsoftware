@@ -17,11 +17,9 @@ public class ExitController {
     public static void exit(int exit){
     
         if(exit==0){
-            System.out.println("yes");
             System.exit(exit);
         }
         else{
-            System.out.println("no");
         }
     }
     
