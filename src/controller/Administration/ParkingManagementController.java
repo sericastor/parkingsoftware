@@ -1,7 +1,6 @@
 
 package controller.Administration;
 
-import DAO.InfoParkwayJpaController;
 import Entity.InfoParkway;
 import controller.MainController;
 
@@ -18,7 +17,7 @@ public class ParkingManagementController {
              InfoParkway parkway = new InfoParkway();
              parkway.setId(idParkway);
              parkway.setMaxCapacity(1);
-             parkway.setIVAPercent(0.01);
+             parkway.setIVAPercent(0.00);
              MainController.infoJpaController.create(parkway);
          }
          return MainController.infoJpaController.findInfoParkway(idParkway);

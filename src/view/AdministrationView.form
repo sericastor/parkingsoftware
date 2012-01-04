@@ -153,7 +153,7 @@
                               <Component id="MaxCapacityTextField" alignment="0" pref="135" max="32767" attributes="1"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="412" max="32767" attributes="0"/>
+                      <EmptySpace pref="435" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -314,7 +314,7 @@
                               <Component id="CreateEmployeeButton" linkSize="2" pref="211" max="32767" attributes="1"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="822" max="32767" attributes="0"/>
+                              <EmptySpace pref="845" max="32767" attributes="0"/>
                               <Component id="UpdateEmployeeButton" linkSize="2" min="-2" max="-2" attributes="1"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -616,7 +616,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SubPanel" alignment="0" pref="1043" max="32767" attributes="0"/>
+                  <Component id="SubPanel" alignment="0" pref="1066" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -662,7 +662,7 @@
                               <Component id="SavePlateButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="VehicleTypeScroll" alignment="0" pref="1038" max="32767" attributes="0"/>
+                          <Component id="VehicleTypeScroll" alignment="0" pref="1061" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -800,13 +800,13 @@
                               <Component id="VehicleTypeLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Component id="VehicleTypeComboBox" min="-2" pref="186" max="-2" attributes="0"/>
-                              <EmptySpace pref="311" max="32767" attributes="0"/>
+                              <EmptySpace pref="334" max="32767" attributes="0"/>
                               <Component id="SaveRateChangesButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="DeleteLastRate" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Component id="RatesScroll" alignment="0" pref="1038" max="32767" attributes="0"/>
+                          <Component id="RatesScroll" alignment="0" pref="1061" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -938,7 +938,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ReportsTabbedPanel" alignment="1" pref="1043" max="32767" attributes="0"/>
+                  <Component id="ReportsTabbedPanel" alignment="1" pref="1066" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -994,7 +994,7 @@
                                   <Component id="PartialReportPrintButton" alignment="1" max="32767" attributes="1"/>
                                   <Component id="PartialReportGenerateButton" alignment="1" min="-2" max="-2" attributes="1"/>
                               </Group>
-                              <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1123,6 +1123,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="   Buscar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PartialReportSearchButtonActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1172,7 +1175,7 @@
                               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="CustomReportPrintButton" pref="352" max="32767" attributes="1"/>
+                                      <Component id="CustomReportPrintButton" pref="375" max="32767" attributes="1"/>
                                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -1372,109 +1375,140 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" pref="563" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TitleExLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FootPageExLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="ShowExParkwayNITCheck" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="ShowExParkwayNameCheck" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="ShowExParkwayAddressCheck" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="ShowExEmployeeCheck" alignment="0" max="32767" attributes="1"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="469" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="1">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jCheckBox4" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="jCheckBox3" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="jCheckBox1" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="jCheckBox2" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="TitleExTextField" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="FootPageExitScroll" alignment="0" pref="312" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
-                                      <Component id="jButton3" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="SaveExitTicketButton" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="314" max="32767" attributes="0"/>
+                              <EmptySpace pref="431" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TitleExLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TitleExTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ShowExParkwayNameCheck" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ShowExParkwayAddressCheck" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ShowExParkwayNITCheck" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ShowExEmployeeCheck" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jButton3" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="FootPageExLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="FootPageExitScroll" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="SaveExitTicketButton" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="53" max="32767" attributes="0"/>
+                              <EmptySpace pref="29" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
+                    <Component class="javax.swing.JLabel" name="TitleExLabel">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Titulo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                    <Component class="javax.swing.JTextField" name="TitleExTextField">
                       <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Ingrese el texto que desea mostrar como t&#xed;tulo en el tiquete. (A partir del caracter 25 los dem&#xe1;s ser&#xe1;n ignorados)"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="ShowExParkwayNameCheck">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar nombre del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que sea visible el nombre del parqueadero en los tiquetes."/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+                    <Component class="javax.swing.JCheckBox" name="ShowExParkwayAddressCheck">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar direcci&#xf3;n del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre la direcci&#xf3;n del parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+                    <Component class="javax.swing.JCheckBox" name="ShowExParkwayNITCheck">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar NIT del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre el NIT de su parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+                    <Component class="javax.swing.JCheckBox" name="ShowExEmployeeCheck">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar quien esta atendiendo"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre el nombre del empleado que ingreso retiro el veh&#xed;culo."/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel7">
+                    <Component class="javax.swing.JLabel" name="FootPageExLabel">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie de p&#xe1;gina"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton3">
+                    <Component class="javax.swing.JButton" name="SaveExitTicketButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/Floppy.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Personalizar tiquete de salida."/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveExitTicketButtonActionPerformed"/>
+                      </Events>
                     </Component>
+                    <Container class="javax.swing.JScrollPane" name="FootPageExitScroll">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="FootPageExArea">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Escriba el pie de p&#xe1;gina que desee visualizar en el tiquete. (A partir de 100 caracteres se ignorar&#xe1; el resto)"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="EntryTicket">
@@ -1495,124 +1529,154 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TicketTitleLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="FootPageTicket" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="FootPageTextField" min="-2" pref="537" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="FootPageEntryScroll" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="TitleTextField" alignment="0" pref="339" max="32767" attributes="1"/>
+                                      </Group>
+                                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                      <Component id="SaveEntryTicketButton" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="405" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TittleTicket" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                                      <Component id="TitlleTextField" min="-2" pref="448" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="1">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="NameCB" alignment="0" max="32767" attributes="1"/>
                                           <Component id="AddressCB" alignment="0" max="32767" attributes="1"/>
                                           <Component id="BarCodeCB" alignment="0" max="32767" attributes="1"/>
                                           <Component id="EmployeeCB" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="NITCB" alignment="0" pref="194" max="32767" attributes="1"/>
+                                          <Component id="NITCB" alignment="0" min="-2" pref="194" max="-2" attributes="1"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
-                                      <Component id="jButton1" max="32767" attributes="0"/>
+                                      <EmptySpace pref="707" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TittleTicket" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TitlleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="NameCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="AddressCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="NITCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="1">
-                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                      <Component id="jButton1" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="TicketTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TitleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="NameCB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="AddressCB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="NITCB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="BarCodeCB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="FootPageTicket" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FootPageTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="10" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FootPageEntryScroll" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SaveEntryTicketButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="TittleTicket">
+                    <Component class="javax.swing.JLabel" name="TicketTitleLabel">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Titulo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TitlleTextField">
+                    <Component class="javax.swing.JTextField" name="TitleTextField">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Ingrese el texto que desea mostrar como t&#xed;tulo en el tiquete. (A partir del caracter 25 los dem&#xe1;s ser&#xe1;n ignorados)"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="NameCB">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar nombre del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que sea visible el nombre del parqueadero en los tiquetes."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="AddressCB">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar direcci&#xf3;n del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre la direcci&#xf3;n del parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="NITCB">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar NIT del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el NIT del parqueadero en el tiquete."/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NITCBActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="EmployeeCB">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar qui&#xe9;n esta atendiendo"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el nombre del empleado que ingres&#xf3; el veh&#xed;culo en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="BarCodeCB">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar c&#xf3;digo de barras"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre un c&#xf3;digo de barras con la placa del veh&#xed;culo en el tiquete"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="FootPageTicket">
+                    <Component class="javax.swing.JLabel" name="FootPageTicketLabel">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie de p&#xe1;gina"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="FootPageTextField">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FootPageTextFieldActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton1">
+                    <Component class="javax.swing.JButton" name="SaveEntryTicketButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/Floppy.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Personalizar tiquete de entrada."/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveEntryTicketButtonActionPerformed"/>
+                      </Events>
                     </Component>
+                    <Container class="javax.swing.JScrollPane" name="FootPageEntryScroll">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="FootPageEntryArea">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Escriba el pie de p&#xe1;gina que desee visualizar en el tiquete. (A partir de 100 caracteres se ignorar&#xe1; el resto)"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
               </SubComponents>

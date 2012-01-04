@@ -31,7 +31,7 @@ public class CustomExitTicketJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(CustomExitTicket customExitTicket) throws PreexistingEntityException, Exception {
+    public void create(CustomExitTicket customExitTicket) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -39,10 +39,7 @@ public class CustomExitTicketJpaController implements Serializable {
             em.persist(customExitTicket);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findCustomExitTicket(customExitTicket.getId()) != null) {
-                throw new PreexistingEntityException("CustomExitTicket " + customExitTicket + " already exists.", ex);
-            }
-            throw ex;
+            System.out.println(ex.getMessage());
         } finally {
             if (em != null) {
                 em.close();
