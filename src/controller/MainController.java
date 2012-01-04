@@ -147,6 +147,7 @@ public class MainController {
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString(), comentary);
         quitPanel.setCostTextField(quitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
+    public static OcupationController ocupationController = new OcupationController();
     public static BarCodePanel barCodePanel = new BarCodePanel();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();

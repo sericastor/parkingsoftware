@@ -32,11 +32,19 @@ public class InfoParkway implements Serializable {
     private int maxCapacity;
     @Column(name="IvaPercent",nullable=false)
     private double IVAPercent;
-    
+    @Column (name="CapacityStatus")
+    private double capacityStatus;
 
+    
     public InfoParkway() {
     }
+    public double getCapacityStatus() {
+        return capacityStatus;
+    }
 
+    public void setCapacityStatus(double capacityStatus) {
+        this.capacityStatus = capacityStatus;
+    }
     public double getIVAPercent() {
         return IVAPercent;
     }

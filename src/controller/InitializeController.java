@@ -54,7 +54,7 @@ public class InitializeController {
         vt.setCodification("ASD132");
         vt.setName("carro");
         vt.setNumber(MainController.vehicleTypeJpaController.getVehicleTypeCount());
-        vt.setPlaces(5);
+        vt.setPlaces(1);
         vtJpaController.create(vt);
 
 
@@ -116,19 +116,19 @@ public class InitializeController {
         exit.setUnits(1);
         exit.setVehicleType(1);
         exitJpaController.create(exit);
-
+        
+*/
         //Creacion de la tabla InfoParkway
         InfoParkway infop = new InfoParkway();
         infop.setAddress("InitialAdress");
-        infop.setId(Long.valueOf(1));
-        infop.setMaxCapacity(100);
+        infop.setMaxCapacity(50);
         infop.setName("InitialName");
-        infop.setNit("InitialNit");
+        infop.setNit("123456");
         infop.setRegister(1);
-        infop.setTelephone("1");
+        infop.setTelephone("123456");
+        infop.setCapacityStatus(1);
         infopJpaController.create(infop);
-        
-*/
+
         }
         
 
