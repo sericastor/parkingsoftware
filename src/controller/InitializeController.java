@@ -10,6 +10,7 @@ import DAO.FactureTurnJpaController;
 import DAO.InfoParkwayJpaController;
 import DAO.VehicleTypeJpaController;
 import Entity.BandsRate;
+import Entity.CustomExitTicket;
 import Entity.Employee;
 import Entity.Entries;
 import Entity.Facture;
@@ -51,7 +52,7 @@ public class InitializeController {
         //Creacion de la tabla VehicleType
         VehicleType vt = new VehicleType();
         vt.setCodification("111000");
-        vt.setName("carro");
+        vt.setName("Vehiculo Particular");
         vt.setNumber(MainController.vehicleTypeJpaController.getVehicleTypeCount());
         vt.setPlaces(1);
         vtJpaController.create(vt);
