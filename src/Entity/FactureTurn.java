@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,10 +36,7 @@ public class FactureTurn implements Serializable {
     private double IVA;
     @Column(name="Total",nullable=false)
     private double total;
-    @Column(name="Employee")
-    @ManyToOne
-    private Employee factureEmployee;
-    @Column(name="fExit")
+    @JoinColumn(name="fExit")
     @ManyToOne
     private Exits exit;
     
@@ -55,14 +53,6 @@ public class FactureTurn implements Serializable {
 
     public void setExit(Exits exit) {
         this.exit = exit;
-    }
-
-    public Employee getFactureEmployee() {
-        return factureEmployee;
-    }
-
-    public void setFactureEmployee(Employee factureEmployee) {
-        this.factureEmployee = factureEmployee;
     }
 
     public void setIVA(double IVA) {

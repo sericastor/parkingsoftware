@@ -11,8 +11,7 @@ public class LoginController {
 
     public static boolean verifyUser(String user, String password) {
 
-       /* este codigo crea un nuevo usuario en la base de datos, 
-         * desmarcarlo solo en caso que no se tengan usuarios creados con anterioridad
+        /*Código para generar primer usuario, descomentar únicamente cuando la base de datos esté vacía
         Employee employee1=new Employee();
         employee1.setAdministrator(true);
         employee1.setDocument("12356");

@@ -24,7 +24,7 @@ public class SystemSession {
     }
     
     private static EntityManagerFactory persistence_factory;
-    private static Employee sesionemployee;
+    public static Employee sesionemployee;
 
     public static EntityManagerFactory getPersistence_factory() {
         return persistence_factory;
