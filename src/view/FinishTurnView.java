@@ -10,8 +10,10 @@
  */
 package view;
 
+import controller.CloseTurnController;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,22 +40,32 @@ public class FinishTurnView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CloseTurnButton = new javax.swing.JButton();
+        CloseTurnPartialButton = new javax.swing.JButton();
         CloseTotalButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        CloseTurnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stats.png"))); // NOI18N
-        CloseTurnButton.setText("Cerrar Turno");
+        CloseTurnPartialButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stats.png"))); // NOI18N
+        CloseTurnPartialButton.setText("Cerrar Turno");
+        CloseTurnPartialButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseTurnPartialButtonActionPerformed(evt);
+            }
+        });
 
         CloseTotalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Database.png"))); // NOI18N
         CloseTotalButton.setText("Cerrar Total");
+        CloseTotalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseTotalButtonActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36));
         jLabel1.setText("¿Cerrar Caja?");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -79,7 +91,7 @@ public class FinishTurnView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(CloseTurnButton)
+                .addComponent(CloseTurnPartialButton)
                 .addGap(87, 87, 87)
                 .addComponent(CloseTotalButton, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                 .addContainerGap())
@@ -91,7 +103,7 @@ public class FinishTurnView extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CloseTurnButton)
+                    .addComponent(CloseTurnPartialButton)
                     .addComponent(CloseTotalButton))
                 .addContainerGap())
         );
@@ -99,12 +111,28 @@ public class FinishTurnView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CloseTurnPartialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTurnPartialButtonActionPerformed
+        closeTurnController.closeTurnPartial();
+        informAboutClosing(CloseTurnPartialMessage);
+    }//GEN-LAST:event_CloseTurnPartialButtonActionPerformed
+
+    private void CloseTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTotalButtonActionPerformed
+        closeTurnController.closeTurnTotal();
+        informAboutClosing(CloseTurnTotalMessage);
+    }//GEN-LAST:event_CloseTotalButtonActionPerformed
+    private void informAboutClosing(String message){
+        JOptionPane.showMessageDialog(null, message);    
+    }
     /**
      * @param args the command line arguments
      */
+    private static CloseTurnController closeTurnController = new CloseTurnController();
+    private static String CloseTurnTotalMessage = "Ha cerrado caja totalmente";
+    private static String CloseTurnPartialMessage = "Ha cerrado caja parcialmente";
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseTotalButton;
-    private javax.swing.JButton CloseTurnButton;
+    private javax.swing.JButton CloseTurnPartialButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
