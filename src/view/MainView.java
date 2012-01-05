@@ -1,5 +1,6 @@
 package view;
 
+import controller.Administration.CustomEntryTicketController;
 import controller.Administration.CustomExitTicketController;
 import controller.ExitController;
 import controller.LogoutController;
@@ -118,7 +119,7 @@ public class MainView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("ChiquiParking");
+        setTitle("ParkQuick");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -816,7 +817,7 @@ updateStatusBar(MainController.ocupationController.returnStatus());
 }//GEN-LAST:event_formComponentShown
 
 private void EntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntryActionPerformed
-    
+    CustomEntryTicketController.previewEntryTicket();
 }//GEN-LAST:event_EntryActionPerformed
 
 private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed

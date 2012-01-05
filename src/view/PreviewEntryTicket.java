@@ -10,6 +10,10 @@
  */
 package view;
 
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Martin Kanayet
@@ -19,6 +23,58 @@ public class PreviewEntryTicket extends javax.swing.JPanel {
     /** Creates new form PreviewEntryTicket */
     public PreviewEntryTicket() {
         initComponents();
+    }
+
+    public void setTittleText(String tittle) {
+        this.Tittle.setText(tittle);
+    }
+
+    public void setNIT(String NIT) {
+        this.ParkingNIT.setText(NIT);
+    }
+
+    public void setParkingName(String name) {
+        this.ParkingName.setText(name);
+    }
+
+    public void setParkingAddress(String address) {
+        this.ParkingAddress.setText(address);
+    }
+
+    public void setVisibleName(boolean isVisible) {
+        this.ParkingName.setVisible(isVisible);
+    }
+
+    public void setVisibleAddress(boolean isVisible) {
+        this.ParkingAddress.setVisible(isVisible);
+    }
+
+    public void setVisibleNIT(boolean isVisible) {
+        this.ParkingNIT.setVisible(isVisible);
+    }
+
+    public void setVisibleBarCode(boolean isVisible) {
+        this.BarCodePanel.setVisible(isVisible);
+    }
+
+    public void setVisibleEmployee(boolean isVisible) {
+        this.Employee.setVisible(isVisible);
+        this.AttendedByLabel.setVisible(isVisible);
+    }
+
+    public void setEmployee(String employee) {
+        this.Employee.setText(employee);
+    }
+
+    public void setFootPage(String footPage) {
+        this.FootPage.setText(footPage);
+    }
+
+    public void setBarCode() {
+        BarCodePanel.setLayout(new BorderLayout()); // Para que la imagen se agrande
+        JLabel label = new JLabel();
+        BarCodePanel.add(label, BorderLayout.CENTER);
+        label.setIcon(new ImageIcon("src/images/barcode.jpg"));
     }
 
     /** This method is called from within the constructor to
