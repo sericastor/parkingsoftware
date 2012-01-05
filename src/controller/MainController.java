@@ -97,6 +97,12 @@ public class MainController {
         if(selectedTab == 1){
             mainView.setExitsTableModel(AddVehicleManagementController.TotalSearchOfExits());
         }
+        if(selectedTab == 2){
+            mainView.setFacturesTableModel(CloseTurnController.TotalSearchOfFactures());
+        }
+        if(selectedTab == 3){
+            mainView.setFactureTurnTableModel(CloseTurnController.TotalSearchOfFactureTurn());
+        }
         if (selectedTab == 4) {
             mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
         }

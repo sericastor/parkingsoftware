@@ -77,7 +77,11 @@ public class MainView extends javax.swing.JFrame {
         ExitsScrollPane = new javax.swing.JScrollPane();
         ExitsTable = new javax.swing.JTable();
         FacturePanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        FacturesTable = new javax.swing.JTable();
         FactureTurnPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        FactureTurnTable = new javax.swing.JTable();
         VehicleTypePanel = new javax.swing.JPanel();
         VehicleTypeSrollPane = new javax.swing.JScrollPane();
         VehicleTypeTable = new javax.swing.JTable();
@@ -293,11 +297,11 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(ClockPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(statusProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                            .addComponent(statusProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ClockPanelLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(UserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ClockLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)))
+                            .addComponent(ClockLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)))
                     .addGroup(ClockPanelLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jLabel1)))
@@ -397,30 +401,56 @@ public class MainView extends javax.swing.JFrame {
 
         FacturePanel.setBackground(new java.awt.Color(255, 255, 255));
 
+        FacturesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(FacturesTable);
+
         javax.swing.GroupLayout FacturePanelLayout = new javax.swing.GroupLayout(FacturePanel);
         FacturePanel.setLayout(FacturePanelLayout);
         FacturePanelLayout.setHorizontalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1188, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
         );
         FacturePanelLayout.setVerticalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Facturas", FacturePanel);
 
         FactureTurnPanel.setBackground(new java.awt.Color(255, 255, 255));
 
+        FactureTurnTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(FactureTurnTable);
+
         javax.swing.GroupLayout FactureTurnPanelLayout = new javax.swing.GroupLayout(FactureTurnPanel);
         FactureTurnPanel.setLayout(FactureTurnPanelLayout);
         FactureTurnPanelLayout.setHorizontalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1188, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
         );
         FactureTurnPanelLayout.setVerticalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Facturas Turno", FactureTurnPanel);
@@ -571,7 +601,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(ClockPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE))
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -742,6 +772,15 @@ public void setExitsTableModel(DefaultTableModel model){
     ExitsTable.setModel(model);
 }
 
+public void setFacturesTableModel(DefaultTableModel model){
+    FacturesTable.setModel(model);
+}
+
+public void setFactureTurnTableModel(DefaultTableModel model){
+    FactureTurnTable.setModel(model);
+}
+
+
 private void StateTabbedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StateTabbedMouseClicked
     System.out.println(StateTabbed.getSelectedIndex());
     MainController.managementStateTabbed(StateTabbed.getSelectedIndex());
@@ -810,6 +849,8 @@ updateStatusBar(MainController.ocupationController.returnStatus());
     private javax.swing.JTable ExitsTable;
     private javax.swing.JPanel FacturePanel;
     private javax.swing.JPanel FactureTurnPanel;
+    private javax.swing.JTable FactureTurnTable;
+    private javax.swing.JTable FacturesTable;
     private javax.swing.JMenu FileMenu;
     private javax.swing.JPopupMenu.Separator FileSeparator1;
     private javax.swing.JPopupMenu.Separator FileSeparator2;
@@ -838,6 +879,8 @@ updateStatusBar(MainController.ocupationController.returnStatus());
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JProgressBar statusProgressBar;
     // End of variables declaration//GEN-END:variables
 }

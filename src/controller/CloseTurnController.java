@@ -18,8 +18,6 @@ import javax.swing.table.DefaultTableModel;
 public class CloseTurnController {
 
     public CloseTurnController() {
-        AllFactureTurn = MainController.factureTurnJpaController.findFactureTurnEntities();
-        AllFactures = MainController.factureJpaController.findFactureEntities();
     }
     public static int getNextFactureTurnID() {
         return MainController.factureTurnJpaController.getFactureTurnCount() + 1;

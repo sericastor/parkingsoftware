@@ -24,7 +24,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="CloseTurnButton" min="-2" max="-2" attributes="1"/>
+              <Component id="CloseTurnPartialButton" min="-2" max="-2" attributes="1"/>
               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
               <Component id="CloseTotalButton" pref="163" max="32767" attributes="1"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -38,7 +38,7 @@
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CloseTurnButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CloseTurnPartialButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CloseTotalButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -47,13 +47,16 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="CloseTurnButton">
+    <Component class="javax.swing.JButton" name="CloseTurnPartialButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Stats.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cerrar Turno"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CloseTurnPartialButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="CloseTotalButton">
       <Properties>
@@ -62,6 +65,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cerrar Total"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CloseTotalButtonActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
