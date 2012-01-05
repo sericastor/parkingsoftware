@@ -1,5 +1,6 @@
 package view;
 
+import controller.Administration.CustomExitTicketController;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
@@ -98,6 +99,9 @@ public class MainView extends javax.swing.JFrame {
         PasteMenu = new javax.swing.JMenuItem();
         DeleteMenu = new javax.swing.JMenuItem();
         ViewMenu = new javax.swing.JMenu();
+        Preview = new javax.swing.JMenu();
+        Entry = new javax.swing.JMenuItem();
+        Exit = new javax.swing.JMenuItem();
         HelpMenu = new javax.swing.JMenu();
         ViewHelpMenu = new javax.swing.JMenuItem();
         HelpSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -534,6 +538,27 @@ public class MainView extends javax.swing.JFrame {
         MenuBar.add(EditMenu);
 
         ViewMenu.setText("Ver");
+
+        Preview.setText("Vista previa de tiquetes");
+
+        Entry.setText("Entrada");
+        Entry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntryActionPerformed(evt);
+            }
+        });
+        Preview.add(Entry);
+
+        Exit.setText("Salida");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        Preview.add(Exit);
+
+        ViewMenu.add(Preview);
+
         MenuBar.add(ViewMenu);
 
         HelpMenu.setText("Ayuda");
@@ -751,6 +776,14 @@ private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:
 updateStatusBar(MainController.ocupationController.returnStatus());
 }//GEN-LAST:event_formComponentShown
 
+private void EntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntryActionPerformed
+    
+}//GEN-LAST:event_EntryActionPerformed
+
+private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+    CustomExitTicketController.previewExitTicket();
+}//GEN-LAST:event_ExitActionPerformed
+
     public void start() {
         Thread thread = new Thread();
         thread.start();
@@ -802,7 +835,9 @@ updateStatusBar(MainController.ocupationController.returnStatus());
     private javax.swing.JPopupMenu.Separator EditSeparator1;
     private javax.swing.JScrollPane EntriesScrollPane;
     private javax.swing.JTable EntriesTable;
+    private javax.swing.JMenuItem Entry;
     private javax.swing.JPanel EntryPanel;
+    private javax.swing.JMenuItem Exit;
     private javax.swing.JButton ExitButton;
     private javax.swing.JMenuItem ExitMenu;
     private javax.swing.JPanel ExitPanel;
@@ -825,6 +860,7 @@ updateStatusBar(MainController.ocupationController.returnStatus());
     private javax.swing.JMenuItem PasteMenu;
     private javax.swing.JLabel PlateLabel;
     private javax.swing.JTextField PlateTextField;
+    private javax.swing.JMenu Preview;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTabbedPane StateTabbed;
     private javax.swing.JMenuItem UndoMenu;

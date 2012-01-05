@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -38,20 +39,11 @@ public class Facture implements Serializable {
     private double total;
     @OneToOne
     private FactureTurn factureTurn;
-    @Column(name="Employee")
-    @ManyToOne
-    private Employee factureEmployee;
 
+    /*@OneToMany
+    private List<FactureTurn> facturesTurn = new ArrayList();*/
     //@OneToMany
     //private List<FactureTurn> facturesTurn = new ArrayList();
-
-    public Employee getFactureEmployee() {
-        return factureEmployee;
-    }
-
-    public void setFactureEmployee(Employee factureEmployee) {
-        this.factureEmployee = factureEmployee;
-    }
 
     public FactureTurn getFactureTurn() {
         return factureTurn;
