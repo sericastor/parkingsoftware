@@ -174,5 +174,19 @@ public class EntriesJpaController implements Serializable {
         }
 
     }
+    public Entries getEntriesByTicketCodification(String ticketCodification) {
+        EntityManager em = getEntityManager();
+        Entries entries = null;
+        try {
+            Query q = em.createQuery("SELECT u FROM Entries u "
+                    + "where u.ticketCodification LIKE :ticketCodification").setParameter("ticketCodification", ticketCodification);
+            entries = (Entries) q.getSingleResult();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            em.close();
+            return entries;
+        }
+    }
     
 }

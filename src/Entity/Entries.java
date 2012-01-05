@@ -27,7 +27,7 @@ public class Entries implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name="Ticket",nullable=false)
-    private int ticket;
+    private long ticket;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;
@@ -43,10 +43,22 @@ public class Entries implements Serializable {
     private Employee employee;
     @Column(name="Comentary",nullable=true)
     private String comentary;
+    @Column(name="TicketCodification")
+    private String ticketCodification;
+
+    
+    
 
     public Entries() {
     }
     
+    public String getTicketCodification() {
+        return ticketCodification;
+    }
+
+    public void setTicketCodification(String ticketCodification) {
+        this.ticketCodification = ticketCodification;
+    }
     public String getComentary() {
         return comentary;
     }
@@ -79,11 +91,11 @@ public class Entries implements Serializable {
         this.plate = plate;
     }
 
-    public int getTicket() {
+    public long getTicket() {
         return ticket;
     }
 
-    public void setTicket(int ticket) {
+    public void setTicket(long ticket) {
         this.ticket = ticket;
     }
 

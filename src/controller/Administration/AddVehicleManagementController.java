@@ -67,13 +67,8 @@ public class AddVehicleManagementController {
          entries.setEntryDate(Calendar.getInstance().getTime());
          entries.setPlate(MainController.mainView.getPlate());
          entries.setVehicleType(getVehicleTypeSelected(plate));
-         //que fuckin es un ticket?
-         //para que fuckin es el rate? si se supone que no sabemos cuanto va a durar?
-         //es decir, el rate sera determinado por las reglas segun el tiempo transcurrido
-         //y NO de ante mano.
          MainController.entriesJpaController.create(null);
          return null;
-     
      }
      
     private static VehicleType vehicleTypeIsSelected = null;
