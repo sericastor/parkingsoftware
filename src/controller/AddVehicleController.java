@@ -7,6 +7,7 @@ import controller.Administration.AddVehicleManagementController;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,21 +25,36 @@ public class AddVehicleController {
         return true;
     }
     
-    public static String verifyCarInParkway(String plate) {
-        String codification = encodePlate(plate);
+    public static String verifyCarInParkway(String Plate) {
+        //verifica si es leido por codigo de barras
+        if(Plate.startsWith("+")){
+            System.out.println("prueba"+Plate);
+            System.out.println("prueba"+MainController.entriesJpaController.getEntriesByTicketCodification(Plate));
+            Entries entrie=MainController.entriesJpaController.getEntriesByTicketCodification(Plate);
+            Plate=entrie.getPlate();
+            
+            MainController.mainView.setPlateTextField(Plate);
+        }
+        //demas verificaciones
+        String codification = encodePlate(Plate);
         AllVehicleTypes = MainController.vehicleTypeJpaController.matchPlateType(codification);
-        if (plate.equals("")) {
+        if (Plate.equals("")) {
             return "Do Nothing";
         } else if (AllVehicleTypes.isEmpty()) {
             return "Inserte un tipo de placa valida";
-        } else if (AllVehicleTypes.size() >= 1 && !verifyCarParked(plate)) {
-            MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(plate));
+        } else if (AllVehicleTypes.size() >= 1 && !verifyCarParked(Plate)) {
+            MainController.addPanel.setVehicleTypeCombobox(getModelComboBox(Plate));
             MainController.addPanel.setVisible(true);
             return "Tipo de placa encontrado y vehículo no encontrado";
-        } else if (AllVehicleTypes.size() >= 1 && verifyCarParked(plate)) {
+        } else if (AllVehicleTypes.size() >= 1 && verifyCarParked(Plate)) {
             return "Tipo de placa encontrado y vehículo encontrado";
         }
         return null;
+    }
+    public static String getPlatebyTicket(String plate){
+        Entries entrie=MainController.entriesJpaController.getEntriesByTicketCodification(plate);
+        System.out.println("entrieee"+entrie.getPlate());
+        return entrie.getPlate();
     }
     
     public static DefaultComboBoxModel getModelComboBox(String plate) {
@@ -64,12 +80,12 @@ public class AddVehicleController {
         return null;
     }
     
-    public static String encodePlate(String plate) {
+    public static String encodePlate(String Plate) {
         String code = "";
-        for (int i = 0; i < plate.length(); i++) {
-            if (Character.isLetter(plate.charAt(i))) {
+        for (int i = 0; i < Plate.length(); i++) {
+            if (Character.isLetter(Plate.charAt(i))) {
                 code = code + "1";
-            } else if (Character.isDigit(plate.charAt(i))) {
+            } else if (Character.isDigit(Plate.charAt(i))) {
                 code = code + "0";
             } else {
                 return "No es un tipo valido de placa";
@@ -85,6 +101,7 @@ public class AddVehicleController {
         m.setEntryDate(MainController.getSystemTime());
         m.setPlate(plate);
         m.setTicket(123);
+        m.setTicketCodification(generateTicketCodification());
         m.setVehicleType(getVehicleTypeSelected(vehicleType));
         m.setComentary(coment);
         //Verificar existencia de tarifas para el tipo de vehiculo
@@ -98,10 +115,19 @@ public class AddVehicleController {
             //actualizar el panel con la nueva entrada automaticamente
             DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
             MainController.mainView.setEntriesTableModel(entriesModel);
+            MainController.generateBarCode(m.getTicketCodification());   
         } else {
             MainController.adminView.showMessage("Error", "El tipo de vehiculo seleccionado no tiene tarifas. Por favor cree una nueva tarifa", 0);
         }
         
+    }
+    public static String generateTicketCodification(){
+        Random rnd = new Random();
+        String code="+"+String.valueOf(Calendar.getInstance().getTime().getMonth())+
+                String.valueOf(Calendar.getInstance().getTime().getDay());
+        code= code+MainController.system.getSessionEmployee().getUser().toString().substring(0, 2).toUpperCase();
+        code= code+Calendar.getInstance().getTimeInMillis()%(rnd.nextInt(99999999)+1);
+        return code;
     }
     private static String plate;
     
@@ -111,7 +137,8 @@ public class AddVehicleController {
 
     public Date getEntryDateByPlate(String Plate) {
         Entries entry = new Entries();
-        entry = MainController.entriesJpaController.getEntriesByPlate(plate);
+        entry = MainController.entriesJpaController.getEntriesByPlate(Plate);
+        System.out.println(entry.getEntryDate().toString());
         return entry.getEntryDate();
     }
 

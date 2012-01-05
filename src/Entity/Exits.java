@@ -33,7 +33,7 @@ public class Exits implements Serializable {
     @Column(name="Plate",nullable=false)
     private String plate; 
     @Column(name="Ticket",nullable=false)
-    private int ticket; 
+    private long ticket; 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="EntryDate",nullable=false)
     private Date entryDate;
@@ -116,11 +116,11 @@ public class Exits implements Serializable {
         this.subtotal = subtotal;
     }
 
-    public int getTicket() {
+    public long getTicket() {
         return ticket;
     }
 
-    public void setTicket(int ticket) {
+    public void setTicket(long ticket) {
         this.ticket = ticket;
     }
 

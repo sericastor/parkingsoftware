@@ -18,6 +18,7 @@ import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
 import java.util.Date;
+import java.util.Random;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
 import view.ManagerAccessView;
@@ -109,9 +110,9 @@ public class MainController {
         
     }
 
-    public static void generateBarCode(String plate) {
+    public static void generateBarCode(String code) {
         BarCodeMaker bar = new BarCodeMaker();
-        bar.Create(plate);
+        bar.Create(code);
     }
 
     public static void setVisibleMainView(boolean isVisible) {
