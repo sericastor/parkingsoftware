@@ -129,6 +129,31 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="Preview">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vista previa de tiquetes"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="Entry">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Entrada"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EntryActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="Exit">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Salida"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="HelpMenu">
           <Properties>
