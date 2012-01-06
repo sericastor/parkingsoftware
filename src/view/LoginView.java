@@ -63,7 +63,7 @@ public class LoginView extends javax.swing.JFrame {
         IconLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("ChiquiParking Iniciar Sesión");
+        setTitle("ParkQuick ~ Iniciar Sesión");
         setBackground(new java.awt.Color(0, 0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {

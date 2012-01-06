@@ -8,6 +8,7 @@ import Entity.CustomEntryTicket;
 import Entity.InfoParkway;
 import controller.MainController;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.PreviewEntryTicket;
@@ -24,7 +25,10 @@ public class CustomEntryTicketController {
     public static void previewEntryTicket(){
     
         PreviewEntryTicket entryTicket = new PreviewEntryTicket();
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");  
         JFrame frame = new JFrame();
+        frame.setTitle("ParkQuick ~ Vista Previa Entrada");
+        frame.setIconImage(img.getImage());
         CustomEntryTicket cet = new CustomEntryTicket();
         InfoParkway ip = new InfoParkway();
         if(MainController.customEntryJpaController.findCustomTicketEntities().isEmpty()){
@@ -71,6 +75,7 @@ public class CustomEntryTicketController {
         frame.add(entryTicket);
         frame.setPreferredSize(new Dimension(500,500));
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.repaint();
         frame.setVisible(true);
         }

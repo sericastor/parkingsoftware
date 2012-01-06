@@ -8,6 +8,7 @@ import Entity.CustomExitTicket;
 import Entity.InfoParkway;
 import controller.MainController;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.PreviewExitTicket;
@@ -24,7 +25,10 @@ public class CustomExitTicketController {
     public static void previewExitTicket(){
     
         PreviewExitTicket exitTicket = new PreviewExitTicket();
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");  
         JFrame frame = new JFrame();
+        frame.setTitle("ParkQuick ~ Vista Previa Entrada");
+        frame.setIconImage(img.getImage());
         CustomExitTicket cet = new CustomExitTicket();
         InfoParkway ip = new InfoParkway();
         if(MainController.customExitJpaController.findCustomExitTicketEntities().isEmpty()){
@@ -66,6 +70,7 @@ public class CustomExitTicketController {
         frame.add(exitTicket);
         frame.setPreferredSize(new Dimension(420,400));
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.repaint();
         frame.setVisible(true);
         }
