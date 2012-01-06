@@ -15,6 +15,7 @@ import Entity.VehicleType;
 import controller.MainController;
 import java.util.List;
 import java.util.Random;
+import javax.swing.table.TableModel;
 
 public class AdministrateVehicleTypeController {
 
@@ -74,6 +75,38 @@ public class AdministrateVehicleTypeController {
            return "Succes";
        }
        return "Failure";
+    }
+    
+    public static void rowIsEdited(long id, String vehicleType, String plateExample, String spaces){
+        try{
+            double space = Double.parseDouble(spaces);
+            String codification = encodePlate(plateExample);
+            VehicleType vehicle = MainController.vehicleTypeJpaController.findVehicleType(id);
+            if(!(vehicle.getName().equals(vehicleType) && vehicle.getCodification().equals(codification) && vehicle.getPlaces() == space)){
+                vehicle.setNumber(id);
+                vehicle.setName(vehicleType);
+                vehicle.setCodification(codification);
+                vehicle.setPlaces(space);
+                MainController.vehicleTypeJpaController.edit(vehicle);
+            }
+        }catch(Exception ex){
+            MainController.adminView.showMessage("Error", "Los espacios deben ser numéricos", 0);
+        }
+    }
+    
+    public static TableModel getModelTable(){
+        DefaultTableModel results = new DefaultTableModel();
+        List<VehicleType> list = MainController.vehicleTypeJpaController.findVehicleTypeEntities();
+        results.addColumn("Identificador");
+        results.addColumn("Tipo de Vehículo");
+        results.addColumn("Tipo de Placa");
+        results.addColumn("Cantidad de Espacio ocupado por vehículo");
+        
+        for (VehicleType vehicleType : list) {
+           results.addRow(new Object[]{vehicleType.getNumber(), vehicleType.getName(), decodePlate(vehicleType.getCodification()), vehicleType.getPlaces()});
+        }
+        
+        return results;
     }
     
     public static boolean verifyTypePlate(String plate){
