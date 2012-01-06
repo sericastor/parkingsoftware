@@ -33,7 +33,13 @@ public class CloseTurnController {
         try{
             for(Exits e:exitsToFacture){
                 facture.setId(getNextFactureTurnID());
-                facture.setExit(e);
+                facture.setEmployeeEntry(e.getEmployeeEntry());
+                facture.setEmployeeExit(e.getEmployeeExit());
+                facture.setEntryDate(e.getEntryDate());
+                facture.setExitDate(e.getExitDate());
+                facture.setPlate(e.getPlate());
+                facture.setTicket(e.getTicket());
+                facture.setVehicleType(e.getVehicleType());
                 facture.setIVA(e.getIVA());
                 facture.setSubtotal(e.getSubtotal());
                 facture.setTotal(e.getTotal());
@@ -58,9 +64,16 @@ public class CloseTurnController {
         try{
             for(FactureTurn e:facturesToPersist){
                 facture.setId(getNextFactureID());
-                facture.setFactureTurn(e);
+                //facture.setFactureTurn(e);
                 facture.setIva(e.getIVA());
-                facture.setSubtotal(e.getSubtotal());                
+                facture.setEmployeeEntry(e.getEmployeeEntry());
+                facture.setEmployeeExit(e.getEmployeeExit());
+                facture.setEntryDate(e.getEntryDate());
+                facture.setExitDate(e.getExitDate());
+                facture.setPlate(e.getPlate());
+                facture.setTicket(e.getTicket());
+                facture.setVehicleType(e.getVehicleType());
+                facture.setSubtotal(e.getSubtotal());
                 facture.setTotal(e.getTotal());
                 MainController.factureJpaController.create(facture);
                 MainController.factureTurnJpaController.destroy(e.getId());
@@ -92,7 +105,7 @@ public class CloseTurnController {
         results.addColumn("Total");
         
         for (FactureTurn e : AllFactureTurn) {
-            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getExit().getEmployeeEntry().getId()),String.valueOf(e.getExit().getEmployeeExit().getId()),e.getExit().getPlate(), e.getExit().getEntryDate().toLocaleString(),e.getExit().getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIVA()),String.valueOf(e.getTotal())});
+            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getEmployeeEntry().getId()),String.valueOf(e.getEmployeeExit().getId()),e.getPlate(), e.getEntryDate().toLocaleString(),e.getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIVA()),String.valueOf(e.getTotal())});
         }
         return results;
     }
@@ -112,11 +125,10 @@ public class CloseTurnController {
         results.addColumn("Total");
         
         for (Facture e : AllFactures) {
-            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getFactureTurn().getExit().getEmployeeEntry().getId()),String.valueOf(e.getFactureTurn().getExit().getEmployeeExit().getId()),e.getFactureTurn().getExit().getPlate(), e.getFactureTurn().getExit().getEntryDate().toLocaleString(),e.getFactureTurn().getExit().getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIva()),String.valueOf(e.getTotal())});
+            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getEmployeeEntry().getId()),String.valueOf(e.getEmployeeExit().getId()),e.getPlate(), e.getEntryDate().toLocaleString(),e.getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIva()),String.valueOf(e.getTotal())});
         }
         return results;
     }
     private static List<Facture> AllFactures = null;
-    private static List<FactureTurn> AllFactureTurn = null;
-    
+    private static List<FactureTurn> AllFactureTurn = null;   
 }

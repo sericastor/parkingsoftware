@@ -683,6 +683,9 @@ public class MainView extends javax.swing.JFrame {
     }
     public void updateStateTabbed(){
         EntriesTable.updateUI();
+        ExitsTable.updateUI();
+        FacturesTable.updateUI();
+        FactureTurnTable.updateUI();
     }
 
     public void removePanel() {

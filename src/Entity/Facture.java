@@ -37,22 +37,84 @@ public class Facture implements Serializable {
     private double iva;
     @Column(name="Total",nullable=false)
     private double total;
-    @OneToOne
-    private FactureTurn factureTurn;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="ExitDate",nullable=false)
+    private Date exitDate;
+    @Column(name="Plate",nullable=false)
+    private String plate; 
+    @Column(name="Ticket",nullable=false)
+    private long ticket; 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="EntryDate",nullable=false)
+    private Date entryDate;
+    @JoinColumn(name="EmployeeExit")
+    private Employee employeeExit; 
+    @JoinColumn(name="EmployeeEntry")
+    private Employee employeeEntry; 
+    @JoinColumn(name="VehicleType")
+    private VehicleType vehicleType;
+
+    public Employee getEmployeeEntry() {
+        return employeeEntry;
+    }
+
+    public void setEmployeeEntry(Employee employeeEntry) {
+        this.employeeEntry = employeeEntry;
+    }
+
+    public Employee getEmployeeExit() {
+        return employeeExit;
+    }
+
+    public void setEmployeeExit(Employee employeeExit) {
+        this.employeeExit = employeeExit;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public Date getExitDate() {
+        return exitDate;
+    }
+
+    public void setExitDate(Date exitDate) {
+        this.exitDate = exitDate;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
+    }
+
+    public long getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(long ticket) {
+        this.ticket = ticket;
+    }
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+    }
 
     /*@OneToMany
     private List<FactureTurn> facturesTurn = new ArrayList();*/
     //@OneToMany
     //private List<FactureTurn> facturesTurn = new ArrayList();
-
-    public FactureTurn getFactureTurn() {
-        return factureTurn;
-    }
-
-    public void setFactureTurn(FactureTurn factureTurn) {
-        this.factureTurn = factureTurn;
-    }
-    
+   
     public Date getActualDate() {
         return actualDate;
     }
