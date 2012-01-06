@@ -11,6 +11,7 @@
 package view;
 
 import controller.CloseTurnController;
+import controller.MainController;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -114,11 +115,13 @@ public class FinishTurnView extends javax.swing.JFrame {
     private void CloseTurnPartialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTurnPartialButtonActionPerformed
         closeTurnController.closeTurnPartial();
         informAboutClosing(CloseTurnPartialMessage);
+        MainController.mainView.updateStateTabbed();
     }//GEN-LAST:event_CloseTurnPartialButtonActionPerformed
 
     private void CloseTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTotalButtonActionPerformed
         closeTurnController.closeTurnTotal();
         informAboutClosing(CloseTurnTotalMessage);
+        MainController.mainView.updateStateTabbed();
     }//GEN-LAST:event_CloseTotalButtonActionPerformed
     private void informAboutClosing(String message){
         JOptionPane.showMessageDialog(null, message);    
