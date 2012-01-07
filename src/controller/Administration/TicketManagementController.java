@@ -88,6 +88,8 @@ public class TicketManagementController {
     public static void updateEntryTicket(String title, String footPage, boolean name, boolean address, boolean nit, boolean employee, boolean barcode){
         int confirm = MainController.adminView.showOptionMessage("¿Está seguro de modificar el tiquete de entrada?");
         if(confirm==0){
+            title = adjustTitle(title);
+            footPage = adjustFootPage(footPage);
             CustomEntryTicket entryTicket = new CustomEntryTicket();
             entryTicket.setId(idTickets);
             entryTicket.setTittle(title);
@@ -105,6 +107,8 @@ public class TicketManagementController {
     public static void updateExitTicket(String title, String footPage, boolean name, boolean address, boolean nit, boolean employee){
         int confirm = MainController.adminView.showOptionMessage("¿Está seguro de modificar el tiquete de salida?");
         if(confirm==0){
+            title = adjustTitle(title);
+            footPage = adjustFootPage(footPage);
             CustomExitTicket exitTicket = new CustomExitTicket();
             exitTicket.setId(idTickets);
             exitTicket.setTittle(title);
@@ -116,6 +120,20 @@ public class TicketManagementController {
             MainController.customExitJpaController.edit(exitTicket, idTickets);
             MainController.adminView.showMessage("Exito", "Modificación Exitosa", 1);
         }
+    }
+    
+    public static String adjustTitle(String title){
+        if(title.length()>25){
+            title = title.substring(0,25);
+        }
+        return title;
+    }
+    
+    public static String adjustFootPage(String foot){
+        if(foot.length()>100){
+            foot = foot.substring(0, 100);
+        }
+        return foot;
     }
 
     public static final long idTickets = 1;

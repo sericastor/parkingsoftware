@@ -1445,7 +1445,9 @@
                                       <Component id="SaveExitTicketButton" pref="178" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="399" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ExitPreviewButton" min="-2" pref="179" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1470,7 +1472,10 @@
                                   <Component id="FootPageExLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="FootPageExitScroll" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="SaveExitTicketButton" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ExitPreviewButton" alignment="1" max="32767" attributes="1"/>
+                                          <Component id="SaveExitTicketButton" alignment="1" pref="80" max="32767" attributes="1"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace pref="29" max="32767" attributes="0"/>
@@ -1543,6 +1548,9 @@
                       </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="FootPageExitScroll">
+                      <Properties>
+                        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                      </Properties>
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
@@ -1558,6 +1566,18 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JButton" name="ExitPreviewButton">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/Search.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Vista Previa"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Visualice una vista preliminar del tiquete de salida."/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitPreviewButtonActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="EntryTicket">
@@ -1590,9 +1610,11 @@
                                           <Component id="FootPageEntryScroll" alignment="0" max="32767" attributes="1"/>
                                           <Component id="TitleTextField" alignment="0" pref="339" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                      <Component id="SaveEntryTicketButton" pref="146" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="405" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="SaveEntryTicketButton" min="-2" pref="162" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="EntryPreviewButton" pref="161" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1610,27 +1632,34 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TicketTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TitleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="NameCB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="AddressCB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="NITCB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BarCodeCB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="10" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FootPageEntryScroll" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="SaveEntryTicketButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="TicketTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TitleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="NameCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="AddressCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="NITCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="BarCodeCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="FootPageEntryScroll" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="SaveEntryTicketButton" alignment="3" min="-2" max="-2" attributes="1"/>
+                                      <Component id="EntryPreviewButton" alignment="3" max="32767" attributes="1"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1711,6 +1740,9 @@
                       </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="FootPageEntryScroll">
+                      <Properties>
+                        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                      </Properties>
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
@@ -1726,6 +1758,18 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JButton" name="EntryPreviewButton">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/Search.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Vista Previa"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Visualice una vista preliminar del tiquete de entrada."/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EntryPreviewButtonActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>

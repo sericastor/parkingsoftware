@@ -37,6 +37,7 @@ public class InitializeController {
             
         //Creacion de la tabla Employee
         Employee em = new Employee();
+        em.setId(1);
         em.setLastName("user");
         em.setIsActive(true);
         em.setAdministrator(true);
