@@ -53,6 +53,8 @@ public class Exits implements Serializable {
     @Column(name="Total",nullable=false)
     private double total;
 
+    public Exits() {
+    }
 
     public Employee getEmployeeEntry() {
         return employeeEntry;
@@ -78,10 +80,6 @@ public class Exits implements Serializable {
         this.entryDate = entryDate;
     }
 
- 
-
-  
-
     public double getIVA() {
         return IVA;
     }
@@ -89,8 +87,6 @@ public class Exits implements Serializable {
     public void setIVA(double IVA) {
         this.IVA = IVA;
     }
-
-    
 
     public Date getExitDate() {
         return exitDate;
@@ -132,8 +128,6 @@ public class Exits implements Serializable {
         this.total = total;
     }
 
-
-
     public VehicleType getVehicleType() {
         return vehicleType;
     }
@@ -142,12 +136,9 @@ public class Exits implements Serializable {
         this.vehicleType = vehicleType;
     }
 
-   
     public long getId() {
         return id;
     }
-
-   
 
     @Override
     public int hashCode() {

@@ -8,12 +8,10 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -53,10 +51,10 @@ public class FactureTurn implements Serializable {
     private Employee employeeEntry; 
     @JoinColumn(name="VehicleType")
     private VehicleType vehicleType;
-  
-    //@OneToMany
-    //private List<Exits> exits = new ArrayList();
 
+    public FactureTurn() {
+    }
+  
     public double getIVA() {
         return IVA;
     }
@@ -145,10 +143,6 @@ public class FactureTurn implements Serializable {
         this.total = total;
     }
     
-    
-    
-    
-
     public long getId() {
         return id;
     }
