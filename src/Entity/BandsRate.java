@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -32,12 +31,11 @@ public class BandsRate implements Serializable {
     private double unitValue;
     @Column(name="Units",nullable=false)
     private int units;
-
     @ManyToOne
-    //@JoinColumn(name="VehicleType")
     VehicleType vehicletype;
 
-
+    public BandsRate() {
+    }
 
     public int getFromm() {
         return fromm;

@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,17 +20,22 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Log implements Serializable {
-    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name="LogAction")
     private String action;
+    @Column(name="Detail")
     private String detail;
+    @Column(name="LogDate")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date date;             
+    private Date date;
+    @Column(name="LogUser")
     private String user;
+    @Column(name="LogName")
     private String name;
+    @Column(name="LogDocument")
     private String document;
 
     public String getDetail() {

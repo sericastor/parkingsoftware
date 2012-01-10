@@ -7,8 +7,6 @@ package Entity;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -34,9 +32,10 @@ public class Employee implements Serializable {
     private boolean administrator;
     @Column(name="Active",nullable=false)
     private boolean isActive;
+
+    public Employee() {
+    }
     
-    //TODO: Relación con Entradas, su getter & setter
-   
     public boolean isAdministrator() {
         return administrator;
     }

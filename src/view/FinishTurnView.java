@@ -47,6 +47,7 @@ public class FinishTurnView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ParkQuick ~ Cerrar Caja");
 
         CloseTurnPartialButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stats.png"))); // NOI18N
         CloseTurnPartialButton.setText("Cerrar Turno");
@@ -116,12 +117,14 @@ public class FinishTurnView extends javax.swing.JFrame {
         closeTurnController.closeTurnPartial();
         informAboutClosing(CloseTurnPartialMessage);
         MainController.mainView.updateStateTabbed();
+        MainController.setVisibleFinishTurnView(false);
     }//GEN-LAST:event_CloseTurnPartialButtonActionPerformed
 
     private void CloseTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTotalButtonActionPerformed
         closeTurnController.closeTurnTotal();
         informAboutClosing(CloseTurnTotalMessage);
         MainController.mainView.updateStateTabbed();
+        MainController.setVisibleFinishTurnView(false);
     }//GEN-LAST:event_CloseTotalButtonActionPerformed
     private void informAboutClosing(String message){
         JOptionPane.showMessageDialog(null, message);    

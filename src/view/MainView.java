@@ -353,6 +353,7 @@ public class MainView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        EntriesTable.setEnabled(false);
         EntriesScrollPane.setViewportView(EntriesTable);
 
         javax.swing.GroupLayout EntryPanelLayout = new javax.swing.GroupLayout(EntryPanel);
@@ -389,6 +390,7 @@ public class MainView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        ExitsTable.setEnabled(false);
         ExitsScrollPane.setViewportView(ExitsTable);
 
         javax.swing.GroupLayout ExitPanelLayout = new javax.swing.GroupLayout(ExitPanel);
@@ -417,6 +419,7 @@ public class MainView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        FacturesTable.setEnabled(false);
         jScrollPane1.setViewportView(FacturesTable);
 
         javax.swing.GroupLayout FacturePanelLayout = new javax.swing.GroupLayout(FacturePanel);
@@ -445,6 +448,7 @@ public class MainView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        FactureTurnTable.setEnabled(false);
         jScrollPane2.setViewportView(FactureTurnTable);
 
         javax.swing.GroupLayout FactureTurnPanelLayout = new javax.swing.GroupLayout(FactureTurnPanel);
@@ -481,6 +485,7 @@ public class MainView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        VehicleTypeTable.setEnabled(false);
         VehicleTypeSrollPane.setViewportView(VehicleTypeTable);
 
         javax.swing.GroupLayout VehicleTypePanelLayout = new javax.swing.GroupLayout(VehicleTypePanel);
