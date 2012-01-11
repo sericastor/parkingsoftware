@@ -132,5 +132,9 @@ public class QuitVehicleController {
         DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
         MainController.mainView.setExitsTableModel(exitsModel);
     }
+    public static void updateTableExits(){ 
+        DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
+        MainController.mainView.setExitsTableModel(exitsModel);
+    }
    
 }

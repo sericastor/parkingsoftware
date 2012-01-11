@@ -211,7 +211,7 @@ public class MainView extends javax.swing.JFrame {
         OptionsPanelLayout.setHorizontalGroup(
             OptionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsPanelLayout.createSequentialGroup()
-                .addContainerGap(815, Short.MAX_VALUE)
+                .addContainerGap(846, Short.MAX_VALUE)
                 .addComponent(LogoutButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,11 +302,11 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(ClockPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(statusProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                            .addComponent(statusProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ClockPanelLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(UserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ClockLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)))
+                            .addComponent(ClockLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)))
                     .addGroup(ClockPanelLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jLabel1)))
@@ -336,10 +336,7 @@ public class MainView extends javax.swing.JFrame {
 
         EntriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Placa", "Tipo de Vehiculo", "Hora de Entrada"
@@ -360,11 +357,11 @@ public class MainView extends javax.swing.JFrame {
         EntryPanel.setLayout(EntryPanelLayout);
         EntryPanelLayout.setHorizontalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
         );
         EntryPanelLayout.setVerticalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Entradas", EntryPanel);
@@ -373,10 +370,7 @@ public class MainView extends javax.swing.JFrame {
 
         ExitsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Placa", "Hora de Ingreso", "Hora de Salida"
@@ -397,11 +391,11 @@ public class MainView extends javax.swing.JFrame {
         ExitPanel.setLayout(ExitPanelLayout);
         ExitPanelLayout.setHorizontalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
         );
         ExitPanelLayout.setVerticalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Salidas", ExitPanel);
@@ -410,10 +404,7 @@ public class MainView extends javax.swing.JFrame {
 
         FacturesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -426,11 +417,11 @@ public class MainView extends javax.swing.JFrame {
         FacturePanel.setLayout(FacturePanelLayout);
         FacturePanelLayout.setHorizontalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
         );
         FacturePanelLayout.setVerticalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Facturas", FacturePanel);
@@ -439,10 +430,7 @@ public class MainView extends javax.swing.JFrame {
 
         FactureTurnTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -455,11 +443,11 @@ public class MainView extends javax.swing.JFrame {
         FactureTurnPanel.setLayout(FactureTurnPanelLayout);
         FactureTurnPanelLayout.setHorizontalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
         );
         FactureTurnPanelLayout.setVerticalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Facturas Turno", FactureTurnPanel);
@@ -468,10 +456,7 @@ public class MainView extends javax.swing.JFrame {
 
         VehicleTypeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -492,11 +477,11 @@ public class MainView extends javax.swing.JFrame {
         VehicleTypePanel.setLayout(VehicleTypePanelLayout);
         VehicleTypePanelLayout.setHorizontalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1206, Short.MAX_VALUE)
         );
         VehicleTypePanelLayout.setVerticalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Tipo de Vehículos", VehicleTypePanel);
@@ -626,13 +611,13 @@ public class MainView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ParkingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(OptionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
+            .addComponent(StateTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, 1218, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ClockPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE))
+                .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
