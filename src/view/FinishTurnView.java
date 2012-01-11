@@ -123,7 +123,7 @@ public class FinishTurnView extends javax.swing.JFrame {
     private void CloseTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTotalButtonActionPerformed
         closeTurnController.closeTurnTotal();
         informAboutClosing(CloseTurnTotalMessage);
-        MainController.mainView.updateStateTabbed();
+        
         MainController.setVisibleFinishTurnView(false);
     }//GEN-LAST:event_CloseTotalButtonActionPerformed
     private void informAboutClosing(String message){

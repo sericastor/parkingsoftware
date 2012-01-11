@@ -46,16 +46,20 @@ public class CloseTurnController {
                 MainController.factureTurnJpaController.create(facture);
                 MainController.exitsJpaController.destroy(e.getId());
             }
+            MainController.quitVehicleController.updateTableExits();
+            MainController.mainView.updateStateTabbed();
+            updateTableFacturesTurn();
+            
         }
         catch(Exception e){
             MainController.mainView.confirmationMessages(
                     "Error transaccional en la base de datos!", "Error!",1);
         }
-        /*//actualiza tabla entries y exits (vista)
-        DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
-        MainController.mainView.setEntriesTableModel(entriesModel);
-        DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
-        MainController.mainView.setExitsTableModel(exitsModel);*/
+    }
+    
+    public static void updateTableFacturesTurn(){ 
+        DefaultTableModel facturesTurnModel=TotalSearchOfFactureTurn();
+        MainController.mainView.setFactureTurnTableModel(facturesTurnModel);
     }
     public void closeTurnTotal(){
         List<FactureTurn> facturesToPersist = MainController.factureTurnJpaController.findFactureTurnEntities();
