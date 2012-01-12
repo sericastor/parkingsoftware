@@ -255,6 +255,56 @@ public class AdministrateBandRates {
         }
         return null;
     }
+    
+    // this methods come from RatesManagementController an unused class that was been deleted
+    // please Check out if this methods could be used for bussiness rules
+    public static boolean validateName(String Name) {
+        if (Name.length() >= 5 && Name.length() <= 15) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean validateFrom(String f, String t) {
+        int from;
+        int to;
+        try {
+            from = Integer.parseInt(f);
+            to = Integer.parseInt(t);
+            if (from >= 0 && to > from) {
+                return true;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+
+    public static boolean validateUnitValue(String v) {
+        try {
+            int unitValue = Integer.parseInt(v);
+            if(unitValue >= 0){
+                return true;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+
+    public static boolean validateUnits(String u) {
+        try {
+            int units = Integer.parseInt(u);
+            if (units > 0) {
+                return true;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+
+    }
+    
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<BandsRate> AllBandsRate = null;
     private static List<VehicleType> AllVehicleTypes = null;
