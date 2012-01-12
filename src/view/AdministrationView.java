@@ -184,6 +184,9 @@ public class AdministrationView extends javax.swing.JFrame {
         FootPageEntryScroll = new javax.swing.JScrollPane();
         FootPageEntryArea = new javax.swing.JTextArea();
         EntryPreviewButton = new javax.swing.JButton();
+        OtherOptions = new javax.swing.JPanel();
+        ThemeLabel = new javax.swing.JLabel();
+        ThemeSlider = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administración de ParkQuick");
@@ -1147,7 +1150,7 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(BarCodeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(EmployeeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NITCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(710, Short.MAX_VALUE))))
+                        .addContainerGap(714, Short.MAX_VALUE))))
         );
         EntryTicketLayout.setVerticalGroup(
             EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1184,7 +1187,7 @@ public class AdministrationView extends javax.swing.JFrame {
         TicketAdmin.setLayout(TicketAdminLayout);
         TicketAdminLayout.setHorizontalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tickets)
+            .addComponent(Tickets, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
         );
         TicketAdminLayout.setVerticalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1192,6 +1195,45 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         AdminTabbedPanel.addTab("Tiquetes", TicketAdmin);
+
+        OtherOptions.setBackground(new java.awt.Color(255, 255, 255));
+
+        ThemeLabel.setText("Seleccione un tema visual");
+
+        ThemeSlider.setMajorTickSpacing(20);
+        ThemeSlider.setMaximum(6);
+        ThemeSlider.setMinorTickSpacing(1);
+        ThemeSlider.setPaintTicks(true);
+        ThemeSlider.setSnapToTicks(true);
+        ThemeSlider.setValue(0);
+        ThemeSlider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ThemeSliderMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout OtherOptionsLayout = new javax.swing.GroupLayout(OtherOptions);
+        OtherOptions.setLayout(OtherOptionsLayout);
+        OtherOptionsLayout.setHorizontalGroup(
+            OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OtherOptionsLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(ThemeLabel)
+                .addGap(92, 92, 92)
+                .addComponent(ThemeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(452, Short.MAX_VALUE))
+        );
+        OtherOptionsLayout.setVerticalGroup(
+            OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OtherOptionsLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ThemeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ThemeLabel))
+                .addContainerGap(304, Short.MAX_VALUE))
+        );
+
+        AdminTabbedPanel.addTab("Otras Opciones", OtherOptions);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1503,10 +1545,16 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         String id = (String) VehicleTypeComboBox.getSelectedItem();
         RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
         RatesTable.updateUI();
+        ThemeSlider.setValue(MainController.system.getSessionEmployee().getTheme());
         getInfoParkway();
         getInfoEntryTicket();
         getInfoExitTicket();
     }//GEN-LAST:event_formComponentShown
+
+    private void ThemeSliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThemeSliderMouseClicked
+        int aux=ThemeSlider.getValue();
+        MainController.otherOptionsController.setTheme(aux);
+    }//GEN-LAST:event_ThemeSliderMouseClicked
 
     private String getNamePark() {
         return NameParkwayTextField.getText();
@@ -1647,6 +1695,8 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     public void confirmationMessages(String message, String type) {
         JOptionPane.showMessageDialog(null, message, type, JOptionPane.WARNING_MESSAGE);
     }
+    
+    
     private boolean flag = true;
     private boolean flag2 = true;
     private boolean flag3 = true;
@@ -1710,6 +1760,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JTextField NameEmployeeTextField;
     private javax.swing.JLabel NameParkwayLabel;
     private javax.swing.JTextField NameParkwayTextField;
+    private javax.swing.JPanel OtherOptions;
     private javax.swing.JPanel ParkwayAdminPanel;
     private javax.swing.JTextField PartialReportDateTextField;
     private javax.swing.JButton PartialReportGenerateButton;
@@ -1745,6 +1796,8 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JTabbedPane SubPanel;
     private javax.swing.JLabel TelephoneParkwayLabel;
     private javax.swing.JTextField TelephoneTextField;
+    private javax.swing.JLabel ThemeLabel;
+    private javax.swing.JSlider ThemeSlider;
     private javax.swing.JPanel TicketAdmin;
     private javax.swing.JLabel TicketTitleLabel;
     private javax.swing.JTabbedPane Tickets;

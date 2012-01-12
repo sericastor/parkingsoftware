@@ -8,6 +8,9 @@ import Entity.BandsRate;
 import Entity.Employee;
 import Entity.FactureTurn;
 import Entity.VehicleType;
+import com.nilo.plaf.nimrod.NimRODLookAndFeel;
+import com.nilo.plaf.nimrod.NimRODTheme;
+import controller.Administration.OtherOptionsController;
 import controller.InitializeController;
 import controller.MainController;
 import java.util.logging.Level;
@@ -21,24 +24,14 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class eParking {
 
-    public static void main(String args[]) throws ClassNotFoundException {
-        try
-{
-   UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-}
-catch (Exception e)
-{
-   e.printStackTrace();
-}/*
+    public static void main(String args[]) throws ClassNotFoundException { 
         try {
-            
-            //nuevo look and feel modificable!!!
-            UIManager.setLookAndFeel(new com.nilo.plaf.nimrod.NimRODLookAndFeel());
-
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(eParking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-*/
+                //entorno por defecto del SO
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        
         //////////////////////////Inicializar Tablas////////////////////////
         try {
             Employee employee = MainController.employeeJpaController.findEmployeeByUser("user");
@@ -48,7 +41,7 @@ catch (Exception e)
             if (employee == null && vehicle == null && bandsRate == null) {
 
                 new InitializeController();
-                
+
             }
 
         } catch (Exception e) {
@@ -56,10 +49,8 @@ catch (Exception e)
         }
 
         //////////////////////////Inicializar Tablas///////////////////////////////
-
+        
         new MainController();
         MainController.startClock();
-
-
     }
 }

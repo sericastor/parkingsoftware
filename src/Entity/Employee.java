@@ -32,6 +32,16 @@ public class Employee implements Serializable {
     private boolean administrator;
     @Column(name="Active",nullable=false)
     private boolean isActive;
+    @Column (name="UserTheme")
+    private int Theme;
+
+    public int getTheme() {
+        return Theme;
+    }
+
+    public void setTheme(int Theme) {
+        this.Theme = Theme;
+    }
 
     public Employee() {
     }

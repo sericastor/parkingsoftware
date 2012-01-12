@@ -46,6 +46,7 @@ public class InitializeController {
         em.setPassword(controller.MainController.md5Security.MD5Security("pass"));
         em.setAdministrator(true);
         em.setUser("user");
+        em.setTheme(1);
         emJpaController.create(em);
         
 
@@ -129,6 +130,7 @@ public class InitializeController {
         infop.setTelephone("6666666");
         infop.setCapacityStatus(0);
         infop.setIVAPercent(0.02);
+        infop.setRountTo(20);
         infopJpaController.create(infop);
 
         }

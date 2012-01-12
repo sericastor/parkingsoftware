@@ -2,6 +2,7 @@ package view;
 
 import controller.Administration.CustomEntryTicketController;
 import controller.Administration.CustomExitTicketController;
+import controller.Administration.OtherOptionsController;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;

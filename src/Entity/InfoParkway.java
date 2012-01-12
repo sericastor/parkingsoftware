@@ -37,6 +37,18 @@ public class InfoParkway implements Serializable {
     private double IVAPercent;
     @Column (name="CapacityStatus")
     private double capacityStatus;
+    @Column (name="RoundTo")
+    private int rountTo;
+    
+
+    public int getRountTo() {
+        return rountTo;
+    }
+
+    public void setRountTo(int rountTo) {
+        this.rountTo = rountTo;
+    }
+    
 
     
     public InfoParkway() {
