@@ -5,7 +5,6 @@ import Entity.Entries;
 import Entity.Exits;
 import Entity.FactureTurn;
 import Entity.VehicleType;
-import controller.Administration.AddVehicleManagementController;
 import controller.Administration.ParkingManagementController;
 import java.util.Calendar;
 import java.util.Date;
@@ -127,14 +126,26 @@ public class QuitVehicleController {
                     "Error transaccional en la base de datos!", "Error!",1);
         }
         //actualiza tabla entries y exits (vista)
-        DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
+        DefaultTableModel entriesModel=AddVehicleController.TotalSearchOfEntries();
         MainController.mainView.setEntriesTableModel(entriesModel);
-        DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
+        DefaultTableModel exitsModel=TotalSearchOfExits();
         MainController.mainView.setExitsTableModel(exitsModel);
+    }
+    public static DefaultTableModel TotalSearchOfExits() {
+        DefaultTableModel results = new DefaultTableModel();
+        AllExits = MainController.exitsJpaController.findExitsEntities();
+        results.addColumn("Placa");
+        results.addColumn("Fecha de Ingreso");
+        results.addColumn("Fecha de Salida");
+        results.addColumn("Valor");
+        for (Exits e : AllExits) {
+            results.addRow( new Object []{String.valueOf(e.getPlate()), e.getEntryDate().toLocaleString(), e.getExitDate().toLocaleString(),String.valueOf(e.getTotal())});
+        }
+        return results;
     }
     public static void updateTableExits(){ 
-        DefaultTableModel exitsModel=AddVehicleManagementController.TotalSearchOfExits();
+        DefaultTableModel exitsModel=TotalSearchOfExits();
         MainController.mainView.setExitsTableModel(exitsModel);
     }
-   
+   private static List<Exits> AllExits = null;
 }
