@@ -2,6 +2,7 @@ package controller;
 
 import view.LoginView;
 import Entity.Employee;
+import controller.Administration.OtherOptionsController;
 
 /**
  *
@@ -17,7 +18,8 @@ public class LoginController {
         if (employee.getUser().equals(user) && employee.getPassword().equals(password) && employee.isIsActive() == true) {
             controller.MainController.system.setEmployee(employee);
             controller.MainController.system.Login();
-            MainController.loadTablesMainView();
+            MainController.otherOptionsController.setTheme();
+            MainController.loadTablesMainView();  
             return true;
         }
         return false;

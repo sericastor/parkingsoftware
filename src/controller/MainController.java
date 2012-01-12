@@ -15,6 +15,7 @@ import Entity.Employee;
 import Entity.VehicleType;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
+import controller.Administration.OtherOptionsController;
 import java.util.Date;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
@@ -32,6 +33,7 @@ import view.QuitVehiclePanel;
 public class MainController {
 
     public MainController() {
+        
     }
 
     public static AdministrationView getAdminView() {
@@ -114,6 +116,7 @@ public class MainController {
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString(), comentary);
         quitPanel.setCostTextField(quitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
+    public static OtherOptionsController otherOptionsController=new OtherOptionsController();
     public static OcupationController ocupationController = new OcupationController();
     public static BarCodePanel barCodePanel = new BarCodePanel();
     public static FinishTurnView finishTurnView = new FinishTurnView();

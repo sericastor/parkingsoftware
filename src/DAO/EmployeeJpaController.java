@@ -82,8 +82,8 @@ public class EmployeeJpaController implements Serializable {
             newEmployee.setPassword(employee.getPassword());
             newEmployee.setAdministrator(employee.isAdministrator());
             newEmployee.setIsActive(employee.isIsActive());
+            newEmployee.setTheme(employee.getTheme());
             employee = em.merge(newEmployee);
-            System.out.println(employee);
             em.getTransaction().commit();
         } catch (Exception ex) {
             System.out.println(ex.getStackTrace());
