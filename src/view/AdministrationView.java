@@ -192,6 +192,11 @@ public class AdministrationView extends javax.swing.JFrame {
                 formWindowClosed(evt);
             }
         });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
@@ -200,12 +205,6 @@ public class AdministrationView extends javax.swing.JFrame {
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitButtonActionPerformed(evt);
-            }
-        });
-
-        AdminTabbedPanel.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                AdminTabbedPanelFocusGained(evt);
             }
         });
 
@@ -1294,23 +1293,6 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         VehicleTypeComboBox.updateUI();
     }
 
-    private void AdminTabbedPanelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AdminTabbedPanelFocusGained
-        SpinnerModel model = new SpinnerNumberModel(1, 1, 100, 1);
-        this.numberSpacesSpinner.setModel(model);
-        VehicleTypeComboBox.setModel(AdministrateBandRates.AllVehicleTypes());
-        VehicleTypeComboBox.updateUI();
-        PlatesTable.setModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
-        PlatesTable.updateUI();
-        EmployeeList.setModel(AdministrateEmployeeController.totalSearchOfEmployees());
-        EmployeeList.updateUI();
-        String id = (String) VehicleTypeComboBox.getSelectedItem();
-        RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
-        RatesTable.updateUI();
-        getInfoParkway();
-        getInfoEntryTicket();
-        getInfoExitTicket();
-    }//GEN-LAST:event_AdminTabbedPanelFocusGained
-
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
         if (flag) {
             this.setNullEmp();
@@ -1509,6 +1491,23 @@ private void EntryPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {
 private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitPreviewButtonActionPerformed
     CustomExitTicketController.previewExitTicket();
 }//GEN-LAST:event_ExitPreviewButtonActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        SpinnerModel model = new SpinnerNumberModel(1, 1, 100, 1);
+        this.numberSpacesSpinner.setModel(model);
+        VehicleTypeComboBox.setModel(AdministrateBandRates.AllVehicleTypes());
+        VehicleTypeComboBox.updateUI();
+        PlatesTable.setModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
+        PlatesTable.updateUI();
+        EmployeeList.setModel(AdministrateEmployeeController.totalSearchOfEmployees());
+        EmployeeList.updateUI();
+        String id = (String) VehicleTypeComboBox.getSelectedItem();
+        RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
+        RatesTable.updateUI();
+        getInfoParkway();
+        getInfoEntryTicket();
+        getInfoExitTicket();
+    }//GEN-LAST:event_formComponentShown
 
     private String getNamePark() {
         return NameParkwayTextField.getText();
