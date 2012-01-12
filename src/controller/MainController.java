@@ -13,7 +13,6 @@ import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
 import Entity.VehicleType;
-import controller.Administration.AddVehicleManagementController;
 import controller.Administration.AdministrateBandRates;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
@@ -58,11 +57,12 @@ public class MainController {
         }
         return false;
     }
+        
 
     
     public static void loadTablesMainView() {
-        mainView.setEntriesTableModel(AddVehicleManagementController.TotalSearchOfEntries());
-        mainView.setExitsTableModel(AddVehicleManagementController.TotalSearchOfExits());
+        mainView.setEntriesTableModel(AddVehicleController.TotalSearchOfEntries());
+        mainView.setExitsTableModel(QuitVehicleController.TotalSearchOfExits());
         mainView.setFacturesTableModel(CloseTurnController.TotalSearchOfFactures());
         mainView.setFactureTurnTableModel(CloseTurnController.TotalSearchOfFactureTurn());
         mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());

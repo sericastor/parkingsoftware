@@ -69,9 +69,9 @@ public class AdministrateVehicleTypeController {
         else{
             indexPlace=Double.parseDouble(numberOfPlaces);
         }
-        if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
+        if (!verifyTypePlate(plate)) {
             MainController.adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
-        } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
+        } else if (!verifyExamplePlate(example)) {
             MainController.adminView.showMessage("Error", "Ejemplo de placa vacio, por favor ingrese un ejemplo de la placa", 0);
         } else {
             int confirm = MainController.adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("

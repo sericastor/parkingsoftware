@@ -3,7 +3,6 @@ package controller;
 import DAO.EntriesJpaController;
 import Entity.Entries;
 import Entity.VehicleType;
-import controller.Administration.AddVehicleManagementController;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -113,7 +112,7 @@ public class AddVehicleController {
             MainController.mainView.setPlateTextField("");
             MainController.mainView.removePanel();
             //actualizar el panel con la nueva entrada automaticamente
-            DefaultTableModel entriesModel=AddVehicleManagementController.TotalSearchOfEntries();
+            DefaultTableModel entriesModel=TotalSearchOfEntries();
             MainController.mainView.setEntriesTableModel(entriesModel);
             MainController.generateBarCode(m.getTicketCodification());   
         } else {
@@ -121,6 +120,8 @@ public class AddVehicleController {
         }
         
     }
+    
+    
     public static String generateTicketCodification(){
         Random rnd = new Random();
         String code="+"+String.valueOf(Calendar.getInstance().getTime().getMonth())+
@@ -129,7 +130,7 @@ public class AddVehicleController {
         code= code+Calendar.getInstance().getTimeInMillis()%(rnd.nextInt(99999999)+1);
         return code;
     }
-    private static String plate;
+    
     
     public static String getPlate() {
         return plate;
@@ -167,8 +168,21 @@ public class AddVehicleController {
     public static void setAllVehicleTypes(List<VehicleType> AllVehicleTypes) {
         AddVehicleController.AllVehicleTypes = AllVehicleTypes;
     }
-    
+    public static DefaultTableModel TotalSearchOfEntries() {
+        DefaultTableModel results = new DefaultTableModel();
+        AllEntries = MainController.entriesJpaController.findEntriesEntities();
+        results.addColumn("Placa");
+        results.addColumn("Fecha de Ingreso");
+        results.addColumn("Tipo de Vehiculo");
+        
+        for (Entries e : AllEntries) {
+            results.addRow( new Object []{String.valueOf(e.getPlate()), e.getEntryDate().toLocaleString(), e.getVehicleType().getName()});
+        }
+        return results;
+    }
+    private static String plate;
     public static DefaultComboBoxModel comboBoxModel = null;
+    private static List<Entries> AllEntries=null;
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
 }
