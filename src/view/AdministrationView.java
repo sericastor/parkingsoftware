@@ -1418,7 +1418,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     this.setNullReportsFields();
     this.setEnabledEmp(false);
     this.setEnableParkway(false);
-    this.AdminTabbedPanelFocusGained(null);
     Tickets.setSelectedComponent(ExitTicket);
     AdminTabbedPanel.setSelectedComponent(ParkwayAdminPanel);
     SubPanel.setSelectedComponent(PlateAdmin);
