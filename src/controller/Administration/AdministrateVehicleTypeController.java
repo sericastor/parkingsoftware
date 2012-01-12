@@ -61,7 +61,52 @@ public class AdministrateVehicleTypeController {
         }
         return decode;
     }
-    
+    public static void saveNewVehicleType(String plate, String example,Boolean places, String numberOfPlaces) {
+        double indexPlace=1;
+        if(places){
+            indexPlace=1/Double.parseDouble(numberOfPlaces);
+        }
+        else{
+            indexPlace=Double.parseDouble(numberOfPlaces);
+        }
+        if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
+            MainController.adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
+        } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
+            MainController.adminView.showMessage("Error", "Ejemplo de placa vacio, por favor ingrese un ejemplo de la placa", 0);
+        } else {
+            int confirm = MainController.adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("
+                    + plate + ")");
+            if (confirm == 0) {
+                if (verifyUniqueness(plate) == true) {
+                    String state = savePlate(plate, example, indexPlace);
+                    if (state.equals("Failure")) {
+                        MainController.adminView.showMessage("Error", "Solo se permiten valores alfa-numericos en la placa", 0);
+                    } else {
+                        MainController.adminView.showMessage("Se ha creado un nuevo tipo de placa", "Se ha creado exitosamente el tipo de placa " + plate, 1);
+                        MainController.adminView.setPlatesTableModel(totalSearchOfVehicles());
+                        MainController.adminView.updatePlatesTable();
+                        MainController.adminView.setVehicleTypeComboBoxModel(AdministrateBandRates.AllVehicleTypes());
+                        MainController.adminView.updateVehicleTypeComboBox();
+                        MainController.mainView.setVehicleTypeTableModel(totalSearchOfVehicles());
+                        MainController.mainView.updateStateTabbed();
+                    }
+                }
+                else{
+                    MainController.adminView.showMessage("Error", "El tipo de vehículo "+plate+" ya existe", 0);
+                }
+            }
+        }
+
+    }
+    public static Boolean verifyUniqueness(String vehicleName){
+        AllVehiclesTypes=MainController.vehicleTypeJpaController.findVehicleTypeEntities();
+        for (VehicleType vehicleType : AllVehiclesTypes) {
+            if(vehicleType.getName().equals(vehicleName)){
+                return false;
+            }
+        }
+        return true;
+    }
     public static String savePlate(String Name, String Plate,double Places){
        String code=encodePlate(Plate);
        if(!code.equals("No es un tipo valido de placa")){

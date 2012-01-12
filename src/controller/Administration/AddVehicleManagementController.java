@@ -25,6 +25,7 @@ public class AddVehicleManagementController {
         return results;
     }
      
+     
     public static DefaultTableModel TotalSearchOfEntries() {
         DefaultTableModel results = new DefaultTableModel();
         AllEntries = MainController.entriesJpaController.findEntriesEntities();

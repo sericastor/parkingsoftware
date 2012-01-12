@@ -11,15 +11,7 @@
 package view;
 
 import Entity.Employee;
-import controller.Administration.AdministrateEmployeeController;
-import controller.Administration.AdministrateBandRates;
-import controller.Administration.AdministrateVehicleTypeController;
-import controller.Administration.CustomEntryTicketController;
-import controller.Administration.CustomExitTicketController;
-import controller.Administration.EmployeeManagementController;
-import controller.Administration.ParkingManagementController;
-import controller.Administration.TicketManagementController;
-import controller.Administration.VerifyEntryFormatted;
+import controller.Administration.*;
 import controller.MainController;
 import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
@@ -1392,7 +1384,7 @@ private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent 
 }//GEN-LAST:event_SaveParkwayChangesButtonActionPerformed
 
 private void SavePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavePlateButtonActionPerformed
-    MainController.saveNewVehicleType(IdentifierPlateTextField.getText(), PlateExampleTextField.getText(),
+    AdministrateVehicleTypeController.saveNewVehicleType(IdentifierPlateTextField.getText(), PlateExampleTextField.getText(),
             noRadioButton.isSelected(),
             numberSpacesSpinner.getValue().toString());
     numberSpacesSpinner.setValue(1);

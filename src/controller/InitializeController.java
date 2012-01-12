@@ -128,6 +128,7 @@ public class InitializeController {
         infop.setRegister(1);
         infop.setTelephone("6666666");
         infop.setCapacityStatus(0);
+        infop.setIVAPercent(0.02);
         infopJpaController.create(infop);
 
         }
