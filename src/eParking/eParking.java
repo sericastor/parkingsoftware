@@ -22,14 +22,23 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class eParking {
 
     public static void main(String args[]) throws ClassNotFoundException {
+        try
+{
+   UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+}
+catch (Exception e)
+{
+   e.printStackTrace();
+}/*
         try {
+            
             //nuevo look and feel modificable!!!
             UIManager.setLookAndFeel(new com.nilo.plaf.nimrod.NimRODLookAndFeel());
 
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(eParking.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+*/
         //////////////////////////Inicializar Tablas////////////////////////
         try {
             Employee employee = MainController.employeeJpaController.findEmployeeByUser("user");
