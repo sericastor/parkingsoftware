@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.Random;
 import view.AboutParkQuickView;
 import view.AddVehiclePanel;
-import view.ManagerAccessView;
 import view.MainView;
 import view.AdministrationView;
 
@@ -60,55 +59,16 @@ public class MainController {
         return false;
     }
 
-    public static void saveNewVehicleType(String plate, String example,Boolean places, String numberOfPlaces) {
-        double indexPlace=1;
-        if(places){
-            indexPlace=1/Double.parseDouble(numberOfPlaces);
-        }
-        else{
-            indexPlace=Double.parseDouble(numberOfPlaces);
-        }
-        if (!AdministrateVehicleTypeController.verifyTypePlate(plate)) {
-            adminView.showMessage("Error", "Nombre de Vehiculo vacio, por favor ingrese un nombre descriptivo", 0);
-        } else if (!AdministrateVehicleTypeController.verifyExamplePlate(example)) {
-            adminView.showMessage("Error", "Ejemplo de placa vacio, por favor ingrese un ejemplo de la placa", 0);
-        } else {
-            int confirm = adminView.showOptionMessage("Esta seguro crear un nuevo tipo de placa? ("
-                    + plate + ")");
-            if (confirm == 0) {
-                String state = AdministrateVehicleTypeController.savePlate(plate, example, indexPlace);
-                if (state.equals("Failure")) {
-                    adminView.showMessage("Error", "Solo se permiten valores alfa-numericos en la placa", 0);
-                } else {
-                    adminView.showMessage("Se ha creado un nuevo tipo de placa", "Se ha creado exitosamente el tipo de placa " + plate, 1);
-                    adminView.setPlatesTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
-                    adminView.updatePlatesTable();
-                    adminView.setVehicleTypeComboBoxModel(AdministrateBandRates.AllVehicleTypes());
-                    adminView.updateVehicleTypeComboBox();
-                }
-            }
-        }
-
+    
+    public static void loadTablesMainView() {
+        mainView.setEntriesTableModel(AddVehicleManagementController.TotalSearchOfEntries());
+        mainView.setExitsTableModel(AddVehicleManagementController.TotalSearchOfExits());
+        mainView.setFacturesTableModel(CloseTurnController.TotalSearchOfFactures());
+        mainView.setFactureTurnTableModel(CloseTurnController.TotalSearchOfFactureTurn());
+        mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
     }
 
-    public static void managementStateTabbed(int selectedTab) {
-        if(selectedTab == 0){
-            mainView.setEntriesTableModel(AddVehicleManagementController.TotalSearchOfEntries());
-        }
-        if(selectedTab == 1){
-            mainView.setExitsTableModel(AddVehicleManagementController.TotalSearchOfExits());
-        }
-        if(selectedTab == 2){
-            mainView.setFacturesTableModel(CloseTurnController.TotalSearchOfFactures());
-        }
-        if(selectedTab == 3){
-            mainView.setFactureTurnTableModel(CloseTurnController.TotalSearchOfFactureTurn());
-        }
-        if (selectedTab == 4) {
-            mainView.setVehicleTypeTableModel(AdministrateVehicleTypeController.totalSearchOfVehicles());
-        }
-        
-    }
+   
 
     public static void generateBarCode(String code) {
         BarCodeMaker bar = new BarCodeMaker();
@@ -118,10 +78,6 @@ public class MainController {
     public static void setVisibleMainView(boolean isVisible) {
         mainView.setVisible(isVisible);
         mainView.getUserLabel().setText(SystemSession.getSessionEmployee().getUser().toString());
-    }
-
-    public static void setVisibleAdminAccessView(boolean isVisible) {
-        adminAccessView.setVisible(isVisible);
     }
 
     public static void setVisibleAboutParkQuickView(boolean isVisible) {
@@ -167,7 +123,6 @@ public class MainController {
     public static SystemSession system = new SystemSession();
     private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
     public static LoginController loginController = new LoginController();
-    private static ManagerAccessView adminAccessView = new ManagerAccessView();
     public static AdministrationView adminView = new AdministrationView();
     public static BandsRateJpaController bandsRateJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());
     public static FactureTurnJpaController factureTurnJpaController = new FactureTurnJpaController(controller.MainController.system.getPersistence_factory());
