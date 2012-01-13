@@ -704,7 +704,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         if(SystemSession.getSessionEmployee().isAdministrator()){
             MainController.setVisibleAdminView(true);
         }else{
-       confirmationMessages("No posee permisos suficientes para esta acción." ,"Advertencia", 1);
+       MainController.setVisibleAdminAccessView(true);
         }
     }//GEN-LAST:event_AdministerButtonActionPerformed
 
