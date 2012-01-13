@@ -32,8 +32,6 @@ public class AddVehiclePanel extends javax.swing.JPanel {
         ComentaryScroll = new javax.swing.JScrollPane();
         ComentaryArea = new javax.swing.JTextArea();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-
         AddVehicleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
         AddVehicleButton.setText("Ingresar");
         AddVehicleButton.addActionListener(new java.awt.event.ActionListener() {
