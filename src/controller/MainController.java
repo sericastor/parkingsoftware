@@ -24,6 +24,7 @@ import view.AdministrationView;
 
 import view.BarCodePanel;
 import view.FinishTurnView;
+import view.ManagerAccessView;
 import view.QuitVehiclePanel;
 
 /**
@@ -31,6 +32,10 @@ import view.QuitVehiclePanel;
  * @author Martin Kanayet
  */
 public class MainController {
+
+    public static void setVisibleAdminAccessView(boolean isVisible) {
+         adminAccessView.setVisible(isVisible);
+    }
 
     public MainController() {
         
@@ -116,6 +121,7 @@ public class MainController {
         quitPanel.setPanelParameters(plate, rate, entryDate.toLocaleString(), exitDate.toLocaleString(), comentary);
         quitPanel.setCostTextField(quitVehicleController.calculateCost(entryDate, exitDate, vehicleType));
     }
+    public static ManagerAccessView adminAccessView=new ManagerAccessView();
     public static OtherOptionsController otherOptionsController=new OtherOptionsController();
     public static OcupationController ocupationController = new OcupationController();
     public static BarCodePanel barCodePanel = new BarCodePanel();
