@@ -32,7 +32,6 @@ public class MainView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         PlateTextField.requestFocus();
-        //updateStatusBar(MainController.ocupationController.returnStatus());
     }
 
     public JLabel getUserLabel() {
@@ -133,10 +132,13 @@ public class MainView extends javax.swing.JFrame {
 
         AoQPanel.setLayout(new java.awt.BorderLayout());
 
-        UserLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        UserLabel.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        UserLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         UserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/User.png"))); // NOI18N
         UserLabel.setText("nombre del Usuario");
         UserLabel.setToolTipText("Cuenta de usuario actual");
+        UserLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        UserLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         AoQPanel.add(UserLabel, java.awt.BorderLayout.CENTER);
 
         PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
@@ -222,7 +224,7 @@ public class MainView extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(SearchButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(statusProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel1)
@@ -330,7 +332,7 @@ public class MainView extends javax.swing.JFrame {
         EntryPanel.setLayout(EntryPanelLayout);
         EntryPanelLayout.setHorizontalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         EntryPanelLayout.setVerticalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,7 +364,7 @@ public class MainView extends javax.swing.JFrame {
         ExitPanel.setLayout(ExitPanelLayout);
         ExitPanelLayout.setHorizontalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         ExitPanelLayout.setVerticalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -386,7 +388,7 @@ public class MainView extends javax.swing.JFrame {
         FacturePanel.setLayout(FacturePanelLayout);
         FacturePanelLayout.setHorizontalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         FacturePanelLayout.setVerticalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,7 +412,7 @@ public class MainView extends javax.swing.JFrame {
         FactureTurnPanel.setLayout(FactureTurnPanelLayout);
         FactureTurnPanelLayout.setHorizontalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         FactureTurnPanelLayout.setVerticalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,7 +444,7 @@ public class MainView extends javax.swing.JFrame {
         VehicleTypePanel.setLayout(VehicleTypePanelLayout);
         VehicleTypePanelLayout.setHorizontalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         VehicleTypePanelLayout.setVerticalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,7 +591,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DataEntryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AoQPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(StateTabbed, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
