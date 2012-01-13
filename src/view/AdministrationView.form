@@ -32,28 +32,28 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="816" max="-2" attributes="0"/>
-                      <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="AdminTabbedPanel" min="-2" pref="934" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="AdminTabbedPanel" min="-2" pref="955" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Component id="AdminTabbedPanel" pref="409" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <Component id="AdminTabbedPanel" min="-2" pref="419" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,7 +117,7 @@
                               <Component id="MaxCapacityTextField" alignment="0" min="-2" pref="135" max="-2" attributes="1"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="331" max="32767" attributes="0"/>
+                      <EmptySpace pref="310" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -162,7 +162,7 @@
                           <Component id="IVAFText" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="IVALabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="129" max="32767" attributes="0"/>
+                      <EmptySpace pref="139" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -379,7 +379,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace pref="49" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -568,14 +568,14 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="SubPanel" min="-2" pref="948" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                      <Component id="SubPanel" min="-2" pref="932" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SubPanel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="SubPanel" alignment="0" pref="391" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -596,46 +596,40 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="VehicleTypeNameLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="PlateSampleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="PlateExampleTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
-                                          <Component id="IdentifierPlateTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="VehicleSizeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="answerLabel" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="noRadioButton" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="yesRadioButton" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="numberSpacesSpinner" min="-2" pref="64" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="SavePlateButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="UpdateVehicleTypesButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="VehicleTypeNameLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PlateSampleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PlateExampleTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
+                                  <Component id="IdentifierPlateTextField" linkSize="1" alignment="0" pref="196" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="VehicleSizeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="answerLabel" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="noRadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="yesRadioButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="numberSpacesSpinner" min="-2" pref="64" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="VehicleTypeScroll" min="-2" pref="949" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="476" max="-2" attributes="0"/>
+                              <Component id="ButtonPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="VehicleTypeScroll" min="-2" pref="925" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -670,13 +664,12 @@
                                           <Component id="numberSpacesSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="SavePlateButton" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="VehicleTypeScroll" min="-2" pref="170" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="UpdateVehicleTypesButton" pref="63" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ButtonPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -703,18 +696,6 @@
                         <Property name="text" type="java.lang.String" value="Nombre del tipo de veh&#xed;culo:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="SavePlateButton">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Folder_Open.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Guardar Veh&#xed;culo"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Guardar un nuevo tipo de veh&#xed;culo."/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SavePlateButtonActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="IdentifierPlateTextField">
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="VehicleTypeScroll">
@@ -727,7 +708,7 @@
                         <Component class="javax.swing.JTable" name="PlatesTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="8">
+                              <Table columnCount="4" rowCount="0">
                                 <Column editable="false" title="Identificador" type="java.lang.Object"/>
                                 <Column editable="false" title="Tipo de Vehiculo" type="java.lang.Object"/>
                                 <Column editable="false" title="Ejemplo de Placa" type="java.lang.Object"/>
@@ -800,18 +781,55 @@
                     </Component>
                     <Component class="javax.swing.JSpinner" name="numberSpacesSpinner">
                     </Component>
-                    <Component class="javax.swing.JButton" name="UpdateVehicleTypesButton">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Floppy.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Modificar Veh&#xed;culos"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Modifica los tipos de veh&#xed;culo de acuerdo a la tabla."/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateVehicleTypesButtonActionPerformed"/>
-                      </Events>
-                    </Component>
+                    <Container class="javax.swing.JPanel" name="ButtonPanel">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                                  <Component id="UpdateVehicleTypesButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="SavePlateButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SavePlateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="UpdateVehicleTypesButton" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="UpdateVehicleTypesButton">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/images/Refresh.png"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Actualizar Veh&#xed;culos"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Modifica los tipos de veh&#xed;culo de acuerdo a la tabla."/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateVehicleTypesButtonActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="SavePlateButton">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/images/Floppy.png"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Guardar Veh&#xed;culo"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Guardar un nuevo tipo de veh&#xed;culo."/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SavePlateButtonActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="RateAdminPanel">
@@ -827,34 +845,41 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
                               <Component id="VehicleTypeLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace min="52" pref="52" max="-2" attributes="0"/>
                               <Component id="VehicleTypeComboBox" min="-2" pref="186" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="175" max="32767" attributes="0"/>
                               <Component id="SaveRateChangesButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                               <Component id="DeleteLastRate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="RatesScroll" pref="933" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
+                          <Component id="RatesScroll" alignment="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="VehicleTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="VehicleTypeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="SaveRateChangesButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DeleteLastRate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="VehicleTypeLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="VehicleTypeComboBox" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="SaveRateChangesButton" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DeleteLastRate" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="RatesScroll" pref="268" max="32767" attributes="0"/>
+                              <Component id="RatesScroll" pref="273" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -870,7 +895,7 @@
                         <Component class="javax.swing.JTable" name="RatesTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="5" rowCount="4">
+                              <Table columnCount="5" rowCount="0">
                                 <Column editable="false" title="Identificador" type="java.lang.Object"/>
                                 <Column editable="true" title="Desde (Minuto)" type="java.lang.Object"/>
                                 <Column editable="true" title="Hasta (Minuto)" type="java.lang.Object"/>
@@ -969,7 +994,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="ReportsTabbedPanel" min="-2" pref="949" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1050,7 +1075,7 @@
                                   <Component id="PartialReportTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="PartialTotaDiaryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="32" max="32767" attributes="0"/>
+                              <EmptySpace pref="42" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1229,7 +1254,7 @@
                                   <Component id="CustomReportTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TotalReportLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="31" max="32767" attributes="0"/>
+                              <EmptySpace pref="41" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1355,12 +1380,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Tickets" alignment="0" pref="950" max="32767" attributes="0"/>
+                  <Component id="Tickets" alignment="0" pref="993" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Tickets" alignment="1" pref="381" max="32767" attributes="0"/>
+                  <Component id="Tickets" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1437,7 +1462,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="29" max="32767" attributes="0"/>
+                              <EmptySpace pref="39" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1604,7 +1629,7 @@
                                       <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="BarCodeCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                                      <EmptySpace pref="20" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="FootPageEntryScroll" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1750,7 +1775,7 @@
                           <Component id="ThemeSlider" max="32767" attributes="0"/>
                           <Component id="jComboBox1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="452" max="32767" attributes="0"/>
+                      <EmptySpace pref="431" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1764,7 +1789,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="248" max="32767" attributes="0"/>
+                      <EmptySpace pref="258" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
