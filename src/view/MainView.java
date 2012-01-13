@@ -132,8 +132,6 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        DataEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -185,8 +183,6 @@ public class MainView extends javax.swing.JFrame {
                         .addGap(20, 20, 20))))
         );
 
-        OptionsPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("  Salir");
@@ -228,7 +224,6 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        ParkingPanel.setBackground(new java.awt.Color(254, 254, 254));
         ParkingPanel.setForeground(new java.awt.Color(1, 1, 1));
 
         CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -280,10 +275,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        AoQPanel.setBackground(new java.awt.Color(254, 254, 254));
         AoQPanel.setLayout(new java.awt.BorderLayout());
-
-        ClockPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         ClockLabel.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
         ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -331,8 +323,6 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        EntryPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         EntriesScrollPane.setBackground(new java.awt.Color(255, 255, 255));
 
         EntriesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -367,8 +357,6 @@ public class MainView extends javax.swing.JFrame {
 
         StateTabbed.addTab("Entradas", EntryPanel);
 
-        ExitPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         ExitsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -401,8 +389,6 @@ public class MainView extends javax.swing.JFrame {
 
         StateTabbed.addTab("Salidas", ExitPanel);
 
-        FacturePanel.setBackground(new java.awt.Color(255, 255, 255));
-
         FacturesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -427,8 +413,6 @@ public class MainView extends javax.swing.JFrame {
 
         StateTabbed.addTab("Facturas", FacturePanel);
 
-        FactureTurnPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         FactureTurnTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -452,8 +436,6 @@ public class MainView extends javax.swing.JFrame {
         );
 
         StateTabbed.addTab("Facturas Turno", FactureTurnPanel);
-
-        VehicleTypePanel.setBackground(new java.awt.Color(255, 255, 255));
 
         VehicleTypeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

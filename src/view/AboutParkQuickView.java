@@ -66,8 +66,6 @@ public class AboutParkQuickView extends javax.swing.JFrame {
             .addGap(0, 99, Short.MAX_VALUE)
         );
 
-        InfoPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         SoftwareLabel.setText("ParkQuick");
 
         IconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Flag.png"))); // NOI18N

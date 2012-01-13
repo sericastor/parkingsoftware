@@ -187,6 +187,7 @@ public class AdministrationView extends javax.swing.JFrame {
         OtherOptions = new javax.swing.JPanel();
         ThemeLabel = new javax.swing.JLabel();
         ThemeSlider = new javax.swing.JSlider();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administración de ParkQuick");
@@ -210,8 +211,6 @@ public class AdministrationView extends javax.swing.JFrame {
                 ExitButtonActionPerformed(evt);
             }
         });
-
-        ParkwayAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         NameParkwayTextField.setEditable(false);
         NameParkwayTextField.setToolTipText("Ingrese el nombre de su negocio.");
@@ -318,8 +317,6 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         AdminTabbedPanel.addTab("Parqueadero", ParkwayAdminPanel);
-
-        EmployeeAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
 
         EmployeeListScroll.setToolTipText("Empleados registrados en el sistema.");
 
@@ -514,8 +511,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         AdminTabbedPanel.addTab("Empleados", EmployeeAdminPanel);
 
-        PlateAdmin.setBackground(new java.awt.Color(255, 255, 255));
-
         PlateSampleLabel.setText("Ejemplo de placa:");
 
         PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -671,8 +666,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         SubPanel.addTab("Administrar Vehículos", PlateAdmin);
 
-        RateAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
-
         RatesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -767,10 +760,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         AdminTabbedPanel.addTab("Vehiculos y Tarifas", AdministrateVehicles);
 
-        ReportAdminPanel.setBackground(new java.awt.Color(254, 254, 254));
-
-        PartialReportPanel.setBackground(new java.awt.Color(255, 255, 255));
-
         PartialReportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -830,7 +819,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addComponent(DiaryReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68)
                 .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PartialReportPrintButton, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                    .addComponent(PartialReportPrintButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PartialReportGenerateButton))
                 .addGap(292, 292, 292))
         );
@@ -858,8 +847,6 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         ReportsTabbedPanel.addTab("Reporte Parcial Diario", PartialReportPanel);
-
-        CustomReportPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         FromLabel.setText("Desde:");
 
@@ -956,7 +943,9 @@ public class AdministrationView extends javax.swing.JFrame {
         ReportAdminPanel.setLayout(ReportAdminPanelLayout);
         ReportAdminPanelLayout.setHorizontalGroup(
             ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ReportsTabbedPanel, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(ReportAdminPanelLayout.createSequentialGroup()
+                .addComponent(ReportsTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 949, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         ReportAdminPanelLayout.setVerticalGroup(
             ReportAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -964,10 +953,6 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         AdminTabbedPanel.addTab("Reportes", ReportAdminPanel);
-
-        TicketAdmin.setBackground(new java.awt.Color(255, 255, 255));
-
-        ExitTicket.setBackground(new java.awt.Color(255, 255, 255));
 
         TitleExLabel.setText("Titulo");
 
@@ -1037,7 +1022,7 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(TitleExTextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(FootPageExitScroll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(SaveExitTicketButton, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)))
+                        .addComponent(SaveExitTicketButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(ExitPreviewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(202, 202, 202))
@@ -1069,8 +1054,6 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         Tickets.addTab("Salida", ExitTicket);
-
-        EntryTicket.setBackground(new java.awt.Color(255, 255, 255));
 
         TicketTitleLabel.setText("Titulo");
 
@@ -1187,16 +1170,14 @@ public class AdministrationView extends javax.swing.JFrame {
         TicketAdmin.setLayout(TicketAdminLayout);
         TicketAdminLayout.setHorizontalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tickets, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(Tickets, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
         );
         TicketAdminLayout.setVerticalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tickets)
+            .addComponent(Tickets, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
         );
 
         AdminTabbedPanel.addTab("Tiquetes", TicketAdmin);
-
-        OtherOptions.setBackground(new java.awt.Color(255, 255, 255));
 
         ThemeLabel.setText("Seleccione un tema visual");
 
@@ -1212,6 +1193,13 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout OtherOptionsLayout = new javax.swing.GroupLayout(OtherOptions);
         OtherOptions.setLayout(OtherOptionsLayout);
         OtherOptionsLayout.setHorizontalGroup(
@@ -1220,7 +1208,9 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGap(84, 84, 84)
                 .addComponent(ThemeLabel)
                 .addGap(92, 92, 92)
-                .addComponent(ThemeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ThemeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(452, Short.MAX_VALUE))
         );
         OtherOptionsLayout.setVerticalGroup(
@@ -1230,7 +1220,9 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ThemeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ThemeLabel))
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Otras Opciones", OtherOptions);
@@ -1556,6 +1548,12 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         MainController.otherOptionsController.setTheme(aux);
     }//GEN-LAST:event_ThemeSliderMouseClicked
 
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        System.out.println("hola");
+        int aux=jComboBox1.getSelectedIndex();
+        MainController.otherOptionsController.setTheme(aux);
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
     private String getNamePark() {
         return NameParkwayTextField.getText();
     }
@@ -1819,6 +1817,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JLabel answerLabel;
     private javax.swing.JCheckBox isActiveEmployeeCheckBox;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JRadioButton noRadioButton;
     private javax.swing.JSpinner numberSpacesSpinner;
     private javax.swing.JRadioButton yesRadioButton;

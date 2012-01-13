@@ -56,9 +56,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             .addGap(0, 131, Short.MAX_VALUE)
         );
 
-        PasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PasswordLabel.setText("Contraseña:");
 
         AdminPassTextField.setToolTipText("Ingrese su contraseña (Sólo Administradores)");
@@ -73,7 +71,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Key.png"))); // NOI18N
         AccessButton.setText("Ingresar");
         AccessButton.setToolTipText("Ingresar a la sección de Administradores.");
@@ -83,7 +81,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14));
+        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         CancelButton.setText("  Cancelar");
         CancelButton.setToolTipText("Retorna a la vista anterior.");
@@ -93,7 +91,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18));
+        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         InfoLabel.setText("Ésta operación requiere permisos administrativos.");
 
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
