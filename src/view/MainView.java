@@ -55,23 +55,22 @@ public class MainView extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        AoQPanel = new javax.swing.JPanel();
+        UserLabel = new javax.swing.JLabel();
         DataEntryPanel = new javax.swing.JPanel();
         PlateTextField = new javax.swing.JTextField();
         PlateLabel = new javax.swing.JLabel();
         SearchButton = new javax.swing.JButton();
-        OptionsPanel = new javax.swing.JPanel();
-        ExitButton = new javax.swing.JButton();
-        LogoutButton = new javax.swing.JButton();
+        ClockPanel = new javax.swing.JPanel();
+        ClockLabel = new javax.swing.JLabel();
+        statusProgressBar = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
         ParkingPanel = new javax.swing.JPanel();
         CloseBoxButton = new javax.swing.JButton();
         AdministerButton = new javax.swing.JButton();
         ParkQuickLabel = new javax.swing.JLabel();
-        AoQPanel = new javax.swing.JPanel();
-        ClockPanel = new javax.swing.JPanel();
-        ClockLabel = new javax.swing.JLabel();
-        UserLabel = new javax.swing.JLabel();
-        statusProgressBar = new javax.swing.JProgressBar();
-        jLabel1 = new javax.swing.JLabel();
+        ExitButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
         StateTabbed = new javax.swing.JTabbedPane();
         EntryPanel = new javax.swing.JPanel();
         EntriesScrollPane = new javax.swing.JScrollPane();
@@ -132,6 +131,14 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        AoQPanel.setLayout(new java.awt.BorderLayout());
+
+        UserLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        UserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/User.png"))); // NOI18N
+        UserLabel.setText("nombre del Usuario");
+        UserLabel.setToolTipText("Cuenta de usuario actual");
+        AoQPanel.add(UserLabel, java.awt.BorderLayout.CENTER);
+
         PlateTextField.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
         PlateTextField.setToolTipText("Ingrese la placa del vehiculo");
         PlateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -155,75 +162,75 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        ClockPanel.setBackground(new java.awt.Color(0, 0, 0));
+        ClockPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(215, 60, 21), new java.awt.Color(204, 204, 204), new java.awt.Color(0, 0, 0), new java.awt.Color(255, 255, 255)));
+
+        ClockLabel.setBackground(new java.awt.Color(51, 51, 51));
+        ClockLabel.setFont(new java.awt.Font("Simplified Arabic Fixed", 0, 36)); // NOI18N
+        ClockLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ClockLabel.setToolTipText("Hora actual.");
+        ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
+        ClockPanel.setLayout(ClockPanelLayout);
+        ClockPanelLayout.setHorizontalGroup(
+            ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+        );
+        ClockPanelLayout.setVerticalGroup(
+            ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+        );
+
+        statusProgressBar.setToolTipText("Porcentaje de ocupación en el establecimiento");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Porcentaje de ocupación");
+
         javax.swing.GroupLayout DataEntryPanelLayout = new javax.swing.GroupLayout(DataEntryPanel);
         DataEntryPanel.setLayout(DataEntryPanelLayout);
         DataEntryPanelLayout.setHorizontalGroup(
             DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataEntryPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(PlateLabel)
-                .addGap(18, 18, 18)
-                .addComponent(PlateTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(SearchButton)
-                .addContainerGap())
+                .addGroup(DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ClockPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DataEntryPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(statusProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
+                                    .addComponent(PlateLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(SearchButton)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(122, 122, 122)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DataEntryPanelLayout.setVerticalGroup(
             DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DataEntryPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
-                        .addComponent(PlateLabel)
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataEntryPanelLayout.createSequentialGroup()
-                        .addGroup(DataEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SearchButton))
-                        .addGap(20, 20, 20))))
+                    .addGroup(DataEntryPanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(PlateLabel))
+                    .addGroup(DataEntryPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(statusProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(ClockPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
-        ExitButton.setText("  Salir");
-        ExitButton.setToolTipText("Pulse aquí para salir.");
-        ExitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitButtonActionPerformed(evt);
-            }
-        });
-
-        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
-        LogoutButton.setText("Cerrar Sesión");
-        LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
-        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout OptionsPanelLayout = new javax.swing.GroupLayout(OptionsPanel);
-        OptionsPanel.setLayout(OptionsPanelLayout);
-        OptionsPanelLayout.setHorizontalGroup(
-            OptionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LogoutButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        OptionsPanelLayout.setVerticalGroup(
-            OptionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(OptionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LogoutButton))
-                .addContainerGap())
-        );
-
+        ParkingPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ParkingPanel.setForeground(new java.awt.Color(1, 1, 1));
 
         CloseBoxButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -248,79 +255,54 @@ public class MainView extends javax.swing.JFrame {
 
         ParkQuickLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         ParkQuickLabel.setForeground(new java.awt.Color(51, 102, 0));
-        ParkQuickLabel.setText("ParkQuick");
+        ParkQuickLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo7.1 small.png"))); // NOI18N
+
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
+        ExitButton.setText("  Salir");
+        ExitButton.setToolTipText("Pulse aquí para salir.");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
+
+        LogoutButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Stop.png"))); // NOI18N
+        LogoutButton.setText("Cerrar Sesión");
+        LogoutButton.setToolTipText("Pulse aquí para cerrar sesión.");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ParkingPanelLayout = new javax.swing.GroupLayout(ParkingPanel);
         ParkingPanel.setLayout(ParkingPanelLayout);
         ParkingPanelLayout.setHorizontalGroup(
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ParkingPanelLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(ParkQuickLabel)
+                .addComponent(ParkQuickLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AdministerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CloseBoxButton, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LogoutButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ParkingPanelLayout.setVerticalGroup(
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ParkingPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ParkQuickLabel)
-                    .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CloseBoxButton)
-                        .addComponent(AdministerButton)))
-                .addContainerGap())
-        );
-
-        AoQPanel.setLayout(new java.awt.BorderLayout());
-
-        ClockLabel.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
-        ClockLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ClockLabel.setToolTipText("Hora actual.");
-        ClockLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        UserLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        UserLabel.setText("Aquí va el nombre del Usuario");
-
-        jLabel1.setText("Porcentaje de ocupación");
-
-        javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
-        ClockPanel.setLayout(ClockPanelLayout);
-        ClockPanelLayout.setHorizontalGroup(
-            ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ClockPanelLayout.createSequentialGroup()
-                .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ClockPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ClockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(statusProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(ClockPanelLayout.createSequentialGroup()
-                        .addGroup(ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ClockPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(UserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ClockPanelLayout.createSequentialGroup()
-                                .addGap(147, 147, 147)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        ClockPanelLayout.setVerticalGroup(
-            ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ClockPanelLayout.createSequentialGroup()
+            .addComponent(ParkQuickLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(ParkingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ClockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UserLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(statusProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CloseBoxButton)
+                    .addComponent(AdministerButton)
+                    .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogoutButton))
+                .addContainerGap())
         );
 
         EntriesScrollPane.setBackground(new java.awt.Color(255, 255, 255));
@@ -348,11 +330,11 @@ public class MainView extends javax.swing.JFrame {
         EntryPanel.setLayout(EntryPanelLayout);
         EntryPanelLayout.setHorizontalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
         );
         EntryPanelLayout.setVerticalGroup(
             EntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+            .addComponent(EntriesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Entradas", EntryPanel);
@@ -380,11 +362,11 @@ public class MainView extends javax.swing.JFrame {
         ExitPanel.setLayout(ExitPanelLayout);
         ExitPanelLayout.setHorizontalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
         );
         ExitPanelLayout.setVerticalGroup(
             ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+            .addComponent(ExitsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Salidas", ExitPanel);
@@ -404,11 +386,11 @@ public class MainView extends javax.swing.JFrame {
         FacturePanel.setLayout(FacturePanelLayout);
         FacturePanelLayout.setHorizontalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
         );
         FacturePanelLayout.setVerticalGroup(
             FacturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Facturas", FacturePanel);
@@ -428,11 +410,11 @@ public class MainView extends javax.swing.JFrame {
         FactureTurnPanel.setLayout(FactureTurnPanelLayout);
         FactureTurnPanelLayout.setHorizontalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
         );
         FactureTurnPanelLayout.setVerticalGroup(
             FactureTurnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Facturas Turno", FactureTurnPanel);
@@ -460,11 +442,11 @@ public class MainView extends javax.swing.JFrame {
         VehicleTypePanel.setLayout(VehicleTypePanelLayout);
         VehicleTypePanelLayout.setHorizontalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
         );
         VehicleTypePanelLayout.setVerticalGroup(
             VehicleTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+            .addComponent(VehicleTypeSrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
         );
 
         StateTabbed.addTab("Tipo de Vehículos", VehicleTypePanel);
@@ -593,30 +575,23 @@ public class MainView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ParkingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(OptionsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(StateTabbed)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DataEntryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ClockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DataEntryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(ParkingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DataEntryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AoQPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(DataEntryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClockPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(AoQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(StateTabbed, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OptionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(StateTabbed, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -663,7 +638,9 @@ public class MainView extends javax.swing.JFrame {
 
     public void removePanel() {
         AoQPanel.removeAll();
+        AoQPanel.add(UserLabel);
         AoQPanel.repaint();
+        
     }
     public void confirmationMessages(String message,String type, int icon){
         if(icon==0){
@@ -867,7 +844,6 @@ private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
     private javax.swing.JButton LogoutButton;
     private javax.swing.JMenuItem LogoutMenu;
     private javax.swing.JMenuBar MenuBar;
-    private javax.swing.JPanel OptionsPanel;
     private javax.swing.JLabel ParkQuickLabel;
     private javax.swing.JPanel ParkingPanel;
     private javax.swing.JMenuItem PasteMenu;
