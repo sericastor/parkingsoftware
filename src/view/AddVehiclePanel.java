@@ -32,6 +32,8 @@ public class AddVehiclePanel extends javax.swing.JPanel {
         ComentaryScroll = new javax.swing.JScrollPane();
         ComentaryArea = new javax.swing.JTextArea();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         AddVehicleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add.png"))); // NOI18N
         AddVehicleButton.setText("Ingresar");
         AddVehicleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -39,48 +41,22 @@ public class AddVehiclePanel extends javax.swing.JPanel {
                 AddVehicleButtonActionPerformed(evt);
             }
         });
+        add(AddVehicleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, -1));
 
         VehicleTypeCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(VehicleTypeCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 0, -1, -1));
 
         VehicleTypeLabel.setText("Tipo de Vehículo:");
+        add(VehicleTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, -1, -1));
 
         ComentaryLabel.setText("Comentarios:");
+        add(ComentaryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 26, -1, -1));
 
         ComentaryArea.setColumns(20);
         ComentaryArea.setRows(5);
         ComentaryScroll.setViewportView(ComentaryArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(VehicleTypeLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ComentaryLabel)
-                    .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                    .addComponent(AddVehicleButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VehicleTypeLabel)
-                    .addComponent(VehicleTypeCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(ComentaryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(AddVehicleButton)
-                .addContainerGap())
-        );
+        add(ComentaryScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 46, 410, 110));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {                                    
