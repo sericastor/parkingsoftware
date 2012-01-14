@@ -102,6 +102,7 @@ public class TicketManagementController {
             MainController.customEntryJpaController.edit(entryTicket, idTickets);
             MainController.adminView.showMessage("Exito", "Modificación Exitosa", 1);
         }
+        MainController.adminView.getInfoEntryTicket();
     }
     
     public static void updateExitTicket(String title, String footPage, boolean name, boolean address, boolean nit, boolean employee){
@@ -120,6 +121,7 @@ public class TicketManagementController {
             MainController.customExitJpaController.edit(exitTicket, idTickets);
             MainController.adminView.showMessage("Exito", "Modificación Exitosa", 1);
         }
+        MainController.adminView.getInfoExitTicket();
     }
     
     public static String adjustTitle(String title){

@@ -1445,7 +1445,6 @@ private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GE
 
 private void SaveExitTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveExitTicketButtonActionPerformed
     TicketManagementController.updateExitTicket(TitleExTextField.getText(), FootPageExArea.getText(), ShowExParkwayNameCheck.isSelected(), ShowExParkwayAddressCheck.isSelected(), ShowExParkwayNITCheck.isSelected(), ShowExEmployeeCheck.isSelected());
-    getInfoExitTicket();
 }//GEN-LAST:event_SaveExitTicketButtonActionPerformed
 
 private void PartialReportSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartialReportSearchButtonActionPerformed
@@ -1454,7 +1453,6 @@ private void PartialReportSearchButtonActionPerformed(java.awt.event.ActionEvent
 
 private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveEntryTicketButtonActionPerformed
     TicketManagementController.updateEntryTicket(TitleTextField.getText(), FootPageEntryArea.getText(), NameCB.isSelected(), AddressCB.isSelected(), NITCB.isSelected(), EmployeeCB.isSelected(), BarCodeCB.isSelected());
-    getInfoEntryTicket();
 }//GEN-LAST:event_SaveEntryTicketButtonActionPerformed
 
 private void yesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesRadioButtonActionPerformed
@@ -1591,7 +1589,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         IVAFText.setValue(ParkingManagementController.getIVAPercent());
     }
 
-    private void getInfoEntryTicket() {
+    public void getInfoEntryTicket() {
         TitleTextField.setText(TicketManagementController.getEntryTittle());
         NameCB.setSelected(TicketManagementController.isEntryParkwayName());
         AddressCB.setSelected(TicketManagementController.isEntryParkwayAddress());
@@ -1601,7 +1599,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         FootPageEntryArea.setText(TicketManagementController.getEntryFootPage());
     }
 
-    private void getInfoExitTicket() {
+    public void getInfoExitTicket() {
         TitleExTextField.setText(TicketManagementController.getExitTittle());
         ShowExEmployeeCheck.setSelected(TicketManagementController.isExitEmployee());
         ShowExParkwayAddressCheck.setSelected(TicketManagementController.isExitParkwayAddress());
