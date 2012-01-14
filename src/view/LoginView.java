@@ -30,10 +30,8 @@ import javax.swing.JOptionPane;
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
-        
         ImageIcon img=new ImageIcon("src/images/parking1.gif"); 
-         setIconImage(img.getImage()); 
-         
+        setIconImage(img.getImage()); 
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -213,23 +211,8 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        boolean ok = false;
-        ok = LoginController.verifyUser(this.getUserName(), this.getUserPassword());
-        if (ok) {
-            this.showMessage(titleMessage, okMessage, infoIcon);
-            this.setVisible(false);
-            MainController.verifyStatus(ok);
-            
-        } else {
-            this.showMessage(titleMessage, errorMessage, errorIcon);
-        }
-        UserTextField.setText("");
-        PasswordField.setText("");
+       LoginController.startLogin();
     }//GEN-LAST:event_LoginButtonActionPerformed
-
-    private void setVisibleLoginView(boolean isVisible) {
-        this.setVisible(isVisible);
-    }
 
     private void ManualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManualButtonActionPerformed
         
@@ -259,10 +242,6 @@ public class LoginView extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Lo lamento,no se puede abrir el archivo; ésta Maquina no soporta la API Desktop");
         }
-          
-        
-        
-
     }//GEN-LAST:event_ManualButtonActionPerformed
 
     private void PasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordFieldKeyPressed
@@ -272,7 +251,6 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordFieldKeyPressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // Puede considerarse clon de MainView .askToExit(); si algo me cuentan
         int confirm=JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?");
         if (confirm == JOptionPane.OK_OPTION){
             ExitController.exit(0);
@@ -284,21 +262,22 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     public String getUserPassword() {
-       
-       return controller.MainController.md5Security.
-               MD5Security(String.valueOf(PasswordField.getPassword()));
+       return String.valueOf(PasswordField.getPassword());
+    }
+    
+    public javax.swing.JTextField getUserTextField(){
+        return UserTextField;
+    }
+    
+    public javax.swing.JPasswordField getPasswordField(){
+        return PasswordField;
     }
 
     public void showMessage(String title, String message, int messageType) {
-    JOptionPane.showMessageDialog(this, message, title, messageType);
+        JOptionPane.showMessageDialog(this, message, title, messageType);
         UserTextField.requestFocus();
     }
     
-    private final String titleMessage = "Inicio Sesión";
-    private final String errorMessage = "Datos Incorrectos";
-    private final String okMessage = "Bienvenido";
-    private final int errorIcon = 0;
-    private final int infoIcon = 1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HelpPanel;
     private javax.swing.JLabel IconLabel;
