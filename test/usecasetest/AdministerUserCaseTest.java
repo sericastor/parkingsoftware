@@ -10,7 +10,6 @@ import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
 import DAO.EmployeeJpaController;
 import controller.Administration.AdministrateEmployeeController;
-import controller.Administration.EmployeeManagementController;
 import controller.MainController;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -26,7 +25,8 @@ import static org.junit.Assert.*;
  */
 public class AdministerUserCaseTest {
     
-    public AdministerUserCaseTest() {
+    // This test Class needs a refactory URGENT!
+    /*public AdministerUserCaseTest() {
     }
 
     @BeforeClass
@@ -513,5 +513,5 @@ public class AdministerUserCaseTest {
     private boolean active;
     
     private static EmployeeJpaController employeeJpaController;
-    private static EntityManagerFactory persistence_factory;
+    private static EntityManagerFactory persistence_factory;*/
 }

@@ -160,6 +160,13 @@ public class AdministrateEmployeeController {
         
         return true;
     }
+    
+    public static boolean quickValidatePassword(String password) {
+        if (password.length() >= 4 && password.length() <= 10) {
+            return true;
+        }
+        return false;
+    }
 
     public static DefaultListModel totalSearchOfEmployees() {
         DefaultListModel results = new DefaultListModel();
