@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -39,7 +39,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="785" max="32767" attributes="0"/>
                       <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -307,7 +307,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CreateEmployeeButton" linkSize="2" alignment="1" max="32767" attributes="1"/>
+                          <Component id="CreateEmployeeButton" linkSize="2" alignment="1" pref="197" max="32767" attributes="1"/>
                           <Component id="UpdateEmployeeButton" linkSize="2" alignment="1" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
@@ -459,9 +459,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="isAdminEmployeeCheckBox">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Administrador"/>
                 <Property name="toolTipText" type="java.lang.String" value="Seleccione aqu&#xed; para dar permisos de Administador al empleado cuya informaci&#xf3;n aparece arriba."/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -534,9 +531,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="isActiveEmployeeCheckBox">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Activo"/>
                 <Property name="toolTipText" type="java.lang.String" value="Seleccione aqu&#xed; para permitir al empleado acceso al sistema."/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -625,11 +619,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="476" max="-2" attributes="0"/>
                               <Component id="ButtonPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="151" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="VehicleTypeScroll" min="-2" pref="925" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="143" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -752,9 +746,6 @@
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="yesRadioButton">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
                       </Properties>
                       <Events>
@@ -763,9 +754,6 @@
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="noRadioButton">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="selected" type="boolean" value="true"/>
                         <Property name="text" type="java.lang.String" value="No"/>
                       </Properties>
@@ -854,7 +842,7 @@
                               <Component id="DeleteLastRate" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
-                          <Component id="RatesScroll" alignment="0" max="32767" attributes="0"/>
+                          <Component id="RatesScroll" alignment="0" pref="927" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1379,7 +1367,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Tickets" alignment="0" pref="993" max="32767" attributes="0"/>
+                  <Component id="Tickets" alignment="0" pref="929" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -1479,36 +1467,24 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="ShowExParkwayNameCheck">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar nombre del parqueadero"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que sea visible el nombre del parqueadero en los tiquetes."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="ShowExParkwayAddressCheck">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar direcci&#xf3;n del parqueadero"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre la direcci&#xf3;n del parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="ShowExParkwayNITCheck">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar NIT del parqueadero"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre el NIT de su parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="ShowExEmployeeCheck">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar quien esta atendiendo"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre el nombre del empleado que ingreso retiro el veh&#xed;culo."/>
                       </Properties>
@@ -1602,7 +1578,7 @@
                                           <Component id="EmployeeCB" alignment="0" max="32767" attributes="1"/>
                                           <Component id="NITCB" alignment="0" min="-2" pref="194" max="-2" attributes="1"/>
                                       </Group>
-                                      <EmptySpace pref="714" max="32767" attributes="0"/>
+                                      <EmptySpace pref="570" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1657,45 +1633,30 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="NameCB">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar nombre del parqueadero"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que sea visible el nombre del parqueadero en los tiquetes."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="AddressCB">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar direcci&#xf3;n del parqueadero"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre la direcci&#xf3;n del parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="NITCB">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar NIT del parqueadero"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el NIT del parqueadero en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="EmployeeCB">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar qui&#xe9;n esta atendiendo"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el nombre del empleado que ingres&#xf3; el veh&#xed;culo en el tiquete."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="BarCodeCB">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar c&#xf3;digo de barras"/>
                         <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre un c&#xf3;digo de barras con la placa del veh&#xed;culo en el tiquete"/>
                       </Properties>
@@ -1769,12 +1730,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       <Component id="ThemeLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ThemeSlider" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="431" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="ThemeComboBox" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="593" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1782,13 +1740,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ThemeSlider" min="-2" max="-2" attributes="0"/>
-                          <Component id="ThemeLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ThemeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ThemeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="258" max="32767" attributes="0"/>
+                      <EmptySpace pref="325" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1799,20 +1755,7 @@
                 <Property name="text" type="java.lang.String" value="Seleccione un tema visual"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="ThemeSlider">
-              <Properties>
-                <Property name="majorTickSpacing" type="int" value="20"/>
-                <Property name="maximum" type="int" value="6"/>
-                <Property name="minorTickSpacing" type="int" value="1"/>
-                <Property name="paintTicks" type="boolean" value="true"/>
-                <Property name="snapToTicks" type="boolean" value="true"/>
-                <Property name="value" type="int" value="0"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ThemeSliderMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="ThemeComboBox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -1824,7 +1767,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBox1ItemStateChanged"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="ThemeComboBoxItemStateChanged"/>
               </Events>
             </Component>
           </SubComponents>

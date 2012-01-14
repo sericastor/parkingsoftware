@@ -86,7 +86,7 @@ public class EmployeeJpaController implements Serializable {
             employee = em.merge(newEmployee);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            System.out.println(ex.getStackTrace());
+            System.out.println(ex.getMessage());
             MainController.adminView.showMessage("Error", "Imposible mofidicar al usaurio " + employee.getUser(), 0);
         } finally {
             if (em != null) {
