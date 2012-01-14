@@ -1404,7 +1404,6 @@ private void SaveRateChangesButtonActionPerformed(java.awt.event.ActionEvent evt
 
     RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
     RatesTable.updateUI();
-
 }//GEN-LAST:event_SaveRateChangesButtonActionPerformed
 
 private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_VehicleTypeComboBoxItemStateChanged
@@ -1501,23 +1500,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     }//GEN-LAST:event_SavePlateButtonActionPerformed
 
     private void UpdateVehicleTypesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateVehicleTypesButtonActionPerformed
-        int option = MainController.adminView.showOptionMessage("¿Está seguro de modificar los tipo de vehículo?");
-        if (option == 0) {
-            if (PlatesTable.isEditing()) {
-                PlatesTable.getCellEditor().stopCellEditing();
-            }
-            for (int i = 0; i < PlatesTable.getRowCount(); i++) {
-                AdministrateVehicleTypeController.rowIsEdited(
-                        (long) i + 1,
-                        String.valueOf(PlatesTable.getValueAt(i, 1)),
-                        String.valueOf(PlatesTable.getValueAt(i, 2)),
-                        String.valueOf(PlatesTable.getValueAt(i, 3)));
-            }
-
-            MainController.adminView.showMessage("Ok", "Modificación Exitosa", 1);
-            PlatesTable.setModel(AdministrateVehicleTypeController.getModelTable());
-            PlatesTable.updateUI();
-        }
+        AdministrateVehicleTypeController.updateAllVehicleTypes();
     }//GEN-LAST:event_UpdateVehicleTypesButtonActionPerformed
 
     public JList getEmployeeList() {
