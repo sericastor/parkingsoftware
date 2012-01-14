@@ -42,17 +42,22 @@ public class AdministrateEmployeeController {
             if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux, lenPass, createAction)) {
                 MainController.employeeJpaController.create(emp);
                 MainController.adminView.showMessage("Exito", "Usuario: " + emp.getUser() + " creado.", JOptionPane.INFORMATION_MESSAGE);
-            }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
-                return;
+                restartDataCreate();
             }
-            MainController.adminView.setNullEmp();
-            MainController.adminView.setEnabledEmp(false);
-            MainController.adminView.setEnabledUpdateEmployeeButton(true);
-            MainController.adminView.searchButtonAction();
-            MainController.adminView.setCreateEmployeeButton("Crear Empleado");
+            if(option == JOptionPane.NO_OPTION){
+                restartDataCreate();
+            }
         }
-
     }
+    
+    public void restartDataCreate(){
+        MainController.adminView.setNullEmp();
+        MainController.adminView.setEnabledEmp(false);
+        MainController.adminView.setEnabledUpdateEmployeeButton(true);
+        MainController.adminView.searchButtonAction();
+        MainController.adminView.setCreateEmployeeButton("Crear Empleado");
+    }
+    
     public void UpdateEmployee(){
         if (MainController.adminView.getIdEmployeeTextField().isEmpty()) {
             MainController.adminView.showMessage("Error", "Consulte el empleado a modificar", JOptionPane.WARNING_MESSAGE);
@@ -77,16 +82,21 @@ public class AdministrateEmployeeController {
                 if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux,lenPass, updateAction)) {
                     MainController.employeeJpaController.edit(emp, id);
                     MainController.adminView.showMessage("Exito", "Usuario: " + emp.getUser() + " modificado.", JOptionPane.INFORMATION_MESSAGE);
-                }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
-                    return;
+                    restartDataUpdate();
                 }
-                    MainController.adminView.searchButtonAction();
-                    MainController.adminView.setUpdateEmployeeButton("Actualizar Empleado");
-                    MainController.adminView.setNullEmp();
-                    MainController.adminView.setEnabledEmp(false);
-                    MainController.adminView.setEnabledCreateEmployeeButton(true);
+                if(option == JOptionPane.NO_OPTION || (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux, lenPass, updateAction))){
+                    restartDataUpdate();
+                }
             }
         }
+    }
+    
+    public void restartDataUpdate(){
+        MainController.adminView.searchButtonAction();
+        MainController.adminView.setUpdateEmployeeButton("Actualizar Empleado");
+        MainController.adminView.setNullEmp();
+        MainController.adminView.setEnabledEmp(false);
+        MainController.adminView.setEnabledCreateEmployeeButton(true);
     }
 
     public boolean verifyEmployeeData(Employee emp,String aux, int lenPass, int action) {
