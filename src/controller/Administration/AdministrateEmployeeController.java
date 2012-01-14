@@ -19,6 +19,52 @@ public class AdministrateEmployeeController {
     public AdministrateEmployeeController() {
     }
 
+    public void searchEmployee(){
+        MainController.adminView.getEmployeeList().removeAll();
+        String searchText = MainController.adminView.getConsultEmployeeTextField();
+        if(searchText.isEmpty()){
+            MainController.adminView.getEmployeeList().setModel(totalSearchOfEmployees());
+        }else{
+            try{
+                int searchInt = Integer.parseInt(searchText);
+                if (searchInt > 0) {
+                    if(searchOfEmployees(searchInt).isEmpty()){
+                        MainController.adminView.showMessage("Advertencia", "No se encontraron usuarios con el ID: " + searchText, JOptionPane.WARNING_MESSAGE);
+                        MainController.adminView.getEmployeeList().setModel(totalSearchOfEmployees());
+                    }else{
+                        MainController.adminView.getEmployeeList().setModel(searchOfEmployees(searchInt));
+                    }
+                } else {
+                    MainController.adminView.showMessage("Advertencia", "No se permiten ID negativos", JOptionPane.WARNING_MESSAGE);
+                }
+            }catch(Exception ex){
+                MainController.adminView.showMessage("Advertencia", "La busqueda debe hacerse por ID", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        MainController.adminView.setConsultEmployeeTextField(null);
+    }
+    
+    public void getEmployeeInfoForClickedList(){
+        int employeeId;
+        if(MainController.adminView.getEmployeeList().getSelectedValue() == null){
+            employeeId = MainController.adminView.getEmployeeList().getSelectedIndex();
+        }else{
+            javax.swing.JList employeeList = MainController.adminView.getEmployeeList();
+            employeeId = Integer.parseInt(employeeList.getSelectedValue().toString().substring(0, employeeList.getSelectedValue().toString().indexOf(" "))) - 1;
+        }
+        if(employeeId >= 0){
+            Employee e = getEmployeeListSearch().get(employeeId);
+            setTempEmployee(e);
+            MainController.adminView.setIdEmployeeTextField(String.valueOf(e.getId()));
+            MainController.adminView.setNameEmployeeTextField(e.getName());
+            MainController.adminView.setLastNameEmployeeTextField(e.getLastName());
+            MainController.adminView.setDocumentEmployeeTextField(e.getDocument());
+            MainController.adminView.setSelectedActiveEmployeeCheckBox(e.isIsActive());
+            MainController.adminView.setSelectedAdminEmployeeCheckBox(e.isAdministrator());
+            MainController.adminView.setUserTextField(e.getUser());
+        }
+    }
+    
     public void CreateEmployee() {
         if(MainController.adminView.getCreateEmployeeButton().equals("Crear Empleado")){
             MainController.adminView.setNullEmp();
@@ -35,8 +81,8 @@ public class AdministrateEmployeeController {
         emp.setDocument(MainController.adminView.getDocumentEmployeeTextField());
         emp.setUser(MainController.adminView.getUserTextField());
         emp.setPassword(MainController.adminView.getPasswordField());
-        emp.setIsActive(MainController.adminView.getIsAdminEmployeeCheckBox());
-        emp.setAdministrator(MainController.adminView.getIsisActiveEmployeeCheckBox());
+        emp.setIsActive(MainController.adminView.getIsisActiveEmployeeCheckBox());
+        emp.setAdministrator(MainController.adminView.getIsAdminEmployeeCheckBox());
         String aux = MainController.adminView.getConfirmPasswordField();
         int option = MainController.adminView.askToAdmin("¿Está seguro de crear al empleado ");
             if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux, lenPass, createAction)) {
@@ -75,8 +121,8 @@ public class AdministrateEmployeeController {
                 emp.setDocument(MainController.adminView.getDocumentEmployeeTextField());
                 emp.setUser(MainController.adminView.getUserTextField());
                 emp.setPassword(MainController.adminView.getPasswordField());
-                emp.setIsActive(MainController.adminView.getIsAdminEmployeeCheckBox());
-                emp.setAdministrator(MainController.adminView.getIsisActiveEmployeeCheckBox());
+                emp.setIsActive(MainController.adminView.getIsisActiveEmployeeCheckBox());
+                emp.setAdministrator(MainController.adminView.getIsAdminEmployeeCheckBox());
                 String aux = MainController.adminView.getConfirmPasswordField();
                 int option = MainController.adminView.askToAdmin("¿ Está seguro de modificar al empleado ");
                 if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux,lenPass, updateAction)) {

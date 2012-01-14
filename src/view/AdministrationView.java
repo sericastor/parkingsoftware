@@ -10,7 +10,6 @@
  */
 package view;
 
-import Entity.Employee;
 import controller.Administration.*;
 import controller.MainController;
 import javax.swing.*;
@@ -1210,45 +1209,11 @@ public class AdministrationView extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
 private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-    EmployeeList.removeAll();
-    String searchText = ConsultEmployeeTextField.getText();
-    if (searchText.isEmpty()) {
-        EmployeeList.setModel(AdministrateEmployeeController.totalSearchOfEmployees());
-    } else {
-        try {
-            int searchInt = Integer.parseInt(searchText);
-            if (searchInt > 0) {
-                EmployeeList.setModel(AdministrateEmployeeController.searchOfEmployees(searchInt));
-            } else {
-                showMessage("Advertencia", "No se permiten ID negativos", JOptionPane.WARNING_MESSAGE);
-            }
-        } catch (Exception e) {
-            showMessage("Advertencia", "La busqueda debe hacerse por ID", JOptionPane.WARNING_MESSAGE);
-        }
-    }
-    ConsultEmployeeTextField.setText(null);
+    MainController.administrateEmployeeController.searchEmployee();
 }//GEN-LAST:event_SearchButtonActionPerformed
 
 private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_EmployeeListValueChanged
-    int emp=EmployeeList.getSelectedIndex();
-    System.out.println("this.CreateEmployeeButton.getText()"+"Guardar Cambios".equals(this.UpdateEmployeeButton.getText()));
-    if( "Guardar Empleado".equals(this.CreateEmployeeButton.getText())||
-            "Guardar Cambios".equals(this.UpdateEmployeeButton.getText())){
-        MainController.adminView.setEnabledEmp(false);
-        this.CreateEmployeeButton.setText("Crear Empleado");
-        this.UpdateEmployeeButton.setText("Actualizar Empleado");
-    }
-    if (emp >= 0) {
-        Employee e = AdministrateEmployeeController.getEmployeeListSearch().get(emp);
-        AdministrateEmployeeController.setTempEmployee(e);
-        IdEmployeeTextField.setText(String.valueOf(e.getId()));
-        NameEmployeeTextField.setText(e.getName());
-        LastNameEmployeeTextField.setText(e.getLastName());
-        DocumentEmployeeTextField.setText(e.getDocument());
-        isAdminEmployeeCheckBox.setSelected(e.isAdministrator());
-        isActiveEmployeeCheckBox.setSelected(e.isIsActive());
-        UserTextField.setText(e.getUser());
-    }
+    MainController.administrateEmployeeController.getEmployeeInfoForClickedList();
 }//GEN-LAST:event_EmployeeListValueChanged
 
     public void searchButtonAction(){
@@ -1302,12 +1267,15 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     public void setConsultEmployeeTextField(String ConsultEmployeeTextField) {
         this.ConsultEmployeeTextField.setText(ConsultEmployeeTextField);
     }
+    
+    public String getConsultEmployeeTextField(){
+        return ConsultEmployeeTextField.getText();
+    }
 
     public void setLastNameEmployeeTextField(String LastNameEmployeeTextField) {
         this.LastNameEmployeeTextField.setText(LastNameEmployeeTextField);
     }
     
-
     public void setDocumentEmployeeTextField(String DocumentEmployeeTextField) {
         this.DocumentEmployeeTextField.setText(DocumentEmployeeTextField);
     }
@@ -1332,6 +1300,15 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     public void setAdminEmployeeCheckBox(boolean isAdminEmployeeCheckBox) {
         this.isAdminEmployeeCheckBox.setEnabled(isAdminEmployeeCheckBox);
     }
+    
+    public void setSelectedAdminEmployeeCheckBox(boolean isAdmin){
+        this.isAdminEmployeeCheckBox.setSelected(isAdmin);
+    }
+    
+    public void setSelectedActiveEmployeeCheckBox(boolean isActive){
+        this.isActiveEmployeeCheckBox.setSelected(isActive);
+    }
+    
     public String getNameEmployeeTextField(){
         return this.NameEmployeeTextField.getText();
     }
@@ -1363,10 +1340,10 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         }
     }
     public boolean getIsAdminEmployeeCheckBox(){
-        return this.isAdminEmployeeCheckBox.isEnabled();
+        return this.isAdminEmployeeCheckBox.isSelected();
     }
     public boolean getIsisActiveEmployeeCheckBox(){
-        return this.isActiveEmployeeCheckBox.isEnabled();
+        return this.isActiveEmployeeCheckBox.isSelected();
     }
 
     public String getCreateEmployeeButton() {
