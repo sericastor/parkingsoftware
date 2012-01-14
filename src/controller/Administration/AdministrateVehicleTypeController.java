@@ -15,9 +15,32 @@ import Entity.VehicleType;
 import controller.MainController;
 import java.util.List;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 public class AdministrateVehicleTypeController {
+    
+    public static void updateAllVehicleTypes(){
+        int option = MainController.adminView.showOptionMessage("¿Está seguro de modificar los tipo de vehículo?");
+        if(option == JOptionPane.OK_OPTION){
+            if(MainController.adminView.getPlatesTable().isEditing()){
+                MainController.adminView.getPlatesTable().getCellEditor().stopCellEditing();
+            }
+            javax.swing.JTable plateTable = MainController.adminView.getPlatesTable();
+            for(int i = 0; i < plateTable.getRowCount(); i++){
+                rowIsEdited(
+                        (long) i + 1,
+                        String.valueOf(plateTable.getValueAt(i, 1)),
+                        String.valueOf(plateTable.getValueAt(i, 2)),
+                        String.valueOf(plateTable.getValueAt(i, 3)));
+            }
+            MainController.adminView.showMessage("Ok", "Modificación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+        }else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
+            return;
+        }
+        MainController.adminView.getPlatesTable().setModel(getModelTable());
+        MainController.adminView.getPlatesTable().updateUI();
+    }
 
     public static DefaultTableModel totalSearchOfVehicles() {
         DefaultTableModel results = new DefaultTableModel();
