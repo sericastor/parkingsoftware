@@ -15,7 +15,6 @@ import Entity.Employee;
 import Entity.VehicleType;
 import controller.Administration.AdministrateEmployeeController;
 import controller.Administration.AdministrateVehicleTypeController;
-import controller.Administration.EmployeeManagementController;
 import controller.Administration.OtherOptionsController;
 import java.util.Date;
 import view.AboutParkQuickView;
@@ -53,7 +52,7 @@ public class MainController {
     }
 
     public static boolean verifyAdminAccess(String password) {
-        if(EmployeeManagementController.validatePassword(password)){
+        if(AdministrateEmployeeController.quickValidatePassword(password)){
             for (Employee e : employeeJpaController.findEmployeeEntities(true, -1, -1)) {
                 if (e.getPassword().equals(md5Security.MD5Security(password)) && 
                         e.isAdministrator() == true && e.isIsActive() == true) {
