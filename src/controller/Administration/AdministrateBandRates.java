@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -21,6 +22,48 @@ import javax.swing.table.TableModel;
  * @author miguel
  */
 public class AdministrateBandRates {
+    
+    public static void deleteLastRate(){
+        String id = (String) MainController.adminView.getVehicleTypeComboBox().getSelectedItem();
+        int option = MainController.adminView.showOptionMessage("¿Está seguro de eliminar la última tarifa para el tipo de vehículo: " + id +"?");
+        if(option == JOptionPane.OK_OPTION){
+            deleteRateFromVehicleType(id);
+            MainController.adminView.getRatesTable().setModel(getModelTable(getVehicleTypeSelected(id)));
+            MainController.adminView.getRatesTable().updateUI();
+        }
+    }
+    
+    public static void getBandsRateFromVehicleType(){
+        String id = (String) MainController.adminView.getVehicleTypeComboBox().getSelectedItem();
+        MainController.adminView.getRatesTable().setModel(getModelTable(getVehicleTypeSelected(id)));
+        MainController.adminView.getRatesTable().updateUI();
+    }
+    
+    public static void saveChangesBandsRate(){
+        String id = (String) MainController.adminView.getVehicleTypeComboBox().getSelectedItem();
+        VehicleType vehicle = getVehicleTypeSelected(id);
+        int option = MainController.adminView.showOptionMessage("¿Está seguro de modificar las tarifas para el tipo de vehículo: " + vehicle.getName() +"?");
+        if(option == JOptionPane.OK_OPTION){
+            if(MainController.adminView.getRatesTable().isEditing()){
+                MainController.adminView.getRatesTable().getCellEditor().stopCellEditing();
+            }
+            javax.swing.JTable bandsRate = MainController.adminView.getRatesTable();
+            for(int i = 0; i < bandsRate.getRowCount(); i++){
+                rowIsEdited(i,
+                    String.valueOf(bandsRate.getValueAt(i, 0)),
+                    String.valueOf(bandsRate.getValueAt(i, 1)),
+                    String.valueOf(bandsRate.getValueAt(i, 2)),
+                    String.valueOf(bandsRate.getValueAt(i, 3)),
+                    String.valueOf(bandsRate.getValueAt(i, 4)),
+                    vehicle);
+            }
+            MainController.adminView.showMessage("Ok", "Modificación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+        }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
+            return;
+        }
+        MainController.adminView.getRatesTable().setModel(getModelTable(vehicle));
+        MainController.adminView.getRatesTable().updateUI();
+    } 
 
     public static DefaultComboBoxModel AllVehicleTypes() {
         //actualiza el combo box con la informacion de la base de datos

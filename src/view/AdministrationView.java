@@ -1161,8 +1161,8 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGap(84, 84, 84)
                 .addComponent(ThemeLabel)
                 .addGap(74, 74, 74)
-                .addComponent(ThemeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addComponent(ThemeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(510, Short.MAX_VALUE))
         );
         OtherOptionsLayout.setVerticalGroup(
             OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1366,7 +1366,6 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         return this.IdEmployeeTextField.getText();
     }
     
-
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
         MainController.administrateEmployeeController.CreateEmployee();        
     }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
@@ -1388,28 +1387,11 @@ private void PlateExampleTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN
 }//GEN-LAST:event_PlateExampleTextFieldKeyPressed
 
 private void SaveRateChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveRateChangesButtonActionPerformed
-    if (RatesTable.isEditing()) {
-        RatesTable.getCellEditor().stopCellEditing();
-    }
-    String id = (String) VehicleTypeComboBox.getSelectedItem();
-    for (int i = 0; i < RatesTable.getRowCount(); i++) {
-        AdministrateBandRates.rowIsEdited(i,
-                String.valueOf(RatesTable.getValueAt(i, 0)),
-                String.valueOf(RatesTable.getValueAt(i, 1)),
-                String.valueOf(RatesTable.getValueAt(i, 2)),
-                String.valueOf(RatesTable.getValueAt(i, 3)),
-                String.valueOf(RatesTable.getValueAt(i, 4)),
-                AdministrateBandRates.getVehicleTypeSelected(id));
-    }
-
-    RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
-    RatesTable.updateUI();
+    AdministrateBandRates.saveChangesBandsRate();
 }//GEN-LAST:event_SaveRateChangesButtonActionPerformed
 
 private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_VehicleTypeComboBoxItemStateChanged
-    String id = (String) VehicleTypeComboBox.getSelectedItem();
-    RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
-    RatesTable.updateUI();
+    AdministrateBandRates.getBandsRateFromVehicleType();
 }//GEN-LAST:event_VehicleTypeComboBoxItemStateChanged
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -1436,10 +1418,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     }//GEN-LAST:event_CustomReportGenerateButtonActionPerformed
 
 private void DeleteLastRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteLastRateActionPerformed
-    String id = (String) VehicleTypeComboBox.getSelectedItem();
-    AdministrateBandRates.deleteRateFromVehicleType(id);
-    RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
-    RatesTable.updateUI();
+    AdministrateBandRates.deleteLastRate();
 }//GEN-LAST:event_DeleteLastRateActionPerformed
 
 private void SaveExitTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveExitTicketButtonActionPerformed
@@ -1510,7 +1489,15 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     public void setEmployeeList(JList EmployeeList) {
         this.EmployeeList = EmployeeList;
     }
-
+    
+    public JTable getRatesTable(){
+        return RatesTable;
+    }
+    
+    public JComboBox getVehicleTypeComboBox(){
+        return VehicleTypeComboBox;
+    }
+   
     public JTable getPlatesTable() {
         return PlatesTable;
     }
