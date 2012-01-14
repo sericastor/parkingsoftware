@@ -181,8 +181,7 @@ public class AdministrationView extends javax.swing.JFrame {
         EntryPreviewButton = new javax.swing.JButton();
         OtherOptions = new javax.swing.JPanel();
         ThemeLabel = new javax.swing.JLabel();
-        ThemeSlider = new javax.swing.JSlider();
-        jComboBox1 = new javax.swing.JComboBox();
+        ThemeComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administración de ParkQuick");
@@ -197,7 +196,7 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("Cerrar");
         ExitButton.setToolTipText("Terminar la configuración.");
@@ -345,7 +344,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         DocumentEmployeeLabel.setText("Documento:");
 
-        isAdminEmployeeCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         isAdminEmployeeCheckBox.setText("Administrador");
         isAdminEmployeeCheckBox.setToolTipText("Seleccione aquí para dar permisos de Administador al empleado cuya información aparece arriba.");
         isAdminEmployeeCheckBox.setEnabled(false);
@@ -390,7 +388,6 @@ public class AdministrationView extends javax.swing.JFrame {
         PasswordField.setToolTipText("Contraseña con al que el empleado accederá al sistema.");
         PasswordField.setEnabled(false);
 
-        isActiveEmployeeCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         isActiveEmployeeCheckBox.setText("Activo");
         isActiveEmployeeCheckBox.setToolTipText("Seleccione aquí para permitir al empleado acceso al sistema.");
         isActiveEmployeeCheckBox.setEnabled(false);
@@ -438,7 +435,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(EmployeeListLabel))
                 .addGap(135, 135, 135)
                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                     .addComponent(UpdateEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(209, 209, 209))
         );
@@ -503,7 +500,7 @@ public class AdministrationView extends javax.swing.JFrame {
 
         PlateSampleLabel.setText("Ejemplo de placa:");
 
-        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24));
         PlateExampleTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PlateExampleTextFieldKeyPressed(evt);
@@ -538,7 +535,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         VehicleSizeLabel.setText("¿El vehiculo ocupa más de un espacio?:");
 
-        yesRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         yesRadioButton.setText("Si");
         yesRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -546,7 +542,6 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
-        noRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         noRadioButton.setSelected(true);
         noRadioButton.setText("No");
         noRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -620,10 +615,10 @@ public class AdministrationView extends javax.swing.JFrame {
             .addGroup(PlateAdminLayout.createSequentialGroup()
                 .addGap(476, 476, 476)
                 .addComponent(ButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PlateAdminLayout.createSequentialGroup()
                 .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         PlateAdminLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IdentifierPlateTextField, PlateExampleTextField});
@@ -718,7 +713,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(DeleteLastRate)
                 .addContainerGap())
-            .addComponent(RatesScroll)
+            .addComponent(RatesScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
         );
         RateAdminPanelLayout.setVerticalGroup(
             RateAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -954,19 +949,15 @@ public class AdministrationView extends javax.swing.JFrame {
 
         TitleExTextField.setToolTipText("Ingrese el texto que desea mostrar como título en el tiquete. (A partir del caracter 25 los demás serán ignorados)");
 
-        ShowExParkwayNameCheck.setBackground(new java.awt.Color(255, 255, 255));
         ShowExParkwayNameCheck.setText("Mostrar nombre del parqueadero");
         ShowExParkwayNameCheck.setToolTipText("Seleccionando aquí hará que sea visible el nombre del parqueadero en los tiquetes.");
 
-        ShowExParkwayAddressCheck.setBackground(new java.awt.Color(255, 255, 255));
         ShowExParkwayAddressCheck.setText("Mostrar dirección del parqueadero");
         ShowExParkwayAddressCheck.setToolTipText("Seleccionado aquí hará que se muestre la dirección del parqueadero en el tiquete.");
 
-        ShowExParkwayNITCheck.setBackground(new java.awt.Color(255, 255, 255));
         ShowExParkwayNITCheck.setText("Mostrar NIT del parqueadero");
         ShowExParkwayNITCheck.setToolTipText("Seleccionando aquí hará que se muestre el NIT de su parqueadero en el tiquete.");
 
-        ShowExEmployeeCheck.setBackground(new java.awt.Color(255, 255, 255));
         ShowExEmployeeCheck.setText("Mostrar quien esta atendiendo");
         ShowExEmployeeCheck.setToolTipText("Seleccionando aquí hará que se muestre el nombre del empleado que ingreso retiro el vehículo.");
 
@@ -1055,23 +1046,18 @@ public class AdministrationView extends javax.swing.JFrame {
 
         TitleTextField.setToolTipText("Ingrese el texto que desea mostrar como título en el tiquete. (A partir del caracter 25 los demás serán ignorados)");
 
-        NameCB.setBackground(new java.awt.Color(255, 255, 255));
         NameCB.setText("Mostrar nombre del parqueadero");
         NameCB.setToolTipText("Seleccionando aquí hará que sea visible el nombre del parqueadero en los tiquetes.");
 
-        AddressCB.setBackground(new java.awt.Color(255, 255, 255));
         AddressCB.setText("Mostrar dirección del parqueadero");
         AddressCB.setToolTipText("Seleccionado aquí hará que se muestre la dirección del parqueadero en el tiquete.");
 
-        NITCB.setBackground(new java.awt.Color(255, 255, 255));
         NITCB.setText("Mostrar NIT del parqueadero");
         NITCB.setToolTipText("Seleccionado aquí hará que se muestre el NIT del parqueadero en el tiquete.");
 
-        EmployeeCB.setBackground(new java.awt.Color(255, 255, 255));
         EmployeeCB.setText("Mostrar quién esta atendiendo");
         EmployeeCB.setToolTipText("Seleccionado aquí hará que se muestre el nombre del empleado que ingresó el vehículo en el tiquete.");
 
-        BarCodeCB.setBackground(new java.awt.Color(255, 255, 255));
         BarCodeCB.setText("Mostrar código de barras");
         BarCodeCB.setToolTipText("Seleccionando aquí hará que se muestre un código de barras con la placa del vehículo en el tiquete");
 
@@ -1129,7 +1115,7 @@ public class AdministrationView extends javax.swing.JFrame {
                             .addComponent(BarCodeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(EmployeeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NITCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(714, Short.MAX_VALUE))))
+                        .addContainerGap(570, Short.MAX_VALUE))))
         );
         EntryTicketLayout.setVerticalGroup(
             EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1166,7 +1152,7 @@ public class AdministrationView extends javax.swing.JFrame {
         TicketAdmin.setLayout(TicketAdminLayout);
         TicketAdminLayout.setHorizontalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tickets, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
+            .addComponent(Tickets, javax.swing.GroupLayout.DEFAULT_SIZE, 929, Short.MAX_VALUE)
         );
         TicketAdminLayout.setVerticalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1177,22 +1163,10 @@ public class AdministrationView extends javax.swing.JFrame {
 
         ThemeLabel.setText("Seleccione un tema visual");
 
-        ThemeSlider.setMajorTickSpacing(20);
-        ThemeSlider.setMaximum(6);
-        ThemeSlider.setMinorTickSpacing(1);
-        ThemeSlider.setPaintTicks(true);
-        ThemeSlider.setSnapToTicks(true);
-        ThemeSlider.setValue(0);
-        ThemeSlider.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ThemeSliderMouseClicked(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        ThemeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ThemeComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                ThemeComboBoxItemStateChanged(evt);
             }
         });
 
@@ -1203,22 +1177,18 @@ public class AdministrationView extends javax.swing.JFrame {
             .addGroup(OtherOptionsLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(ThemeLabel)
-                .addGap(92, 92, 92)
-                .addGroup(OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ThemeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(431, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addComponent(ThemeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(593, Short.MAX_VALUE))
         );
         OtherOptionsLayout.setVerticalGroup(
             OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OtherOptionsLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addGroup(OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ThemeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ThemeLabel))
-                .addGap(36, 36, 36)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGroup(OtherOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ThemeLabel)
+                    .addComponent(ThemeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         AdminTabbedPanel.addTab("Otras Opciones", OtherOptions);
@@ -1234,7 +1204,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addComponent(AdminTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 934, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 785, Short.MAX_VALUE)
                         .addComponent(ExitButton)
                         .addContainerGap())))
         );
@@ -1330,13 +1300,21 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     public void setCreateEmployeeButton(String msj) {
         this.CreateEmployeeButton.setText(msj);
     }
+    
+    public void setUpdateEmployeeButton(String text){
+        this.UpdateEmployeeButton.setText(text);
+    }
 
     public void setIdEmployeeTextField(String msj) {
         this.IdEmployeeTextField.setText(msj);
     }
 
-    public void setUpdateEmployeeButton(boolean var) {
+    public void setEnabledUpdateEmployeeButton(boolean var) {
         this.UpdateEmployeeButton.setEnabled(var);
+    }
+    
+    public void setEnabledCreateEmployeeButton(boolean state){
+        this.CreateEmployeeButton.setEnabled(state);
     }
 
     public void setConfirmPasswordField(String ConfirmPasswordField) {
@@ -1416,11 +1394,18 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     public String getCreateEmployeeButton() {
         return CreateEmployeeButton.getText();
     }
+    
+    public String getUpdateEmployeeButton(){
+        return UpdateEmployeeButton.getText();
+    }
+    
     public int getLenghtOfPasswordTextField(){
         return this.PasswordField.getPassword().length;
     }
     
-    
+    public String getIdEmployeeTextField(){
+        return this.IdEmployeeTextField.getText();
+    }
     
 
     private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
@@ -1428,30 +1413,7 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
 
 private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateEmployeeButtonActionPerformed
-    if (IdEmployeeTextField.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "Consulte el empleado a modificar", "Error", JOptionPane.WARNING_MESSAGE, null);
-    } else {
-        if (flag2) {
-            UpdateEmployeeButton.setText("Guardar Cambios");
-            this.setEnabledEmp(flag2);
-            CreateEmployeeButton.setEnabled(false);
-            flag2 = false;
-        } else {
-            int option = this.askToAdmin(update);
-            if (option == JOptionPane.OK_OPTION) {
-                EmployeeManagementController.updateOldEmployee(getUserID(), getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
-                SearchButtonActionPerformed(null);
-            } else if (option == JOptionPane.CANCEL_OPTION || option
-                    == JOptionPane.CLOSED_OPTION) {
-                return;
-            }
-            UpdateEmployeeButton.setText("Actualizar Empleado");
-            this.setEnabledEmp(flag2);
-            CreateEmployeeButton.setEnabled(true);
-            this.setNullEmp();
-            flag2 = true;
-        }
-    }
+    MainController.administrateEmployeeController.UpdateEmployee();
 }//GEN-LAST:event_UpdateEmployeeButtonActionPerformed
 
 private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveParkwayChangesButtonActionPerformed
@@ -1510,7 +1472,7 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // "Reinicia" la clase
-    flag = flag2 = flag3 = true;
+    flag3 = true;
     this.setNullEmp();
     this.setNullVehicleTypeFields();
     this.setNullReportsFields();
@@ -1581,22 +1543,15 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         String id = (String) VehicleTypeComboBox.getSelectedItem();
         RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
         RatesTable.updateUI();
-        ThemeSlider.setValue(MainController.system.getSessionEmployee().getTheme());
         getInfoParkway();
         getInfoEntryTicket();
         getInfoExitTicket();
     }//GEN-LAST:event_formComponentShown
 
-    private void ThemeSliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThemeSliderMouseClicked
-        int aux=ThemeSlider.getValue();
+    private void ThemeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ThemeComboBoxItemStateChanged
+        int aux=ThemeComboBox.getSelectedIndex();
         MainController.otherOptionsController.setTheme(aux);
-    }//GEN-LAST:event_ThemeSliderMouseClicked
-
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        System.out.println("hola");
-        int aux=jComboBox1.getSelectedIndex();
-        MainController.otherOptionsController.setTheme(aux);
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_ThemeComboBoxItemStateChanged
 
     private void SavePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavePlateButtonActionPerformed
         AdministrateVehicleTypeController.saveNewVehicleType(IdentifierPlateTextField.getText(), PlateExampleTextField.getText(),
@@ -1649,34 +1604,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         return ((Number) IVAFText.getValue()).doubleValue();
     }
 
-    private long getUserID() {
-        return Long.parseLong(IdEmployeeTextField.getText());
-    }
-
-    private String getUserPass() {
-        return String.valueOf(PasswordField.getPassword());
-    }
-
-    private String getConfirmUserPass() {
-        return String.valueOf(ConfirmPasswordField.getPassword());
-    }
-
-    private String getDocumentEmpTF() {
-        return DocumentEmployeeTextField.getText();
-    }
-
-    private String getLastNameEmpTF() {
-        return LastNameEmployeeTextField.getText();
-    }
-
-    private String getNameEmpTF() {
-        return NameEmployeeTextField.getText();
-    }
-
-    private String getUserTF() {
-        return UserTextField.getText().toLowerCase();
-    }
-
     private void getInfoParkway() {
         NameParkwayTextField.setText(ParkingManagementController.getName());
         AddressTextField.setText(ParkingManagementController.getAddress());
@@ -1725,8 +1652,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         isActiveEmployeeCheckBox.setEnabled(bool);
     }
 
-    
-
     public void setNullVehicleTypeFields() {
         IdentifierPlateTextField.setText(null);
         PlateExampleTextField.setText(null);
@@ -1740,6 +1665,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         CustomReportToTextField.setText(null);
         CustomReportTotalTextField.setText(null);
     }
+    
     public void setNullEmp() {
         this.setConsultEmployeeTextField("");
         this.setIdEmployeeTextField("");
@@ -1749,8 +1675,8 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         this.setUserTextField("");
         this.setPasswordField("");
         this.setConfirmPasswordField("");
-        this.setEmployeeCheckBox(false);
-        this.setAdminEmployeeCheckBox(false);
+        this.isActiveEmployeeCheckBox.setSelected(false);
+        this.isAdminEmployeeCheckBox.setSelected(false);
     }
 
     public int askToAdmin(String message) {
@@ -1766,12 +1692,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         JOptionPane.showMessageDialog(null, message, type, JOptionPane.WARNING_MESSAGE);
     }
     
-    
-    private boolean flag = true;
-    private boolean flag2 = true;
     private boolean flag3 = true;
-    private final String create = "¿Está seguro de crear al empleado ";
-    private final String update = "¿Está seguro de modificar al empleado ";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox AddressCB;
     private javax.swing.JLabel AddressParkwayLabel;
@@ -1867,8 +1788,8 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JTabbedPane SubPanel;
     private javax.swing.JLabel TelephoneParkwayLabel;
     private javax.swing.JTextField TelephoneTextField;
+    private javax.swing.JComboBox ThemeComboBox;
     private javax.swing.JLabel ThemeLabel;
-    private javax.swing.JSlider ThemeSlider;
     private javax.swing.JPanel TicketAdmin;
     private javax.swing.JLabel TicketTitleLabel;
     private javax.swing.JTabbedPane Tickets;
@@ -1890,7 +1811,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JLabel answerLabel;
     private javax.swing.JCheckBox isActiveEmployeeCheckBox;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JRadioButton noRadioButton;
     private javax.swing.JSpinner numberSpacesSpinner;
     private javax.swing.JRadioButton yesRadioButton;

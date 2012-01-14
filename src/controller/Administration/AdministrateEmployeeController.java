@@ -24,6 +24,7 @@ public class AdministrateEmployeeController {
             MainController.adminView.setNullEmp();
             MainController.adminView.setEnabledEmp(true);
             MainController.adminView.setCreateEmployeeButton("Guardar Empleado");
+            MainController.adminView.setEnabledUpdateEmployeeButton(false);
             MainController.adminView.setIdEmployeeTextField(String.valueOf(MainController.employeeJpaController.getEmployeeCount() + 1));
         }
         else{
@@ -38,28 +39,57 @@ public class AdministrateEmployeeController {
         emp.setAdministrator(MainController.adminView.getIsisActiveEmployeeCheckBox());
         String aux = MainController.adminView.getConfirmPasswordField();
         int option = MainController.adminView.askToAdmin("¿Está seguro de crear al empleado ");
-        if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux,lenPass)) {
-            MainController.employeeJpaController.create(emp);
+            if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux, lenPass, createAction)) {
+                MainController.employeeJpaController.create(emp);
+                MainController.adminView.showMessage("Exito", "Usuario: " + emp.getUser() + " creado.", JOptionPane.INFORMATION_MESSAGE);
+            }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
+                return;
+            }
             MainController.adminView.setNullEmp();
             MainController.adminView.setEnabledEmp(false);
+            MainController.adminView.setEnabledUpdateEmployeeButton(true);
             MainController.adminView.searchButtonAction();
             MainController.adminView.setCreateEmployeeButton("Crear Empleado");
-        } 
         }
 
     }
     public void UpdateEmployee(){
-        if(MainController.adminView.getCreateEmployeeButton().equals("Crear Empleado")){
-            MainController.adminView.setNullEmp();
-            MainController.adminView.setEnabledEmp(true);
-            MainController.adminView.setCreateEmployeeButton("Guardar Empleado");
-            MainController.adminView.setIdEmployeeTextField(String.valueOf(MainController.employeeJpaController.getEmployeeCount() + 1));
+        if (MainController.adminView.getIdEmployeeTextField().isEmpty()) {
+            MainController.adminView.showMessage("Error", "Consulte el empleado a modificar", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (MainController.adminView.getUpdateEmployeeButton().equals("Actualizar Empleado")){
+                MainController.adminView.setEnabledEmp(true);
+                MainController.adminView.setUpdateEmployeeButton("Guardar Cambios");
+                MainController.adminView.setEnabledCreateEmployeeButton(false);
+            } else {
+                long id = Long.parseLong(MainController.adminView.getIdEmployeeTextField());
+                int lenPass=MainController.adminView.getLenghtOfPasswordTextField();
+                Employee emp = new Employee();
+                emp.setName(MainController.adminView.getNameEmployeeTextField());
+                emp.setLastName(MainController.adminView.getLastNameEmployeeTextField());
+                emp.setDocument(MainController.adminView.getDocumentEmployeeTextField());
+                emp.setUser(MainController.adminView.getUserTextField());
+                emp.setPassword(MainController.adminView.getPasswordField());
+                emp.setIsActive(MainController.adminView.getIsAdminEmployeeCheckBox());
+                emp.setAdministrator(MainController.adminView.getIsisActiveEmployeeCheckBox());
+                String aux = MainController.adminView.getConfirmPasswordField();
+                int option = MainController.adminView.askToAdmin("¿ Está seguro de modificar al empleado ");
+                if (option == JOptionPane.OK_OPTION && verifyEmployeeData(emp, aux,lenPass, updateAction)) {
+                    MainController.employeeJpaController.edit(emp, id);
+                    MainController.adminView.showMessage("Exito", "Usuario: " + emp.getUser() + " modificado.", JOptionPane.INFORMATION_MESSAGE);
+                }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
+                    return;
+                }
+                    MainController.adminView.searchButtonAction();
+                    MainController.adminView.setUpdateEmployeeButton("Actualizar Empleado");
+                    MainController.adminView.setNullEmp();
+                    MainController.adminView.setEnabledEmp(false);
+                    MainController.adminView.setEnabledCreateEmployeeButton(true);
+            }
         }
     }
 
-    public boolean verifyEmployeeData(Employee emp,String aux, int lenPass) {
-        System.out.println("contr1 "+emp.getPassword());
-        System.out.println("contr2 "+aux);
+    public boolean verifyEmployeeData(Employee emp,String aux, int lenPass, int action) {
         if (!emp.getPassword().equals(aux)) {
             MainController.adminView.confirmationMessages("Los campos Contraseña y Confirmar Contraseña deben ser iguales",
                     "Advertencia:",1);
@@ -67,50 +97,59 @@ public class AdministrateEmployeeController {
             MainController.adminView.setConfirmPasswordField("");
             return false;
         }
-        else if(lenPass<5||lenPass>25){
-             MainController.adminView.confirmationMessages("El campo Contraseña debe poseer minimo 5 caracteres y maximo 25",
+        else if(lenPass<4||lenPass>10){
+            MainController.adminView.confirmationMessages("El campo Contraseña debe poseer minimo 4 caracteres y maximo 10",
                     "Advertencia:",1);
             MainController.adminView.setPasswordField("");
+            MainController.adminView.setConfirmPasswordField("");
             return false;
         }
        
-        else if(emp.getName().length()<3||emp.getName().length()>50){
-            MainController.adminView.confirmationMessages("El campo Nombres debe poseer minimo 2 caracteres y maximo 50",
+        else if(emp.getName().length()<2||emp.getName().length()>25){
+            MainController.adminView.confirmationMessages("El campo Nombres debe poseer minimo 2 caracteres y maximo 25",
                     "Advertencia:",1);
             MainController.adminView.setNameEmployeeTextField("");
             return false;
         }
-        else if(emp.getLastName().length()<3||emp.getLastName().length()>50){
-            MainController.adminView.confirmationMessages("El campo Apellidos debe poseer minimo 2 caracteres y maximo 50",
+        else if(emp.getLastName().length()<2||emp.getLastName().length()>25){
+            MainController.adminView.confirmationMessages("El campo Apellidos debe poseer minimo 2 caracteres y maximo 25",
                     "Advertencia:",1);
             MainController.adminView.setLastNameEmployeeTextField("");
             return false;
         }
-        else if(emp.getUser().length()<5&&emp.getUser().length()>25){
-            MainController.adminView.confirmationMessages("El campo Usuario debe poseer minimo 5 caracteres y maximo 25",
+        else if(emp.getUser().length()<4&&emp.getUser().length()>10){
+            MainController.adminView.confirmationMessages("El campo Usuario debe poseer minimo 4 caracteres y maximo 10",
                     "Advertencia:",1);
             MainController.adminView.setUserTextField("");
             return false;
         }
-        else if(emp.getDocument().length()<8||emp.getDocument().length()>12){
-            MainController.adminView.confirmationMessages("El campo Documento debe poseer minimo 8 caracteres y maximo 11",
+        else if(emp.getDocument().length()<6||emp.getDocument().length()>15){
+            MainController.adminView.confirmationMessages("El campo Documento debe poseer minimo 6 caracteres y maximo 15",
                     "Advertencia:",1);
             MainController.adminView.setDocumentEmployeeTextField("");
             return false;
         }
         else{
-            employeeListTotal=MainController.employeeJpaController.findEmployeeEntities();
-            for (Employee e : employeeListSearch) {
-                if(e.getUser().equals(emp.getUser())){
-                  MainController.adminView.confirmationMessages("El Usuario ya existe, porfavor digite otro",
-                    "Advertencia:",1);
-                MainController.adminView.setUserTextField("");
-                return false;  
+            if(action==createAction){
+                employeeListTotal=MainController.employeeJpaController.findEmployeeEntities();
+                for (Employee e : employeeListSearch) {
+                    if(e.getUser().equals(emp.getUser())){
+                        MainController.adminView.confirmationMessages("El Usuario ya existe, porfavor digite otro",
+                            "Advertencia:",1);
+                        MainController.adminView.setUserTextField("");
+                        return false;  
+                    }
+                    if(e.getDocument().equals(emp.getDocument())){
+                        MainController.adminView.confirmationMessages("El Usuario ya existe, porfavor digite otro",
+                            "Advertencia:",1);
+                        MainController.adminView.setDocumentEmployeeTextField("");
+                        return false;
+                    }
                 }
             }
         }
         try{
-            Integer.parseInt(emp.getDocument());
+            Long.parseLong(emp.getDocument());
         }
         catch(Exception e){
             MainController.adminView.confirmationMessages("El campo Documento debe contener solo números",
@@ -121,8 +160,6 @@ public class AdministrateEmployeeController {
         
         return true;
     }
-
-    
 
     public static DefaultListModel totalSearchOfEmployees() {
         DefaultListModel results = new DefaultListModel();
@@ -171,4 +208,6 @@ public class AdministrateEmployeeController {
     private static Employee tempEmployee = new Employee();
     private static List<Employee> employeeListSearch = null;
     private static List<Employee> employeeListTotal = null;
+    private static final int createAction = 0;
+    private static final int updateAction = 1;
 }
