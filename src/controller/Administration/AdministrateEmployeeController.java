@@ -223,7 +223,14 @@ public class AdministrateEmployeeController {
         }
         return false;
     }
-
+    
+    public static boolean quickValidateUser(String user){
+        if(user.length() >=4 && user.length() <=10){
+            return true;
+        }
+        return false;
+    }
+    
     public static DefaultListModel totalSearchOfEmployees() {
         DefaultListModel results = new DefaultListModel();
         employeeListTotal = MainController.employeeJpaController.findEmployeeEntities();
