@@ -37,22 +37,6 @@ public class AdministrationView extends javax.swing.JFrame {
         this.setResizable(false);
     }
 
-    public JList getEmployeeList() {
-        return EmployeeList;
-    }
-
-    public void setEmployeeList(JList EmployeeList) {
-        this.EmployeeList = EmployeeList;
-    }
-
-    public JTable getPlatesTable() {
-        return PlatesTable;
-    }
-
-    public void setPlatesTable(JTable PlatesTable) {
-        this.PlatesTable = PlatesTable;
-    }
-
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -1244,20 +1228,6 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }
     ConsultEmployeeTextField.setText(null);
 }//GEN-LAST:event_SearchButtonActionPerformed
-    public void searchButtonAction(){
-        this.SearchButtonActionPerformed(null);
-    }
-    public void showMessage(String title, String message, int messageType) {
-        JOptionPane.showMessageDialog(rootPane, message, title, messageType);
-        PlateExampleTextField.setText("");
-        IdentifierPlateTextField.setText("");
-        IdentifierPlateTextField.requestFocus();
-    }
-
-    public int showOptionMessage(String message) {
-        int option = JOptionPane.showConfirmDialog(rootPane, message);
-        return option;
-    }
 
 private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_EmployeeListValueChanged
     int emp=EmployeeList.getSelectedIndex();
@@ -1281,6 +1251,10 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     }
 }//GEN-LAST:event_EmployeeListValueChanged
 
+    public void searchButtonAction(){
+        this.SearchButtonActionPerformed(null);
+    }
+
     public void setPlatesTableModel(TableModel dataModel) {
         PlatesTable.setModel(dataModel);
     }
@@ -1303,6 +1277,10 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
     
     public void setUpdateEmployeeButton(String text){
         this.UpdateEmployeeButton.setText(text);
+    }
+    
+    public void setSaveParkwayChangesButton(String text){
+        this.SaveParkwayChangesButton.setText(text);
     }
 
     public void setIdEmployeeTextField(String msj) {
@@ -1399,6 +1377,10 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         return UpdateEmployeeButton.getText();
     }
     
+    public String getSaveParkwayChangesButton(){
+        return SaveParkwayChangesButton.getText();
+    }
+    
     public int getLenghtOfPasswordTextField(){
         return this.PasswordField.getPassword().length;
     }
@@ -1417,23 +1399,7 @@ private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt)
 }//GEN-LAST:event_UpdateEmployeeButtonActionPerformed
 
 private void SaveParkwayChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveParkwayChangesButtonActionPerformed
-    if (flag3) {
-        SaveParkwayChangesButton.setText("Guardar Cambios");
-        this.setEnableParkway(flag3);
-        flag3 = false;
-    } else {
-        int option = this.askToParkway();
-        if (option == JOptionPane.OK_OPTION) {
-            ParkingManagementController.updateInfoParway(getNamePark(), getAddressPark(), getNitPark(), getPhonePark(), getMaxCapacityPark(), getIvaPercentPark());
-
-        } else if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
-            return;
-        }
-        getInfoParkway();
-        SaveParkwayChangesButton.setText("Cambiar Datos");
-        this.setEnableParkway(flag3);
-        flag3 = true;
-    }
+    ParkingManagementController.updateInfoParkway();
 }//GEN-LAST:event_SaveParkwayChangesButtonActionPerformed
 
 private void PlateExampleTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateExampleTextFieldKeyReleased
@@ -1472,7 +1438,6 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // "Reinicia" la clase
-    flag3 = true;
     this.setNullEmp();
     this.setNullVehicleTypeFields();
     this.setNullReportsFields();
@@ -1580,31 +1545,67 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         }
     }//GEN-LAST:event_UpdateVehicleTypesButtonActionPerformed
 
-    private String getNamePark() {
+    public JList getEmployeeList() {
+        return EmployeeList;
+    }
+
+    public void setEmployeeList(JList EmployeeList) {
+        this.EmployeeList = EmployeeList;
+    }
+
+    public JTable getPlatesTable() {
+        return PlatesTable;
+    }
+
+    public void setPlatesTable(JTable PlatesTable) {
+        this.PlatesTable = PlatesTable;
+    }
+    
+    public void setNamePark(String name){
+        NameParkwayTextField.setText(name);
+    }
+    
+    public void setAddressPark(String address){
+        AddressTextField.setText(address);
+    }
+    
+    public void setNitPark(String nit){
+        NITParkwayTextField.setText(nit);
+    }
+    
+    public void setPhonePark(String phone){
+        TelephoneTextField.setText(phone);
+    }
+    
+    public void setMaxCapacityPark(String maxC){
+        MaxCapacityTextField.setText(maxC);
+    }
+    
+    public String getNamePark() {
         return NameParkwayTextField.getText();
     }
 
-    private String getAddressPark() {
+    public String getAddressPark() {
         return AddressTextField.getText();
     }
 
-    private String getNitPark() {
+    public String getNitPark() {
         return NITParkwayTextField.getText();
     }
 
-    private String getPhonePark() {
+    public String getPhonePark() {
         return TelephoneTextField.getText();
     }
 
-    private String getMaxCapacityPark() {
+    public String getMaxCapacityPark() {
         return MaxCapacityTextField.getText();
     }
 
-    private double getIvaPercentPark() {
+    public double getIvaPercentPark() {
         return ((Number) IVAFText.getValue()).doubleValue();
     }
 
-    private void getInfoParkway() {
+    public void getInfoParkway() {
         NameParkwayTextField.setText(ParkingManagementController.getName());
         AddressTextField.setText(ParkingManagementController.getAddress());
         NITParkwayTextField.setText(ParkingManagementController.getNit());
@@ -1632,7 +1633,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         FootPageExArea.setText(TicketManagementController.getExitFootPage());
     }
 
-    private void setEnableParkway(boolean bool) {
+    public void setEnableParkway(boolean bool) {
         NameParkwayTextField.setEditable(bool);
         AddressTextField.setEditable(bool);
         NITParkwayTextField.setEditable(bool);
@@ -1679,11 +1680,23 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         this.isAdminEmployeeCheckBox.setSelected(false);
     }
 
+    public void showMessage(String title, String message, int messageType) {
+        JOptionPane.showMessageDialog(rootPane, message, title, messageType);
+        PlateExampleTextField.setText("");
+        IdentifierPlateTextField.setText("");
+        IdentifierPlateTextField.requestFocus();
+    }
+
+    public int showOptionMessage(String message) {
+        int option = JOptionPane.showConfirmDialog(rootPane, message);
+        return option;
+    }
+    
     public int askToAdmin(String message) {
         return JOptionPane.showConfirmDialog(null, (message + NameEmployeeTextField.getText() + "?"));
     }
 
-    private int askToParkway() {
+    public int askToParkway() {
         return JOptionPane.showConfirmDialog(null, "¿Está seguro de modificar la "
                 + "información de " + NameParkwayTextField.getText() + "?");
     }
@@ -1692,7 +1705,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         JOptionPane.showMessageDialog(null, message, type, JOptionPane.WARNING_MESSAGE);
     }
     
-    private boolean flag3 = true;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox AddressCB;
     private javax.swing.JLabel AddressParkwayLabel;

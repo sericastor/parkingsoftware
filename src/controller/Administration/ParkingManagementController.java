@@ -2,6 +2,7 @@ package controller.Administration;
 
 import Entity.InfoParkway;
 import controller.MainController;
+import javax.swing.JOptionPane;
 
 public class ParkingManagementController {
 
@@ -47,36 +48,48 @@ public class ParkingManagementController {
     public static double getIVAPercent() {
         return getInfo().getIVAPercent();
     }
-
-    public static void updateInfoParway(String name, String address, String nit, String phone, String maxCapacity, double ivaPercent) {
-        if (!validateNotEmptyFields(name, address, nit, phone, maxCapacity)) {
-            MainController.adminView.showMessage("Error", "Todos los campos son obligatorios", 0);
-        } else if (validateAll(name, address, nit, phone, maxCapacity)) {
+    
+    public static void updateInfoParkway(){
+        if(MainController.adminView.getSaveParkwayChangesButton().equals("Cambiar Datos")){
+            MainController.adminView.setSaveParkwayChangesButton("Guardar Cambios");
+            MainController.adminView.setEnableParkway(true);
+        }else{
+            int maxCapacity;
+            try{
+                maxCapacity = Integer.parseInt(MainController.adminView.getMaxCapacityPark());
+            }catch(Exception ex){
+                maxCapacity = -1;
+            }
             InfoParkway infoParkway = new InfoParkway();
             infoParkway.setId(idParkway);
-            infoParkway.setName(name);
-            infoParkway.setAddress(address);
-            infoParkway.setNit(nit);
-            infoParkway.setTelephone(phone);
-            infoParkway.setMaxCapacity(Integer.parseInt(maxCapacity));
-            infoParkway.setIVAPercent(ivaPercent);
-            MainController.infoJpaController.edit(infoParkway, idParkway);
-            MainController.ocupationController.recalculateStatus(infoParkway.getMaxCapacity());
-        } else {
-            MainController.adminView.showMessage("Error", "Los datos ingresados no son válidos.", 0);
+            infoParkway.setName(MainController.adminView.getNamePark());
+            infoParkway.setAddress(MainController.adminView.getAddressPark());
+            infoParkway.setNit(MainController.adminView.getNitPark());
+            infoParkway.setTelephone(MainController.adminView.getPhonePark());
+            infoParkway.setMaxCapacity(maxCapacity);
+            infoParkway.setIVAPercent(MainController.adminView.getIvaPercentPark());
+            int option = MainController.adminView.askToParkway();
+            if(option == JOptionPane.OK_OPTION && validateAll(infoParkway,MainController.adminView.getMaxCapacityPark())){
+                MainController.infoJpaController.edit(infoParkway, idParkway);
+                MainController.ocupationController.recalculateStatus(infoParkway.getMaxCapacity());
+                MainController.adminView.showMessage("Exito", "Modificación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                restartData();
+            }
+            if(option == JOptionPane.NO_OPTION){
+                restartData();
+            }
         }
+    }
+    
+    public static void restartData(){
+        MainController.adminView.getInfoParkway();
+        MainController.adminView.setSaveParkwayChangesButton("Cambiar Datos");
+        MainController.adminView.setEnableParkway(false);
     }
 
     //Reglas de Negocio
-    public static boolean validateNotEmptyFields(String name, String address, String nit, String phone, String maxC) {
-        if (name.isEmpty() || address.isEmpty() || nit.isEmpty() || phone.isEmpty() || maxC.isEmpty()) {
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean validateAll(String name, String address, String nit, String phone, String maxC) {
-        if (validateName(name) && validateAddress(address) && validateNIT(nit) && validatePhone(phone) && validateMaxCapacity(maxC)) {
+    public static boolean validateAll(InfoParkway info, String maxCapacity) {
+        if (validateName(info.getName()) && validateAddress(info.getAddress()) && validateNIT(info.getNit()) && validatePhone(info.getTelephone()) && validateMaxCapacity(maxCapacity)) {
             return true;
         }
         return false;
@@ -86,6 +99,9 @@ public class ParkingManagementController {
         if (Name.length() >= 7 && Name.length() <= 15) {
             return true;
         }
+        MainController.adminView.confirmationMessages("El campo Nombre debe poseer minimo 7 caracteres y maximo 15",
+                    "Advertencia:",1);
+        MainController.adminView.setNamePark("");
         return false;
     }
 
@@ -93,6 +109,9 @@ public class ParkingManagementController {
         if (address.length() >= 5 && address.length() <= 25) {
             return true;
         }
+        MainController.adminView.confirmationMessages("El campo Dirección debe poseer minimo 5 caracteres y maximo 25",
+                    "Advertencia:",1);
+        MainController.adminView.setAddressPark("");
         return false;
     }
 
@@ -100,6 +119,9 @@ public class ParkingManagementController {
         if (phone.length() >= 7) {
             return true;
         }
+        MainController.adminView.confirmationMessages("El campo Teléfono debe poseer minimo 7 caracteres",
+                    "Advertencia:",1);
+        MainController.adminView.setPhonePark("");
         return false;
     }
 
@@ -107,6 +129,9 @@ public class ParkingManagementController {
         if (nit.length() >= 5) {
             return true;
         }
+        MainController.adminView.confirmationMessages("El campo Nombre debe poseer minimo 5 caracteres",
+                    "Advertencia:",1);
+        MainController.adminView.setNitPark("");
         return false;
     }
 
@@ -120,7 +145,11 @@ public class ParkingManagementController {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        MainController.adminView.confirmationMessages("El campo Capacidad Máxima debe poseer un número mayor que cero",
+                    "Advertencia:",1);
+        MainController.adminView.setMaxCapacityPark("");
         return false;
     }
+    
     private static final long idParkway = 1;
 }
