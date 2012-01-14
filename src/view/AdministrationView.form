@@ -403,7 +403,6 @@
                     <Property name="toolTipText" type="java.lang.String" value="Empleados registrados en el sistema."/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EmployeeListMouseClicked"/>
                     <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="EmployeeListValueChanged"/>
                   </Events>
                 </Component>

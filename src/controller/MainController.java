@@ -13,6 +13,7 @@ import DAO.VehicleTypeJpaController;
 import java.util.Calendar;
 import Entity.Employee;
 import Entity.VehicleType;
+import controller.Administration.AdministrateEmployeeController;
 import controller.Administration.AdministrateVehicleTypeController;
 import controller.Administration.EmployeeManagementController;
 import controller.Administration.OtherOptionsController;
@@ -147,4 +148,5 @@ public class MainController {
     public static ExitsJpaController exitsJpaController = new ExitsJpaController(controller.MainController.system.getPersistence_factory());
     public static CustomEntryTicketJpaController customEntryJpaController = new CustomEntryTicketJpaController(controller.MainController.system.getPersistence_factory());
     public static CustomExitTicketJpaController customExitJpaController = new CustomExitTicketJpaController(controller.MainController.system.getPersistence_factory());
+    public static AdministrateEmployeeController administrateEmployeeController = new AdministrateEmployeeController();
 }

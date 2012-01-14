@@ -13,13 +13,7 @@ package view;
 import Entity.Employee;
 import controller.Administration.*;
 import controller.MainController;
-import javax.swing.ComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
+import javax.swing.*;
 import javax.swing.table.TableModel;
 
 /**
@@ -322,11 +316,6 @@ public class AdministrationView extends javax.swing.JFrame {
         EmployeeListScroll.setToolTipText("Empleados registrados en el sistema.");
 
         EmployeeList.setToolTipText("Empleados registrados en el sistema.");
-        EmployeeList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EmployeeListMouseClicked(evt);
-            }
-        });
         EmployeeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 EmployeeListValueChanged(evt);
@@ -1285,7 +1274,9 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }
     ConsultEmployeeTextField.setText(null);
 }//GEN-LAST:event_SearchButtonActionPerformed
-
+    public void searchButtonAction(){
+        this.SearchButtonActionPerformed(null);
+    }
     public void showMessage(String title, String message, int messageType) {
         JOptionPane.showMessageDialog(rootPane, message, title, messageType);
         PlateExampleTextField.setText("");
@@ -1299,11 +1290,13 @@ private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }
 
 private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_EmployeeListValueChanged
-    int emp;
-    if (EmployeeList.getSelectedValue() == null) {
-        emp = EmployeeList.getSelectedIndex();
-    } else {
-        emp = Integer.parseInt(EmployeeList.getSelectedValue().toString().substring(0, EmployeeList.getSelectedValue().toString().indexOf(" "))) - 1;
+    int emp=EmployeeList.getSelectedIndex();
+    System.out.println("this.CreateEmployeeButton.getText()"+"Guardar Cambios".equals(this.UpdateEmployeeButton.getText()));
+    if( "Guardar Empleado".equals(this.CreateEmployeeButton.getText())||
+            "Guardar Cambios".equals(this.UpdateEmployeeButton.getText())){
+        MainController.adminView.setEnabledEmp(false);
+        this.CreateEmployeeButton.setText("Crear Empleado");
+        this.UpdateEmployeeButton.setText("Actualizar Empleado");
     }
     if (emp >= 0) {
         Employee e = AdministrateEmployeeController.getEmployeeListSearch().get(emp);
@@ -1334,29 +1327,104 @@ private void EmployeeListValueChanged(javax.swing.event.ListSelectionEvent evt) 
         VehicleTypeComboBox.updateUI();
     }
 
-    private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
-        if (flag) {
-            this.setNullEmp();
-            CreateEmployeeButton.setText("Guardar Empleado");
-            IdEmployeeTextField.setText(String.valueOf(EmployeeManagementController.getNextID()));
-            this.setEnabledEmp(flag);
-            UpdateEmployeeButton.setEnabled(false);
-            flag = false;
-        } else {
-            int option = this.askToAdmin(create);
-            if (option == JOptionPane.OK_OPTION) {
-                EmployeeManagementController.saveNewEmployee(getUserID(), getLastNameEmpTF(), getNameEmpTF(), getDocumentEmpTF(), getUserTF(), getUserPass(), getConfirmUserPass(), isActiveEmployeeCheckBox.isSelected(), isAdminEmployeeCheckBox.isSelected());
-                SearchButtonActionPerformed(null);
-            } else if (option == JOptionPane.CANCEL_OPTION || option
-                    == JOptionPane.CLOSED_OPTION) {
-                return;
-            }
-            CreateEmployeeButton.setText("Crear Empleado");
-            this.setEnabledEmp(flag);
-            UpdateEmployeeButton.setEnabled(true);
-            this.setNullEmp();
-            flag = true;
+    public void setCreateEmployeeButton(String msj) {
+        this.CreateEmployeeButton.setText(msj);
+    }
+
+    public void setIdEmployeeTextField(String msj) {
+        this.IdEmployeeTextField.setText(msj);
+    }
+
+    public void setUpdateEmployeeButton(boolean var) {
+        this.UpdateEmployeeButton.setEnabled(var);
+    }
+
+    public void setConfirmPasswordField(String ConfirmPasswordField) {
+        this.ConfirmPasswordField.setText(ConfirmPasswordField);
+    }
+
+    public void setConsultEmployeeTextField(String ConsultEmployeeTextField) {
+        this.ConsultEmployeeTextField.setText(ConsultEmployeeTextField);
+    }
+
+    public void setLastNameEmployeeTextField(String LastNameEmployeeTextField) {
+        this.LastNameEmployeeTextField.setText(LastNameEmployeeTextField);
+    }
+    
+
+    public void setDocumentEmployeeTextField(String DocumentEmployeeTextField) {
+        this.DocumentEmployeeTextField.setText(DocumentEmployeeTextField);
+    }
+
+
+    public void setNameEmployeeTextField(String NameEmployeeTextField) {
+        this.NameEmployeeTextField.setText(NameEmployeeTextField);
+    }
+
+    public void setPasswordField(String PasswordField) {
+        this.PasswordField.setText(PasswordField);
+    }
+
+    public void setUserTextField(String UserTextField) {
+        this.UserTextField.setText(UserTextField);
+    }
+
+    public void setEmployeeCheckBox(boolean isActiveEmployeeCheckBox) {
+        this.isActiveEmployeeCheckBox.setEnabled(isActiveEmployeeCheckBox);
+    }
+
+    public void setAdminEmployeeCheckBox(boolean isAdminEmployeeCheckBox) {
+        this.isAdminEmployeeCheckBox.setEnabled(isAdminEmployeeCheckBox);
+    }
+    public String getNameEmployeeTextField(){
+        return this.NameEmployeeTextField.getText();
+    }
+    public String getLastNameEmployeeTextField(){
+        return this.LastNameEmployeeTextField.getText();
+    }
+    public String getDocumentEmployeeTextField(){
+        return this.DocumentEmployeeTextField.getText();
+    }
+    public String getUserTextField(){
+        return this.UserTextField.getText();
+    }
+    public String getPasswordField(){
+        String aux=MainController.md5Security.
+               MD5Security(String.valueOf(PasswordField.getPassword()));
+        return aux;
+    }
+    public String getConfirmPasswordField(){
+        String aux=MainController.md5Security.
+               MD5Security(String.valueOf(ConfirmPasswordField.getPassword()));
+        return aux;
+    }
+    public void confirmationMessages(String message,String type, int icon){
+        if(icon==0){
+            JOptionPane.showMessageDialog(null, message,type,JOptionPane.INFORMATION_MESSAGE);
         }
+        if(icon==1){
+        JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    public boolean getIsAdminEmployeeCheckBox(){
+        return this.isAdminEmployeeCheckBox.isEnabled();
+    }
+    public boolean getIsisActiveEmployeeCheckBox(){
+        return this.isActiveEmployeeCheckBox.isEnabled();
+    }
+
+    public String getCreateEmployeeButton() {
+        return CreateEmployeeButton.getText();
+    }
+    public int getLenghtOfPasswordTextField(){
+        return this.PasswordField.getPassword().length;
+    }
+    
+    
+    
+
+    private void CreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateEmployeeButtonActionPerformed
+        MainController.administrateEmployeeController.CreateEmployee();        
     }//GEN-LAST:event_CreateEmployeeButtonActionPerformed
 
 private void UpdateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateEmployeeButtonActionPerformed
@@ -1439,10 +1507,6 @@ private void VehicleTypeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
     RatesTable.setModel(AdministrateBandRates.getModelTable(AdministrateBandRates.getVehicleTypeSelected(id)));
     RatesTable.updateUI();
 }//GEN-LAST:event_VehicleTypeComboBoxItemStateChanged
-
-private void EmployeeListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmployeeListMouseClicked
-    EmployeeListValueChanged(null);
-}//GEN-LAST:event_EmployeeListMouseClicked
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // "Reinicia" la clase
@@ -1650,7 +1714,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         IVAFText.setEditable(bool);
     }
 
-    private void setEnabledEmp(boolean bool) {
+    public void setEnabledEmp(boolean bool) {
         NameEmployeeTextField.setEnabled(bool);
         LastNameEmployeeTextField.setEnabled(bool);
         DocumentEmployeeTextField.setEnabled(bool);
@@ -1661,18 +1725,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         isActiveEmployeeCheckBox.setEnabled(bool);
     }
 
-    private void setNullEmp() {
-        ConsultEmployeeTextField.setText(null);
-        IdEmployeeTextField.setText(null);
-        NameEmployeeTextField.setText(null);
-        LastNameEmployeeTextField.setText(null);
-        DocumentEmployeeTextField.setText(null);
-        UserTextField.setText(null);
-        PasswordField.setText(null);
-        ConfirmPasswordField.setText(null);
-        isActiveEmployeeCheckBox.setSelected(false);
-        isAdminEmployeeCheckBox.setSelected(false);
-    }
+    
 
     public void setNullVehicleTypeFields() {
         IdentifierPlateTextField.setText(null);
@@ -1687,8 +1740,20 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         CustomReportToTextField.setText(null);
         CustomReportTotalTextField.setText(null);
     }
+    public void setNullEmp() {
+        this.setConsultEmployeeTextField("");
+        this.setIdEmployeeTextField("");
+        this.setNameEmployeeTextField("");
+        this.setLastNameEmployeeTextField("");
+        this.setDocumentEmployeeTextField("");
+        this.setUserTextField("");
+        this.setPasswordField("");
+        this.setConfirmPasswordField("");
+        this.setEmployeeCheckBox(false);
+        this.setAdminEmployeeCheckBox(false);
+    }
 
-    private int askToAdmin(String message) {
+    public int askToAdmin(String message) {
         return JOptionPane.showConfirmDialog(null, (message + NameEmployeeTextField.getText() + "?"));
     }
 
