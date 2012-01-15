@@ -32,14 +32,14 @@ import view.QuitVehiclePanel;
  * @author Martin Kanayet
  */
 public class MainController {
+    public MainController() {
+    }
 
     public static void setVisibleAdminAccessView(boolean isVisible) {
          adminAccessView.setVisible(isVisible);
     }
 
-    public MainController() {
-        
-    }
+    
 
     public static AdministrationView getAdminView() {
         return adminView;
@@ -91,7 +91,7 @@ public class MainController {
     }
 
     public static void updateClockInFrame() {
-        mainView.updateFrame(Calendar.getInstance().getTime().toLocaleString());
+        mainView.updateFrame(getSystemTime().toLocaleString());
     }
     //este metodo de ahora en adelante se usara para saber la fecha del sistema!
     public static Date getSystemTime(){
@@ -99,7 +99,16 @@ public class MainController {
     }
 
     public static void startClock() {
-        mainView.run();
+
+        Thread thread=new Thread();
+        while (true) {
+            try {
+                thread.sleep(1000);
+                updateClockInFrame();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
     public static void setVisibleAdminView(boolean isVisible) {
