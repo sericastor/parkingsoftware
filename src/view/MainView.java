@@ -774,24 +774,6 @@ private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
     CustomExitTicketController.previewExitTicket();
 }//GEN-LAST:event_ExitActionPerformed
 
-    public void start() {
-        Thread thread = new Thread();
-        thread.start();
-    }
-
-    public void run() {
-
-        while (true) {
-            try {
-                Thread.sleep(1000);
-                MainController.updateClockInFrame();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-
-    }
-
     public void updateFrame(String date) {
         this.ClockLabel.setText(date);
         this.repaint();

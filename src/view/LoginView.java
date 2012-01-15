@@ -13,7 +13,6 @@ package view;
 
 import controller.ExitController;
 import controller.LoginController;
-import controller.MainController;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.File;
