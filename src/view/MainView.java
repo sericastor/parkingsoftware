@@ -1,12 +1,11 @@
 package view;
 
-import controller.AddVehicleController;
 import controller.Administration.CustomEntryTicketController;
 import controller.Administration.CustomExitTicketController;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
-import controller.SystemSession;
+import controller.MainViewController;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -599,22 +597,9 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        AddVehicleController.setPlate(PlateTextField.getText());
-        String result = AddVehicleController.verifyCarInParkway(PlateTextField.getText());
-        if (result.equals("Inserte un tipo de placa valida")) {
-            JOptionPane.showMessageDialog(CopyMenu, result);
-            PlateTextField.removeAll();
-        } else if (result.equals("Vehículo Ingresado")) {
-            PlateTextField.removeAll();
-        } else if (result.equals("Do Nothing")) {
-        } else if (result.equals("Tipo de placa encontrado y vehículo no encontrado")) {
-            MainController.addPanel.setComentaryArea("");
-            setAddOrQuitPanel(MainController.addPanel);
-        } else if (result.equals("Tipo de placa encontrado y vehículo encontrado")) {
-            MainController.setQuitPanelParameters(PlateTextField.getText());
-            setAddOrQuitPanel(MainController.quitPanel);
-        }
+        MainViewController.searchPlateEvent();
     }//GEN-LAST:event_SearchButtonActionPerformed
+    
     public void updateStatusBar(double value){
         if(value>=100){
             confirmationMessages("Ha sobrepasado la capacidad máxima del establecimiento, "
@@ -625,11 +610,12 @@ public class MainView extends javax.swing.JFrame {
         statusProgressBar.updateUI();
     }
     
-    public void setAddOrQuitPanel(JPanel panel) {
+    public void setAddOrQuitPanel(javax.swing.JPanel panel) {
         AoQPanel.removeAll();
         AoQPanel.add(panel);
         AoQPanel.updateUI();
     }
+    
     public void updateStateTabbed(){
         EntriesTable.updateUI();
         ExitsTable.updateUI();
@@ -648,9 +634,10 @@ public class MainView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, message,type,JOptionPane.INFORMATION_MESSAGE);
         }
         if(icon==1){
-        JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, message,type,JOptionPane.WARNING_MESSAGE);
         }
     }
+    
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LogoutController.logout(JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION));
         controller.MainController.system.Logout();
@@ -661,11 +648,7 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void AdministerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministerButtonActionPerformed
-        if(SystemSession.getSessionEmployee().isAdministrator()){
-            MainController.setVisibleAdminView(true);
-        }else{
-       MainController.setVisibleAdminAccessView(true);
-        }
+        MainViewController.administrateAccessEvent();
     }//GEN-LAST:event_AdministerButtonActionPerformed
 
     private void ExitMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuActionPerformed
@@ -724,9 +707,9 @@ private void PlateTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
     }
 }//GEN-LAST:event_PlateTextFieldKeyPressed
 
-    public void setPlateTextField(String text) {
-        PlateTextField.setText(text);
-    }
+public void setPlateTextField(String text) {
+    PlateTextField.setText(text);
+}
 
 private void PlateTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlateTextFieldKeyReleased
     PlateTextField.setText(PlateTextField.getText().toUpperCase());
@@ -761,7 +744,7 @@ public void setFactureTurnTableModel(DefaultTableModel model){
 }
 
 private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-updateStatusBar(MainController.ocupationController.returnStatus());
+    updateStatusBar(MainController.ocupationController.returnStatus());
 }//GEN-LAST:event_formComponentShown
 
 private void EntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntryActionPerformed
@@ -788,6 +771,11 @@ private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
     public String getPlate() {
         return PlateTextField.getText();
     }
+    
+    public javax.swing.JTextField getPlateTextField(){
+        return PlateTextField;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutEParkingMenu;
     private javax.swing.JButton AdministerButton;
