@@ -13,14 +13,15 @@ public class ParkingManagementController {
     public static InfoParkway getInfo() {
         if (MainController.infoJpaController.findInfoParkway(idParkway) == null) {
             InfoParkway infop = new InfoParkway();
-            infop.setAddress("InitialAdress 34324");
+            infop.setAddress("Dirección");
             infop.setMaxCapacity(50);
-            infop.setName("InitialName");
-            infop.setNit("123456");
+            infop.setName("Nombre");
+            infop.setNit("NIT");
             infop.setRegister(1);
-            infop.setTelephone("6666666");
+            infop.setTelephone("Teléfono");
             infop.setCapacityStatus(0);
             MainController.infoJpaController.create(infop);
+            MainController.aboutParkQuickView.setClientLabel(infop.getName());
         }
         return MainController.infoJpaController.findInfoParkway(idParkway);
     }
@@ -73,6 +74,7 @@ public class ParkingManagementController {
                 MainController.infoJpaController.edit(infoParkway, idParkway);
                 MainController.ocupationController.recalculateStatus(infoParkway.getMaxCapacity());
                 MainController.adminView.showMessage("Exito", "Modificación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+                MainController.aboutParkQuickView.setClientLabel(infoParkway.getName());
                 restartData();
             }
             if(option == JOptionPane.NO_OPTION){

@@ -1,6 +1,5 @@
 package controller;
 
-import DAO.EntriesJpaController;
 import Entity.Entries;
 import Entity.VehicleType;
 import java.util.Calendar;
@@ -13,6 +12,23 @@ import javax.swing.table.DefaultTableModel;
 public class AddVehicleController {
     
     public AddVehicleController() {
+    }
+    
+    public static void addVehicleEvent(){
+        String id = (String) MainController.addPanel.getVehicleTypeComboBox().getSelectedItem();
+        AddVehicleController.CreateVehicle(id, MainController.addPanel.getComentary());
+        MainController.mainView.setPlateTextField("");
+    }
+    
+    public static void formComponentShowEvent(){
+        DefaultComboBoxModel model = getModelComboBox(MainController.mainView.getPlate());
+        if(model.getSize() == 0){
+            MainController.adminView.showMessage("Error", "Tipo de Placa no Existente, "
+                    + "por favor ingrese un tipo de placa válida.", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }else{
+            MainController.addPanel.getVehicleTypeComboBox().setModel(model);
+            MainController.addPanel.getVehicleTypeComboBox().updateUI();
+        }
     }
     
     public static boolean verifyCarParked(String plate) {
@@ -96,7 +112,7 @@ public class AddVehicleController {
     public static void CreateVehicle(String vehicleType, String coment) {
         //por el momento se deja comentado dado que toca revisar bien el modelo
         Entries m = new Entries();
-        m.setEmployee(MainController.system.getSessionEmployee());
+        m.setEmployee(SystemSession.getSessionEmployee());
         m.setEntryDate(MainController.getSystemTime());
         m.setPlate(plate);
         m.setTicket(123);
@@ -126,7 +142,7 @@ public class AddVehicleController {
         Random rnd = new Random();
         String code="+"+String.valueOf(Calendar.getInstance().getTime().getMonth())+
                 String.valueOf(Calendar.getInstance().getTime().getDay());
-        code= code+MainController.system.getSessionEmployee().getUser().toString().substring(0, 2).toUpperCase();
+        code= code+SystemSession.getSessionEmployee().getUser().toString().substring(0, 2).toUpperCase();
         code= code+Calendar.getInstance().getTimeInMillis()%(rnd.nextInt(99999999)+1);
         return code;
     }

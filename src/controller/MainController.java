@@ -138,7 +138,7 @@ public class MainController {
     public static FinishTurnView finishTurnView = new FinishTurnView();
     public static MainView mainView = new MainView();
     public static SystemSession system = new SystemSession();
-    private static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
+    public static AboutParkQuickView aboutParkQuickView = new AboutParkQuickView();
     public static LoginController loginController = new LoginController();
     public static AdministrationView adminView = new AdministrationView();
     public static BandsRateJpaController bandsRateJpaController = new BandsRateJpaController(controller.MainController.system.getPersistence_factory());

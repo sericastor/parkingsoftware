@@ -10,6 +10,8 @@
  */
 package view;
 
+import controller.Administration.ParkingManagementController;
+import controller.MainController;
 import javax.swing.ImageIcon;
 
 /**
@@ -25,8 +27,11 @@ public class AboutParkQuickView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        CountLabel.setText("null");
-        ClientLabel.setText("null");
+        CountLabel.setText("1,3");
+    }
+    
+    public void setClientLabel(String name){
+        ClientLabel.setText(name);
     }
     
     @SuppressWarnings("unchecked")
