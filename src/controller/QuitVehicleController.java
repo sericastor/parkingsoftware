@@ -13,7 +13,14 @@ public class QuitVehicleController {
 
     public QuitVehicleController() {
     }
-
+    
+    public static void quitVehicleEvent(){
+        String plate = MainController.mainView.getPlate();
+        changeStateOfVehicle(plate);
+        MainController.mainView.setPlateTextField("");
+        MainController.mainView.removePanel();
+    }
+    
     private static long getDifferenceBetweenHours(Date entry, Date exit) {
         
         long resultInMinutes = 0;
@@ -97,7 +104,7 @@ public class QuitVehicleController {
         try{
             //eliminar de la tabla entries
         exit.setEmployeeEntry(entry.getEmployee());
-        exit.setEmployeeExit(MainController.system.getSessionEmployee());
+        exit.setEmployeeExit(SystemSession.getSessionEmployee());
         exit.setEntryDate(entry.getEntryDate());
         exit.setExitDate(MainController.getSystemTime());
         exit.setPlate(entry.getPlate());

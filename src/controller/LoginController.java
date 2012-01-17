@@ -22,6 +22,8 @@ public class LoginController {
             if(access){
                 loginView.showMessage(titleMessage, okMessage, JOptionPane.INFORMATION_MESSAGE);
                 loginView.setVisible(false);
+                loginView.getUserTextField().setText("");
+                loginView.getPasswordField().setText("");
                 MainController.verifyStatus(access);
                 return;
             }
