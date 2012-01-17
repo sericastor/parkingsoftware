@@ -20,7 +20,7 @@ public class SystemSession {
      */
 
     public SystemSession() {
-        this.persistence_factory = Persistence.createEntityManagerFactory("ParkingSoftwarePU");
+        SystemSession.persistence_factory = Persistence.createEntityManagerFactory("ParkingSoftwarePU");
     }
     
     private static EntityManagerFactory persistence_factory;
@@ -30,7 +30,7 @@ public class SystemSession {
         return persistence_factory;
     }
     public void NewLogAction(String action,String detail){
-        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(SystemSession.getPersistence_factory());            
         Log log = new Log();
         log.setAction(action);
         log.setDetail(detail);
@@ -43,7 +43,7 @@ public class SystemSession {
     }
     public void Login() {
         //encargado de crear una entrada de login en la tabla log
-        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(SystemSession.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Login");
         log.setDetail(null);
@@ -54,7 +54,7 @@ public class SystemSession {
         ctrllog.create(log);
     }
     public void Logout(){
-        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(SystemSession.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Logout");
         log.setDetail(null);
@@ -65,7 +65,7 @@ public class SystemSession {
         ctrllog.create(log);
     }
     public void Close(){
-        LogJpaController ctrllog = new LogJpaController(controller.MainController.system.getPersistence_factory());            
+        LogJpaController ctrllog = new LogJpaController(SystemSession.getPersistence_factory());            
         Log log = new Log();
         log.setAction("Close System");
         log.setDetail(null);

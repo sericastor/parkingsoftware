@@ -157,4 +157,5 @@ public class MainController {
     public static CustomEntryTicketJpaController customEntryJpaController = new CustomEntryTicketJpaController(controller.MainController.system.getPersistence_factory());
     public static CustomExitTicketJpaController customExitJpaController = new CustomExitTicketJpaController(controller.MainController.system.getPersistence_factory());
     public static AdministrateEmployeeController administrateEmployeeController = new AdministrateEmployeeController();
+    public static CloseTurnController closeTurnController = new CloseTurnController();
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import controller.Administration.OtherOptionsController;
 import view.LoginView;
 import Entity.Employee;
 import controller.Administration.AdministrateEmployeeController;
@@ -30,15 +31,27 @@ public class LoginController {
         loginView.getPasswordField().setText("");
     }
     
+    public static void startAdministrationLogin(){
+        if(MainController.verifyAdminAccess(MainController.adminAccessView.getAdminPassword())){
+            JOptionPane.showMessageDialog(MainController.adminAccessView, "Acceso Concebido", "Administración", JOptionPane.INFORMATION_MESSAGE);
+            MainController.setVisibleAdminAccessView(false);
+            MainController.setVisibleAdminView(true);
+        }else{
+            JOptionPane.showMessageDialog(MainController.adminAccessView, "Acceso Denegado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        MainController.adminAccessView.getAdminPassTextField().setText("");
+        MainController.adminAccessView.getAdminPassTextField().requestFocus();
+    }
+    
     private static boolean verifyUser(String user, String password) {
         Employee employee = MainController.employeeJpaController.findEmployeeByUser(user);
         if (employee == null) {
             return false;
         }
         if (employee.getUser().equals(user) && employee.getPassword().equals(password) && employee.isIsActive() == true) {
-            controller.MainController.system.setEmployee(employee);
+            SystemSession.setEmployee(employee);
             controller.MainController.system.Login();
-            MainController.otherOptionsController.setTheme();
+            OtherOptionsController.setTheme();
             MainController.loadTablesMainView();  
             return true;
         }

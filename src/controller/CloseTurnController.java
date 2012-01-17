@@ -18,6 +18,20 @@ public class CloseTurnController {
 
     public CloseTurnController() {
     }
+    
+    public static void closePartialTurn(){
+        MainController.closeTurnController.closeTurnPartial();
+        MainController.finishTurnView.informAboutClosing(CloseTurnPartialMessage);
+        MainController.mainView.updateStateTabbed();
+        MainController.setVisibleFinishTurnView(false);
+    }
+    
+    public static void closeTotalTurn(){
+        MainController.closeTurnController.closeTurnTotal();
+        MainController.finishTurnView.informAboutClosing(CloseTurnTotalMessage);
+        MainController.setVisibleFinishTurnView(false);
+    }
+    
     public static int getNextFactureTurnID() {
         return MainController.factureTurnJpaController.getFactureTurnCount() + 1;
     }
@@ -45,7 +59,7 @@ public class CloseTurnController {
                 MainController.factureTurnJpaController.create(facture);
                 MainController.exitsJpaController.destroy(e.getId());
             }
-            MainController.quitVehicleController.updateTableExits();      
+            QuitVehicleController.updateTableExits();      
             updateTableFacturesTurn();
             MainController.mainView.updateStateTabbed();
             
@@ -136,6 +150,10 @@ public class CloseTurnController {
         }
         return results;
     }
+    
     private static List<Facture> AllFactures = null;
     private static List<FactureTurn> AllFactureTurn = null;   
+    private static String CloseTurnTotalMessage = "Ha cerrado caja totalmente";
+    private static String CloseTurnPartialMessage = "Ha cerrado caja parcialmente";
+    
 }
