@@ -1468,7 +1468,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
 
     private void ThemeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ThemeComboBoxItemStateChanged
         int aux=ThemeComboBox.getSelectedIndex();
-        MainController.otherOptionsController.setTheme(aux);
+        OtherOptionsController.setTheme(aux);
     }//GEN-LAST:event_ThemeComboBoxItemStateChanged
 
     private void SavePlateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavePlateButtonActionPerformed

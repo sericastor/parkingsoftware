@@ -59,8 +59,6 @@ public class BarCodePanel extends javax.swing.JPanel {
 
 private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
     String path="";
-    
-    
 }//GEN-LAST:event_formComponentShown
 public void setImageLabel(){
     ImageIcon barCode= new ImageIcon("src/images/barcode.jpg");

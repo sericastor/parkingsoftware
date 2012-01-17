@@ -1,9 +1,7 @@
 package view;
 
-import controller.MainController;
+import controller.AddVehicleController;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -60,16 +58,7 @@ public class AddVehiclePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {                                    
-    DefaultComboBoxModel model = MainController.addVehicleController.getModelComboBox(
-            MainController.mainView.getPlate());
-    if (model.getSize() == 0) {
-       JOptionPane.showMessageDialog(null, "Tipo de placa no existente, "
-               + "por favor, inserte un tipo de placa valido", "error", WIDTH);
-    } else {
-        VehicleTypeCombobox.setModel(model);
-        VehicleTypeCombobox.updateUI();
-    }
-
+        AddVehicleController.formComponentShowEvent();
     }
     
     public void setVehicleTypeCombobox(DefaultComboBoxModel model){
@@ -80,10 +69,16 @@ public class AddVehiclePanel extends javax.swing.JPanel {
         this.ComentaryArea.setText(text);
     }
     
+    public javax.swing.JComboBox getVehicleTypeComboBox(){
+        return VehicleTypeCombobox;
+    } 
+    
+    public String getComentary(){
+        return ComentaryArea.getText();
+    }
+    
     private void AddVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVehicleButtonActionPerformed
-        String id = (String) VehicleTypeCombobox.getSelectedItem();
-        MainController.addVehicleController.CreateVehicle(id, ComentaryArea.getText());
-        MainController.mainView.setPlateTextField("");  
+        AddVehicleController.addVehicleEvent();
     }//GEN-LAST:event_AddVehicleButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
