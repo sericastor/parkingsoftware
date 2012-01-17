@@ -10,11 +10,9 @@
  */
 package view;
 
-import Entity.VehicleType;
 import controller.FormatDate;
 import controller.MainController;
 import controller.QuitVehicleController;
-import java.util.Date;
 
 /**
  *
@@ -186,7 +184,7 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
          * solo pondre el codigo para sacar el vehiculo att: miguel
          */
         String plate=MainController.mainView.getPlate();
-        MainController.quitVehicleController.changeStateOfVehicle(plate);
+        QuitVehicleController.changeStateOfVehicle(plate);
         MainController.mainView.setPlateTextField("");
         MainController.mainView.removePanel();
     }//GEN-LAST:event_FactureButtonActionPerformed

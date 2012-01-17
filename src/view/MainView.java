@@ -1,8 +1,8 @@
 package view;
 
+import controller.AddVehicleController;
 import controller.Administration.CustomEntryTicketController;
 import controller.Administration.CustomExitTicketController;
-import controller.Administration.OtherOptionsController;
 import controller.ExitController;
 import controller.LogoutController;
 import controller.MainController;
@@ -15,7 +15,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -600,8 +599,8 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        MainController.addVehicleController.setPlate(PlateTextField.getText());
-        String result = MainController.addVehicleController.verifyCarInParkway(PlateTextField.getText());
+        AddVehicleController.setPlate(PlateTextField.getText());
+        String result = AddVehicleController.verifyCarInParkway(PlateTextField.getText());
         if (result.equals("Inserte un tipo de placa valida")) {
             JOptionPane.showMessageDialog(CopyMenu, result);
             PlateTextField.removeAll();
@@ -678,7 +677,6 @@ private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_LogoutMenuActionPerformed
 
     private void CloseBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBoxButtonActionPerformed
-        // TODO add your handling code here:
         MainController.setVisibleFinishTurnView(true);
     }//GEN-LAST:event_CloseBoxButtonActionPerformed
 

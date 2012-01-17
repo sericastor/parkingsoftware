@@ -1,10 +1,9 @@
 package view;
 
+import controller.LoginController;
 import controller.MainController;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +18,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -60,18 +59,13 @@ public class ManagerAccessView extends javax.swing.JFrame {
         PasswordLabel.setText("Contraseña:");
 
         AdminPassTextField.setToolTipText("Ingrese su contraseña (Sólo Administradores)");
-        AdminPassTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminPassTextFieldActionPerformed(evt);
-            }
-        });
         AdminPassTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 AdminPassTextFieldKeyPressed(evt);
             }
         });
 
-        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AccessButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         AccessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Key.png"))); // NOI18N
         AccessButton.setText("Ingresar");
         AccessButton.setToolTipText("Ingresar a la sección de Administradores.");
@@ -81,7 +75,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CancelButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         CancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         CancelButton.setText("  Cancelar");
         CancelButton.setToolTipText("Retorna a la vista anterior.");
@@ -91,7 +85,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
             }
         });
 
-        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        InfoLabel.setFont(new java.awt.Font("Tahoma", 0, 18));
         InfoLabel.setText("Ésta operación requiere permisos administrativos.");
 
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
@@ -149,25 +143,12 @@ public class ManagerAccessView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AdminPassTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPassTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AdminPassTextFieldActionPerformed
-
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         MainController.setVisibleAdminAccessView(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void AccessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessButtonActionPerformed
-        if(MainController.verifyAdminAccess(this.getAdminPassword())){
-            JOptionPane.showMessageDialog(this, "Acceso Concedido", "Administración", 1);
-            MainController.setVisibleAdminAccessView(false);
-            MainController.setVisibleAdminView(true);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Acceso Denegado", "Administración", 0);
-        }
-        AdminPassTextField.setText("");
-        AdminPassTextField.requestFocus();        
+        LoginController.startAdministrationLogin();
     }//GEN-LAST:event_AccessButtonActionPerformed
 
     private void AdminPassTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AdminPassTextFieldKeyPressed
@@ -179,6 +160,11 @@ public class ManagerAccessView extends javax.swing.JFrame {
     public String getAdminPassword(){
         return String.valueOf(AdminPassTextField.getPassword());
     }
+    
+    public javax.swing.JTextField getAdminPassTextField(){
+        return AdminPassTextField;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccessButton;
     private javax.swing.JPasswordField AdminPassTextField;

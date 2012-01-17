@@ -11,7 +11,6 @@
 package view;
 
 import controller.CloseTurnController;
-import controller.MainController;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -112,26 +111,16 @@ public class FinishTurnView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CloseTurnPartialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTurnPartialButtonActionPerformed
-        closeTurnController.closeTurnPartial();
-        informAboutClosing(CloseTurnPartialMessage);
-        MainController.mainView.updateStateTabbed();
-        MainController.setVisibleFinishTurnView(false);
+        CloseTurnController.closePartialTurn();
     }//GEN-LAST:event_CloseTurnPartialButtonActionPerformed
 
     private void CloseTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTotalButtonActionPerformed
-        closeTurnController.closeTurnTotal();
-        informAboutClosing(CloseTurnTotalMessage);
-        MainController.setVisibleFinishTurnView(false);
+        CloseTurnController.closeTotalTurn();
     }//GEN-LAST:event_CloseTotalButtonActionPerformed
-    private void informAboutClosing(String message){
+    
+    public void informAboutClosing(String message){
         JOptionPane.showMessageDialog(null, message);    
     }
-    /**
-     * @param args the command line arguments
-     */
-    private static CloseTurnController closeTurnController = new CloseTurnController();
-    private static String CloseTurnTotalMessage = "Ha cerrado caja totalmente";
-    private static String CloseTurnPartialMessage = "Ha cerrado caja parcialmente";
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseTotalButton;
