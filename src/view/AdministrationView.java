@@ -1426,7 +1426,8 @@ private void SaveExitTicketButtonActionPerformed(java.awt.event.ActionEvent evt)
 }//GEN-LAST:event_SaveExitTicketButtonActionPerformed
 
 private void PartialReportSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartialReportSearchButtonActionPerformed
-    // TODO add your handling code here:
+    EjecutarReporte er = new EjecutarReporte();
+    er.startReport(0);
 }//GEN-LAST:event_PartialReportSearchButtonActionPerformed
 
 private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveEntryTicketButtonActionPerformed
