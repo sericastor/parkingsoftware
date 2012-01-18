@@ -21,7 +21,7 @@ public class EjecutarReporte {
         public static final String USER="root";
         public static final String PASSWORD="";
     public static Connection CONEXION;
-    //public static JasperReport report;
+    public static JasperReport report;
 
     public void startReport(int id){
 
@@ -30,17 +30,13 @@ public class EjecutarReporte {
             CONEXION = DriverManager.getConnection(RUTA,USER,PASSWORD);
             javax.swing.JOptionPane.showMessageDialog(null,"Conexion establecida");
             System.out.println(CONEXION);
-            //report = JasperCompileManager.compileReport("D:\report2.jrxml");
-            //JasperPrint print = JasperFillManager.fillReport(report, null, CONEXION);
+            report = JasperCompileManager.compileReport("D:\\report2.jrxml");
+            JasperPrint print = JasperFillManager.fillReport(report, null, CONEXION);
             //Exporta el informe a PDF
-            //String destFileNamePdf="C:\reporte1.pdf";
+            String destFileNamePdf="D:\\reporte1.pdf";
             //Creación del PDF
-            //JasperExportManager.exportReportToPdfFile(print, destFileNamePdf);
-            Map parameters = new HashMap();
-            parameters.put("dFunciona","Esto si funciona");
-            JasperReport report = JasperCompileManager.compileReport("C:\\report2.jrxml");
-            JasperPrint jasperPrint = JasperFillManager.fillReport(report, parameters);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Informe.pdf");
+            JasperExportManager.exportReportToPdfFile(print, destFileNamePdf);
+            javax.swing.JOptionPane.showMessageDialog(null, "Se ha creado el reporte");
 
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(null, e);
