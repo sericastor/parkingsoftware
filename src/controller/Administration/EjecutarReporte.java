@@ -30,10 +30,10 @@ public class EjecutarReporte {
             CONEXION = DriverManager.getConnection(RUTA,USER,PASSWORD);
             javax.swing.JOptionPane.showMessageDialog(null,"Conexion establecida");
             System.out.println(CONEXION);
-            report = JasperCompileManager.compileReport("D:\\report2.jrxml");
+            report = JasperCompileManager.compileReport("src\\jasperTemplates\\report2.jrxml");
             JasperPrint print = JasperFillManager.fillReport(report, null, CONEXION);
             //Exporta el informe a PDF
-            String destFileNamePdf="D:\\reporte1.pdf";
+            String destFileNamePdf="src\\Reports\\reporte1.pdf";
             //Creación del PDF
             JasperExportManager.exportReportToPdfFile(print, destFileNamePdf);
             javax.swing.JOptionPane.showMessageDialog(null, "Se ha creado el reporte");
