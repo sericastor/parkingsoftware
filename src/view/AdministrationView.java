@@ -1426,7 +1426,7 @@ private void SaveExitTicketButtonActionPerformed(java.awt.event.ActionEvent evt)
 }//GEN-LAST:event_SaveExitTicketButtonActionPerformed
 
 private void PartialReportSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartialReportSearchButtonActionPerformed
-    EjecutarReporte er = new EjecutarReporte();
+    ExecuteReport er = new ExecuteReport();
     er.startReport(0);
 }//GEN-LAST:event_PartialReportSearchButtonActionPerformed
 

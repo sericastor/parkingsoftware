@@ -14,7 +14,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-public class EjecutarReporte {
+public class ExecuteReport {
 
         public static final String DRIVER="com.mysql.jdbc.Driver";
         public static final String RUTA="jdbc:mysql://localhost:3306/eparkdb";
