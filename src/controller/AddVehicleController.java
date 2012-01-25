@@ -1,6 +1,7 @@
 package controller;
 
 import Entity.Entries;
+import Entity.InfoParkway;
 import Entity.VehicleType;
 import java.util.Calendar;
 import java.util.Date;
@@ -115,7 +116,7 @@ public class AddVehicleController {
         m.setEmployee(SystemSession.getSessionEmployee());
         m.setEntryDate(MainController.getSystemTime());
         m.setPlate(plate);
-        m.setTicket(123);
+        m.setTicket(generateTicket());
         m.setTicketCodification(generateTicketCodification());
         m.setVehicleType(getVehicleTypeSelected(vehicleType));
         m.setComentary(coment);
@@ -130,7 +131,10 @@ public class AddVehicleController {
             //actualizar el panel con la nueva entrada automaticamente
             DefaultTableModel entriesModel=TotalSearchOfEntries();
             MainController.mainView.setEntriesTableModel(entriesModel);
-            MainController.generateBarCode(m.getTicketCodification());   
+            MainController.generateBarCode(m.getTicketCodification()); 
+            InfoParkway aux=MainController.infoJpaController.findInfoParkway(idParkway);
+            aux.setTicketCount(m.getTicket());
+            MainController.infoJpaController.edit(aux,idParkway);
         } else {
             MainController.adminView.showMessage("Error", "El tipo de vehiculo seleccionado no tiene tarifas. Por favor cree una nueva tarifa", 0);
         }
@@ -140,11 +144,25 @@ public class AddVehicleController {
     
     public static String generateTicketCodification(){
         Random rnd = new Random();
-        String code="+"+String.valueOf(Calendar.getInstance().getTime().getMonth())+
-                String.valueOf(Calendar.getInstance().getTime().getDay());
+        String code="+"+String.valueOf(MainController.getSystemTime().getMonth())+
+                String.valueOf(MainController.getSystemTime().getDay());
         code= code+SystemSession.getSessionEmployee().getUser().toString().substring(0, 2).toUpperCase();
         code= code+Calendar.getInstance().getTimeInMillis()%(rnd.nextInt(99999999)+1);
         return code;
+    }
+    
+    public static String generateTicket(){
+        Long lng=new Long(1);
+        String ticket=MainController.infoJpaController.findInfoParkway(lng).getTicketCount();
+        if(!ticket.startsWith(String.valueOf(MainController.getSystemTime().getDay()))){
+            return String.valueOf(MainController.getSystemTime().getDay())+"1";
+        }
+        else{
+            int aux=Integer.parseInt(ticket.substring(1,ticket.length()));
+            aux++;
+            return String.valueOf(MainController.getSystemTime().getDay())+
+                    String.valueOf(aux);   
+        }
     }
     
     
@@ -201,4 +219,5 @@ public class AddVehicleController {
     private static List<Entries> AllEntries=null;
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
+    private static final long idParkway = 1;
 }
