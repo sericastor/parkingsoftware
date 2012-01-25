@@ -26,6 +26,7 @@ import view.BarCodePanel;
 import view.FinishTurnView;
 import view.ManagerAccessView;
 import view.QuitVehiclePanel;
+import view.ReportProgressBar;
 
 /**
  *
@@ -156,5 +157,6 @@ public class MainController {
     public static CustomExitTicketJpaController customExitJpaController = new CustomExitTicketJpaController(SystemSession.getPersistence_factory());
     public static AdministrateEmployeeController administrateEmployeeController = new AdministrateEmployeeController();
     public static CloseTurnController closeTurnController = new CloseTurnController();
+    public static ReportProgressBar reportProgressBar = new ReportProgressBar();
 
 }
