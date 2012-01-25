@@ -33,20 +33,20 @@ public class eParking {
             }
         new MainController() ;
 //        //////////////////////////Inicializar Tablas////////////////////////
-//        try {
-//            Employee employee = MainController.employeeJpaController.findEmployeeByUser("user");
-//            VehicleType vehicle = MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(1));
-//            BandsRate bandsRate = MainController.bandsRateJpaController.findBandsRate(Long.valueOf(1));
-//            //FactureTurn factureTurn = MainController.FactureTurnJpaController.
-//            if (employee == null && vehicle == null && bandsRate == null) {
-//
-//                new InitializeController();
-//
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println("Pues ocurrio un error creando las condenadas tablas iniciales" + e.getMessage());
-//        }
+        try {
+            Employee employee = MainController.employeeJpaController.findEmployeeByUser("user");
+            VehicleType vehicle = MainController.vehicleTypeJpaController.findVehicleType(Long.valueOf(1));
+            BandsRate bandsRate = MainController.bandsRateJpaController.findBandsRate(Long.valueOf(1));
+            //FactureTurn factureTurn = MainController.FactureTurnJpaController.
+            if (employee == null && vehicle == null && bandsRate == null) {
+
+                new InitializeController();
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Pues ocurrio un error creando las condenadas tablas iniciales" + e.getMessage());
+        }
 
         //////////////////////////Inicializar Tablas///////////////////////////////
         

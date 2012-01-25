@@ -19,6 +19,7 @@ import Entity.VehicleType;
 import Entity.Exits;
 import Entity.InfoParkway;
 import java.sql.Date;
+import java.util.Calendar;
 
 
 public class InitializeController {
@@ -131,6 +132,9 @@ public class InitializeController {
         infop.setCapacityStatus(0);
         infop.setIVAPercent(0.02);
         infop.setRountTo(20);
+        Long yesterday=Calendar.getInstance().getTimeInMillis()-86400000;
+        Date date=new Date(yesterday);
+        infop.setTicketCount(date.getDay() +"1");
         infopJpaController.create(infop);
 
         }
