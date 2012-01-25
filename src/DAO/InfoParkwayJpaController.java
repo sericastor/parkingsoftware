@@ -80,6 +80,7 @@ public class InfoParkwayJpaController implements Serializable {
             newInfoPark.setTelephone(infoParkway.getTelephone());
             newInfoPark.setMaxCapacity(infoParkway.getMaxCapacity());
             newInfoPark.setIVAPercent(infoParkway.getIVAPercent());
+            newInfoPark.setTicketCount(infoParkway.getTicketCount());
             infoParkway = em.merge(newInfoPark);
             em.getTransaction().commit();
         } catch (Exception ex) {

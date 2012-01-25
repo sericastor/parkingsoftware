@@ -39,8 +39,17 @@ public class InfoParkway implements Serializable {
     private double capacityStatus;
     @Column (name="RoundTo")
     private int rountTo;
-    
+    @Column (name="TicketCount")
+    private String ticketCount;
 
+    public String getTicketCount() {
+        return ticketCount;
+    }
+
+    public void setTicketCount(String ticketCount) {
+        this.ticketCount = ticketCount;
+    }
+    
     public int getRountTo() {
         return rountTo;
     }

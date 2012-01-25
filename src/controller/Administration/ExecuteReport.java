@@ -55,6 +55,9 @@ public class ExecuteReport {
                     +".pdf";
             //Creación del PDF
             JasperExportManager.exportReportToPdfFile(print, destFileNamePdf);
+            JasperViewer jviewer=new JasperViewer(print,false);
+            jviewer.setTitle(destFileNamePdf);
+            jviewer.setVisible(true);
             javax.swing.JOptionPane.showMessageDialog(null, "Se ha creado el reporte");
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(null, e);
