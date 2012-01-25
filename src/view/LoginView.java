@@ -126,11 +126,11 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(UserTextField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
                 .addContainerGap(188, Short.MAX_VALUE)
                 .addComponent(LoginButton)
-                .addGap(93, 93, 93))
+                .addGap(213, 213, 213))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +174,7 @@ public class LoginView extends javax.swing.JFrame {
             .addComponent(LoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        IconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo7.1.png"))); // NOI18N
+        IconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Sin título-2.png"))); // NOI18N
 
         javax.swing.GroupLayout IntroPanelLayout = new javax.swing.GroupLayout(IntroPanel);
         IntroPanel.setLayout(IntroPanelLayout);
@@ -182,9 +182,9 @@ public class LoginView extends javax.swing.JFrame {
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(HelpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(IntroPanelLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(55, 55, 55)
                 .addComponent(IconLabel)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         IntroPanelLayout.setVerticalGroup(
             IntroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
