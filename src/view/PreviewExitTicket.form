@@ -1,0 +1,268 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Tittle" pref="332" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="1">
+                                      <Component id="PlateLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="Plate" pref="99" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="ParkingName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="VehicleType" alignment="0" pref="172" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="ExitDateLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ExitDate" pref="80" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="ParkingAddress" alignment="0" pref="172" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="ParkingNIT" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="SubtotalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="IVALabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TotalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Total" max="32767" attributes="1"/>
+                          <Component id="IVA" max="32767" attributes="1"/>
+                          <Component id="Subtotal" alignment="0" pref="153" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace pref="114" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="AttendedByLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <Component id="Employee" min="-2" pref="202" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="DateLabel" max="32767" attributes="1"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="EntryDate" min="-2" pref="51" max="-2" attributes="1"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="TicketNumberLabel" alignment="1" min="-2" max="-2" attributes="1"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="TicketNumber" min="-2" pref="63" max="-2" attributes="1"/>
+                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="FootPage" pref="332" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Tittle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="TicketNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TicketNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="DateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ExitDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ExitDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="EntryDate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="PlateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Plate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="VehicleType" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ParkingName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ParkingAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="ParkingNIT" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="SubtotalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Subtotal" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="IVALabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="IVA" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="TotalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Total" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="AttendedByLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Employee" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="FootPage" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="TicketNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="#####"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="TicketNumberLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tiquete n&#xfa;mero:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ParkingName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre del parqueadero"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Tittle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aqu&#xed; va tu lindo titulo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ParkingNIT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NIT del parqueadero"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ParkingAddress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Direcci&#xf3;n del parqueadero"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="AttendedByLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Atendido por:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Employee">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aqu&#xed; va tu lindo nombre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="DateLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha de entrada"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="EntryDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="#####"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="PlateLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Placa:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Plate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="aaa111"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="VehicleType">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo de vehiculo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ExitDateLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha de salida"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ExitDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="#####"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="SubtotalLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Subtotal:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Subtotal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="####"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="IVALabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="IVA:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="IVA">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="####"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="TotalLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Total:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Total">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="####"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="FootPage">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aqu&#xed; va tu lindo pie de p&#xe1;gina"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
