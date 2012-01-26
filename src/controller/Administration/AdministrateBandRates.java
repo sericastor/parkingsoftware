@@ -48,6 +48,7 @@ public class AdministrateBandRates {
                 MainController.adminView.getRatesTable().getCellEditor().stopCellEditing();
             }
             javax.swing.JTable bandsRate = MainController.adminView.getRatesTable();
+            if(verifyUnits(bandsRate)){
             for(int i = 0; i < bandsRate.getRowCount(); i++){
                 rowIsEdited(i,
                     String.valueOf(bandsRate.getValueAt(i, 0)),
@@ -57,7 +58,10 @@ public class AdministrateBandRates {
                     String.valueOf(bandsRate.getValueAt(i, 4)),
                     vehicle);
             }
-            MainController.adminView.showMessage("Ok", "Modificación Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            MainController.adminView.showMessage("Ok", "Modificación Exitosa", JOptionPane.INFORMATION_MESSAGE);}
+            else{
+                MainController.adminView.showMessage("Error", "La unidad es mayor que la diferencia de tiempos", 0);
+            }
         }else if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION){
             return;
         }
@@ -65,6 +69,15 @@ public class AdministrateBandRates {
         MainController.adminView.getRatesTable().updateUI();
     } 
 
+    public static boolean verifyUnits(javax.swing.JTable bandsRate){
+        for(int i = 0; i < bandsRate.getRowCount(); i++){
+            if(Long.parseLong(String.valueOf(bandsRate.getValueAt(i, 3)))>Long.parseLong(String.valueOf(bandsRate.getValueAt(i, 2)))-Long.parseLong(String.valueOf(bandsRate.getValueAt(i, 1)))){
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public static DefaultComboBoxModel AllVehicleTypes() {
         //actualiza el combo box con la informacion de la base de datos
         //de vehicletype
