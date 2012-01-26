@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.3310000000000035"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="189"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="Date1" class="java.sql.Timestamp">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 		<defaultValueExpression><![CDATA[$F{ExitDate}]]></defaultValueExpression>
@@ -44,10 +44,6 @@ where ExitDate < $P{Date1} and ExitDate > $P{Date2}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="0" y="0" width="52" height="43"/>
-				<imageExpression><![CDATA["C:\\Users\\miguel\\Documents\\NetBeansProjects\\parkingsoftware\\src\\images\\parking1.gif"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="133" y="21" width="264" height="58"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
