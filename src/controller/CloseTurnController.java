@@ -126,7 +126,7 @@ public class CloseTurnController {
         results.addColumn("Total");
         
         for (FactureTurn e : AllFactureTurn) {
-            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getEmployeeEntry().getId()),String.valueOf(e.getEmployeeExit().getId()),e.getPlate(), e.getEntryDate().toLocaleString(),e.getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIVA()),String.valueOf(e.getTotal())});
+            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getEmployeeEntry().getName()),String.valueOf(e.getEmployeeExit().getName()),e.getPlate(), e.getEntryDate().toLocaleString(),e.getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIVA()),String.valueOf(e.getTotal())});
         }
         return results;
     }
@@ -146,7 +146,7 @@ public class CloseTurnController {
         results.addColumn("Total");
         
         for (Facture e : AllFactures) {
-            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getEmployeeEntry().getId()),String.valueOf(e.getEmployeeExit().getId()),e.getPlate(), e.getEntryDate().toLocaleString(),e.getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIva()),String.valueOf(e.getTotal())});
+            results.addRow( new Object []{String.valueOf(e.getId()),String.valueOf(e.getEmployeeEntry().getName()),String.valueOf(e.getEmployeeExit().getName()),e.getPlate(), e.getEntryDate().toLocaleString(),e.getExitDate().toLocaleString(), String.valueOf(e.getSubtotal()),String.valueOf(e.getIva()),String.valueOf(e.getTotal())});
         }
         return results;
     }
