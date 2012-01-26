@@ -254,7 +254,7 @@ public class MainView extends javax.swing.JFrame {
 
         ParkQuickLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         ParkQuickLabel.setForeground(new java.awt.Color(51, 102, 0));
-        ParkQuickLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo7.1 small.png"))); // NOI18N
+        ParkQuickLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_small.png"))); // NOI18N
 
         ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
@@ -281,7 +281,7 @@ public class MainView extends javax.swing.JFrame {
         ParkingPanelLayout.setHorizontalGroup(
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ParkingPanelLayout.createSequentialGroup()
-                .addComponent(ParkQuickLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ParkQuickLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AdministerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -293,14 +293,17 @@ public class MainView extends javax.swing.JFrame {
         );
         ParkingPanelLayout.setVerticalGroup(
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ParkQuickLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ParkingPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CloseBoxButton)
-                    .addComponent(AdministerButton)
-                    .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LogoutButton))
+                .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ParkingPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CloseBoxButton)
+                            .addComponent(AdministerButton)
+                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LogoutButton))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ParkQuickLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
