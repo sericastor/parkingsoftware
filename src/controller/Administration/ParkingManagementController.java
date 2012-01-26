@@ -2,6 +2,8 @@ package controller.Administration;
 
 import Entity.InfoParkway;
 import controller.MainController;
+import java.sql.Date;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class ParkingManagementController {
@@ -69,6 +71,9 @@ public class ParkingManagementController {
             infoParkway.setTelephone(MainController.adminView.getPhonePark());
             infoParkway.setMaxCapacity(maxCapacity);
             infoParkway.setIVAPercent(MainController.adminView.getIvaPercentPark());
+            Long yesterday=Calendar.getInstance().getTimeInMillis()-86400000;
+            Date date=new Date(yesterday);
+            infoParkway.setTicketCount(date.getDay() +"1");
             int option = MainController.adminView.askToParkway();
             if(option == JOptionPane.OK_OPTION && validateAll(infoParkway,MainController.adminView.getMaxCapacityPark())){
                 MainController.infoJpaController.edit(infoParkway, idParkway);
