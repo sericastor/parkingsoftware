@@ -40,7 +40,6 @@ public class ExecuteReport {
             Parameters.put("Date2",date2);
             Class.forName(DRIVER);
             CONEXION = DriverManager.getConnection(RUTA,USER,PASSWORD);
-            System.out.println(CONEXION);
             report = JasperCompileManager.compileReport("src\\jasperTemplates\\report1.jrxml");
             JasperPrint print = JasperFillManager.fillReport(report, Parameters, CONEXION);
             //Exporta el informe a PDF

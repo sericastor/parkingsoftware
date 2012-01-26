@@ -980,14 +980,14 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="ReportsTabbedPanel" min="-2" pref="949" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="ReportsTabbedPanel" min="-2" pref="924" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ReportsTabbedPanel" alignment="1" max="32767" attributes="0"/>
+                  <Component id="ReportsTabbedPanel" alignment="1" pref="391" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1183,29 +1183,28 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="1">
-                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="FromLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="CustomReportFromTextField" min="-2" pref="109" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="ToLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="CustomReportToTextField" min="-2" pref="109" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="PartialReportSearchButton2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
-                                          <Component id="TotalReportLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="CustomReportTotalTextField" min="-2" pref="109" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="1">
+                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="FromLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="date2Spinner" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="ToLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="date3Spinner" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="PartialReportSearchButton2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="CustomReportScroll" min="-2" pref="510" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="CustomReportScroll" min="-2" pref="510" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="TotalReportLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="CustomReportTotalTextField" min="-2" pref="109" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="CustomReportPrintButton" max="32767" attributes="1"/>
@@ -1223,26 +1222,29 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="PartialReportSearchButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CustomReportFromTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="FromLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CustomReportToTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ToLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="date2Spinner" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="date3Spinner" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                       <Component id="CustomReportGenerateButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                       <Component id="CustomReportPrintButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="CustomReportScroll" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="CustomReportScroll" min="-2" pref="213" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="CustomReportTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TotalReportLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="CustomReportTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TotalReportLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="41" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1252,8 +1254,6 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Desde:"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="CustomReportFromTextField">
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="CustomReportScroll">
                       <AuxValues>
@@ -1265,21 +1265,15 @@
                         <Component class="javax.swing.JTable" name="CustomReportTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="5" rowCount="4">
-                                <Column editable="true" title="Factura" type="java.lang.Object"/>
-                                <Column editable="true" title="Fecha" type="java.lang.Object"/>
-                                <Column editable="true" title="Hora" type="java.lang.Object"/>
+                              <Table columnCount="4" rowCount="0">
+                                <Column editable="true" title="Ticket" type="java.lang.Object"/>
+                                <Column editable="true" title="Fecha de Salida" type="java.lang.Object"/>
                                 <Column editable="true" title="Placa" type="java.lang.Object"/>
                                 <Column editable="true" title="Costo" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>
@@ -1327,15 +1321,13 @@
                     <Component class="javax.swing.JButton" name="CustomReportGenerateButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Folder.png"/>
+                          <Image iconType="3" name="/images/System.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Generar Reporte"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CustomReportGenerateButtonActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="CustomReportToTextField">
                     </Component>
                     <Component class="javax.swing.JLabel" name="ToLabel">
                       <Properties>
@@ -1345,9 +1337,26 @@
                     <Component class="javax.swing.JButton" name="PartialReportSearchButton2">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Portfolio.png"/>
+                          <Image iconType="3" name="/images/Search.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="   Buscar"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PartialReportSearchButton2ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="date2Spinner">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="1327458060000" maximum="now" stepSize="5" type="date"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="date3Spinner">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="now" maximum="now" stepSize="5" type="date"/>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>

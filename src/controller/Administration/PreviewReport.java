@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 public class PreviewReport {
     
     public static DefaultTableModel loadPreview(long Date1,long Date2){
-        
         Date date1 = new Date(Date1);  
         Date date2 = new Date(Date2);
         double total=0;
@@ -43,8 +42,14 @@ public class PreviewReport {
             total+=f.getTotal();
             }
             }
+        if(Date2==0){
         MainController.adminView.setPartialReportTable(results);
         MainController.adminView.setPartialReportTotalTextField(total);
+        }
+        else{
+        MainController.adminView.setCustomReportTable(results);
+        MainController.adminView.setCustomReportTotalTextField(total);
+        }
         return results;
         
     }
