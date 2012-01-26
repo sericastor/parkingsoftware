@@ -12,6 +12,7 @@ package view;
 
 import controller.Administration.*;
 import controller.MainController;
+import java.util.Date;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 
@@ -114,7 +115,6 @@ public class AdministrationView extends javax.swing.JFrame {
         ReportAdminPanel = new javax.swing.JPanel();
         ReportsTabbedPanel = new javax.swing.JTabbedPane();
         PartialReportPanel = new javax.swing.JPanel();
-        PartialReportDateTextField = new javax.swing.JTextField();
         DiaryReportScroll = new javax.swing.JScrollPane();
         PartialReportTable = new javax.swing.JTable();
         PartialReportTotalTextField = new javax.swing.JTextField();
@@ -123,6 +123,7 @@ public class AdministrationView extends javax.swing.JFrame {
         PartialReportPrintButton = new javax.swing.JButton();
         PartialReportGenerateButton = new javax.swing.JButton();
         PartialReportSearchButton = new javax.swing.JButton();
+        date1Spinner = new javax.swing.JSpinner();
         CustomReportPanel = new javax.swing.JPanel();
         FromLabel = new javax.swing.JLabel();
         CustomReportFromTextField = new javax.swing.JTextField();
@@ -736,17 +737,13 @@ public class AdministrationView extends javax.swing.JFrame {
 
         PartialReportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Factura", "Tiquete", "Hora", "Placa", "Costo"
+                "Ticket", "Fecha de Salida", "Placa", "Costo"
             }
         ));
         DiaryReportScroll.setViewportView(PartialReportTable);
-        PartialReportTable.getColumnModel().getColumn(1).setHeaderValue("Tiquete");
 
         DateDiaryReportLabel.setText("Fecha:");
 
@@ -755,7 +752,7 @@ public class AdministrationView extends javax.swing.JFrame {
         PartialReportPrintButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Write.png"))); // NOI18N
         PartialReportPrintButton.setText("Imprimir Reporte");
 
-        PartialReportGenerateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Folder.png"))); // NOI18N
+        PartialReportGenerateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/System.png"))); // NOI18N
         PartialReportGenerateButton.setText("Generar Reporte");
         PartialReportGenerateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -763,13 +760,15 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
-        PartialReportSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Portfolio.png"))); // NOI18N
+        PartialReportSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
         PartialReportSearchButton.setText("   Buscar");
         PartialReportSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PartialReportSearchButtonActionPerformed(evt);
             }
         });
+
+        date1Spinner.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
 
         javax.swing.GroupLayout PartialReportPanelLayout = new javax.swing.GroupLayout(PartialReportPanel);
         PartialReportPanel.setLayout(PartialReportPanelLayout);
@@ -782,21 +781,24 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addComponent(PartialTotaDiaryLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(PartialReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(PartialReportPanelLayout.createSequentialGroup()
-                            .addGap(193, 193, 193)
+                    .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PartialReportPanelLayout.createSequentialGroup()
                             .addComponent(DateDiaryReportLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(PartialReportDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PartialReportSearchButton))
+                            .addGap(54, 54, 54)
+                            .addComponent(date1Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(37, 37, 37)
+                            .addComponent(PartialReportSearchButton)
+                            .addGap(31, 31, 31))
                         .addComponent(DiaryReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68)
                 .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PartialReportPrintButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PartialReportPrintButton)
                     .addComponent(PartialReportGenerateButton))
-                .addGap(292, 292, 292))
+                .addContainerGap())
         );
+
+        PartialReportPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {PartialReportGenerateButton, PartialReportPrintButton});
+
         PartialReportPanelLayout.setVerticalGroup(
             PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PartialReportPanelLayout.createSequentialGroup()
@@ -804,13 +806,14 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PartialReportPanelLayout.createSequentialGroup()
                         .addComponent(PartialReportGenerateButton)
-                        .addGap(55, 55, 55)
-                        .addComponent(PartialReportPrintButton))
+                        .addGap(32, 32, 32)
+                        .addComponent(PartialReportPrintButton)
+                        .addGap(23, 23, 23))
                     .addGroup(PartialReportPanelLayout.createSequentialGroup()
                         .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PartialReportDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DateDiaryReportLabel)
-                            .addComponent(PartialReportSearchButton))
+                            .addComponent(PartialReportSearchButton)
+                            .addComponent(date1Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(DiaryReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1398,7 +1401,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     // "Reinicia" la clase
     this.setNullEmp();
     this.setNullVehicleTypeFields();
-    this.setNullReportsFields();
+//    this.setNullReportsFields();
     this.setEnabledEmp(false);
     this.setEnableParkway(false);
     Tickets.setSelectedComponent(ExitTicket);
@@ -1426,8 +1429,10 @@ private void SaveExitTicketButtonActionPerformed(java.awt.event.ActionEvent evt)
 }//GEN-LAST:event_SaveExitTicketButtonActionPerformed
 
 private void PartialReportSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartialReportSearchButtonActionPerformed
+    Date date=new Date();
+    date=(Date) this.date1Spinner.getValue();
     ExecuteReport er = new ExecuteReport();
-    er.startReport(0);
+    er.startReport(date.getTime(),0);
 }//GEN-LAST:event_PartialReportSearchButtonActionPerformed
 
 private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveEntryTicketButtonActionPerformed
@@ -1605,13 +1610,13 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         numberSpacesSpinner.setValue(1);
     }
 
-    public void setNullReportsFields() {
-        PartialReportDateTextField.setText(null);
-        PartialReportTotalTextField.setText(null);
-        CustomReportFromTextField.setText(null);
-        CustomReportToTextField.setText(null);
-        CustomReportTotalTextField.setText(null);
-    }
+//    public void setNullReportsFields() {
+//        PartialReportDateTextField.setText(null);
+//        PartialReportTotalTextField.setText(null);
+//        CustomReportFromTextField.setText(null);
+//        CustomReportToTextField.setText(null);
+//        CustomReportTotalTextField.setText(null);
+//    }
     
     public void setNullEmp() {
         this.setConsultEmployeeTextField("");
@@ -1712,7 +1717,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JTextField NameParkwayTextField;
     private javax.swing.JPanel OtherOptions;
     private javax.swing.JPanel ParkwayAdminPanel;
-    private javax.swing.JTextField PartialReportDateTextField;
     private javax.swing.JButton PartialReportGenerateButton;
     private javax.swing.JPanel PartialReportPanel;
     private javax.swing.JButton PartialReportPrintButton;
@@ -1767,6 +1771,7 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JLabel VehicleTypeNameLabel;
     private javax.swing.JScrollPane VehicleTypeScroll;
     private javax.swing.JLabel answerLabel;
+    private javax.swing.JSpinner date1Spinner;
     private javax.swing.JCheckBox isActiveEmployeeCheckBox;
     private javax.swing.JCheckBox isAdminEmployeeCheckBox;
     private javax.swing.JRadioButton noRadioButton;
