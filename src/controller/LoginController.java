@@ -64,6 +64,10 @@ public class LoginController {
         loginView.setVisible(isVisible);
     }
     
+    public LoginView getLoginView(){
+        return loginView;
+    }
+    
     private static LoginView loginView = new LoginView();
     private static final String titleMessage = "Inicio Sesión";
     private static final String errorMessage = "Datos Incorrectos";

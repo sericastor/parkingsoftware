@@ -8,10 +8,9 @@ import controller.LoginController;
 import javax.persistence.EntityManagerFactory;
 import DAO.EmployeeJpaController;
 import Entity.Employee;
+import controller.Administration.AdministrateEmployeeController;
+import controller.MainController;
 import javax.persistence.Persistence;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,8 +22,7 @@ import static org.junit.Assert.*;
  */
 public class LoginCaseTest {
     
-    // This test Class needs a refactory URGENT!
-    /*public LoginCaseTest() {
+    public LoginCaseTest() {
     }
 
     @BeforeClass
@@ -43,6 +41,7 @@ public class LoginCaseTest {
             dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
             dasalgadoc.setAdministrator(true);
             dasalgadoc.setIsActive(true);
+            dasalgadoc.setTheme(0);
             employeeJpaController.create(dasalgadoc);
             
             Employee mkanayet = new Employee();
@@ -54,29 +53,18 @@ public class LoginCaseTest {
             mkanayet.setPassword(controller.MainController.md5Security.MD5Security("word"));
             mkanayet.setAdministrator(true);
             mkanayet.setIsActive(false);
+            mkanayet.setTheme(0);
             employeeJpaController.create(mkanayet);
         }
     }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-    
+ 
     @Test
     public void userAndPasswordInvalids() {
         setUser("usu");
         setPassword("12");
         
-        assertFalse(EmployeeManagementController.validateUser(getUser()));
-        assertFalse(EmployeeManagementController.validatePassword(getPassword()));
+        assertFalse(AdministrateEmployeeController.quickValidateUser(getUser()));
+        assertFalse(AdministrateEmployeeController.quickValidatePassword(getPassword()));
     }
     
     @Test
@@ -84,8 +72,8 @@ public class LoginCaseTest {
         setUser("");
         setPassword("");
         
-        assertFalse(EmployeeManagementController.validateUser(getUser()));
-        assertFalse(EmployeeManagementController.validatePassword(getPassword()));
+        assertFalse(AdministrateEmployeeController.quickValidateUser(getUser()));
+        assertFalse(AdministrateEmployeeController.quickValidatePassword(getPassword()));
     }
     
     @Test
@@ -93,8 +81,8 @@ public class LoginCaseTest {
         setUser("Usuario");
         setPassword("1234567");
         
-        assertTrue(EmployeeManagementController.validateUser(getUser()));
-        assertTrue(EmployeeManagementController.validateUser(getPassword()));
+        assertTrue(AdministrateEmployeeController.quickValidateUser(getUser()));
+        assertTrue(AdministrateEmployeeController.quickValidatePassword(getPassword()));
     }
     
     @Test
@@ -102,38 +90,44 @@ public class LoginCaseTest {
         setUser("UsuarioEjemplo");
         setPassword("12345678910");
         
-        assertFalse(EmployeeManagementController.validateUser(getUser()));
-        assertFalse(EmployeeManagementController.validatePassword(getPassword()));
+        assertFalse(AdministrateEmployeeController.quickValidateUser(getUser()));
+        assertFalse(AdministrateEmployeeController.quickValidatePassword(getPassword()));
     }
     
     @Test
     public void employeeNotFound(){
         setUser("parquick");
-        setPasswordMD5("parking");
+        setPassword("parking");
         
-        assertFalse(LoginController.verifyUser(getUser(),getPassword()));
+        MainController.loginController.getLoginView().getUserTextField().setText(getUser());
+        MainController.loginController.getLoginView().getPasswordField().setText(getPassword());
+        
+        LoginController.startLogin();
     }
     
     @Test
     public void employeeNotActive(){
         setUser("mkanayet");
-        setPasswordMD5("word");
+        setPassword("word");
         
-        assertFalse(LoginController.verifyUser(getUser(),getPassword()));
+        MainController.loginController.getLoginView().getUserTextField().setText(getUser());
+        MainController.loginController.getLoginView().getPasswordField().setText(getPassword());
+        
+        LoginController.startLogin();
     }
     
     @Test
     public void loginSuccessful(){
         setUser("dasalgadoc");
-        setPasswordMD5("pass");
+        setPassword("pass");
         
-        assertTrue(LoginController.verifyUser(getUser(),getPassword()));
+        MainController.loginController.getLoginView().getUserTextField().setText(getUser());
+        MainController.loginController.getLoginView().getPasswordField().setText(getPassword());
+        
+        LoginController.startLogin();
     }
 
     // Class variables, getters and setters methods
-    public void setPasswordMD5(String password){
-        this.password = controller.MainController.md5Security.MD5Security(password);
-    }
     
     public String getPassword() {
         return password;
@@ -154,5 +148,5 @@ public class LoginCaseTest {
     private String user;
     private String password;
     private static EmployeeJpaController employeeJpaController;
-    private static EntityManagerFactory persistence_factory;*/
+    private static EntityManagerFactory persistence_factory;
 }
