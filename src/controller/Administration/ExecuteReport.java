@@ -22,7 +22,7 @@ public class ExecuteReport {
         public static final String DRIVER="com.mysql.jdbc.Driver";
         public static final String RUTA="jdbc:mysql://localhost:3306/eparkdb";
         public static final String USER="root";
-        public static final String PASSWORD="miguel";
+        public static final String PASSWORD="6262541";
     public static Connection CONEXION;
     public static JasperReport report;
 

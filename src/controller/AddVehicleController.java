@@ -3,12 +3,14 @@ package controller;
 import Entity.Entries;
 import Entity.InfoParkway;
 import Entity.VehicleType;
+import controller.Administration.CustomEntryTicketController;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
+import view.PreviewEntryTicket;
 
 public class AddVehicleController {
     
@@ -18,6 +20,7 @@ public class AddVehicleController {
     public static void addVehicleEvent(){
         String id = (String) MainController.addPanel.getVehicleTypeComboBox().getSelectedItem();
         AddVehicleController.CreateVehicle(id, MainController.addPanel.getComentary());
+        PrintableTicket();
         MainController.mainView.setPlateTextField("");
     }
     
@@ -220,4 +223,18 @@ public class AddVehicleController {
     private static VehicleType vehicleTypeIsSelected = null;
     private static List<VehicleType> AllVehicleTypes = null;
     private static final long idParkway = 1;
+    
+    private static void PrintableTicket(){
+        PreviewEntryTicket ticket = new PreviewEntryTicket();
+        ticket = CustomEntryTicketController.getFormatTicket();
+        setTicketParameters(ticket);
+        PrintController.printEntryTicket(ticket);
+    }
+    private static void setTicketParameters(PreviewEntryTicket ticket){
+        ticket.getPlate().setText(plate);
+        ticket.getVehicleType().setText(vehicleTypeIsSelected.getName());
+        ticket.getEmployee().setText(SystemSession.getSessionEmployee().getName());
+        ticket.getDate().setText(MainController.entriesJpaController.getEntriesByPlate(plate).getEntryDate().toLocaleString());
+    }
+    
 }

@@ -82,4 +82,47 @@ public class CustomEntryTicketController {
         
         
     }
+    public static PreviewEntryTicket getFormatTicket(){
+        PreviewEntryTicket entryTicket = new PreviewEntryTicket();
+        CustomEntryTicket cet = new CustomEntryTicket();
+        InfoParkway ip = new InfoParkway();
+        if(!MainController.customEntryJpaController.findCustomTicketEntities().isEmpty()){
+        cet = MainController.customEntryJpaController.findCustomTicketEntities().get(0);
+        ip = MainController.infoJpaController.findInfoParkwayEntities().get(0);  }  
+ 
+        entryTicket.setTittleText(cet.getTittle());
+        if(cet.isParkwayName()){
+            entryTicket.setParkingName(ip.getName());
+        }
+        else{
+            entryTicket.setVisibleName(false);
+        }
+        if(cet.isParkwayAddress()){
+            entryTicket.setParkingAddress(ip.getAddress());
+        }
+        else{
+            entryTicket.setVisibleAddress(false);
+        }
+        if(cet.isParkwayNit()){
+            entryTicket.setNIT(ip.getNit());
+        }
+        else{
+            entryTicket.setVisibleNIT(false);
+        }
+        entryTicket.setFootPage(cet.getFootPage());
+        if(cet.isEntryEmployee()){
+            entryTicket.setEmployee(MainController.system.sesionemployee.getName() + " " + MainController.system.sesionemployee.getLastName());
+        }
+        else{
+            entryTicket.setVisibleEmployee(false);
+        }
+        if(cet.isBarcode()){
+            entryTicket.setBarCode();
+        }
+        else{
+            entryTicket.setVisibleBarCode(false);
+        }
+        return entryTicket;
+    }
 }
+
