@@ -89,7 +89,7 @@ public class QuitVehicleCaseTest {
             Entries vehicleParked = new Entries();
             vehicleParked.setEntryDate(date);
             vehicleParked.setPlate("ABC123");
-            vehicleParked.setTicket(123);
+            //vehicleParked.setTicket(123);
             vehicleParked.setVehicleType(hovercraft);
             vehicleParked.setComentary("Automovil con forro para lluvia");
             entriesJpaController.create(vehicleParked);
@@ -100,7 +100,7 @@ public class QuitVehicleCaseTest {
             newEntry.setEmployee(null);
             newEntry.setEntryDate(date);
             newEntry.setPlate("123");
-            newEntry.setTicket(123);
+            //newEntry.setTicket(123);
             newEntry.setVehicleType(bicycle);
             entriesJpaController.create(newEntry);
         }
@@ -112,7 +112,7 @@ public class QuitVehicleCaseTest {
             newEntry.setEmployee(null);
             newEntry.setEntryDate(date);
             newEntry.setPlate("DSC889");
-            newEntry.setTicket(123);
+            //newEntry.setTicket(123);
             newEntry.setVehicleType(hovercraft);
             newEntry.setComentary("Aerodelizador con radio");
             entriesJpaController.create(newEntry);
@@ -150,7 +150,7 @@ public class QuitVehicleCaseTest {
             nEntry.setEmployee(null);
             nEntry.setEntryDate(dat);
             nEntry.setPlate("456HGL");
-            nEntry.setTicket(123);
+            //nEntry.setTicket(123);
             nEntry.setVehicleType(bus);
             nEntry.setComentary("Bus con un vidrio roto");
             entriesJpaController.create(nEntry);
