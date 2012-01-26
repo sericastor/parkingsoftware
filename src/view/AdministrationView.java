@@ -14,6 +14,7 @@ import controller.Administration.*;
 import controller.MainController;
 import java.util.Date;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
@@ -743,6 +744,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 "Ticket", "Fecha de Salida", "Placa", "Costo"
             }
         ));
+        PartialReportTable.setEnabled(false);
         DiaryReportScroll.setViewportView(PartialReportTable);
 
         DateDiaryReportLabel.setText("Fecha:");
@@ -1413,7 +1415,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 }//GEN-LAST:event_formWindowClosed
 
     private void PartialReportGenerateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartialReportGenerateButtonActionPerformed
-        // TODO add your handling code here:
+         Date date=new Date();
+    date=(Date) this.date1Spinner.getValue();
+    ExecuteReport er = new ExecuteReport();
+    er.startReport(date.getTime(),0);
     }//GEN-LAST:event_PartialReportGenerateButtonActionPerformed
 
     private void CustomReportGenerateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomReportGenerateButtonActionPerformed
@@ -1431,10 +1436,14 @@ private void SaveExitTicketButtonActionPerformed(java.awt.event.ActionEvent evt)
 private void PartialReportSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartialReportSearchButtonActionPerformed
     Date date=new Date();
     date=(Date) this.date1Spinner.getValue();
-    ExecuteReport er = new ExecuteReport();
-    er.startReport(date.getTime(),0);
+    PreviewReport.loadPreview(date.getTime(), 0);
 }//GEN-LAST:event_PartialReportSearchButtonActionPerformed
-
+public void setPartialReportTable(DefaultTableModel model){
+    this.PartialReportTable.setModel(model);
+}
+public void setPartialReportTotalTextField(double total){
+    this.PartialReportTotalTextField.setText(String.valueOf(total));
+}
 private void SaveEntryTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveEntryTicketButtonActionPerformed
     TicketManagementController.updateEntryTicket(TitleTextField.getText(), FootPageEntryArea.getText(), NameCB.isSelected(), AddressCB.isSelected(), NITCB.isSelected(), EmployeeCB.isSelected(), BarCodeCB.isSelected());
 }//GEN-LAST:event_SaveEntryTicketButtonActionPerformed
