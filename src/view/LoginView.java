@@ -73,10 +73,10 @@ public class LoginView extends javax.swing.JFrame {
         HelpPanel.setBackground(new java.awt.Color(255, 255, 255));
         HelpPanel.setForeground(new java.awt.Color(153, 153, 255));
 
-        NeedHelpLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        NeedHelpLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         NeedHelpLabel.setText("¿Necesita ayuda con el Sistema? ");
 
-        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ManualButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ManualButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info.png"))); // NOI18N
         ManualButton.setText("Manual de Usuario");
         ManualButton.setToolTipText("Pulse aquí para obtener ayuda.");
@@ -90,7 +90,7 @@ public class LoginView extends javax.swing.JFrame {
 
         UserTextField.setToolTipText("Ingrese su nombre.");
 
-        NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        NameLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         NameLabel.setText("Nombre de Usuario:");
 
         PasswordField.setToolTipText("Ingrese su contraseña.");
@@ -100,10 +100,10 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
 
-        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         PasswordLabel.setText("Contraseña:");
 
-        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LoginButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         LoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lock.png"))); // NOI18N
         LoginButton.setText("Iniciar Sesión");
         LoginButton.setToolTipText("Pulse aquí para comprobar sus datos.");
@@ -161,7 +161,7 @@ public class LoginView extends javax.swing.JFrame {
                     .addGroup(HelpPanelLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(NeedHelpLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         HelpPanelLayout.setVerticalGroup(
@@ -170,11 +170,8 @@ public class LoginView extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(NeedHelpLabel)
                 .addGap(18, 18, 18)
-                .addComponent(ManualButton)
-                .addContainerGap())
-            .addGroup(HelpPanelLayout.createSequentialGroup()
-                .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(ManualButton))
+            .addComponent(LoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         IconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo.png"))); // NOI18N
