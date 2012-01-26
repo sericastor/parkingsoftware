@@ -26,26 +26,22 @@ public class ExecuteReport {
     public static Connection CONEXION;
     public static JasperReport report;
 
-    public void startReport(int id){
+    public void startReport(long Date1, long Date2){
 
         try{
-            Timestamp date1 = new Timestamp(Calendar.getInstance().getTimeInMillis());
-            Long yesterday=Calendar.getInstance().getTimeInMillis()-86400000;
-            Timestamp date2 = new Timestamp(yesterday);
+            Timestamp date1 = new Timestamp(Date1);  
+            Timestamp date2 = new Timestamp(Date2);
+            if(Date2==0){
+            Long yesterday=Date1-86400000;
+            date2 = new Timestamp(yesterday);
+            }
             Map Parameters = new HashMap();
             Parameters.put("Date1",date1);
             Parameters.put("Date2",date2);
-            
-
-
             Class.forName(DRIVER);
             CONEXION = DriverManager.getConnection(RUTA,USER,PASSWORD);
-            javax.swing.JOptionPane.showMessageDialog(null,"Conexion establecida");
             System.out.println(CONEXION);
             report = JasperCompileManager.compileReport("src\\jasperTemplates\\report1.jrxml");
-            
-            
-            
             JasperPrint print = JasperFillManager.fillReport(report, Parameters, CONEXION);
             //Exporta el informe a PDF
             String destFileNamePdf="src\\Reports\\reporte diario de ingresos "+
@@ -58,7 +54,6 @@ public class ExecuteReport {
             JasperViewer jviewer=new JasperViewer(print,false);
             jviewer.setTitle(destFileNamePdf);
             jviewer.setVisible(true);
-            javax.swing.JOptionPane.showMessageDialog(null, "Se ha creado el reporte");
         }catch(Exception e){
             javax.swing.JOptionPane.showMessageDialog(null, e);
 

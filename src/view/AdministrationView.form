@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -39,7 +39,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="785" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -307,7 +307,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CreateEmployeeButton" linkSize="2" alignment="1" pref="197" max="32767" attributes="1"/>
+                          <Component id="CreateEmployeeButton" linkSize="2" alignment="1" max="32767" attributes="1"/>
                           <Component id="UpdateEmployeeButton" linkSize="2" alignment="1" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
@@ -1016,24 +1016,24 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="PartialReportTotalTextField" min="-2" pref="109" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="1">
-                                          <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="1">
                                           <Component id="DateDiaryReportLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="PartialReportDateTextField" min="-2" pref="109" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                          <Component id="date1Spinner" min="-2" pref="153" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                           <Component id="PartialReportSearchButton" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="DiaryReportScroll" alignment="0" min="-2" pref="510" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="PartialReportPrintButton" alignment="1" max="32767" attributes="1"/>
-                                  <Component id="PartialReportGenerateButton" alignment="1" min="-2" max="-2" attributes="1"/>
+                                  <Component id="PartialReportPrintButton" linkSize="3" alignment="1" min="-2" max="-2" attributes="1"/>
+                                  <Component id="PartialReportGenerateButton" linkSize="3" alignment="1" min="-2" max="-2" attributes="1"/>
                               </Group>
-                              <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1044,14 +1044,15 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="PartialReportGenerateButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                       <Component id="PartialReportPrintButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="PartialReportDateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="DateDiaryReportLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="PartialReportSearchButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="date1Spinner" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="DiaryReportScroll" min="-2" pref="200" max="-2" attributes="0"/>
@@ -1068,8 +1069,6 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="PartialReportDateTextField">
-                    </Component>
                     <Container class="javax.swing.JScrollPane" name="DiaryReportScroll">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1080,10 +1079,9 @@
                         <Component class="javax.swing.JTable" name="PartialReportTable">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="5" rowCount="4">
-                                <Column editable="true" title="Factura" type="java.lang.Object"/>
-                                <Column editable="true" title="Tiquete" type="java.lang.Object"/>
-                                <Column editable="true" title="Hora" type="java.lang.Object"/>
+                              <Table columnCount="4" rowCount="0">
+                                <Column editable="true" title="Ticket" type="java.lang.Object"/>
+                                <Column editable="true" title="Fecha de Salida" type="java.lang.Object"/>
                                 <Column editable="true" title="Placa" type="java.lang.Object"/>
                                 <Column editable="true" title="Costo" type="java.lang.Object"/>
                               </Table>
@@ -1092,11 +1090,6 @@
                               <TableColumnModel selectionModel="0">
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="Tiquete"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
@@ -1147,7 +1140,7 @@
                     <Component class="javax.swing.JButton" name="PartialReportGenerateButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Folder.png"/>
+                          <Image iconType="3" name="/images/System.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Generar Reporte"/>
                       </Properties>
@@ -1158,13 +1151,20 @@
                     <Component class="javax.swing.JButton" name="PartialReportSearchButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Portfolio.png"/>
+                          <Image iconType="3" name="/images/Search.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="   Buscar"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PartialReportSearchButtonActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="date1Spinner">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="now" maximum="now" stepSize="5" type="date"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
