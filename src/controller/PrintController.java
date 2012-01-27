@@ -9,6 +9,8 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import view.PreviewEntryTicket;
@@ -31,12 +33,14 @@ public class PrintController {
         frame.repaint();
         frame.setVisible(true);
         System.out.println(frame.getComponent(0).getName());*/
-        PrintFrame pf = new PrintFrame(); 
-        ticket.setVisible(true);
-        pf.setPreferredSize(ticket.getSize());        
-        pf.getPrintPanel().setPreferredSize(ticket.getPreferredSize());
-        pf.getPrintPanel().add(ticket).setVisible(true);
-        pf.setVisible(true);
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");        
+        JDialog dialog = new JDialog((JFrame)null, "Vista Preliminar de Recibo");
+        dialog.setIconImage(img.getImage());
+        dialog.getContentPane().add(ticket);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+        
         
                        
         //pf.printMethod();
