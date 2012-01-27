@@ -49,7 +49,6 @@ public class AboutParkQuickView extends javax.swing.JFrame {
         MigueLabel = new javax.swing.JLabel();
         DiegoLabel = new javax.swing.JLabel();
         MartinLabel = new javax.swing.JLabel();
-        PipexLabel = new javax.swing.JLabel();
         LicenseLabel = new javax.swing.JLabel();
         ClientLabel = new javax.swing.JLabel();
         OkLabel = new javax.swing.JButton();
@@ -77,19 +76,17 @@ public class AboutParkQuickView extends javax.swing.JFrame {
 
         VersionLabel.setText("Versión");
 
-        CountLabel.setText("(0.0)");
+        CountLabel.setText("(3.0)");
 
         CopyrightLabel.setText("Copyright © 2011 Grupo-E. Reservados todos los derechos.");
 
         SebastianLabel.setText("Sebastián Castro");
 
-        MigueLabel.setText("Miguel Chitiva");
+        MigueLabel.setText("Miguel Diaz");
 
         DiegoLabel.setText("Diego Salgado");
 
-        MartinLabel.setText("Martn Kanayet");
-
-        PipexLabel.setText("Felipe Castaño");
+        MartinLabel.setText("Martin Kanayet");
 
         LicenseLabel.setText("La licencia de este producto se condece a:");
 
@@ -129,8 +126,7 @@ public class AboutParkQuickView extends javax.swing.JFrame {
                                     .addComponent(MigueLabel)
                                     .addComponent(SebastianLabel)
                                     .addComponent(DiegoLabel)
-                                    .addComponent(MartinLabel)
-                                    .addComponent(PipexLabel)))))
+                                    .addComponent(MartinLabel)))))
                     .addGroup(InfoPanelLayout.createSequentialGroup()
                         .addComponent(LicenseLabel)
                         .addGap(18, 18, 18)
@@ -159,13 +155,11 @@ public class AboutParkQuickView extends javax.swing.JFrame {
                 .addComponent(DiegoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MartinLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PipexLabel)
                 .addGap(18, 18, 18)
                 .addGroup(InfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LicenseLabel)
                     .addComponent(ClientLabel))
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addComponent(OkLabel)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -204,7 +198,6 @@ public class AboutParkQuickView extends javax.swing.JFrame {
     private javax.swing.JLabel MartinLabel;
     private javax.swing.JLabel MigueLabel;
     private javax.swing.JButton OkLabel;
-    private javax.swing.JLabel PipexLabel;
     private javax.swing.JLabel SebastianLabel;
     private javax.swing.JLabel SoftwareLabel;
     private javax.swing.JLabel VersionLabel;

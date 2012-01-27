@@ -92,7 +92,6 @@
                                       <Component id="SebastianLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="DiegoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="MartinLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="PipexLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -132,14 +131,12 @@
                   <Component id="DiegoLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="MartinLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PipexLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LicenseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ClientLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="OkLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
@@ -166,7 +163,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="CountLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="(0.0)"/>
+            <Property name="text" type="java.lang.String" value="(3.0)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="CopyrightLabel">
@@ -181,7 +178,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="MigueLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Miguel Chitiva"/>
+            <Property name="text" type="java.lang.String" value="Miguel Diaz"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="DiegoLabel">
@@ -191,12 +188,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="MartinLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Martn Kanayet"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="PipexLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Felipe Casta&#xf1;o"/>
+            <Property name="text" type="java.lang.String" value="Martin Kanayet"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LicenseLabel">
