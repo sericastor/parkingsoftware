@@ -75,4 +75,48 @@ public class CustomExitTicketController {
         frame.setVisible(true);
         }
     } 
+    public static PreviewExitTicket getFormatTicket(){
+    
+        PreviewExitTicket exitTicket = new PreviewExitTicket();
+        CustomExitTicket cet = new CustomExitTicket();
+        InfoParkway ip = new InfoParkway();
+        if(MainController.customExitJpaController.findCustomExitTicketEntities().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Configure los datos en la ventana de administracion, en la pestaña tiquetes","Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+        cet = MainController.customExitJpaController.findCustomExitTicketEntities().get(0);
+        ip = MainController.infoJpaController.findInfoParkwayEntities().get(0);
+        //Obligatorios
+        
+        //Opcionales
+        exitTicket.setTittleText(cet.getTittle());
+        if(cet.isParkwayName()){
+            exitTicket.setParkingName(ip.getName());
+        }
+        else{
+            exitTicket.setVisibleName(false);
+        }
+        if(cet.isParkwayAddress()){
+            exitTicket.setParkingAddress(ip.getAddress());
+        }
+        else{
+            exitTicket.setVisibleAddress(false);
+        }
+        if(cet.isParkwayNit()){
+            exitTicket.setNIT(ip.getNit());
+        }
+        else{
+            exitTicket.setVisibleNIT(false);
+        }
+        exitTicket.setFootPage(cet.getFootPage());
+        if(cet.isExitEmployee()){
+            exitTicket.setEmployee(MainController.system.sesionemployee.getName() + " " + MainController.system.sesionemployee.getLastName());
+        }
+        else{
+            exitTicket.setVisibleEmployee(false);
+        }
+        exitTicket.setVisible(true);
+        }
+        return exitTicket;
+    } 
 }

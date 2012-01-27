@@ -121,7 +121,6 @@ public class AdministrationView extends javax.swing.JFrame {
         PartialReportTotalTextField = new javax.swing.JTextField();
         DateDiaryReportLabel = new javax.swing.JLabel();
         PartialTotaDiaryLabel = new javax.swing.JLabel();
-        PartialReportPrintButton = new javax.swing.JButton();
         PartialReportGenerateButton = new javax.swing.JButton();
         PartialReportSearchButton = new javax.swing.JButton();
         date1Spinner = new javax.swing.JSpinner();
@@ -131,7 +130,6 @@ public class AdministrationView extends javax.swing.JFrame {
         CustomReportTable = new javax.swing.JTable();
         CustomReportTotalTextField = new javax.swing.JTextField();
         TotalReportLabel = new javax.swing.JLabel();
-        CustomReportPrintButton = new javax.swing.JButton();
         CustomReportGenerateButton = new javax.swing.JButton();
         ToLabel = new javax.swing.JLabel();
         PartialReportSearchButton2 = new javax.swing.JButton();
@@ -723,9 +721,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         PartialTotaDiaryLabel.setText("Total Parcial:");
 
-        PartialReportPrintButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Write.png"))); // NOI18N
-        PartialReportPrintButton.setText("Imprimir Reporte");
-
         PartialReportGenerateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/System.png"))); // NOI18N
         PartialReportGenerateButton.setText("Generar Reporte");
         PartialReportGenerateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -757,7 +752,7 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addComponent(date1Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(PartialReportSearchButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PartialReportPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -768,14 +763,10 @@ public class AdministrationView extends javax.swing.JFrame {
                                 .addComponent(PartialReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(DiaryReportScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE))
                         .addGap(39, 39, 39)))
-                .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PartialReportPrintButton)
-                    .addComponent(PartialReportGenerateButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PartialReportGenerateButton)
                 .addContainerGap())
         );
-
-        PartialReportPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {PartialReportGenerateButton, PartialReportPrintButton});
-
         PartialReportPanelLayout.setVerticalGroup(
             PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PartialReportPanelLayout.createSequentialGroup()
@@ -785,17 +776,16 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(PartialReportSearchButton)
                     .addComponent(date1Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PartialReportPanelLayout.createSequentialGroup()
-                        .addComponent(PartialReportGenerateButton)
-                        .addGap(32, 32, 32)
-                        .addComponent(PartialReportPrintButton))
-                    .addComponent(DiaryReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(DiaryReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PartialReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PartialTotaDiaryLabel))
                 .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PartialReportPanelLayout.createSequentialGroup()
+                .addContainerGap(157, Short.MAX_VALUE)
+                .addComponent(PartialReportGenerateButton)
+                .addGap(153, 153, 153))
         );
 
         ReportsTabbedPanel.addTab("Reporte Parcial Diario", PartialReportPanel);
@@ -813,9 +803,6 @@ public class AdministrationView extends javax.swing.JFrame {
         CustomReportScroll.setViewportView(CustomReportTable);
 
         TotalReportLabel.setText("Total:");
-
-        CustomReportPrintButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Write.png"))); // NOI18N
-        CustomReportPrintButton.setText("Imprimir Reporte");
 
         CustomReportGenerateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/System.png"))); // NOI18N
         CustomReportGenerateButton.setText("Generar Reporte");
@@ -863,35 +850,31 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CustomReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(CustomReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CustomReportPrintButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CustomReportGenerateButton))
-                .addGap(25, 25, 25))
+                .addGap(33, 33, 33)
+                .addComponent(CustomReportGenerateButton)
+                .addGap(24, 24, 24))
         );
         CustomReportPanelLayout.setVerticalGroup(
             CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CustomReportPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(CustomReportPanelLayout.createSequentialGroup()
-                        .addComponent(CustomReportGenerateButton)
-                        .addGap(54, 54, 54)
-                        .addComponent(CustomReportPrintButton))
-                    .addGroup(CustomReportPanelLayout.createSequentialGroup()
-                        .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PartialReportSearchButton2)
-                            .addComponent(FromLabel)
-                            .addComponent(ToLabel)
-                            .addComponent(date2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(date3Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(CustomReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PartialReportSearchButton2)
+                    .addComponent(FromLabel)
+                    .addComponent(ToLabel)
+                    .addComponent(date2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date3Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(CustomReportScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CustomReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TotalReportLabel))
                 .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomReportPanelLayout.createSequentialGroup()
+                .addContainerGap(159, Short.MAX_VALUE)
+                .addComponent(CustomReportGenerateButton)
+                .addGap(151, 151, 151))
         );
 
         ReportsTabbedPanel.addTab("Reporte Personalizado", CustomReportPanel);
@@ -1135,6 +1118,11 @@ public class AdministrationView extends javax.swing.JFrame {
                 ThemeComboBoxItemStateChanged(evt);
             }
         });
+        ThemeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThemeComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout OtherOptionsLayout = new javax.swing.GroupLayout(OtherOptions);
         OtherOptions.setLayout(OtherOptionsLayout);
@@ -1157,7 +1145,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addContainerGap(345, Short.MAX_VALUE))
         );
 
-        AdminTabbedPanel.addTab("Otras Opciones", OtherOptions);
+        AdminTabbedPanel.addTab("Temas Visuales", OtherOptions);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1486,6 +1474,10 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
         PreviewReport.loadPreview(date2.getTime(), date1.getTime());
     }//GEN-LAST:event_PartialReportSearchButton2ActionPerformed
 
+    private void ThemeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ThemeComboBoxActionPerformed
+
     public void setCustomReportTable(DefaultTableModel model){
     this.CustomReportTable.setModel(model);
     }
@@ -1674,7 +1666,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JButton CreateEmployeeButton;
     private javax.swing.JButton CustomReportGenerateButton;
     private javax.swing.JPanel CustomReportPanel;
-    private javax.swing.JButton CustomReportPrintButton;
     private javax.swing.JScrollPane CustomReportScroll;
     private javax.swing.JTable CustomReportTable;
     private javax.swing.JTextField CustomReportTotalTextField;
@@ -1721,7 +1712,6 @@ private void ExitPreviewButtonActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JPanel ParkwayAdminPanel;
     private javax.swing.JButton PartialReportGenerateButton;
     private javax.swing.JPanel PartialReportPanel;
-    private javax.swing.JButton PartialReportPrintButton;
     private javax.swing.JButton PartialReportSearchButton;
     private javax.swing.JButton PartialReportSearchButton2;
     private javax.swing.JTable PartialReportTable;
