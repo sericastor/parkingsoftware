@@ -9,9 +9,6 @@ import Entity.Employee;
 import javax.persistence.EntityManagerFactory;
 import DAO.EmployeeJpaController;
 import controller.MainController;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -31,7 +28,7 @@ public class SystemSetupCaseTest {
         persistence_factory = Persistence.createEntityManagerFactory("ParkingSoftwarePU");
         employeeJpaController = new EmployeeJpaController(persistence_factory);
         
-        if(employeeJpaController.findEmployeeEntities(false, 2, 1).isEmpty()){
+         if(employeeJpaController.findEmployeeEntities(false, 2, 1).isEmpty()){
             
             Employee dasalgadoc = new Employee();
             dasalgadoc.setId(1);
@@ -42,6 +39,7 @@ public class SystemSetupCaseTest {
             dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
             dasalgadoc.setAdministrator(true);
             dasalgadoc.setIsActive(true);
+            dasalgadoc.setTheme(0);
             employeeJpaController.create(dasalgadoc);
             
             Employee mkanayet = new Employee();
@@ -53,6 +51,7 @@ public class SystemSetupCaseTest {
             mkanayet.setPassword(controller.MainController.md5Security.MD5Security("word"));
             mkanayet.setAdministrator(true);
             mkanayet.setIsActive(false);
+            mkanayet.setTheme(0);
             employeeJpaController.create(mkanayet);
         }
         
@@ -66,20 +65,9 @@ public class SystemSetupCaseTest {
             srcastrot.setPassword(controller.MainController.md5Security.MD5Security("castor"));
             srcastrot.setAdministrator(false);
             srcastrot.setIsActive(true);
+            srcastrot.setTheme(0);
             employeeJpaController.create(srcastrot);
         }
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test

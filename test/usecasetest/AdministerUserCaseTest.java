@@ -11,9 +11,6 @@ import javax.persistence.EntityManagerFactory;
 import DAO.EmployeeJpaController;
 import controller.Administration.AdministrateEmployeeController;
 import controller.MainController;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -25,8 +22,7 @@ import static org.junit.Assert.*;
  */
 public class AdministerUserCaseTest {
     
-    // This test Class needs a refactory URGENT!
-    /*public AdministerUserCaseTest() {
+    public AdministerUserCaseTest() {
     }
 
     @BeforeClass
@@ -45,6 +41,7 @@ public class AdministerUserCaseTest {
             dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
             dasalgadoc.setAdministrator(true);
             dasalgadoc.setIsActive(true);
+            dasalgadoc.setTheme(0);
             employeeJpaController.create(dasalgadoc);
             
             Employee mkanayet = new Employee();
@@ -56,6 +53,7 @@ public class AdministerUserCaseTest {
             mkanayet.setPassword(controller.MainController.md5Security.MD5Security("word"));
             mkanayet.setAdministrator(true);
             mkanayet.setIsActive(false);
+            mkanayet.setTheme(0);
             employeeJpaController.create(mkanayet);
         
             Employee srcastrot = new Employee();
@@ -67,20 +65,9 @@ public class AdministerUserCaseTest {
             srcastrot.setPassword(controller.MainController.md5Security.MD5Security("castor"));
             srcastrot.setAdministrator(false);
             srcastrot.setIsActive(true);
+            srcastrot.setTheme(0);
             employeeJpaController.create(srcastrot);
         }
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test
@@ -114,7 +101,7 @@ public class AdministerUserCaseTest {
         assertTrue(employeeFour.isEmpty());
     }
     
-    @Test
+    /*@Test
     public void createAValidEmployee(){
         setId(EmployeeManagementController.getNextID());
         setName("Miguel");
@@ -427,7 +414,7 @@ public class AdministerUserCaseTest {
         assertEquals(updateEmployee.getPassword(),MainController.md5Security.MD5Security("ingesoft"));
         assertTrue(updateEmployee.isAdministrator());
         assertTrue(updateEmployee.isIsActive());
-    }
+    }*/
     
     // Class variables, getters and setters methods
     public boolean isActive() {
@@ -501,7 +488,15 @@ public class AdministerUserCaseTest {
     public void setUser(String user) {
         this.user = user;
     }
-    
+
+    public int getTheme() {
+        return theme;
+    }
+
+    public void setTheme(int theme) {
+        this.theme = theme;
+    }
+   
     private long id;
     private String lastName;
     private String name;
@@ -511,7 +506,8 @@ public class AdministerUserCaseTest {
     private String confirmation;
     private boolean administrator;
     private boolean active;
+    private int theme;
     
     private static EmployeeJpaController employeeJpaController;
-    private static EntityManagerFactory persistence_factory;*/
+    private static EntityManagerFactory persistence_factory;
 }

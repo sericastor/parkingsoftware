@@ -21,7 +21,7 @@ public class UsersBusinessRules {
     /*
     public UsersBusinessRules() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() throws Exception {
     }
