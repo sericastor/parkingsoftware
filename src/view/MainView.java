@@ -244,8 +244,9 @@ public class MainView extends javax.swing.JFrame {
         ParkingPanelLayout.setHorizontalGroup(
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ParkingPanelLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addComponent(ParkQuickLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(219, 219, 219)
+                .addGap(177, 177, 177)
                 .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(CloseBoxButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AdministerButton, javax.swing.GroupLayout.Alignment.LEADING))
@@ -264,7 +265,6 @@ public class MainView extends javax.swing.JFrame {
             ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ParkingPanelLayout.createSequentialGroup()
                 .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ParkQuickLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                     .addGroup(ParkingPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -276,7 +276,8 @@ public class MainView extends javax.swing.JFrame {
                             .addComponent(ExitButton)))
                     .addGroup(ParkingPanelLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(UserLabel)))
+                        .addComponent(UserLabel))
+                    .addComponent(ParkQuickLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
