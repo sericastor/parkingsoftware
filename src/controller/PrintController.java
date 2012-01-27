@@ -29,9 +29,7 @@ public class PrintController {
         ImageIcon img = new ImageIcon("src/images/parking1.gif");        
         PrintFrame pf = new PrintFrame();
         pf.setIconImage(img.getImage());
-        pf.setPrintPanel(ticket);
-
-                       
-        //pf.printMethod();
+        pf.setPrintPanel(ticket);                       
+        pf.printMethod();
     }
 }
