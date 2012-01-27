@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>ParkingSoftware</name>
             <source-roots>
+                <root id="src.Cache.dir"/>
                 <root id="src.documentation.dir"/>
                 <root id="src.dir"/>
             </source-roots>
