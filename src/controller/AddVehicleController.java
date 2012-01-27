@@ -232,6 +232,7 @@ public class AddVehicleController {
     private static void setTicketParameters(PreviewEntryTicket ticket){
         ticket.getPlate().setText(plate);
         ticket.getVehicleType().setText(vehicleTypeIsSelected.getName());
+        ticket.getTicketNumber().setText(String.valueOf(MainController.entriesJpaController.getEntriesByPlate(plate).getId()));
         ticket.getEmployee().setText(SystemSession.getSessionEmployee().getName());
         ticket.getDate().setText(MainController.entriesJpaController.getEntriesByPlate(plate).getEntryDate().toLocaleString());
         ticket.setBarCode();
