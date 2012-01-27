@@ -139,18 +139,6 @@ public class AdministrationView extends javax.swing.JFrame {
         date3Spinner = new javax.swing.JSpinner();
         TicketAdmin = new javax.swing.JPanel();
         Tickets = new javax.swing.JTabbedPane();
-        ExitTicket = new javax.swing.JPanel();
-        TitleExLabel = new javax.swing.JLabel();
-        TitleExTextField = new javax.swing.JTextField();
-        ShowExParkwayNameCheck = new javax.swing.JCheckBox();
-        ShowExParkwayAddressCheck = new javax.swing.JCheckBox();
-        ShowExParkwayNITCheck = new javax.swing.JCheckBox();
-        ShowExEmployeeCheck = new javax.swing.JCheckBox();
-        FootPageExLabel = new javax.swing.JLabel();
-        SaveExitTicketButton = new javax.swing.JButton();
-        FootPageExitScroll = new javax.swing.JScrollPane();
-        FootPageExArea = new javax.swing.JTextArea();
-        ExitPreviewButton = new javax.swing.JButton();
         EntryTicket = new javax.swing.JPanel();
         TicketTitleLabel = new javax.swing.JLabel();
         TitleTextField = new javax.swing.JTextField();
@@ -164,6 +152,18 @@ public class AdministrationView extends javax.swing.JFrame {
         FootPageEntryScroll = new javax.swing.JScrollPane();
         FootPageEntryArea = new javax.swing.JTextArea();
         EntryPreviewButton = new javax.swing.JButton();
+        ExitTicket = new javax.swing.JPanel();
+        TitleExLabel = new javax.swing.JLabel();
+        TitleExTextField = new javax.swing.JTextField();
+        ShowExParkwayNameCheck = new javax.swing.JCheckBox();
+        ShowExParkwayAddressCheck = new javax.swing.JCheckBox();
+        ShowExParkwayNITCheck = new javax.swing.JCheckBox();
+        ShowExEmployeeCheck = new javax.swing.JCheckBox();
+        FootPageExLabel = new javax.swing.JLabel();
+        SaveExitTicketButton = new javax.swing.JButton();
+        FootPageExitScroll = new javax.swing.JScrollPane();
+        FootPageExArea = new javax.swing.JTextArea();
+        ExitPreviewButton = new javax.swing.JButton();
         OtherOptions = new javax.swing.JPanel();
         ThemeLabel = new javax.swing.JLabel();
         ThemeComboBox = new javax.swing.JComboBox();
@@ -181,7 +181,7 @@ public class AdministrationView extends javax.swing.JFrame {
             }
         });
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close.png"))); // NOI18N
         ExitButton.setText("Cerrar");
         ExitButton.setToolTipText("Terminar la configuración.");
@@ -419,7 +419,7 @@ public class AdministrationView extends javax.swing.JFrame {
                     .addComponent(EmployeeListLabel))
                 .addGap(135, 135, 135)
                 .addGroup(EmployeeAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreateEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                     .addComponent(UpdateEmployeeButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(209, 209, 209))
         );
@@ -484,7 +484,7 @@ public class AdministrationView extends javax.swing.JFrame {
 
         PlateSampleLabel.setText("Ejemplo de placa:");
 
-        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PlateExampleTextField.setFont(new java.awt.Font("Tahoma", 0, 24));
         PlateExampleTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PlateExampleTextFieldKeyPressed(evt);
@@ -600,7 +600,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addGroup(PlateAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(VehicleTypeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 155, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         PlateAdminLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IdentifierPlateTextField, PlateExampleTextField});
@@ -762,11 +762,11 @@ public class AdministrationView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(PartialReportPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 451, Short.MAX_VALUE)
                                 .addComponent(PartialTotaDiaryLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(PartialReportTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(DiaryReportScroll))
+                            .addComponent(DiaryReportScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE))
                         .addGap(39, 39, 39)))
                 .addGroup(PartialReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PartialReportPrintButton)
@@ -856,7 +856,7 @@ public class AdministrationView extends javax.swing.JFrame {
                 .addComponent(PartialReportSearchButton2)
                 .addContainerGap(399, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CustomReportPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(CustomReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(CustomReportPanelLayout.createSequentialGroup()
                         .addComponent(TotalReportLabel)
@@ -910,6 +910,112 @@ public class AdministrationView extends javax.swing.JFrame {
         );
 
         AdminTabbedPanel.addTab("Reportes", ReportAdminPanel);
+
+        TicketTitleLabel.setText("Titulo");
+
+        TitleTextField.setToolTipText("Ingrese el texto que desea mostrar como título en el tiquete. (A partir del caracter 25 los demás serán ignorados)");
+
+        NameCB.setText("Mostrar nombre del parqueadero");
+        NameCB.setToolTipText("Seleccionando aquí hará que sea visible el nombre del parqueadero en los tiquetes.");
+
+        AddressCB.setText("Mostrar dirección del parqueadero");
+        AddressCB.setToolTipText("Seleccionado aquí hará que se muestre la dirección del parqueadero en el tiquete.");
+
+        NITCB.setText("Mostrar NIT del parqueadero");
+        NITCB.setToolTipText("Seleccionado aquí hará que se muestre el NIT del parqueadero en el tiquete.");
+
+        EmployeeCB.setText("Mostrar quién esta atendiendo");
+        EmployeeCB.setToolTipText("Seleccionado aquí hará que se muestre el nombre del empleado que ingresó el vehículo en el tiquete.");
+
+        BarCodeCB.setText("Mostrar código de barras");
+        BarCodeCB.setToolTipText("Seleccionando aquí hará que se muestre un código de barras con la placa del vehículo en el tiquete");
+
+        FootPageTicketLabel.setText("Pie de página");
+
+        SaveEntryTicketButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Floppy.png"))); // NOI18N
+        SaveEntryTicketButton.setText("Guardar");
+        SaveEntryTicketButton.setToolTipText("Personalizar tiquete de entrada.");
+        SaveEntryTicketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveEntryTicketButtonActionPerformed(evt);
+            }
+        });
+
+        FootPageEntryScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        FootPageEntryArea.setColumns(20);
+        FootPageEntryArea.setRows(5);
+        FootPageEntryArea.setToolTipText("Escriba el pie de página que desee visualizar en el tiquete. (A partir de 100 caracteres se ignorará el resto)");
+        FootPageEntryScroll.setViewportView(FootPageEntryArea);
+
+        EntryPreviewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
+        EntryPreviewButton.setText("Vista Previa");
+        EntryPreviewButton.setToolTipText("Visualice una vista preliminar del tiquete de entrada.");
+        EntryPreviewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EntryPreviewButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout EntryTicketLayout = new javax.swing.GroupLayout(EntryTicket);
+        EntryTicket.setLayout(EntryTicketLayout);
+        EntryTicketLayout.setHorizontalGroup(
+            EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EntryTicketLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TicketTitleLabel)
+                    .addComponent(FootPageTicketLabel))
+                .addGap(28, 28, 28)
+                .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EntryTicketLayout.createSequentialGroup()
+                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(FootPageEntryScroll, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TitleTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(SaveEntryTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(EntryPreviewButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(210, 210, 210))
+                    .addGroup(EntryTicketLayout.createSequentialGroup()
+                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(NameCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AddressCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BarCodeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EmployeeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NITCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(583, Short.MAX_VALUE))))
+        );
+        EntryTicketLayout.setVerticalGroup(
+            EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EntryTicketLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EntryTicketLayout.createSequentialGroup()
+                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TicketTitleLabel)
+                            .addComponent(TitleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(NameCB)
+                        .addGap(18, 18, 18)
+                        .addComponent(AddressCB)
+                        .addGap(18, 18, 18)
+                        .addComponent(NITCB)
+                        .addGap(18, 18, 18)
+                        .addComponent(EmployeeCB)
+                        .addGap(18, 18, 18)
+                        .addComponent(BarCodeCB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FootPageTicketLabel)
+                            .addComponent(FootPageEntryScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SaveEntryTicketButton)
+                        .addComponent(EntryPreviewButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        Tickets.addTab("Entrada", EntryTicket);
 
         TitleExLabel.setText("Titulo");
 
@@ -1008,112 +1114,6 @@ public class AdministrationView extends javax.swing.JFrame {
 
         Tickets.addTab("Salida", ExitTicket);
 
-        TicketTitleLabel.setText("Titulo");
-
-        TitleTextField.setToolTipText("Ingrese el texto que desea mostrar como título en el tiquete. (A partir del caracter 25 los demás serán ignorados)");
-
-        NameCB.setText("Mostrar nombre del parqueadero");
-        NameCB.setToolTipText("Seleccionando aquí hará que sea visible el nombre del parqueadero en los tiquetes.");
-
-        AddressCB.setText("Mostrar dirección del parqueadero");
-        AddressCB.setToolTipText("Seleccionado aquí hará que se muestre la dirección del parqueadero en el tiquete.");
-
-        NITCB.setText("Mostrar NIT del parqueadero");
-        NITCB.setToolTipText("Seleccionado aquí hará que se muestre el NIT del parqueadero en el tiquete.");
-
-        EmployeeCB.setText("Mostrar quién esta atendiendo");
-        EmployeeCB.setToolTipText("Seleccionado aquí hará que se muestre el nombre del empleado que ingresó el vehículo en el tiquete.");
-
-        BarCodeCB.setText("Mostrar código de barras");
-        BarCodeCB.setToolTipText("Seleccionando aquí hará que se muestre un código de barras con la placa del vehículo en el tiquete");
-
-        FootPageTicketLabel.setText("Pie de página");
-
-        SaveEntryTicketButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Floppy.png"))); // NOI18N
-        SaveEntryTicketButton.setText("Guardar");
-        SaveEntryTicketButton.setToolTipText("Personalizar tiquete de entrada.");
-        SaveEntryTicketButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveEntryTicketButtonActionPerformed(evt);
-            }
-        });
-
-        FootPageEntryScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        FootPageEntryArea.setColumns(20);
-        FootPageEntryArea.setRows(5);
-        FootPageEntryArea.setToolTipText("Escriba el pie de página que desee visualizar en el tiquete. (A partir de 100 caracteres se ignorará el resto)");
-        FootPageEntryScroll.setViewportView(FootPageEntryArea);
-
-        EntryPreviewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search.png"))); // NOI18N
-        EntryPreviewButton.setText("Vista Previa");
-        EntryPreviewButton.setToolTipText("Visualice una vista preliminar del tiquete de entrada.");
-        EntryPreviewButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EntryPreviewButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout EntryTicketLayout = new javax.swing.GroupLayout(EntryTicket);
-        EntryTicket.setLayout(EntryTicketLayout);
-        EntryTicketLayout.setHorizontalGroup(
-            EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EntryTicketLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TicketTitleLabel)
-                    .addComponent(FootPageTicketLabel))
-                .addGap(28, 28, 28)
-                .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EntryTicketLayout.createSequentialGroup()
-                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(FootPageEntryScroll, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TitleTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(SaveEntryTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(EntryPreviewButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(210, 210, 210))
-                    .addGroup(EntryTicketLayout.createSequentialGroup()
-                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(NameCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AddressCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BarCodeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EmployeeCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NITCB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(570, Short.MAX_VALUE))))
-        );
-        EntryTicketLayout.setVerticalGroup(
-            EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EntryTicketLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EntryTicketLayout.createSequentialGroup()
-                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TicketTitleLabel)
-                            .addComponent(TitleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(NameCB)
-                        .addGap(18, 18, 18)
-                        .addComponent(AddressCB)
-                        .addGap(18, 18, 18)
-                        .addComponent(NITCB)
-                        .addGap(18, 18, 18)
-                        .addComponent(EmployeeCB)
-                        .addGap(18, 18, 18)
-                        .addComponent(BarCodeCB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FootPageTicketLabel)
-                            .addComponent(FootPageEntryScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(EntryTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(SaveEntryTicketButton)
-                        .addComponent(EntryPreviewButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        Tickets.addTab("Entrada", EntryTicket);
-
         javax.swing.GroupLayout TicketAdminLayout = new javax.swing.GroupLayout(TicketAdmin);
         TicketAdmin.setLayout(TicketAdminLayout);
         TicketAdminLayout.setHorizontalGroup(
@@ -1122,7 +1122,7 @@ public class AdministrationView extends javax.swing.JFrame {
         );
         TicketAdminLayout.setVerticalGroup(
             TicketAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tickets, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(Tickets, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
         );
 
         AdminTabbedPanel.addTab("Tiquetes", TicketAdmin);

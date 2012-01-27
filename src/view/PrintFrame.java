@@ -29,7 +29,7 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
     /** Creates new form PrintFrame */
     public PrintFrame() {
         initComponents();
-        this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);       
+        this.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
         //this.setResizable(false);        
     }
 
@@ -41,14 +41,15 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
         PrintPanel.add(Panel);
         this.setVisible(true);
     }
-    
-    public void printMethod(){
+
+    public void printMethod() {
         try {
             PrinterJob job = PrinterJob.getPrinterJob();
             job.setPrintable(this);
-            boolean aceptar_impresion =job.printDialog();
-             if(aceptar_impresion)
+            boolean aceptar_impresion = job.printDialog();
+            if (aceptar_impresion) {
                 job.print();
+            }
         } catch (PrinterException ex) {
             Logger.getLogger(PrintFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -74,20 +75,20 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     /**
      * @param args the command line arguments
      */
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PrintPanel;
     // End of variables declaration//GEN-END:variables
@@ -95,16 +96,14 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
 
-          if (pageIndex > 0) { /* We have only one page, and 'page' is zero-based */
+        if (pageIndex > 0) { /* We have only one page, and 'page' is zero-based */
             return NO_SUCH_PAGE;
         }
 
-        Graphics2D g2d = (Graphics2D)graphics;
+        Graphics2D g2d = (Graphics2D) graphics;
         g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-        g2d.scale(0.7,0.7);
+        g2d.scale(0.7, 0.7);
         PrintPanel.printAll(graphics);
-        
-
         return PAGE_EXISTS;
 
     }

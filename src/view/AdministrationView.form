@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -302,7 +302,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CreateEmployeeButton" linkSize="2" alignment="1" max="32767" attributes="1"/>
+                          <Component id="CreateEmployeeButton" linkSize="2" alignment="1" pref="197" max="32767" attributes="1"/>
                           <Component id="UpdateEmployeeButton" linkSize="2" alignment="1" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
@@ -619,7 +619,7 @@
                                   <Component id="ButtonPanel" min="-2" max="-2" attributes="0"/>
                                   <Component id="VehicleTypeScroll" min="-2" pref="913" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1004,12 +1004,12 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="451" max="32767" attributes="0"/>
                                               <Component id="PartialTotaDiaryLabel" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="PartialReportTotalTextField" min="-2" pref="156" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="DiaryReportScroll" max="32767" attributes="0"/>
+                                          <Component id="DiaryReportScroll" pref="679" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                   </Group>
@@ -1177,7 +1177,7 @@
                               <EmptySpace pref="399" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="19" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="TotalReportLabel" min="-2" max="-2" attributes="0"/>
@@ -1360,7 +1360,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Tickets" alignment="1" max="32767" attributes="0"/>
+                  <Component id="Tickets" alignment="1" pref="411" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1369,6 +1369,178 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
+                <Container class="javax.swing.JPanel" name="EntryTicket">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Entrada">
+                        <Property name="tabTitle" type="java.lang.String" value="Entrada"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TicketTitleLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="FootPageEntryScroll" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="TitleTextField" alignment="0" pref="339" max="32767" attributes="1"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="SaveEntryTicketButton" min="-2" pref="162" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="EntryPreviewButton" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="NameCB" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="AddressCB" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="BarCodeCB" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="EmployeeCB" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="NITCB" alignment="0" min="-2" pref="194" max="-2" attributes="1"/>
+                                      </Group>
+                                      <EmptySpace pref="583" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="TicketTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TitleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="NameCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="AddressCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="NITCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="BarCodeCB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="FootPageEntryScroll" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="SaveEntryTicketButton" alignment="3" min="-2" max="-2" attributes="1"/>
+                                      <Component id="EntryPreviewButton" alignment="3" max="32767" attributes="1"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="TicketTitleLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Titulo"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="TitleTextField">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Ingrese el texto que desea mostrar como t&#xed;tulo en el tiquete. (A partir del caracter 25 los dem&#xe1;s ser&#xe1;n ignorados)"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="NameCB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Mostrar nombre del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que sea visible el nombre del parqueadero en los tiquetes."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="AddressCB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Mostrar direcci&#xf3;n del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre la direcci&#xf3;n del parqueadero en el tiquete."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="NITCB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Mostrar NIT del parqueadero"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el NIT del parqueadero en el tiquete."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="EmployeeCB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Mostrar qui&#xe9;n esta atendiendo"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el nombre del empleado que ingres&#xf3; el veh&#xed;culo en el tiquete."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="BarCodeCB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Mostrar c&#xf3;digo de barras"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre un c&#xf3;digo de barras con la placa del veh&#xed;culo en el tiquete"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="FootPageTicketLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pie de p&#xe1;gina"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="SaveEntryTicketButton">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/Floppy.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Personalizar tiquete de entrada."/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveEntryTicketButtonActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="FootPageEntryScroll">
+                      <Properties>
+                        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="FootPageEntryArea">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Escriba el pie de p&#xe1;gina que desee visualizar en el tiquete. (A partir de 100 caracteres se ignorar&#xe1; el resto)"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JButton" name="EntryPreviewButton">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/Search.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Vista Previa"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Visualice una vista preliminar del tiquete de entrada."/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EntryPreviewButtonActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
                 <Container class="javax.swing.JPanel" name="ExitTicket">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -1523,178 +1695,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitPreviewButtonActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="EntryTicket">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Entrada">
-                        <Property name="tabTitle" type="java.lang.String" value="Entrada"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="TicketTitleLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="FootPageEntryScroll" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="TitleTextField" alignment="0" pref="339" max="32767" attributes="1"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="SaveEntryTicketButton" min="-2" pref="162" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="EntryPreviewButton" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="NameCB" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="AddressCB" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="BarCodeCB" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="EmployeeCB" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="NITCB" alignment="0" min="-2" pref="194" max="-2" attributes="1"/>
-                                      </Group>
-                                      <EmptySpace pref="570" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="TicketTitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="TitleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="NameCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="AddressCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="NITCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="EmployeeCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="BarCodeCB" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="40" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="FootPageTicketLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FootPageEntryScroll" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="SaveEntryTicketButton" alignment="3" min="-2" max="-2" attributes="1"/>
-                                      <Component id="EntryPreviewButton" alignment="3" max="32767" attributes="1"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="TicketTitleLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Titulo"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="TitleTextField">
-                      <Properties>
-                        <Property name="toolTipText" type="java.lang.String" value="Ingrese el texto que desea mostrar como t&#xed;tulo en el tiquete. (A partir del caracter 25 los dem&#xe1;s ser&#xe1;n ignorados)"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="NameCB">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mostrar nombre del parqueadero"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que sea visible el nombre del parqueadero en los tiquetes."/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="AddressCB">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mostrar direcci&#xf3;n del parqueadero"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre la direcci&#xf3;n del parqueadero en el tiquete."/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="NITCB">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mostrar NIT del parqueadero"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el NIT del parqueadero en el tiquete."/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="EmployeeCB">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mostrar qui&#xe9;n esta atendiendo"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Seleccionado aqu&#xed; har&#xe1; que se muestre el nombre del empleado que ingres&#xf3; el veh&#xed;culo en el tiquete."/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="BarCodeCB">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Mostrar c&#xf3;digo de barras"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Seleccionando aqu&#xed; har&#xe1; que se muestre un c&#xf3;digo de barras con la placa del veh&#xed;culo en el tiquete"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="FootPageTicketLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Pie de p&#xe1;gina"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="SaveEntryTicketButton">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Floppy.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Personalizar tiquete de entrada."/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveEntryTicketButtonActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Container class="javax.swing.JScrollPane" name="FootPageEntryScroll">
-                      <Properties>
-                        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="FootPageEntryArea">
-                          <Properties>
-                            <Property name="columns" type="int" value="20"/>
-                            <Property name="rows" type="int" value="5"/>
-                            <Property name="toolTipText" type="java.lang.String" value="Escriba el pie de p&#xe1;gina que desee visualizar en el tiquete. (A partir de 100 caracteres se ignorar&#xe1; el resto)"/>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Component class="javax.swing.JButton" name="EntryPreviewButton">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/images/Search.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Vista Previa"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Visualice una vista preliminar del tiquete de entrada."/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EntryPreviewButtonActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

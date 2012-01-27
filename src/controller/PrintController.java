@@ -15,6 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import view.PreviewEntryTicket;
+import view.PreviewExitTicket;
 import view.PrintFrame;
 
 /**
@@ -26,6 +27,13 @@ public class PrintController {
     public PrintController() {
     }
     public static void printEntryTicket(PreviewEntryTicket ticket){
+        ImageIcon img = new ImageIcon("src/images/parking1.gif");        
+        PrintFrame pf = new PrintFrame();
+        pf.setIconImage(img.getImage());
+        pf.setPrintPanel(ticket);                       
+        pf.printMethod();
+    }
+    public static void printExitTicket(PreviewExitTicket ticket){
         ImageIcon img = new ImageIcon("src/images/parking1.gif");        
         PrintFrame pf = new PrintFrame();
         pf.setIconImage(img.getImage());
