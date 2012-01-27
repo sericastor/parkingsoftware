@@ -11,14 +11,20 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Martin Kanayet
  */
-public class PreviewEntryTicket extends javax.swing.JPanel {
+public class PreviewEntryTicket extends javax.swing.JPanel implements Printable {
 
     /** Creates new form PreviewEntryTicket */
     public PreviewEntryTicket() {
@@ -31,6 +37,126 @@ public class PreviewEntryTicket extends javax.swing.JPanel {
 
     public void setNIT(String NIT) {
         this.ParkingNIT.setText(NIT);
+    }
+
+    public JLabel getAttendedByLabel() {
+        return AttendedByLabel;
+    }
+
+    public void setAttendedByLabel(JLabel AttendedByLabel) {
+        this.AttendedByLabel = AttendedByLabel;
+    }
+
+    public JPanel getBarCodePanel() {
+        return BarCodePanel;
+    }
+
+    public void setBarCodePanel(JPanel BarCodePanel) {
+        this.BarCodePanel = BarCodePanel;
+    }
+
+    public JLabel getDate() {
+        return Date;
+    }
+
+    public void setDate(JLabel Date) {
+        this.Date = Date;
+    }
+
+    public JLabel getDateLabel() {
+        return DateLabel;
+    }
+
+    public void setDateLabel(JLabel DateLabel) {
+        this.DateLabel = DateLabel;
+    }
+
+    public JLabel getEmployee() {
+        return Employee;
+    }
+
+    public void setEmployee(JLabel Employee) {
+        this.Employee = Employee;
+    }
+
+    public JLabel getFootPage() {
+        return FootPage;
+    }
+
+    public void setFootPage(JLabel FootPage) {
+        this.FootPage = FootPage;
+    }
+
+    public JLabel getParkingAddress() {
+        return ParkingAddress;
+    }
+
+    public void setParkingAddress(JLabel ParkingAddress) {
+        this.ParkingAddress = ParkingAddress;
+    }
+
+    public JLabel getParkingNIT() {
+        return ParkingNIT;
+    }
+
+    public void setParkingNIT(JLabel ParkingNIT) {
+        this.ParkingNIT = ParkingNIT;
+    }
+
+    public JLabel getParkingName() {
+        return ParkingName;
+    }
+
+    public void setParkingName(JLabel ParkingName) {
+        this.ParkingName = ParkingName;
+    }
+
+    public JLabel getPlate() {
+        return Plate;
+    }
+
+    public void setPlate(JLabel Plate) {
+        this.Plate = Plate;
+    }
+
+    public JLabel getPlateLabel() {
+        return PlateLabel;
+    }
+
+    public void setPlateLabel(JLabel PlateLabel) {
+        this.PlateLabel = PlateLabel;
+    }
+
+    public JLabel getTicketNumber() {
+        return TicketNumber;
+    }
+
+    public void setTicketNumber(JLabel TicketNumber) {
+        this.TicketNumber = TicketNumber;
+    }
+
+    public JLabel getTicketNumberLabel() {
+        return TicketNumberLabel;
+    }
+
+    public void setTicketNumberLabel(JLabel TicketNumberLabel) {
+        this.TicketNumberLabel = TicketNumberLabel;
+    }
+
+    public JLabel getTittle() {
+        return Tittle;
+    }
+
+    public void setTittle(JLabel Tittle) {
+        this.Tittle = Tittle;
+    }
+
+    public JLabel getVehicleType() {
+        return VehicleType;
+    }
+
+    public void setVehicleType(JLabel VehicleType) {
+        this.VehicleType = VehicleType;
     }
 
     public void setParkingName(String name) {
@@ -231,4 +357,17 @@ public class PreviewEntryTicket extends javax.swing.JPanel {
     private javax.swing.JLabel Tittle;
     private javax.swing.JLabel VehicleType;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex > 0) { 
+            return NO_SUCH_PAGE;
+        }
+
+        Graphics2D g2d = (Graphics2D)graphics;
+        g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+        g2d.scale(0.7,0.7);
+        this.printAll(g2d);
+        return PAGE_EXISTS;
+    }
 }
