@@ -10,6 +10,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Martin Kanayet
@@ -19,6 +21,174 @@ public class PreviewExitTicket extends javax.swing.JPanel {
     /** Creates new form PreviewExitTicket */
     public PreviewExitTicket() {
         initComponents();
+    }
+
+    public JLabel getAttendedByLabel() {
+        return AttendedByLabel;
+    }
+
+    public void setAttendedByLabel(JLabel AttendedByLabel) {
+        this.AttendedByLabel = AttendedByLabel;
+    }
+
+    public JLabel getDateLabel() {
+        return DateLabel;
+    }
+
+    public void setDateLabel(JLabel DateLabel) {
+        this.DateLabel = DateLabel;
+    }
+
+    public JLabel getEmployee() {
+        return Employee;
+    }
+
+    public void setEmployee(JLabel Employee) {
+        this.Employee = Employee;
+    }
+
+    public JLabel getEntryDate() {
+        return EntryDate;
+    }
+
+    public void setEntryDate(JLabel EntryDate) {
+        this.EntryDate = EntryDate;
+    }
+
+    public JLabel getExitDate() {
+        return ExitDate;
+    }
+
+    public void setExitDate(JLabel ExitDate) {
+        this.ExitDate = ExitDate;
+    }
+
+    public JLabel getFootPage() {
+        return FootPage;
+    }
+
+    public void setFootPage(JLabel FootPage) {
+        this.FootPage = FootPage;
+    }
+
+    public JLabel getIVA() {
+        return IVA;
+    }
+
+    public void setIVA(JLabel IVA) {
+        this.IVA = IVA;
+    }
+
+    public JLabel getIVALabel() {
+        return IVALabel;
+    }
+
+    public void setIVALabel(JLabel IVALabel) {
+        this.IVALabel = IVALabel;
+    }
+
+    public JLabel getParkingAddress() {
+        return ParkingAddress;
+    }
+
+    public void setParkingAddress(JLabel ParkingAddress) {
+        this.ParkingAddress = ParkingAddress;
+    }
+
+    public JLabel getParkingNIT() {
+        return ParkingNIT;
+    }
+
+    public void setParkingNIT(JLabel ParkingNIT) {
+        this.ParkingNIT = ParkingNIT;
+    }
+
+    public JLabel getParkingName() {
+        return ParkingName;
+    }
+
+    public void setParkingName(JLabel ParkingName) {
+        this.ParkingName = ParkingName;
+    }
+
+    public JLabel getPlate() {
+        return Plate;
+    }
+
+    public void setPlate(JLabel Plate) {
+        this.Plate = Plate;
+    }
+
+    public JLabel getPlateLabel() {
+        return PlateLabel;
+    }
+
+    public void setPlateLabel(JLabel PlateLabel) {
+        this.PlateLabel = PlateLabel;
+    }
+
+    public JLabel getSubtotal() {
+        return Subtotal;
+    }
+
+    public void setSubtotal(JLabel Subtotal) {
+        this.Subtotal = Subtotal;
+    }
+
+    public JLabel getSubtotalLabel() {
+        return SubtotalLabel;
+    }
+
+    public void setSubtotalLabel(JLabel SubtotalLabel) {
+        this.SubtotalLabel = SubtotalLabel;
+    }
+
+    public JLabel getTicketNumber() {
+        return TicketNumber;
+    }
+
+    public void setTicketNumber(JLabel TicketNumber) {
+        this.TicketNumber = TicketNumber;
+    }
+
+    public JLabel getTicketNumberLabel() {
+        return TicketNumberLabel;
+    }
+
+    public void setTicketNumberLabel(JLabel TicketNumberLabel) {
+        this.TicketNumberLabel = TicketNumberLabel;
+    }
+
+    public JLabel getTittle() {
+        return Tittle;
+    }
+
+    public void setTittle(JLabel Tittle) {
+        this.Tittle = Tittle;
+    }
+
+    public JLabel getTotal() {
+        return Total;
+    }
+
+    public void setTotal(JLabel Total) {
+        this.Total = Total;
+    }
+
+    public JLabel getTotalLabel() {
+        return TotalLabel;
+    }
+
+    public void setTotalLabel(JLabel TotalLabel) {
+        this.TotalLabel = TotalLabel;
+    }
+
+    public JLabel getVehicleType() {
+        return VehicleType;
+    }
+
+    public void setVehicleType(JLabel VehicleType) {
+        this.VehicleType = VehicleType;
     }
     
     public void setVisibleTittle(boolean isVisible) {

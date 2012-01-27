@@ -4,10 +4,12 @@ import Entity.BandsRate;
 import Entity.Entries;
 import Entity.Exits;
 import Entity.VehicleType;
+import controller.Administration.CustomExitTicketController;
 import controller.Administration.ParkingManagementController;
 import java.util.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import view.PreviewExitTicket;
 
 public class QuitVehicleController {
 
@@ -17,6 +19,7 @@ public class QuitVehicleController {
     public static void quitVehicleEvent(){
         String plate = MainController.mainView.getPlate();
         changeStateOfVehicle(plate);
+        PrintableTicket(plate);
         MainController.mainView.setPlateTextField("");
         MainController.mainView.removePanel();
     }
@@ -98,8 +101,7 @@ public class QuitVehicleController {
     }
 
     public static void changeStateOfVehicle(String plate){
-        Entries entry=MainController.entriesJpaController.getEntriesByPlate(plate);
-        Exits exit=new Exits();
+        Entries entry=MainController.entriesJpaController.getEntriesByPlate(plate);        
         
         try{
             //eliminar de la tabla entries
@@ -152,5 +154,23 @@ public class QuitVehicleController {
         DefaultTableModel exitsModel=TotalSearchOfExits();
         MainController.mainView.setExitsTableModel(exitsModel);
     }
+    private static void PrintableTicket(String plate){
+        PreviewExitTicket ticket = new PreviewExitTicket();
+        ticket = CustomExitTicketController.getFormatTicket();
+        setTicketParameters(ticket,plate);
+        PrintController.printExitTicket(ticket);
+    }
+    private static void setTicketParameters(PreviewExitTicket ticket, String plate){
+        ticket.getTicketNumber().setText(exit.getTicket());
+        ticket.getEmployee().setText(SystemSession.getSessionEmployee().getName());
+        ticket.getPlate().setText(plate);
+        ticket.getEntryDate().setText(exit.getEntryDate().toLocaleString());
+        ticket.getExitDate().setText(exit.getExitDate().toLocaleString());
+        ticket.getIVA().setText(String.valueOf(exit.getIVA()) + "%");
+        ticket.getSubtotal().setText("$" + String.valueOf(exit.getSubtotal()));
+        ticket.getTotal().setText("$" + String.valueOf(exit.getTotal()));
+        ticket.getVehicleType().setText(exit.getVehicleType().getName());        
+    }    
    private static List<Exits> AllExits = null;
+   private static Exits exit=new Exits();
 }
