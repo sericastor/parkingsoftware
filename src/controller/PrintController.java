@@ -10,6 +10,7 @@ import java.awt.print.PrinterJob;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 import view.PreviewEntryTicket;
 import view.PrintFrame;
 
@@ -32,8 +33,7 @@ public class PrintController {
         System.out.println(frame.getComponent(0).getName());*/
         PrintFrame pf = new PrintFrame(); 
         ticket.setVisible(true);
-        pf.setPreferredSize(ticket.getSize());
-        pf.getPrintPanel().removeAll();
+        pf.setPreferredSize(ticket.getSize());        
         pf.getPrintPanel().setPreferredSize(ticket.getPreferredSize());
         pf.getPrintPanel().add(ticket).setVisible(true);
         pf.setVisible(true);
