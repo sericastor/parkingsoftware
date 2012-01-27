@@ -37,8 +37,9 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
         return PrintPanel;
     }
 
-    public void setPrintPanel(JPanel PrintPanel) {
-        this.PrintPanel = PrintPanel;
+    public void setPrintPanel(JPanel Panel) {
+        PrintPanel.add(Panel);
+        this.setVisible(true);
     }
     
     public void printMethod(){
@@ -66,7 +67,6 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PrintPanel.setBackground(new java.awt.Color(102, 255, 102));
         PrintPanel.setPreferredSize(new java.awt.Dimension(600, 600));
         PrintPanel.setLayout(new java.awt.BorderLayout());
 
@@ -74,16 +74,11 @@ public class PrintFrame extends javax.swing.JFrame implements Printable {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+            .addComponent(PrintPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
