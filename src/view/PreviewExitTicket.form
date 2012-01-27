@@ -25,29 +25,34 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="Tittle" pref="332" max="32767" attributes="0"/>
+                      <Component id="Tittle" pref="482" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="DateLabel" min="-2" max="-2" attributes="1"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="EntryDate" min="-2" pref="132" max="-2" attributes="1"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="1">
                                       <Component id="PlateLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="Plate" pref="99" max="32767" attributes="0"/>
+                                      <Component id="Plate" pref="184" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="ParkingName" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="VehicleType" alignment="0" pref="172" max="32767" attributes="0"/>
+                                  <Component id="VehicleType" alignment="0" pref="237" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="ExitDateLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ExitDate" pref="80" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="ExitDate" min="-2" pref="157" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="ParkingAddress" alignment="0" pref="172" max="32767" attributes="0"/>
+                                  <Component id="ParkingAddress" alignment="0" pref="237" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="ParkingNIT" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -66,33 +71,26 @@
                           <Component id="IVA" max="32767" attributes="1"/>
                           <Component id="Subtotal" alignment="0" pref="153" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace pref="114" max="32767" attributes="0"/>
+                      <EmptySpace pref="264" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="AttendedByLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="Employee" min="-2" pref="202" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="DateLabel" max="32767" attributes="1"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="EntryDate" min="-2" pref="51" max="-2" attributes="1"/>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="TicketNumberLabel" alignment="1" min="-2" max="-2" attributes="1"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="TicketNumber" min="-2" pref="63" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="FootPage" pref="332" max="32767" attributes="0"/>
+                      <Component id="FootPage" pref="482" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+              <Component id="TicketNumberLabel" min="-2" max="-2" attributes="1"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="TicketNumber" min="-2" pref="63" max="-2" attributes="1"/>
+              <EmptySpace pref="219" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,17 +99,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Tittle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="TicketNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="TicketNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="DateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ExitDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ExitDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="EntryDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ExitDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -202,6 +200,7 @@
     <Component class="javax.swing.JLabel" name="EntryDate">
       <Properties>
         <Property name="text" type="java.lang.String" value="#####"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="PlateLabel">
