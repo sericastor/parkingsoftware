@@ -125,6 +125,7 @@ public class AddVehicleController {
         m.setComentary(coment);
         //Verificar existencia de tarifas para el tipo de vehiculo
         if (!MainController.bandsRateJpaController.queryByVehicleTypes(vehicleTypeIsSelected).isEmpty()) {
+            MainController.generateBarCode(m.getTicketCodification());
             MainController.entriesJpaController.create(m);
             MainController.ocupationController.sumOcupation(getVehicleTypeSelected(vehicleType).getPlaces());
             MainController.system.NewLogAction("Entry Vehicle", plate);
@@ -134,7 +135,6 @@ public class AddVehicleController {
             //actualizar el panel con la nueva entrada automaticamente
             DefaultTableModel entriesModel=TotalSearchOfEntries();
             MainController.mainView.setEntriesTableModel(entriesModel);
-            MainController.generateBarCode(m.getTicketCodification()); 
             InfoParkway aux=MainController.infoJpaController.findInfoParkway(idParkway);
             aux.setTicketCount(m.getTicket());
             MainController.infoJpaController.edit(aux,idParkway);
@@ -167,8 +167,7 @@ public class AddVehicleController {
                     String.valueOf(aux);   
         }
     }
-    
-    
+
     public static String getPlate() {
         return plate;
     }
@@ -235,6 +234,6 @@ public class AddVehicleController {
         ticket.getVehicleType().setText(vehicleTypeIsSelected.getName());
         ticket.getEmployee().setText(SystemSession.getSessionEmployee().getName());
         ticket.getDate().setText(MainController.entriesJpaController.getEntriesByPlate(plate).getEntryDate().toLocaleString());
-    }
-    
+        ticket.setBarCode();
+    }    
 }

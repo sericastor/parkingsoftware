@@ -196,11 +196,11 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
         this.FootPage.setText(footPage);
     }
 
-    public void setBarCode() {
+    public void setBarCode() { 
         BarCodePanel.setLayout(new BorderLayout()); // Para que la imagen se agrande
         JLabel label = new JLabel();
-        BarCodePanel.add(label, BorderLayout.CENTER);
         label.setIcon(new ImageIcon("src/images/barcode.jpg"));
+        BarCodePanel.add(label, BorderLayout.CENTER);
     }
 
     /** This method is called from within the constructor to
