@@ -235,6 +235,6 @@ public class AddVehicleController {
         ticket.getTicketNumber().setText(String.valueOf(MainController.entriesJpaController.getEntriesByPlate(plate).getId()));
         ticket.getEmployee().setText(SystemSession.getSessionEmployee().getName());
         ticket.getDate().setText(MainController.entriesJpaController.getEntriesByPlate(plate).getEntryDate().toLocaleString());
-        ticket.setBarCode();
+        ticket.setActualBarCode(MainController.entriesJpaController.getEntriesByPlate(plate).getTicketCodification());
     }    
 }

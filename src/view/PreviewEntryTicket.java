@@ -10,12 +10,14 @@
  */
 package view;
 
+import controller.BarCodeMaker;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -61,14 +63,6 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
 
     public void setDate(JLabel Date) {
         this.Date = Date;
-    }
-
-    public JLabel getDateLabel() {
-        return DateLabel;
-    }
-
-    public void setDateLabel(JLabel DateLabel) {
-        this.DateLabel = DateLabel;
     }
 
     public JLabel getEmployee() {
@@ -196,10 +190,26 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
         this.FootPage.setText(footPage);
     }
 
-    public void setBarCode() { 
+    public void setBarCode() {
+        BarCodePanel.removeAll();
         BarCodePanel.setLayout(new BorderLayout()); // Para que la imagen se agrande
         JLabel label = new JLabel();
         label.setIcon(new ImageIcon("src/images/barcode.jpg"));
+        BarCodePanel.add(label, BorderLayout.CENTER);
+    }
+
+    public void setActualBarCode(String plate) {
+        BarCodePanel.removeAll();
+        File image = new File("Cache/barcode.jpg");
+        if (image.delete()) {
+            System.out.println("El fichero ha sido borrado satisfactoriamente");
+        } else {
+            System.out.println("El fichero no puede ser borrado");        
+        }
+        new BarCodeMaker().Create(plate);
+        BarCodePanel.setLayout(new BorderLayout()); // Para que la imagen se agrande
+        JLabel label = new JLabel();
+        label.setIcon(new ImageIcon("Cache/barcode.jpg"));
         BarCodePanel.add(label, BorderLayout.CENTER);
     }
 
@@ -214,7 +224,6 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
 
         TicketNumberLabel = new javax.swing.JLabel();
         TicketNumber = new javax.swing.JLabel();
-        DateLabel = new javax.swing.JLabel();
         Date = new javax.swing.JLabel();
         PlateLabel = new javax.swing.JLabel();
         Plate = new javax.swing.JLabel();
@@ -233,8 +242,6 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
         TicketNumberLabel.setText("Tiquete número:");
 
         TicketNumber.setText("#####");
-
-        DateLabel.setText("Fecha y hora:");
 
         Date.setText("#####");
 
@@ -294,11 +301,8 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ParkingAddress)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(VehicleType, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
+                            .addComponent(VehicleType, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(ParkingNIT)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(AttendedByLabel)
@@ -316,9 +320,8 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TicketNumberLabel)
-                    .addComponent(Date)
                     .addComponent(TicketNumber)
-                    .addComponent(DateLabel))
+                    .addComponent(Date))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PlateLabel)
@@ -344,7 +347,6 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
     private javax.swing.JLabel AttendedByLabel;
     private javax.swing.JPanel BarCodePanel;
     private javax.swing.JLabel Date;
-    private javax.swing.JLabel DateLabel;
     private javax.swing.JLabel Employee;
     private javax.swing.JLabel FootPage;
     private javax.swing.JLabel ParkingAddress;
@@ -360,13 +362,13 @@ public class PreviewEntryTicket extends javax.swing.JPanel implements Printable 
 
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        if (pageIndex > 0) { 
+        if (pageIndex > 0) {
             return NO_SUCH_PAGE;
         }
 
-        Graphics2D g2d = (Graphics2D)graphics;
+        Graphics2D g2d = (Graphics2D) graphics;
         g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-        g2d.scale(0.7,0.7);
+        g2d.scale(0.7, 0.7);
         this.printAll(g2d);
         return PAGE_EXISTS;
     }
