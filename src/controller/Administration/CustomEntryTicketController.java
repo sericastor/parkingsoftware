@@ -8,6 +8,7 @@ import Entity.CustomEntryTicket;
 import Entity.InfoParkway;
 import controller.MainController;
 import java.awt.Dimension;
+import java.awt.print.Printable;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -122,6 +123,7 @@ public class CustomEntryTicketController {
         else{
             entryTicket.setVisibleBarCode(false);
         }
+        entryTicket.setVisible(true);
         return entryTicket;
     }
 }
