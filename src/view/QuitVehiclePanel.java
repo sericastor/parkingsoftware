@@ -66,7 +66,9 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
         ComentaryScroll = new javax.swing.JScrollPane();
         ComentaryArea = new javax.swing.JTextArea();
 
-        FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FactureButton.setFont(new java.awt.Font("Tahoma", 0, 14));
         FactureButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Clock.png"))); // NOI18N
         FactureButton.setText("Facturar");
         FactureButton.setToolTipText("Pulse aquí después de efectuar el cobro.");
@@ -75,107 +77,54 @@ public class QuitVehiclePanel extends javax.swing.JPanel {
                 FactureButtonActionPerformed(evt);
             }
         });
+        add(FactureButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
 
         RateTextField.setEditable(false);
         RateTextField.setToolTipText("Tarifa a cobrar por el vehículo a retirar.");
+        add(RateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 138, -1));
 
         CostTextField.setEditable(false);
-        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        CostTextField.setFont(new java.awt.Font("Tahoma", 0, 36));
         CostTextField.setToolTipText("Valor total a pagar por el servicio.");
+        add(CostTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 184, -1));
 
         PlateTextField.setEditable(false);
         PlateTextField.setToolTipText("Placa de vehículo a retirar.");
+        add(PlateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 138, -1));
 
-        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 36));
         CostLabel.setText("Costo:");
+        add(CostLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
         PlateLabel.setText("Placa:");
+        add(PlateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, -1, -1));
 
         RateLabel.setText("Tarifa:");
+        add(RateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
 
         EntryHourLabel.setText("Hora Entrada:");
+        add(EntryHourLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 71, -1, -1));
 
         ExitHourLabel.setText("Hora Salida:");
+        add(ExitHourLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
         EntryHourFormatted.setEditable(false);
         EntryHourFormatted.setToolTipText("Hora de entrada del vehículo a retirar.");
+        add(EntryHourFormatted, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 138, -1));
 
         ExitHourFormatted.setEditable(false);
         ExitHourFormatted.setToolTipText("Hora de finalizado el servicio.");
+        add(ExitHourFormatted, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 138, -1));
 
         ComentaryLabel.setText("Comentario:");
+        add(ComentaryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 132, -1, -1));
 
         ComentaryArea.setColumns(20);
         ComentaryArea.setEditable(false);
         ComentaryArea.setRows(5);
         ComentaryScroll.setViewportView(ComentaryArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ComentaryLabel)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(ComentaryScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(FactureButton))
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(PlateLabel)
-                        .addComponent(RateLabel)
-                        .addComponent(EntryHourLabel)
-                        .addComponent(ExitHourLabel))
-                    .addGap(40, 40, 40)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(ExitHourFormatted)
-                        .addComponent(RateTextField)
-                        .addComponent(PlateTextField)
-                        .addComponent(EntryHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(27, 27, 27)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(CostLabel)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(8, 8, 8)
-                            .addComponent(CostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PlateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PlateLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RateLabel)
-                            .addComponent(RateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(EntryHourLabel)
-                            .addComponent(EntryHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ExitHourLabel)
-                                .addGap(6, 6, 6))
-                            .addComponent(ExitHourFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(CostLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(CostTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ComentaryLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComentaryScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(FactureButton))))
-        );
+        add(ComentaryScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 152, 210, 63));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FactureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FactureButtonActionPerformed
