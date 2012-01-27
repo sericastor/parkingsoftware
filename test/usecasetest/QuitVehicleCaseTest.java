@@ -4,6 +4,8 @@
  */
 package usecasetest;
 
+import Entity.InfoParkway;
+import controller.MainController;
 import Entity.Exits;
 import controller.SystemSession;
 import Entity.Employee;
@@ -21,9 +23,6 @@ import DAO.BandsRateJpaController;
 import DAO.ExitsJpaController;
 import DAO.VehicleTypeJpaController;
 import controller.QuitVehicleController;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -45,15 +44,49 @@ public class QuitVehicleCaseTest {
         exitJpaController = new ExitsJpaController(persistence_factory);
         employeeJpaController = new EmployeeJpaController(persistence_factory);
         
-        if(vehicleTypeJpaController.findVehicleTypeEntities(3,2).isEmpty()){
-            VehicleType oldCar = new VehicleType();
-            oldCar.setCodification("111000");
-            oldCar.setName("CarritoViejo");
-            vehicleTypeJpaController.create(oldCar);
+        if(employeeJpaController.findEmployeeEntities(false, 1, 1).isEmpty()){
+            Employee dasalgadoc = new Employee();
+            dasalgadoc.setId(1);
+            dasalgadoc.setLastName("Salgado");
+            dasalgadoc.setName("Diego");
+            dasalgadoc.setDocument("257889");
+            dasalgadoc.setUser("dasalgadoc");
+            dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
+            dasalgadoc.setAdministrator(true);
+            dasalgadoc.setIsActive(true);
+            dasalgadoc.setTheme(0);
+            employeeJpaController.create(dasalgadoc);
+        }
+        
+        if(MainController.infoJpaController.findInfoParkway(ID_PARKWAY)==null){
+             InfoParkway parkway = new InfoParkway();
+             parkway.setId(ID_PARKWAY);
+             parkway.setName("ParkQuick");
+             parkway.setAddress("---");
+             parkway.setNit("---");
+             parkway.setTelephone("---");
+             parkway.setRegister(0);
+             parkway.setMaxCapacity(100);
+             parkway.setIVAPercent(0.01);
+             parkway.setRountTo(50);
+             parkway.setTicketCount("1");
+             MainController.infoJpaController.create(parkway);
+        }
+        
+        sessionEmployee = employeeJpaController.findEmployee(1);
+        SystemSession.setEmployee(sessionEmployee);
+        
+        if(vehicleTypeJpaController.findVehicleTypeEntities(3,1).isEmpty()){
+            VehicleType car = new VehicleType();
+            car.setCodification("111000");
+            car.setName("Carro Particular");
+            car.setPlaces(1);
+            vehicleTypeJpaController.create(car);
             
             VehicleType hovercraft = new VehicleType();
             hovercraft.setCodification("111000");
             hovercraft.setName("Aerodeslizador");
+            hovercraft.setPlaces(1.5);
             vehicleTypeJpaController.create(hovercraft);
             
             BandsRate hovercraftRates = new BandsRate();
@@ -64,7 +97,7 @@ public class QuitVehicleCaseTest {
             hovercraftRates.setVehicletype(hovercraft);
             bandsRateJpaController.create(hovercraftRates);
             
-            hovercraftRates.setFromm(61);
+            hovercraftRates.setFromm(60);
             hovercraftRates.setToo(10000);
             hovercraftRates.setUnits(2);
             hovercraftRates.setUnitValue(90.0);
@@ -74,6 +107,7 @@ public class QuitVehicleCaseTest {
             VehicleType bicycle = new VehicleType();
             bicycle.setCodification("000");
             bicycle.setName("Bicicleta");
+            bicycle.setPlaces(0.3);
             vehicleTypeJpaController.create(bicycle);
             
             BandsRate bicyclesRates = new BandsRate();
@@ -87,39 +121,46 @@ public class QuitVehicleCaseTest {
             Date date = new Date(111, 11, 22, 14, 00, 00);
             
             Entries vehicleParked = new Entries();
+            vehicleParked.setTicket("1");
             vehicleParked.setEntryDate(date);
             vehicleParked.setPlate("ABC123");
-            //vehicleParked.setTicket(123);
             vehicleParked.setVehicleType(hovercraft);
+            vehicleParked.setEmployee(sessionEmployee);
             vehicleParked.setComentary("Automovil con forro para lluvia");
+            vehicleParked.setTicketCodification(AddVehicleController.generateTicketCodification());
             entriesJpaController.create(vehicleParked);
-            
+           
             date.setHours(13);
             date.setMinutes(45);
             Entries newEntry = new Entries();
-            newEntry.setEmployee(null);
+            newEntry.setTicket("2");
             newEntry.setEntryDate(date);
             newEntry.setPlate("123");
-            //newEntry.setTicket(123);
             newEntry.setVehicleType(bicycle);
+            newEntry.setEmployee(sessionEmployee);
+            newEntry.setComentary("Bicicleta Roja en buen estado");
+            newEntry.setTicketCodification(AddVehicleController.generateTicketCodification());
             entriesJpaController.create(newEntry);
         }
+        
         if(entriesJpaController.findEntriesEntities(2, 2).isEmpty()){
             Date date = new Date(111, 11, 22, 15, 35, 00);
-            VehicleType hovercraft = vehicleTypeJpaController.findVehicleType(Long.valueOf(3));
+            VehicleType hovercraft = vehicleTypeJpaController.findVehicleType(Long.valueOf(2));
             
             Entries newEntry = new Entries();
-            newEntry.setEmployee(null);
+            newEntry.setTicket("3");
             newEntry.setEntryDate(date);
             newEntry.setPlate("DSC889");
-            //newEntry.setTicket(123);
             newEntry.setVehicleType(hovercraft);
-            newEntry.setComentary("Aerodelizador con radio");
+            newEntry.setEmployee(sessionEmployee);
+            newEntry.setComentary("Aerodeslizador con radio");
+            newEntry.setTicketCodification(AddVehicleController.generateTicketCodification());
             entriesJpaController.create(newEntry);
             
             VehicleType bus = new VehicleType();
             bus.setCodification("000111");
             bus.setName("Bus");
+            bus.setPlaces(3);
             vehicleTypeJpaController.create(bus);
             
             BandsRate busRates = new BandsRate();
@@ -130,14 +171,14 @@ public class QuitVehicleCaseTest {
             busRates.setVehicletype(bus);
             bandsRateJpaController.create(busRates);
             
-            busRates.setFromm(31);
+            busRates.setFromm(30);
             busRates.setToo(120);
             busRates.setUnits(2);
             busRates.setUnitValue(100.0);
             busRates.setVehicletype(bus);
             bandsRateJpaController.create(busRates);
             
-            busRates.setFromm(121);
+            busRates.setFromm(120);
             busRates.setToo(10000);
             busRates.setUnits(2);
             busRates.setUnitValue(90.0);
@@ -147,43 +188,15 @@ public class QuitVehicleCaseTest {
             Entries nEntry = new Entries();
             Date dat = new Date(111, 11, 22, 16, 00, 00);
             
-            nEntry.setEmployee(null);
+            nEntry.setTicket("4");
             nEntry.setEntryDate(dat);
             nEntry.setPlate("456HGL");
-            //nEntry.setTicket(123);
             nEntry.setVehicleType(bus);
+            nEntry.setEmployee(sessionEmployee);
             nEntry.setComentary("Bus con un vidrio roto");
+            nEntry.setTicketCodification(AddVehicleController.generateTicketCodification());
             entriesJpaController.create(nEntry);
-            
         }
-        
-        if(employeeJpaController.findEmployeeEntities(false, 1, 1).isEmpty()){
-            Employee dasalgadoc = new Employee();
-            dasalgadoc.setId(1);
-            dasalgadoc.setLastName("Salgado");
-            dasalgadoc.setName("Diego");
-            dasalgadoc.setDocument("257889");
-            dasalgadoc.setUser("dasalgadoc");
-            dasalgadoc.setPassword(controller.MainController.md5Security.MD5Security("pass"));
-            dasalgadoc.setAdministrator(true);
-            dasalgadoc.setIsActive(true);
-            employeeJpaController.create(dasalgadoc);
-        }
-        
-        sessionEmployee = employeeJpaController.findEmployee(1);
-        
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     @Test
@@ -197,10 +210,10 @@ public class QuitVehicleCaseTest {
         for(int i = 0; i<types.size(); i++){
             assertTrue(types.get(i) instanceof VehicleType);
         }
-        assertEquals(types.get(0).getName(),"CarritoViejo");
+        assertEquals(types.get(0).getName(),"Carro Particular");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
         assertFalse(AddVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),VEHICLE_NOT_FOUND);
     }
     
     @Test
@@ -213,7 +226,7 @@ public class QuitVehicleCaseTest {
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).get(0) instanceof VehicleType);
         assertEquals(vehicleTypeJpaController.matchPlateType(codification).get(0).getName(),"Bicicleta");
         assertFalse(AddVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleNotFound);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),VEHICLE_NOT_FOUND);
     }
     
     @Test
@@ -226,7 +239,7 @@ public class QuitVehicleCaseTest {
         assertTrue(vehicleTypeJpaController.matchPlateType(codification).get(0) instanceof VehicleType);
         assertEquals(vehicleTypeJpaController.matchPlateType(codification).get(0).getName(),"Bicicleta");
         assertTrue(AddVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),VEHICLE_FOUND);
     }
     
     @Test
@@ -240,12 +253,12 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"123");
         assertEquals(nextExit.getVehicleType().getName(),"Bicicleta");
         assertEquals(nextExit.getEntryDate(),entryDate);
-        assertEquals(nextExit.getComentary(),redBicycle);
+        assertEquals(nextExit.getComentary(),RED_VEHICLE);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 4900, 0);
         
-        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(4)));
+        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(3)));
         assertTrue(listBands.size()==1);
         assertEquals(listBands.get(0).getUnitValue(),25,0);
     }
@@ -275,13 +288,14 @@ public class QuitVehicleCaseTest {
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
+        assertTrue(types.size()==2);
         for(int i = 0; i<types.size(); i++){
             assertTrue(types.get(i) instanceof VehicleType);
         }
-        assertEquals(types.get(0).getName(),"CarritoViejo");
+        assertEquals(types.get(0).getName(),"Carro Particular");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
         assertTrue(AddVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),VEHICLE_FOUND);
     }
     
     @Test 
@@ -295,12 +309,12 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"ABC123");
         assertEquals(nextExit.getVehicleType().getName(),"Aerodeslizador");
         assertEquals(nextExit.getEntryDate(),entryDate);
-        assertEquals(nextExit.getComentary(),vehicleWithLining);
+        assertEquals(nextExit.getComentary(),VEHICLE_LINING);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 2750, 0);
         
-        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(3)));
+        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(2)));
         assertTrue(listBands.size()==2);
         assertEquals(listBands.get(0).getUnitValue(),50,0);
         assertEquals(listBands.get(1).getUnitValue(),90,0);
@@ -331,13 +345,14 @@ public class QuitVehicleCaseTest {
         List<VehicleType> types = vehicleTypeJpaController.matchPlateType(codification);
         
         assertEquals(codification,"111000");
+        assertTrue(types.size()==2);
         for(int i = 0; i<types.size(); i++){
             assertTrue(types.get(i) instanceof VehicleType);
         }
-        assertEquals(types.get(0).getName(),"CarritoViejo");
+        assertEquals(types.get(0).getName(),"Carro Particular");
         assertEquals(types.get(1).getName(),"Aerodeslizador");
         assertTrue(AddVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),VEHICLE_FOUND);
     }
     
     @Test
@@ -350,12 +365,12 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"DSC889");
         assertEquals(nextExit.getVehicleType().getName(),"Aerodeslizador");
         assertEquals(nextExit.getEntryDate(),entryDate);
-        assertEquals(nextExit.getComentary(),vehicleWithRadio);
+        assertEquals(nextExit.getComentary(),VEHICLE_RADIO);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
         assertEquals(cost, 14700, 0);
         
-        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(3)));
+        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(2)));
         assertTrue(listBands.size()==2);
         assertEquals(listBands.get(0).getUnitValue(),50,0);
         assertEquals(listBands.get(1).getUnitValue(),90,0);
@@ -390,7 +405,7 @@ public class QuitVehicleCaseTest {
         assertTrue(types.get(0) instanceof VehicleType);
         assertEquals(types.get(0).getName(),"Bus");
         assertTrue(AddVehicleController.verifyCarParked(getPlate()));
-        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),plateOkVehicleFound);
+        assertEquals(AddVehicleController.verifyCarInParkway(getPlate()),VEHICLE_FOUND);
     }
     
     @Test
@@ -403,12 +418,12 @@ public class QuitVehicleCaseTest {
         assertEquals(nextExit.getPlate(),"456HGL");
         assertEquals(nextExit.getVehicleType().getName(),"Bus");
         assertEquals(nextExit.getEntryDate(),entryDate);
-        assertEquals(nextExit.getComentary(),busWithBrokenGlass);
+        assertEquals(nextExit.getComentary(),VEHICLE_BROKEN);
         
         double cost = QuitVehicleController.calculateCost(entryDate, exitDate, nextExit.getVehicleType());
-        assertEquals(cost, 20050, 0);
+        assertEquals(cost, 20100, 0);
         
-        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(5)));
+        List<BandsRate> listBands = bandsRateJpaController.queryByVehicleTypes(vehicleTypeJpaController.findVehicleType(Long.valueOf(4)));
         assertTrue(listBands.size()==3);
         assertEquals(listBands.get(0).getUnitValue(),70,0);
         assertEquals(listBands.get(1).getUnitValue(),100,0);
@@ -452,12 +467,13 @@ public class QuitVehicleCaseTest {
     private static EntriesJpaController entriesJpaController;
     private static EmployeeJpaController employeeJpaController;
     private static ExitsJpaController exitJpaController;
+    private final static Long ID_PARKWAY = new Long(1);  
     
     // Expected Constants
-    private final String plateOkVehicleNotFound = "Tipo de placa encontrado y vehículo no encontrado";
-    private final String plateOkVehicleFound = "Tipo de placa encontrado y vehículo encontrado";
-    private final String vehicleWithLining = "Automovil con forro para lluvia";
-    private final String redBicycle = "Bicicleta Roja en buen estado";
-    private final String vehicleWithRadio = "Aerodelizador con radio";
-    private final String busWithBrokenGlass = "Bus con un vidrio roto";
+    private final String VEHICLE_NOT_FOUND = "Tipo de placa encontrado y vehículo no encontrado";
+    private final String VEHICLE_FOUND = "Tipo de placa encontrado y vehículo encontrado";
+    private final String VEHICLE_LINING = "Automovil con forro para lluvia";
+    private final String RED_VEHICLE = "Bicicleta Roja en buen estado";
+    private final String VEHICLE_RADIO = "Aerodeslizador con radio";
+    private final String VEHICLE_BROKEN = "Bus con un vidrio roto"; 
 }
