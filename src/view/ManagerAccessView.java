@@ -31,6 +31,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
     private void initComponents() {
 
         LogoPanel = new javax.swing.JPanel();
+        logoLabel = new javax.swing.JLabel();
         PasswordPanel = new javax.swing.JPanel();
         PasswordLabel = new javax.swing.JLabel();
         AdminPassTextField = new javax.swing.JPasswordField();
@@ -42,20 +43,13 @@ public class ManagerAccessView extends javax.swing.JFrame {
         setTitle("Administración ParkQuick");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        LogoPanel.setBackground(new java.awt.Color(0, 0, 0));
+        LogoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout LogoPanelLayout = new javax.swing.GroupLayout(LogoPanel);
-        LogoPanel.setLayout(LogoPanelLayout);
-        LogoPanelLayout.setHorizontalGroup(
-            LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
-        );
-        LogoPanelLayout.setVerticalGroup(
-            LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 131, Short.MAX_VALUE)
-        );
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_small.png"))); // NOI18N
+        logoLabel.setText("jLabel1");
+        LogoPanel.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 290, 80));
 
-        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PasswordLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
         PasswordLabel.setText("Contraseña:");
 
         AdminPassTextField.setToolTipText("Ingrese su contraseña (Sólo Administradores)");
@@ -112,7 +106,7 @@ public class ManagerAccessView extends javax.swing.JFrame {
         PasswordPanelLayout.setVerticalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PasswordPanelLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(InfoLabel)
                 .addGap(18, 18, 18)
                 .addGroup(PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -129,15 +123,15 @@ public class ManagerAccessView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LogoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
             .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(LogoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(LogoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -173,5 +167,6 @@ public class ManagerAccessView extends javax.swing.JFrame {
     private javax.swing.JPanel LogoPanel;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPanel PasswordPanel;
+    private javax.swing.JLabel logoLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,6 +39,7 @@ public class AboutParkQuickView extends javax.swing.JFrame {
     private void initComponents() {
 
         LogoPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         InfoPanel = new javax.swing.JPanel();
         SoftwareLabel = new javax.swing.JLabel();
         IconLabel = new javax.swing.JLabel();
@@ -57,17 +58,24 @@ public class AboutParkQuickView extends javax.swing.JFrame {
         setTitle("Acerca de ParkQuick");
         setResizable(false);
 
-        LogoPanel.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_small.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout LogoPanelLayout = new javax.swing.GroupLayout(LogoPanel);
         LogoPanel.setLayout(LogoPanelLayout);
         LogoPanelLayout.setHorizontalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoPanelLayout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         LogoPanelLayout.setVerticalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 99, Short.MAX_VALUE)
+            .addGroup(LogoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         SoftwareLabel.setText("ParkQuick");
@@ -161,7 +169,7 @@ public class AboutParkQuickView extends javax.swing.JFrame {
                     .addComponent(ClientLabel))
                 .addGap(38, 38, 38)
                 .addComponent(OkLabel)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,5 +209,6 @@ public class AboutParkQuickView extends javax.swing.JFrame {
     private javax.swing.JLabel SebastianLabel;
     private javax.swing.JLabel SoftwareLabel;
     private javax.swing.JLabel VersionLabel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
